@@ -1,11 +1,15 @@
 extends Spatial
 
 const MOUSE_SENSITIVITY = 0.1
-
+const CROUCHING_Y = .5
+const STANDING_Y = 1.3
 onready var camera = $CamRoot/Camera
+
+
 
 var mouse_captured = true
 var ray_length = 1000
+var crouching = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -28,7 +32,15 @@ func _process(delta):
 		dir = dir.normalized()
 		translation += dir * 5 * delta
 	
-	
+	# crouching
+	if Input.is_action_just_pressed("crouch"):
+		if crouching:
+			crouching = false
+			translation = Vector3(translation.x, STANDING_Y, translation.z)
+		else:
+			crouching = true
+			translation = Vector3(translation.x, CROUCHING_Y, translation.z)
+		
 	
 	# Press Esc to quit
 	if Input.is_action_just_pressed("ui_cancel"):
