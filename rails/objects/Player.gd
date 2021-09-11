@@ -3,9 +3,9 @@ extends Spatial
 const MOUSE_SENSITIVITY = 0.1
 
 onready var camera = $CamRoot/Camera
-onready var mouse_captured = true
 
-
+var mouse_captured = true
+var ray_length = 1000
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,8 +32,6 @@ func _process(delta):
 	
 	
 	
-	
-	
 	# Press Esc to quit
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
@@ -41,28 +39,54 @@ func _process(delta):
 		
 		
 		
+func _physics_process(delta):
+	# Raycast to highlight box side potentially
+	if Input.is_action_just_pressed("left_click"):
+		shoot_ray ()
 
 func _input(event):
-	# Move the mouse to look around
-	if event is InputEventMouseMotion and mouse_captured:
-		$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
-		self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
-		
-		# Make sure you can't look too far up or down
-		$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -75, 75)
-		
-		
+	
 	if event is InputEventKey :
 		if event.scancode == KEY_M and event.is_pressed():
-			_toggle_cursor ()
+			toggle_cursor ()
+			
+	
+	
+	# Move the mouse to look around
+	if mouse_captured:
+		if event is InputEventMouseMotion:
+			$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
+			self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+			
+			# Make sure you can't look too far up or down
+			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -75, 75)
+			
 
 
-
-
-func _toggle_cursor ():
+func toggle_cursor ():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		mouse_captured = false
 	else: 
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		mouse_captured = true
+
+
+func shoot_ray ():
+	var space_state = get_world().direct_space_state
+	var center_screen = get_viewport().size / 2
+	var from = $CamRoot/Camera.project_ray_origin(center_screen)
+	var to = from + $CamRoot/Camera.project_ray_normal(center_screen) * ray_length
+	var result = space_state.intersect_ray(from, to, [self])
+	
+	if result:
+		var box_hit : Box = result.collider.get_node ("..")
+		if box_hit != null:
+			box_hit.was_pulled (to - from)
+		else:
+			print ("no box?")
+			
+			
+			
+	else:
+		print ("no hit")

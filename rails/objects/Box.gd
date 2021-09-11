@@ -1,5 +1,7 @@
 extends Spatial
 
+class_name Box
+
 var velocity = Vector3()
 onready var world = owner
 var edges = Array()
@@ -161,5 +163,21 @@ func point_on_rail(point, rail):
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
 
+
 func ease_out_quad(x):
 	return 1 - (1 - x) * (1 - x)
+	
+	
+func was_pulled (pull_dir):
+	print (name, " was pulled in direction ", pull_dir)
+	var x = pull_dir.dot(global_transform.basis.x)
+	var y = pull_dir.dot(global_transform.basis.y)
+	var z = pull_dir.dot(global_transform.basis.z)
+	
+#	if abs(x) > abs(y):
+#		if abs(x) > abs(z):
+#			# move along x
+#		elif abs(z) > abs(y):
+#			# move along z
+#		else:
+#
