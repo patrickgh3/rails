@@ -44,8 +44,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("left_click"):
 		shoot_ray ()
 
+
 func _input(event):
-	
 	if event is InputEventKey :
 		if event.scancode == KEY_M and event.is_pressed():
 			toggle_cursor ()
@@ -82,11 +82,4 @@ func shoot_ray ():
 	if result:
 		var box_hit : Box = result.collider.get_node ("..")
 		if box_hit != null:
-			box_hit.was_pulled (to - from)
-		else:
-			print ("no box?")
-			
-			
-			
-	else:
-		print ("no hit")
+			box_hit.was_pulled (result.normal)

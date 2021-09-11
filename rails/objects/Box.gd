@@ -9,6 +9,8 @@ var edges = Array()
 var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
+var grab_velocity : Vector3
+var box_speed = .5
 
 func _ready():
 	# Bottom
@@ -34,19 +36,9 @@ func _ready():
 func _process(delta):
 	# Test start moving
 	var was_still = velocity.x == 0 and velocity.y == 0 and velocity.z == 0
-	if velocity.x == 0 and velocity.y == 0 and velocity.z == 0:
-		if Input.is_key_pressed(KEY_1):
-			velocity.x = -0.5
-		if Input.is_key_pressed(KEY_2):
-			velocity.x = 0.5
-		if Input.is_key_pressed(KEY_3):
-			velocity.y = -0.5
-		if Input.is_key_pressed(KEY_4):
-			velocity.y = 0.5
-		if Input.is_key_pressed(KEY_5):
-			velocity.z = -0.5
-		if Input.is_key_pressed(KEY_6):
-			velocity.z = 0.5
+	if grab_velocity != Vector3.ZERO and velocity == Vector3.ZERO:
+		velocity = grab_velocity
+		grab_velocity = Vector3.ZERO
 	
 	# Move
 	
@@ -168,16 +160,23 @@ func ease_out_quad(x):
 	return 1 - (1 - x) * (1 - x)
 	
 	
-func was_pulled (pull_dir):
-	print (name, " was pulled in direction ", pull_dir)
-	var x = pull_dir.dot(global_transform.basis.x)
-	var y = pull_dir.dot(global_transform.basis.y)
-	var z = pull_dir.dot(global_transform.basis.z)
+func was_pulled (normal):
+	# don't want to interrupt a moving box!
+	if velocity == Vector3.ZERO: return
 	
-#	if abs(x) > abs(y):
-#		if abs(x) > abs(z):
-#			# move along x
-#		elif abs(z) > abs(y):
-#			# move along z
-#		else:
-#
+	if world.vectors_equal (normal, global_transform.basis.x):
+		grab_velocity = Vector3.RIGHT
+	elif world.vectors_equal (normal, -global_transform.basis.x):
+		grab_velocity = Vector3.LEFT
+	elif world.vectors_equal (normal, global_transform.basis.y):
+		grab_velocity = Vector3.UP
+	elif world.vectors_equal (normal, -global_transform.basis.y):
+		grab_velocity = Vector3.DOWN
+	elif world.vectors_equal (normal, global_transform.basis.z):
+		grab_velocity = Vector3.BACK
+	elif world.vectors_equal (normal, -global_transform.basis.z):
+		grab_velocity = Vector3.FORWARD
+	else:
+		print ("BADDDDDDDDD")
+	print ("normal ", normal)
+	grab_velocity *= box_speed
