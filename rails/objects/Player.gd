@@ -7,7 +7,7 @@ onready var camera = $CamRoot/Camera
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
+# hi
 
 func _process(delta):
 	# WASD movement
