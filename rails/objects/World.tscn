@@ -15,7 +15,7 @@ script = ExtResource( 5 )
 [node name="Box" parent="." instance=ExtResource( 2 )]
 
 [node name="Box2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -7 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -6 )
 
 [node name="Rail2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6 )

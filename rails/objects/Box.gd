@@ -141,6 +141,13 @@ func on_rails(to_move):
 		# All 3 points on this edge must be on a rail for it to be a valid position
 		if a and b and c:
 			valid = true
+	
+	
+	# Check if we'd collide with another box, or ground
+	for box in world.boxes:
+		for area in $Area.get_overlapping_areas():
+			valid = false
+			
 			
 	return {"valid": valid, "rails": rails.keys()}
 
