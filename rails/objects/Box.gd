@@ -1,8 +1,10 @@
 extends Spatial
 
 var velocity = Vector3()
-onready var world = owner
 var edges = Array()
+onready var world = owner
+
+var delivered = false
 
 var bumping = false
 var bump_t = 0
@@ -26,8 +28,6 @@ func _ready():
 	edges.append({"a": Vector3(0, 0, 1), "b": Vector3(0, 1, 1)})
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 1, 0)})
 	edges.append({"a": Vector3(1, 0, 1), "b": Vector3(1, 1, 1)})
-	
-	pass
 
 func _process(delta):
 	# Test start moving
@@ -74,13 +74,21 @@ func _process(delta):
 		translation.z = round(translation.z)
 	
 	
-	# Make rails glow
+	# Iterate through rails we're touching to do some logic
+	
 	# If we just tried to do an invalid move, use the current position for glow purposes
 	if not result["valid"]:
 		result = on_rails(Vector3())
-	if result["rails"].size() > 0:
-		for rail in result["rails"]:
-			rail.glow += delta * 6
+	
+	delivered = false
+	for rail in result["rails"]:
+		# Mark rail pressed, and add to glow
+		rail.glow += delta * 10
+		rail.glow = min(rail.glow, 1)
+		
+		# Mark ourselves as delivered, if this rail is a target and we're still
+		if rail.is_target and velocity.x == 0 and velocity.y == 0 and velocity.z == 0:
+			delivered = true
 	
 	
 	# Bumping state - make the mesh do a little bump in the direction
@@ -90,7 +98,7 @@ func _process(delta):
 		if bump_t > 1:
 			bump_t = 1
 			bumping = false
-		var bump_dist = lerp(0.06, 0, ease_out_quad(bump_t))
+		var bump_dist = lerp(0.06, 0, world.ease_out_quad(bump_t))
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir
 
 
@@ -160,6 +168,3 @@ func point_on_rail(point, rail):
 	var on = difference < 0.001
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
-
-func ease_out_quad(x):
-	return 1 - (1 - x) * (1 - x)

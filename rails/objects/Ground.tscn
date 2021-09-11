@@ -41,7 +41,10 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
 shader = SubResource( 3 )
 
 [node name="Ground" type="Spatial"]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
