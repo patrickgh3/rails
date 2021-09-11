@@ -10,8 +10,6 @@ var ray_length = 1000
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-# hi
-
 func _process(delta):
 	# WASD movement
 	
@@ -83,3 +81,7 @@ func shoot_ray ():
 		var box_hit : Box = result.collider.get_node ("..")
 		if box_hit != null:
 			box_hit.was_pulled (result.normal)
+		else:
+			print ("no hit")
+	else:
+		print ("no result")
