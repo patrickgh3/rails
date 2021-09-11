@@ -42,43 +42,75 @@ func _process(delta):
 			velocity.z = 0.5
 	
 	# Move
-	if velocity.x != 0 or velocity.y != 0 or velocity.z != 0:
-		# Accelerate
-		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 5 * delta
-		
-		# Check if we're about to go off the rails!
-		var to_move = velocity * delta
-		if on_rails(to_move):
-			translation += to_move
-		else:
-			velocity = Vector3()
-			# Snap position to the nearest cell (hack, this doesn't support off-grid rails)
-			translation.x = round(translation.x)
-			translation.y = round(translation.y)
-			translation.z = round(translation.z)
+	
+	# Accelerate
+	velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 5 * delta
+	
+	# Check if we're about to go off the rails!
+	var to_move = velocity * delta
+	var result = on_rails(to_move)
+	
+	if result["valid"]:
+		translation += to_move
+	else:
+		velocity = Vector3()
+		# Snap position to the nearest cell (hack, this doesn't support off-grid rails)
+		translation.x = round(translation.x)
+		translation.y = round(translation.y)
+		translation.z = round(translation.z)
+	
+	# Make rails glow
+	# If we just tried to do an invalid move, use the current position for glow purposes
+	if not result["valid"]:
+		result = on_rails(Vector3())
+	if result["rails"].size() > 0:
+		for rail in result["rails"]:
+			rail.glow += delta * 6
 
 
 
-# A box is defined to be on the rails if it has at least 1 edge where both endpoints are on a rail.
+# A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):
+	var valid = false
+	var rails = {} # Use a dictionary for rails instead of an array to prevent duplicate entries
+	
+	# Only check nearby rails, for performance which I think will become a problem
+	# once we have hundreds of rails.
+	# Note: it's very possible this optimization isn't good enough or has failure cases!
+	var nearby_rails = Array()
+	for rail in world.rails:
+		if rail_nearby(rail):
+			nearby_rails.append(rail)
+	
 	for edge in edges:
 		var a = false
 		var b = false
-		for rail in world.rails:
+		var c = false
+		for rail in nearby_rails:
 			
-			# Only check nearby rails, for performance which I think will become a problem
-			# once we have hundreds of rails.
-			# Note: it's very possible this optimization isn't good enough or has failure cases!
-			if not rail_nearby(rail): continue
-			
-			if not a and point_on_rail(translation + to_move + edge["a"], rail):
+			var result = point_on_rail(translation + to_move + edge["a"], rail)
+			if result["on"]:
 				a = true
-			if not b and point_on_rail(translation + to_move + edge["b"], rail):
+				if not result["barely"]: rails[rail] = true
+
+			result = point_on_rail(translation + to_move + edge["b"], rail)
+			if result["on"]:
 				b = true
-			if a and b: break
-		if a and b: return true
-	return false
-	
+				if not result["barely"]: rails[rail] = true
+			
+			# Check midpoint (kind of hacky)
+			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.5), rail)
+			if result["on"]:
+				c = true
+				if not result["barely"]: rails[rail] = true
+					
+		# All 3 points on this edge must be on a rail for it to be a valid position
+		if a and b and c:
+			valid = true
+			
+	return {"valid": valid, "rails": rails.keys()}
+
+
 # Rough check if the rail is closeby on the grid
 func rail_nearby(rail):
 	var cutoff = 1
@@ -87,17 +119,18 @@ func rail_nearby(rail):
 	if abs(round(translation.z) - round(rail.translation.z)) > cutoff: return false
 	return true
 
-func point_on_rail(point, rail):
-	var rail_a = rail.translation
-	# We get the basis here to account for the rails being rotated in the scene editor
-	var rail_b = rail.translation + rail.transform.basis.x.normalized()
-	return point_on_line_segment(point, rail_a, rail_b)
 
-# From: https://stackoverflow.com/a/17590923/2134837
-func point_on_line_segment(point, line_a, line_b):
+func point_on_rail(point, rail):
+	var line_a = rail.translation
+	# We get the basis here to account for the rails being rotated in the scene editor
+	var line_b = rail.translation + rail.transform.basis.x.normalized()
+	
+	# This formula is from: https://stackoverflow.com/a/17590923/2134837
 	var ab = (line_a - line_b).length()
 	var ap = (point - line_a).length()
 	var pb = (point - line_b).length()
 	var difference = abs(ab - (ap + pb))
-	# Note: epsilon of 0.001 here was chosen pretty arbitrarily!
-	return difference < 0.001
+	# Note: epsilon of 0.001 here was chosen pretty arbitrarily
+	var on = difference < 0.001
+	var barely = (ap < 0.001) != (pb < 0.001)
+	return {"on": on, "barely": barely}
