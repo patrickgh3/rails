@@ -4,6 +4,10 @@ var velocity = Vector3()
 onready var world = owner
 var edges = Array()
 
+var bumping = false
+var bump_t = 0
+var bump_dir = Vector3()
+
 func _ready():
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
@@ -27,6 +31,7 @@ func _ready():
 
 func _process(delta):
 	# Test start moving
+	var was_still = velocity.x == 0 and velocity.y == 0 and velocity.z == 0
 	if velocity.x == 0 and velocity.y == 0 and velocity.z == 0:
 		if Input.is_key_pressed(KEY_1):
 			velocity.x = -0.5
@@ -51,13 +56,23 @@ func _process(delta):
 	var result = on_rails(to_move)
 	
 	if result["valid"]:
+		# The place we want to move to is valid, so move there!
 		translation += to_move
 	else:
+		# Start bumping state if we are at a standstill
+		if was_still:
+			bumping = true
+			bump_t = 0
+			bump_dir = Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z))
+		
+		# Stop
 		velocity = Vector3()
+		
 		# Snap position to the nearest cell (hack, this doesn't support off-grid rails)
 		translation.x = round(translation.x)
 		translation.y = round(translation.y)
 		translation.z = round(translation.z)
+	
 	
 	# Make rails glow
 	# If we just tried to do an invalid move, use the current position for glow purposes
@@ -66,6 +81,17 @@ func _process(delta):
 	if result["rails"].size() > 0:
 		for rail in result["rails"]:
 			rail.glow += delta * 6
+	
+	
+	# Bumping state - make the mesh do a little bump in the direction
+	# we failed to move in
+	if bumping:
+		bump_t += delta * 3
+		if bump_t > 1:
+			bump_t = 1
+			bumping = false
+		var bump_dist = lerp(0.06, 0, ease_out_quad(bump_t))
+		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir
 
 
 
@@ -134,3 +160,6 @@ func point_on_rail(point, rail):
 	var on = difference < 0.001
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
+
+func ease_out_quad(x):
+	return 1 - (1 - x) * (1 - x)
