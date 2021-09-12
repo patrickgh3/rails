@@ -177,6 +177,51 @@ func point_on_rail(point, rail):
 func ease_out_quad(x):
 	return 1 - (1 - x) * (1 - x)
 	
+
+func get_pull_directions(collision_position):
+	var pos = collision_position - translation
+	var dirs = [Vector3.ZERO, Vector3.ZERO, Vector3.ZERO]
+
+	var leeway = 0.01
+	if abs(pos.x - 0) < leeway:
+		dirs[0] = Vector3.LEFT
+		dirs[1] = Vector3.UP
+		dirs[2] = Vector3.FORWARD
+	elif abs(pos.x - 1) < leeway:
+		dirs[0] = Vector3.RIGHT
+		dirs[1] = Vector3.DOWN
+		dirs[2] = Vector3.BACK
+	elif abs(pos.y - 0) < leeway:
+		dirs[0] = Vector3.DOWN
+		dirs[1] = Vector3.RIGHT
+		dirs[2] = Vector3.BACK
+	elif abs(pos.y - 1) < leeway:
+		dirs[0] = Vector3.UP
+		dirs[1] = Vector3.LEFT
+		dirs[2] = Vector3.FORWARD
+	elif abs(pos.z - 0) < leeway:
+		dirs[0] = Vector3.FORWARD
+		dirs[1] = Vector3.UP
+		dirs[2] = Vector3.LEFT
+	elif abs(pos.z - 1) < leeway:
+		dirs[0] = Vector3.BACK
+		dirs[1] = Vector3.DOWN
+		dirs[2] = Vector3.RIGHT
+	else:
+		print ("BADDDDDDDDD pull dirs")
+		
+	return dirs
+	
+func get_scale():
+	if scale != Vector3.ONE:
+		print ("BAD: don't know what scale to use for box")
+	return scale.x
+	
+func get_world_center ():
+	return translation + Vector3(.5, .5, .5) * get_scale()
+
+func moving():
+	return velocity != Vector3.ZERO
 	
 func was_pulled (collision_position):
 	# don't want to interrupt a moving box!
