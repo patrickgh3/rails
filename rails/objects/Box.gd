@@ -141,11 +141,10 @@ func on_rails(to_move):
 			valid = true
 	
 	
-	# Check if we'd collide with another box, or ground
-#	for box in world.boxes:
-#		for area in $Area.get_overlapping_areas():
-#			valid = false
-			
+	# Check if we're colliding with another box.
+	# This is jank, but kinda works.
+	if $Area.get_overlapping_areas().size() > 0:
+		valid = false
 			
 	return {"valid": valid, "rails": rails.keys()}
 
