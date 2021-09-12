@@ -111,6 +111,7 @@ func on_rails(to_move):
 	# Note: it's very possible this optimization isn't good enough or has failure cases!
 	var nearby_rails = Array()
 	for rail in world.rails:
+		if rail.get_parent() == self:  continue
 		if rail_nearby(rail):
 			nearby_rails.append(rail)
 	
@@ -152,16 +153,16 @@ func on_rails(to_move):
 # Rough check if the rail is closeby on the grid
 func rail_nearby(rail):
 	var cutoff = 2
-	if abs(round(translation.x) - round(rail.translation.x)) > cutoff: return false
-	if abs(round(translation.y) - round(rail.translation.y)) > cutoff: return false
-	if abs(round(translation.z) - round(rail.translation.z)) > cutoff: return false
+	if abs(round(get_global_transform().origin.x) - round(rail.get_global_transform().origin.x)) > cutoff: return false
+	if abs(round(get_global_transform().origin.y) - round(rail.get_global_transform().origin.y)) > cutoff: return false
+	if abs(round(get_global_transform().origin.z) - round(rail.get_global_transform().origin.z)) > cutoff: return false
 	return true
 
 
 func point_on_rail(point, rail):
-	var line_a = rail.translation
+	var line_a = rail.get_global_transform().origin
 	# We get the basis here to account for the rails being rotated in the scene editor
-	var line_b = rail.translation + rail.transform.basis.x.normalized()
+	var line_b = rail.get_global_transform().origin + rail.transform.basis.x.normalized()
 	
 	# This formula is from: https://stackoverflow.com/a/17590923/2134837
 	var ab = (line_a - line_b).length()

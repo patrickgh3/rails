@@ -26,6 +26,7 @@ void fragment() {
 
 // Output:0
 	ALBEDO = n_out2p0;
+	ALPHA = n_out2p1;
 
 }
 
@@ -36,7 +37,7 @@ void light() {
 "
 nodes/fragment/2/node = SubResource( 2 )
 nodes/fragment/2/position = Vector2( 240, 160 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )

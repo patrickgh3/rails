@@ -213,7 +213,9 @@ shader = SubResource( 19 )
 shader_param/is_target = null
 shader_param/glow = null
 
-[node name="Rail" type="Spatial"]
+[node name="Rail" type="Spatial" groups=[
+"Rails",
+]]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

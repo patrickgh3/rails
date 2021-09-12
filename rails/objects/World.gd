@@ -4,12 +4,12 @@ var rails = Array()
 var boxes = Array()
 
 func _ready():
-	# Add all rails to rails array
 	for node in self.get_children():
-		if "Rail" in node.name:
-			rails.append(node)
 		if "Box" in node.name:
 			boxes.append(node)
+			
+	for rail in get_tree().get_nodes_in_group("Rails"):
+		rails.append(rail)
 			
 			
 func vectors_equal (a, b, margin = .1):
