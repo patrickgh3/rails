@@ -169,7 +169,7 @@ func point_on_rail(point, rail):
 	var pb = (point - line_b).length()
 	var difference = abs(ab - (ap + pb))
 	# Note: epsilon of 0.001 here was chosen pretty arbitrarily
-	var on = difference < 0.001
+	var on = difference < 0.0001
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
 
