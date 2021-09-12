@@ -56,11 +56,11 @@ func _process(delta):
 		translation += to_move
 	else:
 		# Keep travelling by small increments until we are about to leave the rails
-		#while true:
-		#	translation += to_move*0.1
-		#	result = on_rails(to_move*0.1)
-		#	if not result["valid"]:
-		#		break
+		while true:
+			result = on_rails(to_move*0.2)
+			if not result["valid"]:
+				break
+			translation += to_move*0.2
 		
 		# Start bumping state if we are at a standstill
 		if was_still:
@@ -119,7 +119,7 @@ func on_rails(to_move):
 	var nearby_rails = Array()
 	for rail in controller.rails:
 		if rail.get_parent() == self:  continue
-		if rail_nearby(rail):
+		if rail_nearby(rail, to_move):
 			nearby_rails.append(rail)
 	
 	for edge in edges:
@@ -152,11 +152,11 @@ func on_rails(to_move):
 	# Check if we're colliding with another box.
 	# This is jank, but kinda works.
 	var my_shape = get_node("Area").get_node("CollisionShape")
-	var my_pos = get_global_transform().origin
+	var my_pos = my_shape.get_global_transform().origin
 	var my_extents = my_shape.shape.extents
 	for box in controller.boxes:
 		if box == self:  continue
-		if not rail_nearby(box):  continue
+		if not rail_nearby(box, to_move):  continue
 
 		var other_shape = box.get_node("Area").get_node("CollisionShape")
 		var other_pos = other_shape.get_global_transform().origin
@@ -165,8 +165,6 @@ func on_rails(to_move):
 		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
 			valid = false
 			break
-		
-		
 		
 	#if $Area.get_overlapping_areas().size() > 0:
 	#	valid = false
@@ -179,15 +177,17 @@ func rectangular_prisms_overlap(a_pos, a_extents, b_pos, b_extents):
 	var b_min = b_pos - b_extents/2
 	var b_max = b_pos + b_extents/2
 	
-	var miss = a_min.x > b_max.x or a_min.y > b_max.y or a_min.z > b_max.z or b_min.x > a_max.x or b_min.y > a_max.y or b_min.z > a_max.z
+	var miss = a_min.x >= b_max.x or a_min.y >= b_max.y or a_min.z >= b_max.z or b_min.x >= a_max.x or b_min.y >= a_max.y or b_min.z >= a_max.z
 	return not miss
 
 # Rough check if the rail is closeby on the grid
-func rail_nearby(rail):
+func rail_nearby(rail, to_move):
 	var cutoff = 2
-	if abs(round(get_global_transform().origin.x) - round(rail.get_global_transform().origin.x)) > cutoff: return false
-	if abs(round(get_global_transform().origin.y) - round(rail.get_global_transform().origin.y)) > cutoff: return false
-	if abs(round(get_global_transform().origin.z) - round(rail.get_global_transform().origin.z)) > cutoff: return false
+	var me = get_global_transform().origin + to_move
+	var them = rail.get_global_transform().origin
+	if abs(round(me.x) - round(them.x)) > cutoff: return false
+	if abs(round(me.y) - round(them.y)) > cutoff: return false
+	if abs(round(me.z) - round(them.z)) > cutoff: return false
 	return true
 
 
