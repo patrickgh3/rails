@@ -33,10 +33,12 @@ func _ready():
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 1, 0)})
 	edges.append({"a": Vector3(1, 0, 1), "b": Vector3(1, 1, 1)})
 
+
+
 func _process(delta):
 	# Test start moving
-	var was_still = velocity.x == 0 and velocity.y == 0 and velocity.z == 0
-	if grab_velocity != Vector3.ZERO and velocity == Vector3.ZERO:
+	var was_still = velocity == Vector3.ZERO
+	if grab_velocity != Vector3.ZERO:
 		velocity = grab_velocity
 		grab_velocity = Vector3.ZERO
 	
@@ -68,6 +70,7 @@ func _process(delta):
 		translation.z = round(translation.z)
 	
 	
+	
 	# Iterate through rails we're touching to do some logic
 	
 	# If we just tried to do an invalid move, use the current position for glow purposes
@@ -83,6 +86,7 @@ func _process(delta):
 		# Mark ourselves as delivered, if this rail is a target and we're still
 		if rail.is_target and velocity.x == 0 and velocity.y == 0 and velocity.z == 0:
 			delivered = true
+	
 	
 	
 	# Bumping state - make the mesh do a little bump in the direction
@@ -137,18 +141,17 @@ func on_rails(to_move):
 			valid = true
 	
 	
-	# Check if we'd collide with another box, or ground
-#	for box in world.boxes:
-#		for area in $Area.get_overlapping_areas():
-#			valid = false
-			
+	# Check if we're colliding with another box.
+	# This is jank, but kinda works.
+	if $Area.get_overlapping_areas().size() > 0:
+		valid = false
 			
 	return {"valid": valid, "rails": rails.keys()}
 
 
 # Rough check if the rail is closeby on the grid
 func rail_nearby(rail):
-	var cutoff = 1
+	var cutoff = 2
 	if abs(round(translation.x) - round(rail.translation.x)) > cutoff: return false
 	if abs(round(translation.y) - round(rail.translation.y)) > cutoff: return false
 	if abs(round(translation.z) - round(rail.translation.z)) > cutoff: return false
@@ -175,23 +178,26 @@ func ease_out_quad(x):
 	return 1 - (1 - x) * (1 - x)
 	
 	
-func was_pulled (normal):
+func was_pulled (collision_position):
 	# don't want to interrupt a moving box!
 	if velocity != Vector3.ZERO: return
 	
-	if world.vectors_equal (normal, global_transform.basis.x):
-		grab_velocity = Vector3.RIGHT
-	elif world.vectors_equal (normal, -global_transform.basis.x):
+	var pos = collision_position - translation
+	
+	var leeway = 0.01
+	if abs(pos.x - 0) < leeway:
 		grab_velocity = Vector3.LEFT
-	elif world.vectors_equal (normal, global_transform.basis.y):
-		grab_velocity = Vector3.UP
-	elif world.vectors_equal (normal, -global_transform.basis.y):
+	elif abs(pos.x - 1) < leeway:
+		grab_velocity = Vector3.RIGHT
+	elif abs(pos.y - 0) < leeway:
 		grab_velocity = Vector3.DOWN
-	elif world.vectors_equal (normal, global_transform.basis.z):
-		grab_velocity = Vector3.BACK
-	elif world.vectors_equal (normal, -global_transform.basis.z):
+	elif abs(pos.y - 1) < leeway:
+		grab_velocity = Vector3.UP
+	elif abs(pos.z - 0) < leeway:
 		grab_velocity = Vector3.FORWARD
+	elif abs(pos.z - 1) < leeway:
+		grab_velocity = Vector3.BACK
 	else:
 		print ("BADDDDDDDDD")
-	print ("normal ", normal)
 	grab_velocity *= box_speed
+	
