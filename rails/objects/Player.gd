@@ -88,6 +88,11 @@ func toggle_cursor ():
 
 
 func shoot_ray ():
+	
+	if highlight == null:
+		print ("no highlight object")
+		return
+		
 	var space_state = get_world().direct_space_state
 	var center_screen = get_viewport().size / 2
 	var from = $CamRoot/Camera.project_ray_origin(center_screen)
@@ -112,5 +117,9 @@ func shoot_ray ():
 	else: highlight.hide()
 
 func try_pull_box():
+	if highlight == null:
+		print ("no highlight object")
+		return
+		
 	if box_hit:
 		box_hit.was_pulled(highlight.translation)
