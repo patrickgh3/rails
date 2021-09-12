@@ -4,15 +4,19 @@ const MOUSE_SENSITIVITY = 0.1
 const CROUCHING_Y = .5
 const STANDING_Y = 1.3
 onready var camera = $CamRoot/Camera
+onready var highlight = $"/root/World/Highlight"
 
 
 
 var mouse_captured = true
 var ray_length = 1000
 var crouching = false
+var box_hit : Box 
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	print (highlight)
+	print (get_node("/root/World/Highlight"))
 
 func _process(delta):
 	# WASD movement
@@ -51,9 +55,10 @@ func _process(delta):
 		
 func _physics_process(delta):
 	# Raycast to highlight box side potentially
+	shoot_ray()
+	
 	if Input.is_action_just_pressed("left_click"):
-		shoot_ray ()
-
+		try_pull_box()
 
 func _input(event):
 	if event is InputEventKey :
@@ -90,10 +95,22 @@ func shoot_ray ():
 	var result = space_state.intersect_ray(from, to, [self])
 	
 	if result:
-		var box_hit : Box = result.collider.get_node ("..")
-		if box_hit != null:
-			box_hit.was_pulled (result.position)
-		#else:
-			#print ("no hit")
-	#else:
-		#print ("no result")
+		box_hit = result.collider.get_node ("..")
+		if box_hit == null:
+			highlight.hide()
+		elif not box_hit.moving():
+			highlight.show()
+			var dirs = box_hit.get_pull_directions (result.position)
+			if highlight == null:
+				print ("no highlight")
+			highlight.translation = box_hit.get_world_center() + dirs[0] * .5 * box_hit.get_scale()
+			highlight.transform.basis = Basis(dirs[2], dirs[1], dirs[0])
+			highlight.transform.orthonormalized()
+		else:
+			highlight.hide()
+			
+	else: highlight.hide()
+
+func try_pull_box():
+	if box_hit:
+		box_hit.was_pulled(highlight.translation)
