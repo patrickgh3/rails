@@ -12,7 +12,7 @@ var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
 var grab_velocity : Vector3
-var box_speed = .5
+var box_speed = 2
 
 func _ready():
 	# Bottom
@@ -45,7 +45,7 @@ func _process(delta):
 	# Move
 	
 	# Accelerate
-	velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 5 * delta
+	velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 10 * delta
 	
 	# Check if we're about to go off the rails!
 	var to_move = velocity * delta
@@ -55,6 +55,13 @@ func _process(delta):
 		# The place we want to move to is valid, so move there!
 		translation += to_move
 	else:
+		# Keep travelling by small increments until we are about to leave the rails
+		#while true:
+		#	translation += to_move*0.1
+		#	result = on_rails(to_move*0.1)
+		#	if not result["valid"]:
+		#		break
+		
 		# Start bumping state if we are at a standstill
 		if was_still:
 			bumping = true
@@ -144,11 +151,36 @@ func on_rails(to_move):
 	
 	# Check if we're colliding with another box.
 	# This is jank, but kinda works.
-	if $Area.get_overlapping_areas().size() > 0:
-		valid = false
+	var my_shape = get_node("Area").get_node("CollisionShape")
+	var my_pos = get_global_transform().origin
+	var my_extents = my_shape.shape.extents
+	for box in world.boxes:
+		if box == self:  continue
+		if not rail_nearby(box):  continue
+
+		var other_shape = box.get_node("Area").get_node("CollisionShape")
+		var other_pos = other_shape.get_global_transform().origin
+		var other_extents = other_shape.shape.extents
+
+		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
+			valid = false
+			break
+		
+		
+		
+	#if $Area.get_overlapping_areas().size() > 0:
+	#	valid = false
 			
 	return {"valid": valid, "rails": rails.keys()}
 
+func rectangular_prisms_overlap(a_pos, a_extents, b_pos, b_extents):
+	var a_min = a_pos - a_extents/2
+	var a_max = a_pos + a_extents/2
+	var b_min = b_pos - b_extents/2
+	var b_max = b_pos + b_extents/2
+	
+	var miss = a_min.x > b_max.x or a_min.y > b_max.y or a_min.z > b_max.z or b_min.x > a_max.x or b_min.y > a_max.y or b_min.z > a_max.z
+	return not miss
 
 # Rough check if the rail is closeby on the grid
 func rail_nearby(rail):
@@ -170,7 +202,7 @@ func point_on_rail(point, rail):
 	var pb = (point - line_b).length()
 	var difference = abs(ab - (ap + pb))
 	# Note: epsilon of 0.001 here was chosen pretty arbitrarily
-	var on = difference < 0.0001
+	var on = difference < 0.01
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
 
