@@ -80,8 +80,8 @@ func shoot_ray ():
 	if result:
 		var box_hit : Box = result.collider.get_node ("..")
 		if box_hit != null:
-			box_hit.was_pulled (result.normal)
-		else:
-			print ("no hit")
-	else:
-		print ("no result")
+			box_hit.was_pulled (result.position)
+		#else:
+			#print ("no hit")
+	#else:
+		#print ("no result")
