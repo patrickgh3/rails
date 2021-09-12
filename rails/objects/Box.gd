@@ -151,20 +151,20 @@ func on_rails(to_move):
 	
 	# Check if we're colliding with another box.
 	# This is jank, but kinda works.
-	var my_shape = get_node("Area").get_node("CollisionShape")
-	var my_pos = get_global_transform().origin
-	var my_extents = my_shape.shape.extents
-	for box in controller.boxes:
-		if box == self:  continue
-		if not rail_nearby(box):  continue
-
-		var other_shape = box.get_node("Area").get_node("CollisionShape")
-		var other_pos = other_shape.get_global_transform().origin
-		var other_extents = other_shape.shape.extents
-
-		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
-			valid = false
-			break
+#	var my_shape = get_node("Area").get_node("CollisionShape")
+#	var my_pos = get_global_transform().origin
+#	var my_extents = my_shape.shape.extents
+#	for box in controller.boxes:
+#		if box == self:  continue
+#		if not rail_nearby(box):  continue
+#
+#		var other_shape = box.get_node("Area").get_node("CollisionShape")
+#		var other_pos = other_shape.get_global_transform().origin
+#		var other_extents = other_shape.shape.extents
+#
+#		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
+#			valid = false
+#			break
 		
 		
 		
