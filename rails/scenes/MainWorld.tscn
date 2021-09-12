@@ -91,9 +91,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 36, 0, 15 )
 [node name="Box16" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55, 0, 26 )
 
-[node name="Box17" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 26 )
-
 [node name="Box18" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45, 0, 26 )
 
