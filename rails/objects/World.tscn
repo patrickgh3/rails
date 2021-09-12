@@ -4,12 +4,14 @@
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/World.gd" type="Script" id=5]
 [ext_resource path="res://objects/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Highlight.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/Controller.gd" type="Script" id=8]
 
-[node name="World" type="Spatial"]
-script = ExtResource( 5 )
+[node name="Root" type="Spatial"]
+
+[node name="Controller" type="Node" parent="."]
+script = ExtResource( 8 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, 1, 44, 1.29068, 12 )

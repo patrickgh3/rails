@@ -4,7 +4,7 @@ const MOUSE_SENSITIVITY = 0.1
 const CROUCHING_Y = .5
 const STANDING_Y = 1.3
 onready var camera = $CamRoot/Camera
-onready var highlight = $"/root/World/Highlight"
+onready var highlight = $"/root/Root/Highlight"
 
 
 
@@ -15,8 +15,6 @@ var box_hit : Box
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	print (highlight)
-	print (get_node("/root/World/Highlight"))
 
 func _process(delta):
 	# WASD movement

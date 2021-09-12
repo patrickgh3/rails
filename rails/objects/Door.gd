@@ -2,7 +2,7 @@ extends Spatial
 
 export(Array) var boxes
 onready var translation_start = translation
-onready var world = owner
+onready var controller = $"/root/Root/Controller"
 var door_t = 0
 
 func _ready():
@@ -22,5 +22,5 @@ func _process(delta):
 	else:
 		door_t -= 1 * delta
 	door_t = clamp(door_t, 0, 1)
-	var lerp_t = world.ease_in_quad(door_t)
+	var lerp_t = controller.ease_in_quad(door_t)
 	translation.y = translation_start.y + lerp(0, 4, lerp_t)

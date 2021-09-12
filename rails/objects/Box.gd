@@ -4,7 +4,7 @@ class_name Box
 
 var velocity = Vector3()
 var edges = Array()
-onready var world = owner
+onready var controller = $"/root/Root/Controller"
 
 var delivered = false
 
@@ -103,7 +103,7 @@ func _process(delta):
 		if bump_t > 1:
 			bump_t = 1
 			bumping = false
-		var bump_dist = lerp(0.06, 0, world.ease_out_quad(bump_t))
+		var bump_dist = lerp(0.06, 0, controller.ease_out_quad(bump_t))
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir
 
 
@@ -117,7 +117,7 @@ func on_rails(to_move):
 	# once we have hundreds of rails.
 	# Note: it's very possible this optimization isn't good enough or has failure cases!
 	var nearby_rails = Array()
-	for rail in world.rails:
+	for rail in controller.rails:
 		if rail.get_parent() == self:  continue
 		if rail_nearby(rail):
 			nearby_rails.append(rail)
@@ -154,7 +154,7 @@ func on_rails(to_move):
 	var my_shape = get_node("Area").get_node("CollisionShape")
 	var my_pos = get_global_transform().origin
 	var my_extents = my_shape.shape.extents
-	for box in world.boxes:
+	for box in controller.boxes:
 		if box == self:  continue
 		if not rail_nearby(box):  continue
 
@@ -205,10 +205,6 @@ func point_on_rail(point, rail):
 	var on = difference < 0.01
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
-
-
-func ease_out_quad(x):
-	return 1 - (1 - x) * (1 - x)
 	
 
 func get_pull_directions(collision_position):
