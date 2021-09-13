@@ -94,7 +94,7 @@ func _process(delta):
 		rail.glow = min(rail.glow, 1)
 		
 		# Mark ourselves as delivered, if this rail is a target and we're still
-		if rail.is_target and velocity.x == 0 and velocity.y == 0 and velocity.z == 0:
+		if rail.is_target and velocity == Vector3.ZERO:
 			delivered = true
 
 		# If this rail moved, check that we're still touching it
@@ -110,6 +110,7 @@ func _process(delta):
 	# Of rails that just stopped moving, check if we're touching any,
 	# and if so, count that we're touching them
 	for rail in controller.rails_just_halted:
+		if rail.get_parent() == self:  continue
 		if (rail_nearby(rail, Vector3.ZERO)):
 			var touching = false
 			for edge in edges:

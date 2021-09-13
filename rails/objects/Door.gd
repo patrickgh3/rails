@@ -8,6 +8,8 @@ var door_t = 0
 func _ready():
 	for i in range(boxes.size()):
 		boxes[i] = get_node(boxes[i])
+		if (boxes[i] == null):
+			printerr("null box assigned to door")
 
 func _process(delta):
 	# Check if all boxes are delivered
