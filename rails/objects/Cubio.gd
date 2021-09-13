@@ -33,6 +33,7 @@ var crouching = false
 var highlight 
 var debug_marker
 var box_hit : Box
+var face
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -43,7 +44,7 @@ func _ready():
 	get_tree().current_scene.call_deferred("add_child", highlight)
 	debug_marker = load("res://objects/DebugCube.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", debug_marker)
-	
+	face = load("res://objects/BoxFace.gd").new()
 	
 	
 func _process(delta):
@@ -202,16 +203,16 @@ func try_highlight_box ():
 			if box_hit.moving():
 				box_hit = null
 			else:
-				var dirs = box_hit.get_nearest_face (result.position, (to - from).normalized())
-				if dirs == null:
+				face = box_hit.get_nearest_face (result.position, (to - from).normalized(), face)
+				if not face.cool:
 					# leave highlight on if it's visible
 					turn_on_highlight = highlight.visible
 				else:
-					highlight.transform.basis = Basis(dirs[0], dirs[1], dirs[2])
-					highlight.translation = box_hit.get_world_center() + dirs[2]
+					highlight.transform.basis = Basis(face.dirs[0], face.dirs[1], face.dirs[2])
+					highlight.translation = box_hit.get_world_center() + face.dirs[2]
 					highlight.transform.orthonormalized()
-					highlight.scale.x = 2 * dirs[0].length()
-					highlight.scale.y = 2 * dirs[1].length()
+					highlight.scale.x = 2 * face.dirs[0].length()
+					highlight.scale.y = 2 * face.dirs[1].length()
 					turn_on_highlight = true
 			
 			
@@ -221,7 +222,8 @@ func try_highlight_box ():
 
 func try_pull_box():
 	if box_hit:
-		box_hit.was_pulled(highlight.translation)
+		box_hit.face_pulled(face.face)
+		#box_hit.pulled(highlight.global_transform.basis.z.normalized())
 		
 		
 func stand_up():

@@ -6,6 +6,9 @@ const box_speed = 2.5
 onready var controller = $"/root/Root/Controller"
 onready var mesh = $MeshInstance
 
+
+enum Face {X_PLUS, X_MINUS, Y_PLUS, Y_MINUS, Z_PLUS, Z_MINUS}
+
 var velocity = Vector3()
 var grab_velocity : Vector3
 var edges = Array()
@@ -44,7 +47,7 @@ func _process(delta):
 	# Accelerate
 	if velocity != Vector3.ZERO:
 		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
-	
+		
 		# Check if we're about to go off the rails!
 		var to_move = velocity * delta
 		var result = on_rails(to_move)
@@ -232,7 +235,7 @@ func point_on_rail(point, rail):
 	return {"on": on, "barely": barely}
 	
 	
-func get_nearest_face(collision_position, ray):
+func get_nearest_face(collision_position, ray, highlight_face):
 	var local_pos = collision_position - get_world_center()
 	var x_basis = global_transform.basis.x * mesh.scale.x
 	var y_basis = global_transform.basis.y * mesh.scale.y
@@ -246,37 +249,49 @@ func get_nearest_face(collision_position, ray):
 	y = y / (scale.y * scale.y)
 	z = z / (scale.z * scale.z)
 		
-	var mag = 0
 	var basis = []
 	if abs(x) > abs(y):
 		if abs(x) > abs(z):
-			mag = x
-			basis = [y_basis, z_basis, x_basis]
+			if x > 0:
+				highlight_face.face = Face.X_PLUS
+				basis = [y_basis, z_basis, x_basis]
+			else:
+				highlight_face.face = Face.X_MINUS
+				basis = [y_basis, z_basis, -x_basis]
 		else:
-			mag = z
-			basis = [x_basis, y_basis, z_basis]
+			if z < 0: 
+				highlight_face.face = Face.Z_MINUS
+				basis = [x_basis, y_basis, -z_basis]
+			else:
+				highlight_face.face = Face.Z_PLUS
+				basis = [x_basis, y_basis, z_basis]
 	elif abs(y) > abs(z):
-		mag = y
-		basis = [z_basis, x_basis, y_basis]
+		if y > 0:
+			highlight_face.face = Face.Y_PLUS
+			basis = [z_basis, x_basis, y_basis]
+		else:
+			highlight_face.face = Face.Y_MINUS
+			basis = [z_basis, x_basis, -y_basis]
 	else:
-		mag = z
-		basis = [x_basis, y_basis, z_basis]
+		if z < 0: 
+			highlight_face.face = Face.Z_MINUS
+			basis = [x_basis, y_basis, -z_basis]
+		else:
+			highlight_face.face = Face.Z_PLUS
+			basis = [x_basis, y_basis, z_basis]
 	
-	if mag < 0:
-		basis[2] = -basis[2]
+	
+	highlight_face.dirs = basis
 	
 	var dot_threshold = .075
 	if abs(ray.dot(basis[2])) < dot_threshold:
-		# angle of ray to face of box is too slight
-		return null
+		highlight_face.cool = false
 	else: 
-		return basis
-			
+		highlight_face.cool = true
 	
-func get_scale():
-	if scale != Vector3.ONE:
-		print ("BAD: don't know what scale to use for box")
-	return scale.x
+	return highlight_face
+	
+
 	
 func get_world_center ():
 	var x = global_transform.basis.x * mesh.scale.x
@@ -287,6 +302,31 @@ func get_world_center ():
 func moving():
 	return velocity != Vector3.ZERO
 	
+func face_pulled(face):
+	if moving(): return
+	
+	match face:
+		Face.X_PLUS:
+			grab_velocity = Vector3.RIGHT
+			continue
+		Face.X_MINUS:
+			grab_velocity = Vector3.LEFT
+			continue
+		Face.Y_PLUS:
+			grab_velocity = Vector3.UP
+			continue	
+		Face.Y_MINUS:
+			grab_velocity = Vector3.DOWN
+			continue
+		Face.Z_PLUS:
+			grab_velocity = Vector3.BACK
+			continue
+		Face.Z_MINUS:
+			grab_velocity = Vector3.FORWARD
+			continue
+			
+	
+#not used by Cubio, only the old player	
 func was_pulled (collision_position):
 	# don't want to interrupt a moving box!
 	if velocity != Vector3.ZERO: return
