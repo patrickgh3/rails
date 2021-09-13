@@ -270,7 +270,10 @@ func get_scale():
 	return scale.x
 	
 func get_world_center ():
-	return translation + Vector3(.5, .5, .5) * get_scale()
+	var x = global_transform.basis.x * scale.x * .5
+	var y = global_transform.basis.y * scale.y * .5
+	var z = global_transform.basis.z * scale.z * .5
+	return translation + x + y + z
 
 func moving():
 	return velocity != Vector3.ZERO

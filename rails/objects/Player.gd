@@ -5,22 +5,21 @@ const CROUCHING_Y = .5
 const STANDING_Y = 1.3
 onready var camera = $CamRoot/Camera
 onready var highlight = $"/root/Root/Highlight"
-
+onready var body = $KinematicBody
 
 
 var mouse_captured = true
 var ray_length = 1000
 var crouching = false
 var box_hit : Box 
+var dir = Vector3()
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta):
 	# WASD movement
-	
 	if mouse_captured == true:
-		var dir = Vector3()
 		if Input.is_action_pressed("ui_left"):
 			dir -= camera.global_transform.basis.x
 		if Input.is_action_pressed("ui_right"):
@@ -32,7 +31,7 @@ func _process(delta):
 		
 		dir.y = 0
 		dir = dir.normalized()
-		translation += dir * 5 * delta
+		#translation += dir * 5 * delta
 	
 	# crouching
 	if Input.is_action_just_pressed("crouch"):
@@ -48,7 +47,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		
-		
+	body.move_and_slide(transform.basis.z * 5 * delta, Vector3.UP)
 		
 		
 func _physics_process(_delta):
@@ -86,6 +85,11 @@ func toggle_cursor ():
 
 
 func shoot_ray ():
+	
+	if highlight == null:
+		print ("no highlight object")
+		return
+		
 	var space_state = get_world().direct_space_state
 	var center_screen = get_viewport().size / 2
 	var from = $CamRoot/Camera.project_ray_origin(center_screen)
@@ -110,5 +114,9 @@ func shoot_ray ():
 	else: highlight.hide()
 
 func try_pull_box():
+	if highlight == null:
+		print ("no highlight object")
+		return
+		
 	if box_hit:
 		box_hit.was_pulled(highlight.translation)
