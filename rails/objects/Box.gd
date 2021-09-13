@@ -4,6 +4,8 @@ class_name Box
 const box_speed = 2.5
 
 onready var controller = $"/root/Root/Controller"
+onready var mesh = $MeshInstance
+
 var velocity = Vector3()
 var grab_velocity : Vector3
 var edges = Array()
@@ -229,40 +231,47 @@ func point_on_rail(point, rail):
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
 	
-
-func get_pull_directions(collision_position):
-	var pos = collision_position - translation
-	var dirs = [Vector3.ZERO, Vector3.ZERO, Vector3.ZERO]
-
-	var leeway = 0.01
-	if abs(pos.x - 0) < leeway:
-		dirs[0] = Vector3.LEFT
-		dirs[1] = Vector3.UP
-		dirs[2] = Vector3.FORWARD
-	elif abs(pos.x - 1) < leeway:
-		dirs[0] = Vector3.RIGHT
-		dirs[1] = Vector3.DOWN
-		dirs[2] = Vector3.BACK
-	elif abs(pos.y - 0) < leeway:
-		dirs[0] = Vector3.DOWN
-		dirs[1] = Vector3.RIGHT
-		dirs[2] = Vector3.BACK
-	elif abs(pos.y - 1) < leeway:
-		dirs[0] = Vector3.UP
-		dirs[1] = Vector3.LEFT
-		dirs[2] = Vector3.FORWARD
-	elif abs(pos.z - 0) < leeway:
-		dirs[0] = Vector3.FORWARD
-		dirs[1] = Vector3.UP
-		dirs[2] = Vector3.LEFT
-	elif abs(pos.z - 1) < leeway:
-		dirs[0] = Vector3.BACK
-		dirs[1] = Vector3.DOWN
-		dirs[2] = Vector3.RIGHT
-	else:
-		print ("BADDDDDDDDD pull dirs")
+	
+func get_nearest_face(collision_position, ray):
+	var local_pos = collision_position - get_world_center()
+	var x_basis = global_transform.basis.x * mesh.scale.x
+	var y_basis = global_transform.basis.y * mesh.scale.y
+	var z_basis = global_transform.basis.z * mesh.scale.z
+	
+	var x = local_pos.dot(x_basis)
+	var y = local_pos.dot(y_basis)
+	var z = local_pos.dot(z_basis)
+	
+	x = x / (scale.x * scale.x)
+	y = y / (scale.y * scale.y)
+	z = z / (scale.z * scale.z)
 		
-	return dirs
+	var mag = 0
+	var basis = []
+	if abs(x) > abs(y):
+		if abs(x) > abs(z):
+			mag = x
+			basis = [y_basis, z_basis, x_basis]
+		else:
+			mag = z
+			basis = [x_basis, y_basis, z_basis]
+	elif abs(y) > abs(z):
+		mag = y
+		basis = [z_basis, x_basis, y_basis]
+	else:
+		mag = z
+		basis = [x_basis, y_basis, z_basis]
+	
+	if mag < 0:
+		basis[2] = -basis[2]
+	
+	var dot_threshold = .075
+	if abs(ray.dot(basis[2])) < dot_threshold:
+		# angle of ray to face of box is too slight
+		return null
+	else: 
+		return basis
+			
 	
 func get_scale():
 	if scale != Vector3.ONE:
@@ -270,10 +279,10 @@ func get_scale():
 	return scale.x
 	
 func get_world_center ():
-	var x = global_transform.basis.x * scale.x * .5
-	var y = global_transform.basis.y * scale.y * .5
-	var z = global_transform.basis.z * scale.z * .5
-	return translation + x + y + z
+	var x = global_transform.basis.x * mesh.scale.x
+	var y = global_transform.basis.y * mesh.scale.y
+	var z = global_transform.basis.z * mesh.scale.z
+	return global_transform.origin + x + y + z
 
 func moving():
 	return velocity != Vector3.ZERO

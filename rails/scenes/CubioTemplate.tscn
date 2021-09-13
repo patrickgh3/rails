@@ -9,6 +9,7 @@
 [ext_resource path="res://objects/BodyDoor.tscn" type="PackedScene" id=8]
 
 [node name="Root" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00673532, 2.38419e-07, -0.0102329 )
 
 [node name="Controller" parent="." instance=ExtResource( 5 )]
 
@@ -22,10 +23,13 @@ transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, 0 )
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 7, 2, 0 )
 
 [node name="Box" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
+transform = Transform( 1.11898, -0.655479, -0.507263, 0.97121, 0.755213, -0.440273, 1.34336, 0, 0.74084, -2, 0.700544, 0 )
 
 [node name="Box2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3 )
+
+[node name="Box3" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -2 )
 
 [node name="Rail" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
@@ -78,3 +82,5 @@ boxes = [ NodePath("../Box") ]
 [node name="Door3" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -5 )
 boxes = [ NodePath("../Box") ]
+
+[editable path="Box"]

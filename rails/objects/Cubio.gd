@@ -31,13 +31,18 @@ var dir: Vector3
 var mouse_captured = true
 var crouching = false
 var highlight 
+var debug_marker
 var box_hit : Box
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	stand_up()
+	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
-	stand_up()
+	debug_marker = load("res://objects/DebugCube.tscn").instance()
+	get_tree().current_scene.call_deferred("add_child", debug_marker)
 	
 	
 	
@@ -45,17 +50,9 @@ func _process(delta):
 	# Press Esc to quit
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-		
-	# warning: probably not good to just set positino of the kinematic body now
-	if Input.is_action_just_pressed("crouch"):
-		if crouching: stand_up()
-		else: crouch()
-			
-			
+	
 	if Input.is_action_just_pressed("left_click"):
 		try_pull_box()
-		
-		
 
 func _physics_process(delta):
 	
@@ -67,11 +64,15 @@ func _physics_process(delta):
 	
 	dir = dir.normalized() * MAX_SPEED
 	velocity = global_transform.basis.x * dir.x + global_transform.basis.z * dir.z
-	#velocity = move_and_slide(velocity, Vector3.UP)
 	
 	move_and_collide(Vector3.DOWN * 1000)
 	move_and_slide(velocity, Vector3.UP)
 	
+	
+	# warning: probably not good to just set positino of the kinematic body now
+	if Input.is_action_just_pressed("crouch"):
+		if crouching: stand_up()
+		else: crouch()
 	
 #	var target = global_transform.basis.x * dir.x + global_transform.basis.z * dir.z
 #	target *= MAX_SPEED
@@ -92,7 +93,8 @@ func _physics_process(delta):
 		
 		if collision.collider.get_parent() is Box:
 			print ("death by box")
-		else: print ("I collided with ", collision.collider.name)
+			
+			
 	###################
 	
 #	if Input.is_action_just_pressed("exit"):
@@ -181,7 +183,7 @@ func try_highlight_box ():
 	if highlight == null:
 		print ("no highlight object")
 		return
-		
+	
 	var space_state = get_world().direct_space_state
 	var center_screen = get_viewport().size / 2
 	var from = $CamRoot/Camera.project_ray_origin(center_screen)
@@ -191,39 +193,56 @@ func try_highlight_box ():
 	var turn_on_highlight = false
 	
 	if result:
+		debug_marker.translation = result.position
+		
 		var thing = result.collider.get_parent ()
+		
 		if thing is Box:
 			box_hit = thing as Box
-			if not box_hit.moving():
-				var dirs = box_hit.get_pull_directions (result.position)
-				highlight.translation = box_hit.get_world_center() + dirs[0] * .5 * box_hit.get_scale()
-				highlight.transform.basis = Basis(dirs[2], dirs[1], dirs[0])
-				highlight.transform.orthonormalized()
-				turn_on_highlight = true
-			else: box_hit = null
+			if box_hit.moving():
+				box_hit = null
+			else:
+				var dirs = box_hit.get_nearest_face (result.position, (to - from).normalized())
+				if dirs == null:
+					# leave highlight on if it's visible
+					turn_on_highlight = highlight.visible
+				else:
+					highlight.transform.basis = Basis(dirs[0], dirs[1], dirs[2])
+					highlight.translation = box_hit.get_world_center() + dirs[2]
+					highlight.transform.orthonormalized()
+					highlight.scale.x = 2 * dirs[0].length()
+					highlight.scale.y = 2 * dirs[1].length()
+					turn_on_highlight = true
 			
-		
+			
 	if turn_on_highlight:
 		highlight.show()
 	else: highlight.hide()
 
 func try_pull_box():
-	if highlight == null:
-		print ("no highlight object")
-		return
-		
 	if box_hit:
 		box_hit.was_pulled(highlight.translation)
 		
 		
 func stand_up():
-	crouching = false
-	cam_root.translation.y = CAM_STANDING_Y
-	shape.translation.y = SHAPE_STANDING_Y
-	shape.scale.y = SHAPE_SCALE_STANDING_Y
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin + shape.global_transform.basis.y.normalized() * 1
+	var crouch_blocked = space_state.intersect_ray(from, to, [shape])
 	
+	if not crouch_blocked:
+		crouching = false
+		cam_root.translation.y = CAM_STANDING_Y
+		shape.translation.y = SHAPE_STANDING_Y
+		shape.scale.y = SHAPE_SCALE_STANDING_Y
+	else:
+		print ("crouch was blocked by ", crouch_blocked.collider.name)
+		
+		
+# to be done safely, this is called in physics_process
 func crouch():
 	crouching = true
 	cam_root.translation.y = CAM_CROUCHING_Y
 	shape.translation.y = SHAPE_CROUCHING_Y
 	shape.scale.y = SHAPE_SCALE_CROUCHING_Y
+	

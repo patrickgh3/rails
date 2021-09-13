@@ -157,7 +157,7 @@ shader = SubResource( 12 )
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.01, 0, 0, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.025, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 4 )
 
