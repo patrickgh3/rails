@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Box",
 "language": "GDScript",
 "path": "res://objects/Box.gd"
+}, {
+"base": "Spatial",
+"class": "Rail",
+"language": "GDScript",
+"path": "res://objects/Rail.gd"
 } ]
 _global_script_class_icons={
-"Box": ""
+"Box": "",
+"Rail": ""
 }
 
 [application]

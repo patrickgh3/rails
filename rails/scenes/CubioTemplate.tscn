@@ -12,7 +12,7 @@
 
 [node name="Controller" parent="." instance=ExtResource( 5 )]
 
-[node name="Cubio" parent="." instance=ExtResource( 6 )]
+[node name="Player" parent="." instance=ExtResource( 6 )]
 transform = Transform( 0.914642, 0, 0.404264, 0, 1, 0, -0.404264, 0, 0.914642, 3.90744, 3.8772, 1.545 )
 
 [node name="Ground" parent="." instance=ExtResource( 4 )]
