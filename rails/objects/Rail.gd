@@ -1,4 +1,5 @@
 extends Spatial
+class_name Rail
 
 export(bool) var is_target = false
 var glow = 0

@@ -1,18 +1,17 @@
 extends Spatial
-
 class_name Box
 
-var velocity = Vector3()
-var edges = Array()
+const box_speed = 2.5
+
 onready var controller = $"/root/Root/Controller"
-
+var velocity = Vector3()
+var grab_velocity : Vector3
+var edges = Array()
 var delivered = false
-
 var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
-var grab_velocity : Vector3
-var box_speed = 2
+var rails_touching = Array()
 
 func _ready():
 	# Bottom
@@ -33,68 +32,93 @@ func _ready():
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 1, 0)})
 	edges.append({"a": Vector3(1, 0, 1), "b": Vector3(1, 1, 1)})
 
-
-
 func _process(delta):
-	# Test start moving
+	# Apply grab velocity, if it was set
 	var was_still = velocity == Vector3.ZERO
 	if grab_velocity != Vector3.ZERO:
 		velocity = grab_velocity
 		grab_velocity = Vector3.ZERO
 	
-	# Move
-	
 	# Accelerate
-	velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 10 * delta
+	if velocity != Vector3.ZERO:
+		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
 	
-	# Check if we're about to go off the rails!
-	var to_move = velocity * delta
-	var result = on_rails(to_move)
-	
-	if result["valid"]:
-		# The place we want to move to is valid, so move there!
-		translation += to_move
-	else:
-		# Keep travelling by small increments until we are about to leave the rails
-		while true:
-			result = on_rails(to_move*0.2)
-			if not result["valid"]:
-				break
-			translation += to_move*0.2
+		# Check if we're about to go off the rails!
+		var to_move = velocity * delta
+		var result = on_rails(to_move)
 		
-		# Start bumping state if we are at a standstill
-		if was_still:
-			bumping = true
-			bump_t = 0
-			bump_dir = Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z))
+		if result["valid"]:
+			# The place we want to move to is valid, so move there!
+			translation += to_move
+		else:
+			# Keep travelling by small increments until we are about to leave the rails
+			while true:
+				result = on_rails(to_move*0.2)
+				if not result["valid"]:
+					break
+				translation += to_move*0.2
+			
+			# Start bumping state if we are at a standstill
+			if was_still:
+				bumping = true
+				bump_t = 0
+				bump_dir = Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z))
+			
+			# Stop
+			velocity = Vector3()
+			
+			# Snap position to the nearest cell (hack, this doesn't support off-grid rails)
+			translation.x = round(translation.x)
+			translation.y = round(translation.y)
+			translation.z = round(translation.z)
+
+			# If we just tried to do an invalid move, use the current position for glow purposes
+			result = on_rails(Vector3())
+
+			for node in get_children():
+				if "Rail" in node.name:
+					controller.rails_just_halted.append(node)
+					controller.rails_just_halted_timer = 0
 		
-		# Stop
-		velocity = Vector3()
-		
-		# Snap position to the nearest cell (hack, this doesn't support off-grid rails)
-		translation.x = round(translation.x)
-		translation.y = round(translation.y)
-		translation.z = round(translation.z)
+		# Save rails touching
+		rails_touching = result["rails"]
 	
-	
-	
-	# Iterate through rails we're touching to do some logic
-	
-	# If we just tried to do an invalid move, use the current position for glow purposes
-	if not result["valid"]:
-		result = on_rails(Vector3())
-	
+
+
+	# Do per-rail logic
 	delivered = false
-	for rail in result["rails"]:
+	var to_remove = null
+	for rail in rails_touching:
 		# Mark rail pressed, and add to glow
 		rail.glow += delta * 10
 		rail.glow = min(rail.glow, 1)
 		
 		# Mark ourselves as delivered, if this rail is a target and we're still
-		if rail.is_target and velocity.x == 0 and velocity.y == 0 and velocity.z == 0:
+		if rail.is_target and velocity == Vector3.ZERO:
 			delivered = true
-	
-	
+
+		# If this rail moved, check that we're still touching it
+		var touching = false
+		for edge in edges:
+			if not touching and point_on_rail(translation + edge["a"], rail)["on"] and point_on_rail(translation + edge["b"], rail)["on"]:
+				touching = true
+		if not touching:
+			to_remove = rail
+	if to_remove:
+		rails_touching.erase(to_remove)
+		
+	# Of rails that just stopped moving, check if we're touching any,
+	# and if so, count that we're touching them
+	for rail in controller.rails_just_halted:
+		if rail.get_parent() == self:  continue
+		if (rail_nearby(rail, Vector3.ZERO)):
+			var touching = false
+			for edge in edges:
+				if not touching and point_on_rail(translation + edge["a"], rail)["on"] and point_on_rail(translation + edge["b"], rail)["on"]:
+					touching = true
+				if touching:
+					if not rail in rails_touching:
+						rails_touching.append(rail)
 	
 	# Bumping state - make the mesh do a little bump in the direction
 	# we failed to move in
@@ -190,11 +214,10 @@ func rail_nearby(rail, to_move):
 	if abs(round(me.z) - round(them.z)) > cutoff: return false
 	return true
 
-
 func point_on_rail(point, rail):
 	var line_a = rail.get_global_transform().origin
 	# We get the basis here to account for the rails being rotated in the scene editor
-	var line_b = rail.get_global_transform().origin + rail.transform.basis.x.normalized()
+	var line_b = rail.get_global_transform().origin + rail.transform.basis.x
 	
 	# This formula is from: https://stackoverflow.com/a/17590923/2134837
 	var ab = (line_a - line_b).length()
@@ -277,4 +300,3 @@ func was_pulled (collision_position):
 	else:
 		print ("BADDDDDDDDD")
 	grab_velocity *= box_speed
-	
