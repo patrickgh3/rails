@@ -15,7 +15,7 @@ func _process(delta):
 	# Check if all boxes are delivered
 	var all_pressed = true
 	for box in boxes:
-		if not box.delivered:
+		if box != null and not box.delivered:
 			all_pressed = false
 	
 	# Open and shut door

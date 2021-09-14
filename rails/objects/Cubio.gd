@@ -194,7 +194,9 @@ func try_highlight_box ():
 		
 		var thing = result.collider.get_parent ()
 		
-		if thing is Box:
+		if not thing is Box:
+			box_hit = null
+		else:
 			box_hit = thing as Box
 			if box_hit.moving():
 				box_hit = null
@@ -210,7 +212,6 @@ func try_highlight_box ():
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()
 					turn_on_highlight = true
-			
 			
 	if turn_on_highlight:
 		highlight.show()
