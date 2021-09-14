@@ -235,7 +235,7 @@ func point_on_rail(point, rail):
 	return {"on": on, "barely": barely}
 	
 	
-func get_nearest_face(collision_position, ray, highlight_face):
+func get_nearest_face(collision_position, ray, highlight_info):
 	var local_pos = collision_position - get_world_center()
 	var x_basis = global_transform.basis.x * mesh.scale.x
 	var y_basis = global_transform.basis.y * mesh.scale.y
@@ -249,47 +249,47 @@ func get_nearest_face(collision_position, ray, highlight_face):
 	y = y / (scale.y * scale.y)
 	z = z / (scale.z * scale.z)
 		
+	var face
 	var basis = []
 	if abs(x) > abs(y):
 		if abs(x) > abs(z):
 			if x > 0:
-				highlight_face.face = Face.X_PLUS
+				face = Face.X_PLUS
 				basis = [y_basis, z_basis, x_basis]
 			else:
-				highlight_face.face = Face.X_MINUS
+				face = Face.X_MINUS
 				basis = [y_basis, z_basis, -x_basis]
 		else:
 			if z < 0: 
-				highlight_face.face = Face.Z_MINUS
+				face = Face.Z_MINUS
 				basis = [x_basis, y_basis, -z_basis]
 			else:
-				highlight_face.face = Face.Z_PLUS
+				face = Face.Z_PLUS
 				basis = [x_basis, y_basis, z_basis]
 	elif abs(y) > abs(z):
 		if y > 0:
-			highlight_face.face = Face.Y_PLUS
+			face = Face.Y_PLUS
 			basis = [z_basis, x_basis, y_basis]
 		else:
-			highlight_face.face = Face.Y_MINUS
+			face = Face.Y_MINUS
 			basis = [z_basis, x_basis, -y_basis]
 	else:
 		if z < 0: 
-			highlight_face.face = Face.Z_MINUS
+			face = Face.Z_MINUS
 			basis = [x_basis, y_basis, -z_basis]
 		else:
-			highlight_face.face = Face.Z_PLUS
+			face = Face.Z_PLUS
 			basis = [x_basis, y_basis, z_basis]
-	
-	
-	highlight_face.dirs = basis
 	
 	var dot_threshold = .075
 	if abs(ray.dot(basis[2])) < dot_threshold:
-		highlight_face.cool = false
+		highlight_info.cool = false
 	else: 
-		highlight_face.cool = true
+		highlight_info.cool = true
+		highlight_info.dirs = basis
+		highlight_info.face = face
 	
-	return highlight_face
+	return highlight_info
 	
 
 	
