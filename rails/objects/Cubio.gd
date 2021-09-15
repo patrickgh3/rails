@@ -13,18 +13,20 @@ const ACCEL_TYPE = {"default": 10, "air": 4}
 
 const SHAPE_STANDING_Y = .5
 const SHAPE_SCALE_STANDING_Y = .95
-
 const SHAPE_CROUCHING_Y = 0
 const SHAPE_SCALE_CROUCHING_Y = .45
-
 const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
-
 const MOUSE_SENSITIVITY = 0.1
 const RAY_LENGTH = 1000
-onready var camera = $CamRoot/Camera
+const CAM_OFFSET3 = Vector3(0, 2, 4)
+const CAM_OFFSET1 = Vector3(0, 1, 0)
+
+
 onready var shape = $CollisionShape
 onready var cam_root = $CamRoot
+onready var camera = $CamRoot/Camera
+onready var cube_person = $Cube_Person
 onready var accel = ACCEL_TYPE["default"]
 
 
@@ -45,11 +47,13 @@ var debug_marker
 var box_hit : Box
 var highlight_info
 var snap
+var first_person
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	stand_up()
+	first_person_cam()
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -66,19 +70,22 @@ func _process(delta):
 	if Input.is_action_just_pressed("left_click"):
 		try_pull_box()
 		
+	if first_person:
+		# Camera physics interpolation to reduce physics jitter on high refresh-rate monitors
+		if Engine.get_frames_per_second() > Engine.iterations_per_second:
+			camera.set_as_toplevel(true)
+			camera.global_transform.origin = camera.global_transform.origin.linear_interpolate(cam_root.global_transform.origin, CAM_ACCEL * delta)
+			camera.rotation.y = rotation.y
+			camera.rotation.x = cam_root.rotation.x
+		else:
+			camera.set_as_toplevel(false)
+			camera.global_transform = cam_root.global_transform 
+			
+		cam_root.rotation.z = lerp(cam_root.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
 		
-	# Camera physics interpolation to reduce physics jitter on high refresh-rate monitors
-	if Engine.get_frames_per_second() > Engine.iterations_per_second:
-		camera.set_as_toplevel(true)
-		camera.global_transform.origin = camera.global_transform.origin.linear_interpolate(cam_root.global_transform.origin, CAM_ACCEL * delta)
-		camera.rotation.y = rotation.y
-		camera.rotation.x = cam_root.rotation.x
 	else:
-		camera.set_as_toplevel(false)
-		camera.global_transform = cam_root.global_transform
+		pass
 		
-	#head.rotation.z = lerp(head.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
-	cam_root.rotation.z = lerp(cam_root.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
 
 func _physics_process(delta):
 	
@@ -163,6 +170,14 @@ func _input(event):
 		if event.scancode == KEY_H and event.is_pressed():
 			remove_child(highlight)
 			get_parent().add_child(highlight)
+			
+	if event is InputEventKey:
+		if event.scancode == KEY_3 and event.is_pressed():
+			third_person_cam()
+			
+	if event is InputEventKey:
+		if event.scancode == KEY_1 and event.is_pressed():
+			first_person_cam()
 
 
 func toggle_cursor ():
@@ -182,9 +197,11 @@ func try_highlight_box ():
 		return
 	
 	var space_state = get_world().direct_space_state
-	var center_screen = get_viewport().size / 2
-	var from = $CamRoot/Camera.project_ray_origin(center_screen)
-	var to = from + $CamRoot/Camera.project_ray_normal(center_screen) * RAY_LENGTH
+	#var screen_point = get_viewport().size / 2
+	var screen_point = ($Sprite as Node2D).position
+	
+	var from = $CamRoot/Camera.project_ray_origin(screen_point)
+	var to = from + $CamRoot/Camera.project_ray_normal(screen_point) * RAY_LENGTH
 	var result = space_state.intersect_ray(from, to, [self])
 	
 	var turn_on_highlight = false
@@ -232,6 +249,7 @@ func stand_up():
 		cam_root.translation.y = CAM_STANDING_Y
 		shape.translation.y = SHAPE_STANDING_Y
 		shape.scale.y = SHAPE_SCALE_STANDING_Y
+		cube_person.translation = Vector3(0, -.322, 0)
 	else:
 		print ("crouch was blocked by ", crouch_blocked.collider.name)
 		
@@ -242,4 +260,24 @@ func crouch():
 	cam_root.translation.y = CAM_CROUCHING_Y
 	shape.translation.y = SHAPE_CROUCHING_Y
 	shape.scale.y = SHAPE_SCALE_CROUCHING_Y
+	cube_person.translation = Vector3(0, -1.322, 0)
 	
+func third_person_cam():
+	var sprite = $Sprite
+	var screen_rect = sprite.get_viewport_rect()
+	var node = sprite as Node2D
+	print (node.position)
+	node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
+	first_person = false
+	camera.translation = CAM_OFFSET3
+	cube_person.show()
+	
+func first_person_cam():
+	var sprite = $Sprite
+	var screen_rect = sprite.get_viewport_rect()
+	var node = sprite as Node2D
+	print (node.position)
+	node.position = Vector2(screen_rect.size.x, screen_rect.size.y) / 2
+	first_person = true
+	camera.translation = CAM_OFFSET1
+	cube_person.hide()

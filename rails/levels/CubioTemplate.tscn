@@ -17,7 +17,7 @@ transform = Transform( 0.914642, 0, 0.404264, 0, 1, 0, -0.404264, 0, 0.914642, 3
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
-boxes = [ NodePath("../Box") ]
+boxes = [ NodePath("../Box2") ]
 
 [node name="Ground" parent="." instance=ExtResource( 4 )]
 transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, 0 )
@@ -70,8 +70,11 @@ transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 2, -
 [node name="Rail3" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
 
-[node name="Rail4" parent="." instance=ExtResource( 1 )]
+[node name="Rail14" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -2 )
+
+[node name="Rail4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
 is_target = true
 
 [editable path="RotatedBox"]

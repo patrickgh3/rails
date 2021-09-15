@@ -25,8 +25,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.58903 )
 [node name="Ground" parent="." instance=ExtResource( 3 )]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 0.0563784 )
 
+[node name="Ground6" parent="." instance=ExtResource( 3 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 12, 0, -1, 22.0564 )
+
 [node name="Ground5" parent="." instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 0.877674, 4.79259, 0, -0.479259, 8.77674, -0.571477, 3.88136, 18.9961 )
+transform = Transform( 2, 0, 0, 0, 0.877674, 3.83407, 0, -0.479259, 7.02139, -0.571477, 2.92284, 17.2408 )
 
 [node name="Ground2" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 3, 0, 0, 0, 1, -1, 4, 4.05638 )
