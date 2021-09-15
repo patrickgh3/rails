@@ -9,6 +9,8 @@ onready var mesh = $MeshInstance
 
 enum Face {X_PLUS, X_MINUS, Y_PLUS, Y_MINUS, Z_PLUS, Z_MINUS}
 
+signal delivered(box, yes)
+
 var velocity = Vector3()
 var grab_velocity : Vector3
 var edges = Array()
@@ -18,7 +20,15 @@ var bump_t = 0
 var bump_dir = Vector3()
 var rails_touching = Array()
 
+func _enter_tree():
+	prints(name, "entered tree, joined Boxes group")
+	add_to_group("Boxes")
+	
+
 func _ready():
+	
+	prints(name, "readied up")
+	
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 0, 1)})
@@ -91,6 +101,7 @@ func _process(delta):
 
 
 	# Do per-rail logic
+	var was_delivered = delivered
 	delivered = false
 	var to_remove = null
 	for rail in rails_touching:
@@ -135,7 +146,10 @@ func _process(delta):
 		var bump_dist = lerp(0.06, 0, controller.ease_out_quad(bump_t))
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir
 
-
+	if delivered and not was_delivered:
+		emit_signal("delivered", self, true)
+	elif was_delivered and not delivered:
+		emit_signal("delivered", self, false)
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):
