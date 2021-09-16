@@ -210,8 +210,8 @@ nodes/fragment/connections = PoolIntArray( 7, 0, 0, 0, 5, 0, 7, 2, 5, 0, 9, 2, 9
 [sub_resource type="ShaderMaterial" id=20]
 resource_local_to_scene = true
 shader = SubResource( 19 )
-shader_param/is_target = null
-shader_param/glow = null
+shader_param/is_target = false
+shader_param/glow = 0.0
 
 [node name="Rail" type="Spatial" groups=[
 "Rails",

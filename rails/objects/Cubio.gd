@@ -1,160 +1,166 @@
 extends KinematicBody
+# Constant variables for Movement
+const SPEED = 5
+const GRAVITY = 10
+const JUMP = 2
+const FALL_MULTY = 0.5
+const JUMP_MULTY = 0.9
+const CAM_ACCEL = 40
+const ACCEL_TYPE = {"default": 10, "air": 4}
 
-const MAX_SPEED = 3
-const JUMP_SPEED = 5
-const ACCELERATION = 2
-const DECELERATION = 4
+
 
 
 const SHAPE_STANDING_Y = .5
 const SHAPE_SCALE_STANDING_Y = .95
-
 const SHAPE_CROUCHING_Y = 0
 const SHAPE_SCALE_CROUCHING_Y = .45
-
 const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
-
 const MOUSE_SENSITIVITY = 0.1
 const RAY_LENGTH = 1000
-onready var camera = $CamRoot/Camera
+const CAM_OFFSET3 = Vector3(0, 2, 4)
+const CAM_OFFSET1 = Vector3(0, 1, 0)
+
+
 onready var shape = $CollisionShape
 onready var cam_root = $CamRoot
-#onready var highlight = $"/root/Root/Highlight"
+onready var camera = $CamRoot/Camera
+onready var cube_person = $Cube_Person
+onready var accel = ACCEL_TYPE["default"]
 
 
-#onready var camera = $Target/Camera
-#onready var gravity = -ProjectSettings.get_setting("physics/3d/default_gravity")
-#onready var start_position = translation
+# Strafe leaning
+const LEAN_SMOOTH : float = 10.0
+const LEAN_MULT : float = 0.066
+const LEAN_AMOUNT : float = 0.7
+
 var velocity: Vector3
 var dir: Vector3
+var gravity_vec = Vector3()
+var movement = Vector3()
+var currentStrafeDir = 0
 var mouse_captured = true
 var crouching = false
 var highlight 
+var debug_marker
 var box_hit : Box
+var highlight_info
+var snap
+var first_person
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	stand_up()
+	first_person_cam()
+	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
-	stand_up()
-	
+	debug_marker = load("res://objects/DebugCube.tscn").instance()
+	get_tree().current_scene.call_deferred("add_child", debug_marker)
+	highlight_info = load("res://objects/BoxHighlightInfo.gd").new()
 	
 	
 func _process(delta):
 	# Press Esc to quit
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
-		
-	# warning: probably not good to just set positino of the kinematic body now
-	if Input.is_action_just_pressed("crouch"):
-		if crouching: stand_up()
-		else: crouch()
-			
-			
+	
 	if Input.is_action_just_pressed("left_click"):
 		try_pull_box()
 		
+	if first_person:
+		# Camera physics interpolation to reduce physics jitter on high refresh-rate monitors
+		if Engine.get_frames_per_second() > Engine.iterations_per_second:
+			camera.set_as_toplevel(true)
+			camera.global_transform.origin = camera.global_transform.origin.linear_interpolate(cam_root.global_transform.origin, CAM_ACCEL * delta)
+			camera.rotation.y = rotation.y
+			camera.rotation.x = cam_root.rotation.x
+		else:
+			camera.set_as_toplevel(false)
+			camera.global_transform = cam_root.global_transform 
+			
+		cam_root.rotation.z = lerp(cam_root.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
+		
+	else:
+		pass
 		
 
 func _physics_process(delta):
 	
 	try_highlight_box()
-	
-	dir.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	dir.y = 0
-	dir.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-	
-	dir = dir.normalized() * MAX_SPEED
-	velocity = global_transform.basis.x * dir.x + global_transform.basis.z * dir.z
-	#velocity = move_and_slide(velocity, Vector3.UP)
-	
-	move_and_collide(Vector3.DOWN * 1000)
-	move_and_slide(velocity, Vector3.UP)
-	
-	
-#	var target = global_transform.basis.x * dir.x + global_transform.basis.z * dir.z
-#	target *= MAX_SPEED
-#	var acceleration
-#	if dir.dot(hvel) > 0:
-#		acceleration = ACCELERATION
-#	else:
-#		acceleration = DECELERATION
 
-	#hvel = hvel.linear_interpolate(target, acceleration * delta)
 
-	# Assign hvel's values back to velocity, and then move.
-	#velocity.x = hvel.x
-	#velocity = move_and_slide(velocity, Vector3.UP)
+		
+
+	# keyboard movement
+	dir = Vector3.ZERO
+	var h_rot = global_transform.basis.get_euler().y
+	var f_input = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	var h_input = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	
+	# Check if to lean
+	if(h_input < 0):
+		currentStrafeDir = LEAN_AMOUNT
+	elif(h_input > 0):
+		currentStrafeDir = -LEAN_AMOUNT
+	else:
+		currentStrafeDir = 0
+	
+	dir = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
+	
+	# Jumping and gravity
+	if is_on_floor():
+		snap = -get_floor_normal()
+		accel = ACCEL_TYPE["default"]
+		gravity_vec = Vector3.ZERO
+	else:
+		snap = Vector3.DOWN
+		accel = ACCEL_TYPE["air"]
+		gravity_vec += Vector3.DOWN * GRAVITY * delta
+		
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		snap = Vector3.ZERO
+		gravity_vec = Vector3.UP * JUMP
+		if crouching: stand_up()
+		
+		# 	warning: probably not good to just set positino of the kinematic body now
+	if Input.is_action_just_pressed("crouch"):
+		if crouching: stand_up()
+		else: crouch()
+	
+	# Moving
+	if crouching:
+		velocity = velocity.linear_interpolate(dir * SPEED / 4, accel * delta)
+	else:
+		velocity = velocity.linear_interpolate(dir * SPEED, accel * delta)
+	if(gravity_vec > Vector3.ZERO):
+		movement = velocity + gravity_vec * JUMP_MULTY
+	elif(gravity_vec < Vector3.ZERO):
+		movement = velocity + gravity_vec * FALL_MULTY
+	else:
+		movement = velocity + gravity_vec
+	
+	# warning-ignore:return_value_discarded
+	move_and_slide_with_snap(movement, snap, Vector3.UP)
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		
 		if collision.collider.get_parent() is Box:
 			print ("death by box")
-		else: print ("I collided with ", collision.collider.name)
-	###################
-	
-#	if Input.is_action_just_pressed("exit"):
-#		get_tree().quit()
-#	if Input.is_action_just_pressed("reset_position"):
-#		translation = start_position
-
-#	var dir = Vector3()
-#	dir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-#	dir.z = Input.get_action_strength("move_back") - Input.get_action_strength("move_forward")
-
-	# Get the camera's transform basis, but remove the X rotation such
-	# that the Y axis is up and Z is horizontal.
-#	var cam_basis = camera.global_transform.basis
-#	var basis = cam_basis.rotated(cam_basis.x, -cam_basis.get_euler().x)
-#	dir = basis.xform(dir)
-#
-#	# Limit the input to a length of 1. length_squared is faster to check.
-#	if dir.length_squared() > 1:
-#		dir /= dir.length()
-#
-#	# Apply gravity.
-#	velocity.y += delta * gravity
-#
-#	# Using only the horizontal velocity, interpolate towards the input.
-#	var hvel = velocity
-#	hvel.y = 0
-
-#	var target = dir * MAX_SPEED
-#	var acceleration
-#	if dir.dot(hvel) > 0:
-#		acceleration = ACCELERATION
-#	else:
-#		acceleration = DECELERATION
-#
-#	hvel = hvel.linear_interpolate(target, acceleration * delta)
-#
-#	# Assign hvel's values back to velocity, and then move.
-#	velocity.x = hvel.x
-#	velocity.z = hvel.z
-#	velocity = move_and_slide(velocity, Vector3.UP)
-#
-#	# Jumping code. is_on_floor() must come after move_and_slide().
-#	if is_on_floor() and Input.is_action_pressed("jump"):
-#		velocity.y = JUMP_SPEED
-
-
-#func _on_tcube_body_entered(body):
-#	if body == self:
-#		get_node("WinText").show()
 
 
 
 func _input(event):
 	if mouse_captured:
 		if event is InputEventMouseMotion:
-			self.rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+			rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 			
 			# Make sure you can't look too far up or down
 			$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -75, 75)
-
+			
+			
 	if event is InputEventKey:
 		if event.scancode == KEY_M and event.is_pressed():
 			toggle_cursor ()
@@ -164,6 +170,14 @@ func _input(event):
 		if event.scancode == KEY_H and event.is_pressed():
 			remove_child(highlight)
 			get_parent().add_child(highlight)
+			
+	if event is InputEventKey:
+		if event.scancode == KEY_3 and event.is_pressed():
+			third_person_cam()
+			
+	if event is InputEventKey:
+		if event.scancode == KEY_1 and event.is_pressed():
+			first_person_cam()
 
 
 func toggle_cursor ():
@@ -181,49 +195,89 @@ func try_highlight_box ():
 	if highlight == null:
 		print ("no highlight object")
 		return
-		
+	
 	var space_state = get_world().direct_space_state
-	var center_screen = get_viewport().size / 2
-	var from = $CamRoot/Camera.project_ray_origin(center_screen)
-	var to = from + $CamRoot/Camera.project_ray_normal(center_screen) * RAY_LENGTH
+	#var screen_point = get_viewport().size / 2
+	var screen_point = ($Sprite as Node2D).position
+	
+	var from = $CamRoot/Camera.project_ray_origin(screen_point)
+	var to = from + $CamRoot/Camera.project_ray_normal(screen_point) * RAY_LENGTH
 	var result = space_state.intersect_ray(from, to, [self])
 	
 	var turn_on_highlight = false
 	
 	if result:
-		var thing = result.collider.get_parent ()
-		if thing is Box:
-			box_hit = thing as Box
-			if not box_hit.moving():
-				var dirs = box_hit.get_pull_directions (result.position)
-				highlight.translation = box_hit.get_world_center() + dirs[0] * .5 * box_hit.get_scale()
-				highlight.transform.basis = Basis(dirs[2], dirs[1], dirs[0])
-				highlight.transform.orthonormalized()
-				turn_on_highlight = true
-			else: box_hit = null
-			
+		debug_marker.translation = result.position
 		
+		var thing = result.collider.get_parent ()
+		
+		if not thing is Box:
+			box_hit = null
+		else:
+			box_hit = thing as Box
+			if box_hit.moving():
+				box_hit = null
+			else:
+				highlight_info = box_hit.get_nearest_face (result.position, (to - from).normalized(), highlight_info)
+				if not highlight_info.cool:
+					# leave highlight on if it's visible
+					turn_on_highlight = highlight.visible
+				else:
+					highlight.transform.basis = Basis(highlight_info.dirs[0], highlight_info.dirs[1], highlight_info.dirs[2])
+					highlight.translation = box_hit.get_world_center() + highlight_info.dirs[2]
+					highlight.transform.orthonormalized()
+					highlight.scale.x = 2 * highlight_info.dirs[0].length()
+					highlight.scale.y = 2 * highlight_info.dirs[1].length()
+					turn_on_highlight = true
+			
 	if turn_on_highlight:
 		highlight.show()
 	else: highlight.hide()
 
 func try_pull_box():
-	if highlight == null:
-		print ("no highlight object")
-		return
-		
 	if box_hit:
-		box_hit.was_pulled(highlight.translation)
-		
+		box_hit.face_pulled(highlight_info.face)
 		
 func stand_up():
-	crouching = false
-	cam_root.translation.y = CAM_STANDING_Y
-	shape.translation.y = SHAPE_STANDING_Y
-	shape.scale.y = SHAPE_SCALE_STANDING_Y
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin + shape.global_transform.basis.y.normalized() * 1
+	var crouch_blocked = space_state.intersect_ray(from, to, [shape])
 	
+	if not crouch_blocked:
+		crouching = false
+		cam_root.translation.y = CAM_STANDING_Y
+		shape.translation.y = SHAPE_STANDING_Y
+		shape.scale.y = SHAPE_SCALE_STANDING_Y
+		cube_person.translation = Vector3(0, -.322, 0)
+	else:
+		print ("crouch was blocked by ", crouch_blocked.collider.name)
+		
+		
+# to be done safely, this is called in physics_process
 func crouch():
 	crouching = true
 	cam_root.translation.y = CAM_CROUCHING_Y
 	shape.translation.y = SHAPE_CROUCHING_Y
 	shape.scale.y = SHAPE_SCALE_CROUCHING_Y
+	cube_person.translation = Vector3(0, -1.322, 0)
+	
+func third_person_cam():
+	var sprite = $Sprite
+	var screen_rect = sprite.get_viewport_rect()
+	var node = sprite as Node2D
+	print (node.position)
+	node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
+	first_person = false
+	camera.translation = CAM_OFFSET3
+	cube_person.show()
+	
+func first_person_cam():
+	var sprite = $Sprite
+	var screen_rect = sprite.get_viewport_rect()
+	var node = sprite as Node2D
+	print (node.position)
+	node.position = Vector2(screen_rect.size.x, screen_rect.size.y) / 2
+	first_person = true
+	camera.translation = CAM_OFFSET1
+	cube_person.hide()

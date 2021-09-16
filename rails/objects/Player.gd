@@ -50,7 +50,7 @@ func _process(delta):
 	body.move_and_slide(transform.basis.z * 5 * delta, Vector3.UP)
 		
 		
-func _physics_process(_delta):
+func _physics_process(delta):
 	# Raycast to highlight box side potentially
 	shoot_ray()
 	

@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="rails"
-run/main_scene="res://scenes/MainWorld.tscn"
+run/main_scene="res://levels/MainWorld.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -73,6 +73,11 @@ left_click={
 crouch={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":67,"unicode":0,"echo":false,"script":null)
+ ]
+}
+jump={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 

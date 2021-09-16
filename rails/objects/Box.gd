@@ -4,6 +4,13 @@ class_name Box
 const box_speed = 2.5
 
 onready var controller = $"/root/Root/Controller"
+onready var mesh = $MeshInstance
+
+
+enum Face {X_PLUS, X_MINUS, Y_PLUS, Y_MINUS, Z_PLUS, Z_MINUS}
+
+signal delivered(box, yes)
+
 var velocity = Vector3()
 var grab_velocity : Vector3
 var edges = Array()
@@ -13,7 +20,15 @@ var bump_t = 0
 var bump_dir = Vector3()
 var rails_touching = Array()
 
+func _enter_tree():
+	prints(name, "entered tree, joined Boxes group")
+	add_to_group("Boxes")
+	
+
 func _ready():
+	
+	prints(name, "readied up")
+	
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 0, 1)})
@@ -46,7 +61,7 @@ func _process(delta):
 	# Accelerate
 	if velocity != Vector3.ZERO:
 		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
-	
+		
 		# Check if we're about to go off the rails!
 		var to_move = velocity * delta
 		var result = on_rails(to_move)
@@ -90,6 +105,7 @@ func _process(delta):
 
 
 	# Do per-rail logic
+	var was_delivered = delivered
 	delivered = false
 	var to_remove = null
 	for rail in rails_touching:
@@ -134,7 +150,10 @@ func _process(delta):
 		var bump_dist = lerp(0.06, 0, controller.ease_out_quad(bump_t))
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir
 
-
+	if delivered and not was_delivered:
+		emit_signal("delivered", self, true)
+	elif was_delivered and not delivered:
+		emit_signal("delivered", self, false)
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):
@@ -233,55 +252,99 @@ func point_on_rail(point, rail):
 	var barely = (ap < 0.001) != (pb < 0.001)
 	return {"on": on, "barely": barely}
 	
-
-func get_pull_directions(collision_position):
-	var pos = collision_position - translation
-	var dirs = [Vector3.ZERO, Vector3.ZERO, Vector3.ZERO]
-
-	var leeway = 0.01
-	if abs(pos.x - 0) < leeway:
-		dirs[0] = Vector3.LEFT
-		dirs[1] = Vector3.UP
-		dirs[2] = Vector3.FORWARD
-	elif abs(pos.x - 1) < leeway:
-		dirs[0] = Vector3.RIGHT
-		dirs[1] = Vector3.DOWN
-		dirs[2] = Vector3.BACK
-	elif abs(pos.y - 0) < leeway:
-		dirs[0] = Vector3.DOWN
-		dirs[1] = Vector3.RIGHT
-		dirs[2] = Vector3.BACK
-	elif abs(pos.y - 1) < leeway:
-		dirs[0] = Vector3.UP
-		dirs[1] = Vector3.LEFT
-		dirs[2] = Vector3.FORWARD
-	elif abs(pos.z - 0) < leeway:
-		dirs[0] = Vector3.FORWARD
-		dirs[1] = Vector3.UP
-		dirs[2] = Vector3.LEFT
-	elif abs(pos.z - 1) < leeway:
-		dirs[0] = Vector3.BACK
-		dirs[1] = Vector3.DOWN
-		dirs[2] = Vector3.RIGHT
-	else:
-		print ("BADDDDDDDDD pull dirs")
-		
-	return dirs
 	
-func get_scale():
-	if scale != Vector3.ONE:
-		print ("BAD: don't know what scale to use for box")
-	return scale.x
+func get_nearest_face(collision_position, ray, highlight_info):
+	var local_pos = collision_position - get_world_center()
+	var x_basis = global_transform.basis.x * mesh.scale.x
+	var y_basis = global_transform.basis.y * mesh.scale.y
+	var z_basis = global_transform.basis.z * mesh.scale.z
+	
+	var x = local_pos.dot(x_basis)
+	var y = local_pos.dot(y_basis)
+	var z = local_pos.dot(z_basis)
+	
+	x = x / (scale.x * scale.x)
+	y = y / (scale.y * scale.y)
+	z = z / (scale.z * scale.z)
+		
+	var face
+	var basis = []
+	if abs(x) > abs(y):
+		if abs(x) > abs(z):
+			if x > 0:
+				face = Face.X_PLUS
+				basis = [y_basis, z_basis, x_basis]
+			else:
+				face = Face.X_MINUS
+				basis = [y_basis, z_basis, -x_basis]
+		else:
+			if z < 0: 
+				face = Face.Z_MINUS
+				basis = [x_basis, y_basis, -z_basis]
+			else:
+				face = Face.Z_PLUS
+				basis = [x_basis, y_basis, z_basis]
+	elif abs(y) > abs(z):
+		if y > 0:
+			face = Face.Y_PLUS
+			basis = [z_basis, x_basis, y_basis]
+		else:
+			face = Face.Y_MINUS
+			basis = [z_basis, x_basis, -y_basis]
+	else:
+		if z < 0: 
+			face = Face.Z_MINUS
+			basis = [x_basis, y_basis, -z_basis]
+		else:
+			face = Face.Z_PLUS
+			basis = [x_basis, y_basis, z_basis]
+	
+	var dot_threshold = .075
+	if abs(ray.dot(basis[2])) < dot_threshold:
+		highlight_info.cool = false
+	else: 
+		highlight_info.cool = true
+		highlight_info.dirs = basis
+		highlight_info.face = face
+	
+	return highlight_info
+	
+
 	
 func get_world_center ():
-	var x = global_transform.basis.x * scale.x * .5
-	var y = global_transform.basis.y * scale.y * .5
-	var z = global_transform.basis.z * scale.z * .5
-	return translation + x + y + z
+	var x = global_transform.basis.x * mesh.scale.x
+	var y = global_transform.basis.y * mesh.scale.y
+	var z = global_transform.basis.z * mesh.scale.z
+	return global_transform.origin + x + y + z
 
 func moving():
 	return velocity != Vector3.ZERO
 	
+func face_pulled(face):
+	if moving(): return
+	
+	match face:
+		Face.X_PLUS:
+			grab_velocity = Vector3.RIGHT
+			continue
+		Face.X_MINUS:
+			grab_velocity = Vector3.LEFT
+			continue
+		Face.Y_PLUS:
+			grab_velocity = Vector3.UP
+			continue	
+		Face.Y_MINUS:
+			grab_velocity = Vector3.DOWN
+			continue
+		Face.Z_PLUS:
+			grab_velocity = Vector3.BACK
+			continue
+		Face.Z_MINUS:
+			grab_velocity = Vector3.FORWARD
+			continue
+			
+	
+#not used by Cubio, only the old player	
 func was_pulled (collision_position):
 	# don't want to interrupt a moving box!
 	if velocity != Vector3.ZERO: return
