@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Peaceful Puzzler-root-01-test2.wav-53248cddda7325e2b650f27da8fa7b53.sample"
+
+[deps]
+
+source_file="res://sounds/Peaceful Puzzler-root-01-test2.wav"
+dest_files=[ "res://.import/Peaceful Puzzler-root-01-test2.wav-53248cddda7325e2b650f27da8fa7b53.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -72,14 +72,18 @@ func _process(delta):
 		
 	# Set rail sound volumes
 	var volume_delta = delta*10
-	if velocity != Vector3.ZERO:
-		if rail_sound_index == 1:
+	if rail_sound_index == 1:
+		if velocity != Vector3.ZERO:
 			rail_volume_1 += volume_delta
 		else:
-			rail_volume_2 += volume_delta
-	else:
-		rail_volume_1 -= volume_delta
+			rail_volume_1 -= volume_delta
 		rail_volume_2 -= volume_delta
+	else:
+		if velocity != Vector3.ZERO:
+			rail_volume_2 += volume_delta
+		else:
+			rail_volume_2 -= volume_delta
+		rail_volume_1 -= volume_delta
 	rail_volume_1 = clamp(rail_volume_1, 0, 1)
 	rail_volume_2 = clamp(rail_volume_2, 0, 1)
 	$RailSound1.max_db = lerp(-100, 3, rail_volume_1)

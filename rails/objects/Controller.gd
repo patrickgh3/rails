@@ -22,6 +22,8 @@ func _ready():
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:
 		spawn.hide()
+		
+	music2.set_volume_db(-100)
 	
 	
 
@@ -36,8 +38,8 @@ func _process(_delta):
 	else:
 		music_fade -= _delta
 	music_fade = clamp(music_fade, 0, 1)
-	music1.set_volume_db(lerp(-20, 0, music_fade))
-	music2.set_volume_db(lerp(-20, 0, 1-music_fade))
+	#music1.set_volume_db(lerp(-20, 0, music_fade))
+	music2.set_volume_db(lerp(-30, 0, music_fade))
 
 func _input(event):
 	if event is InputEventKey:
