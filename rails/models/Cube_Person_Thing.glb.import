@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Cube_Person.glb-121c7a835a49f2330dfd284fd9b9de21.scn"
+path="res://.import/Cube_Person_Thing.glb-58bc26433e93a6605d6721b9d7de64a0.scn"
 
 [deps]
 
-source_file="res://models/Cube_Person.glb"
-dest_files=[ "res://.import/Cube_Person.glb-121c7a835a49f2330dfd284fd9b9de21.scn" ]
+source_file="res://models/Cube_Person_Thing.glb"
+dest_files=[ "res://.import/Cube_Person_Thing.glb-58bc26433e93a6605d6721b9d7de64a0.scn" ]
 
 [params]
 
@@ -15,8 +15,8 @@ nodes/root_type="Spatial"
 nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
-nodes/storage=1
-nodes/use_legacy_names=true
+nodes/storage=0
+nodes/use_legacy_names=false
 materials/location=1
 materials/storage=1
 materials/keep_on_reimport=true

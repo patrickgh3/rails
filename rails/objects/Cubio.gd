@@ -19,7 +19,8 @@ const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
 const MOUSE_SENSITIVITY = 0.1
 const RAY_LENGTH = 1000
-const CAM_OFFSET3 = Vector3(0, 2, 4)
+const CAM_OFFSET3 = Vector3(0, 2, 6)
+const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_OFFSET1 = Vector3(0, 1, 0)
 
 
@@ -28,6 +29,7 @@ onready var cam_root = $CamRoot
 onready var camera = $CamRoot/Camera
 onready var cube_person = $Cube_Person
 onready var accel = ACCEL_TYPE["default"]
+onready var cube_pieces : PiecesOfCube = cube_person as PiecesOfCube
 
 
 # Strafe leaning
@@ -242,42 +244,57 @@ func stand_up():
 	var space_state = get_world().direct_space_state
 	var from = shape.global_transform.origin
 	var to = shape.global_transform.origin + shape.global_transform.basis.y.normalized() * 1
-	var crouch_blocked = space_state.intersect_ray(from, to, [shape])
+	var head_space_blocked = space_state.intersect_ray(from, to, [shape])
 	
-	if not crouch_blocked:
+	if head_space_blocked:
+		print ("standing up was blocked by ", head_space_blocked.collider.name)
+	else:
 		crouching = false
 		cam_root.translation.y = CAM_STANDING_Y
 		shape.translation.y = SHAPE_STANDING_Y
 		shape.scale.y = SHAPE_SCALE_STANDING_Y
-		cube_person.translation = Vector3(0, -.322, 0)
-	else:
-		print ("crouch was blocked by ", crouch_blocked.collider.name)
+		cube_pieces.stand_up()
 		
 		
-# to be done safely, this is called in physics_process
+		var sprite = $Sprite
+		var screen_rect = sprite.get_viewport_rect()
+		var node = sprite as Node2D
+		
+		if first_person:
+			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
+			camera.translation = CAM_OFFSET1
+		else:
+			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 3 / 5)
+			camera.translation = CAM_OFFSET3
+		
+		
 func crouch():
 	crouching = true
+	cube_pieces.crouch()
+	
 	cam_root.translation.y = CAM_CROUCHING_Y
 	shape.translation.y = SHAPE_CROUCHING_Y
 	shape.scale.y = SHAPE_SCALE_CROUCHING_Y
-	cube_person.translation = Vector3(0, -1.322, 0)
+	
+	var sprite = $Sprite
+	var screen_rect = sprite.get_viewport_rect()
+	var node = sprite as Node2D
+	
+	if first_person:
+		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
+		camera.translation = CAM_OFFSET1
+	else:
+		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
+		camera.translation = CAM_CROUCH_OFFSET3
 	
 func third_person_cam():
-	var sprite = $Sprite
-	var screen_rect = sprite.get_viewport_rect()
-	var node = sprite as Node2D
-	print (node.position)
-	node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
 	first_person = false
-	camera.translation = CAM_OFFSET3
 	cube_person.show()
+	if crouching: crouch()
+	else: stand_up()
 	
 func first_person_cam():
-	var sprite = $Sprite
-	var screen_rect = sprite.get_viewport_rect()
-	var node = sprite as Node2D
-	print (node.position)
-	node.position = Vector2(screen_rect.size.x, screen_rect.size.y) / 2
 	first_person = true
-	camera.translation = CAM_OFFSET1
 	cube_person.hide()
+	if crouching: crouch()
+	else: stand_up()
