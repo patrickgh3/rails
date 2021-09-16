@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://objects/Box.gd"
 }, {
 "base": "Spatial",
+"class": "PiecesOfCube",
+"language": "GDScript",
+"path": "res://objects/PiecesOfCube.gd"
+}, {
+"base": "Spatial",
 "class": "Rail",
 "language": "GDScript",
 "path": "res://objects/Rail.gd"
 } ]
 _global_script_class_icons={
 "Box": "",
+"PiecesOfCube": "",
 "Rail": ""
 }
 

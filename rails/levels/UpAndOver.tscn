@@ -20,7 +20,7 @@ boxes = [ NodePath("../Box") ]
 transform = Transform( 0.316711, 0, 0.386904, 0, 0.5, 0, -0.386904, 0, 0.316711, 2.54774, 2.50566, 2.04624 )
 
 [node name="Cubio" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.58903 )
+transform = Transform( 0.437571, 0, 0.899184, 0, 1, 0, -0.899184, 0, 0.437571, 1.63589, 1.58259, -0.621485 )
 
 [node name="Ground" parent="." instance=ExtResource( 3 )]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 0.0563784 )
