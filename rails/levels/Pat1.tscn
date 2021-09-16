@@ -130,4 +130,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -2 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
-boxes = [ NodePath("../Box") ]
+boxes = [ NodePath("../Box"), NodePath("../Box2"), NodePath("../Box3") ]
+
+[node name="Player" parent="." instance=ExtResource( 6 )]

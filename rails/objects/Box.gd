@@ -46,6 +46,10 @@ func _ready():
 	edges.append({"a": Vector3(0, 0, 1), "b": Vector3(0, 1, 1)})
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 1, 0)})
 	edges.append({"a": Vector3(1, 0, 1), "b": Vector3(1, 1, 1)})
+	
+	for edge in edges:
+		edge["a"] *= scale
+		edge["b"] *= scale
 
 func _process(delta):
 	# Apply grab velocity, if it was set
@@ -350,15 +354,15 @@ func was_pulled (collision_position):
 	var leeway = 0.01
 	if abs(pos.x - 0) < leeway:
 		grab_velocity = Vector3.LEFT
-	elif abs(pos.x - 1) < leeway:
+	elif abs(pos.x - scale.x) < leeway:
 		grab_velocity = Vector3.RIGHT
 	elif abs(pos.y - 0) < leeway:
 		grab_velocity = Vector3.DOWN
-	elif abs(pos.y - 1) < leeway:
+	elif abs(pos.y - scale.y) < leeway:
 		grab_velocity = Vector3.UP
 	elif abs(pos.z - 0) < leeway:
 		grab_velocity = Vector3.FORWARD
-	elif abs(pos.z - 1) < leeway:
+	elif abs(pos.z - scale.z) < leeway:
 		grab_velocity = Vector3.BACK
 	else:
 		print ("BADDDDDDDDD")
