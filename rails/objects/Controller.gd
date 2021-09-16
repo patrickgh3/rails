@@ -5,6 +5,10 @@ var boxes = Array()
 var rails_just_halted = Array()
 var rails_just_halted_timer = 0
 
+onready var music1 = $Music1
+onready var music2 = $Music2
+var music_fade = 0
+
 func _ready():
 	for node in $"/root/Root".get_children():
 		if "Box" in node.name:
@@ -26,6 +30,14 @@ func _process(_delta):
 	if rails_just_halted_timer == 2:
 		rails_just_halted.clear()
 		
+	# Fade in and out music
+	if Input.is_key_pressed(KEY_U):
+		music_fade += _delta
+	else:
+		music_fade -= _delta
+	music_fade = clamp(music_fade, 0, 1)
+	music1.set_volume_db(lerp(-20, 0, music_fade))
+	music2.set_volume_db(lerp(-20, 0, 1-music_fade))
 
 func _input(event):
 	if event is InputEventKey:
