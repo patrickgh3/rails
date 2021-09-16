@@ -23,6 +23,7 @@ texture = ExtResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 
 [node name="Camera" type="Camera" parent="CamRoot"]
+current = true
 
 [node name="Head" type="MeshInstance" parent="CamRoot"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )

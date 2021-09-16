@@ -14,10 +14,12 @@ func _ready():
 		rails.append(rail)
 	rails_just_halted = rails.duplicate()
 	
-	
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:
 		spawn.hide()
+		
+	make_cubio()
+	
 	
 	
 
@@ -34,11 +36,11 @@ func _input(event):
 		
 		
 func make_cubio():
-	var cub = load("res://objects/Cubio.tscn").instance()
+	var cub = get_node_or_null("../Cubio") #load("res://objects/Cubio.tscn").instance()
 	if cub == null:
 		print ("no cub")
 		cub = load("res://objects/Cubio.tscn").instance()
-		
+		get_tree().current_scene.call_deferred("add_child", cub)
 	else:
 		print ("found cub ", cub.name)
 		
@@ -51,6 +53,11 @@ func make_cubio():
 	else:
 		print (cub.name, " did not find spawn")
 		cub.translation = Vector3.ONE
+			
+			
+			
+			
+			
 			
 func vectors_equal (a, b, margin = .1):
 	return abs(a.x - b.x) < margin and abs(a.y - b.y) < margin and abs(a.z - b.z) < margin	
