@@ -19,6 +19,9 @@ var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
 var rails_touching = Array()
+var rail_volume_1 = 0
+var rail_volume_2 = 0
+var rail_sound_index = 1
 
 func _enter_tree():
 	prints(name, "entered tree, joined Boxes group")
@@ -57,6 +60,30 @@ func _process(delta):
 	if grab_velocity != Vector3.ZERO:
 		velocity = grab_velocity
 		grab_velocity = Vector3.ZERO
+		
+		if rail_sound_index == 1: rail_sound_index = 2
+		else: rail_sound_index = 1
+		if rail_sound_index == 1:
+			$RailSound1.play()
+			rail_volume_1 = 0
+		else:
+			$RailSound2.play()
+			rail_volume_2 = 0
+		
+	# Set rail sound volumes
+	var volume_delta = delta*10
+	if velocity != Vector3.ZERO:
+		if rail_sound_index == 1:
+			rail_volume_1 += volume_delta
+		else:
+			rail_volume_2 += volume_delta
+	else:
+		rail_volume_1 -= volume_delta
+		rail_volume_2 -= volume_delta
+	rail_volume_1 = clamp(rail_volume_1, 0, 1)
+	rail_volume_2 = clamp(rail_volume_2, 0, 1)
+	$RailSound1.max_db = lerp(-100, 3, rail_volume_1)
+	$RailSound2.max_db = lerp(-100, 3, rail_volume_2)
 	
 	# Accelerate
 	if velocity != Vector3.ZERO:
@@ -98,6 +125,8 @@ func _process(delta):
 				if "Rail" in node.name:
 					controller.rails_just_halted.append(node)
 					controller.rails_just_halted_timer = 0
+					
+			$StopSound.play()
 		
 		# Save rails touching
 		rails_touching = result["rails"]
@@ -152,8 +181,10 @@ func _process(delta):
 
 	if delivered and not was_delivered:
 		emit_signal("delivered", self, true)
+		$DeliveredSound.play()
 	elif was_delivered and not delivered:
 		emit_signal("delivered", self, false)
+		$UndeliveredSound.play()
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):

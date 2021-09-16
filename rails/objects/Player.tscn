@@ -40,3 +40,5 @@ cast_to = Vector3( 0, 0, -1 )
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 shape = SubResource( 3 )
+
+[node name="Listener" type="Listener" parent="."]
