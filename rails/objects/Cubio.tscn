@@ -4,9 +4,9 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://objects/CubePerson.tscn" type="PackedScene" id=3]
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=2]
 
 [node name="Cubio" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -28,12 +28,12 @@ current = true
 [node name="Head" type="MeshInstance" parent="CamRoot"]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
 visible = false
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 0.45, 0, 0, 0, 0.95, 0, 0, 0, 0.5, 0, 0.5, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="RayCast" type="RayCast" parent="."]
 cast_to = Vector3( 0, 0, -1 )

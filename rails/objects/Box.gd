@@ -19,6 +19,8 @@ var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
 var rails_touching = Array()
+var initial_translation
+var initial_rotation
 
 func _enter_tree():
 	prints(name, "entered tree, joined Boxes group")
@@ -26,8 +28,8 @@ func _enter_tree():
 	
 
 func _ready():
-	
-	prints(name, "readied up")
+	initial_translation = translation
+	initial_rotation = rotation
 	
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
@@ -320,6 +322,10 @@ func get_world_center ():
 func moving():
 	return velocity != Vector3.ZERO
 	
+func reset_transform_to_initial_values():
+	translation = initial_translation
+	rotation = initial_rotation
+		
 func face_pulled(face):
 	if moving(): return
 	

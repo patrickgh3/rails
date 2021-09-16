@@ -74,4 +74,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16 )
 boxes = [ NodePath("../Box") ]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29068, -1.48635 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.465723, 1.19837, -2.73346 )

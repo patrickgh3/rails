@@ -14,11 +14,7 @@ func _ready():
 		rails.append(rail)
 	rails_just_halted = rails.duplicate()
 	
-	var spawn = get_node_or_null("/root/Root/CubioSpawn")
-	if not spawn == null:
-		spawn.hide()
-		
-	make_cubio()
+	#make_cubio()
 	
 	
 	
@@ -50,13 +46,6 @@ func make_cubio():
 		cub.translation = spawn.translation
 		cub.rotation = spawn.rotation
 		spawn.queue_free()
-	else:
-		print (cub.name, " did not find spawn")
-		cub.translation = Vector3.ONE
-			
-			
-			
-			
 			
 			
 func vectors_equal (a, b, margin = .1):
