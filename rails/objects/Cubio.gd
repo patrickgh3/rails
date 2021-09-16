@@ -93,9 +93,6 @@ func _physics_process(delta):
 	
 	try_highlight_box()
 
-
-		
-
 	# keyboard movement
 	dir = Vector3.ZERO
 	var h_rot = global_transform.basis.get_euler().y
@@ -152,7 +149,6 @@ func _physics_process(delta):
 			print ("death by box")
 
 
-
 func _input(event):
 	if mouse_captured:
 		if event is InputEventMouseMotion:
@@ -180,8 +176,12 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_1 and event.is_pressed():
 			first_person_cam()
-
-
+			
+	if event is InputEventKey:
+		if event.scancode == KEY_R and event.is_pressed():
+			for b in get_tree().get_nodes_in_group("Boxes"):
+				b.reset_transform_to_initial_values()
+				
 func toggle_cursor ():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

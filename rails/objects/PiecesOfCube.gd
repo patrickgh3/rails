@@ -8,6 +8,20 @@ onready var torso = $TORSO
 onready var legs = $LEG
 onready var shoes = $SHOES
 
+
+func _ready():
+	# load your image.
+	var image = load("res://colorful_rainbow_ink_in_water-wallpaper-2560x1440.jpg")
+	# Get the 3D model
+	var mesh = get_node("FaceQuad")
+	# Get the material in slot 0
+	var material_one = mesh.get_surface_material(0)
+	# Change the texture
+	material_one.albedo_texture = image
+	# Reassign the material
+	mesh.set_surface_material(0, material_one)
+
+
 func crouch():
 	head.translation = Vector3(0, -.95, 0)
 	arms.hide()
