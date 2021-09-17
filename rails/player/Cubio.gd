@@ -47,6 +47,7 @@ var box_hit : Box
 var highlight_info
 var snap
 var first_person
+var lean_cam = false # set false for now for max's sake during development
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -80,10 +81,8 @@ func _process(delta):
 			camera.set_as_toplevel(false)
 			camera.global_transform = cam_root.global_transform 
 			
-		cam_root.rotation.z = lerp(cam_root.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
-		
-	else:
-		pass
+		if lean_cam:
+			cam_root.rotation.z = lerp(cam_root.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
 		
 
 func _physics_process(delta):
@@ -143,7 +142,9 @@ func _physics_process(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if collision.collider.get_parent() is Box:
-			print ("death by box")
+			var box_hit = collision.collider.get_parent() as Box
+			if box_hit.launcher and box_hit.moving():
+				velocity = box_hit.velocity
 
 
 func _input(event):
@@ -207,13 +208,11 @@ func try_highlight_box ():
 	
 	if result:
 		debug_marker.translation = result.position
-		
-		var thing = result.collider.get_parent ()
-		
-		if not thing is Box:
+		var collider_hit = result.collider
+		if not collider_hit is Box:
 			box_hit = null
 		else:
-			box_hit = thing as Box
+			box_hit = collider_hit as Box
 			if box_hit.moving():
 				box_hit = null
 			else:
