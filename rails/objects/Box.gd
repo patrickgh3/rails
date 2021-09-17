@@ -21,6 +21,9 @@ var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
 var rails_touching = Array()
+var rail_volume_1 = 0
+var rail_volume_2 = 0
+var rail_sound_index = 1
 var initial_translation
 var initial_rotation
 
@@ -53,6 +56,7 @@ func _ready():
 	for edge in edges:
 		edge["a"] *= scale
 		edge["b"] *= scale
+	print(scale)
 
 func _process(delta):
 	# Apply grab velocity, if it was set
@@ -60,6 +64,39 @@ func _process(delta):
 	if grab_velocity != Vector3.ZERO:
 		velocity = grab_velocity
 		grab_velocity = Vector3.ZERO
+		
+		if rail_sound_index == 1: rail_sound_index = 2
+		else: rail_sound_index = 1
+		if rail_sound_index == 1:
+			$RailSound1.play()
+			rail_volume_1 = 0
+		else:
+			$RailSound2.play()
+			rail_volume_2 = 0
+			
+		for node in get_children():
+			if "Rail" in node.name:
+				controller.rails_just_departed.append(node)
+				controller.rails_just_departed_timer = 0
+		
+	# Set rail sound volumes
+	var volume_delta = delta*10
+	if rail_sound_index == 1:
+		if velocity != Vector3.ZERO:
+			rail_volume_1 += volume_delta
+		else:
+			rail_volume_1 -= volume_delta
+		rail_volume_2 -= volume_delta
+	else:
+		if velocity != Vector3.ZERO:
+			rail_volume_2 += volume_delta
+		else:
+			rail_volume_2 -= volume_delta
+		rail_volume_1 -= volume_delta
+	rail_volume_1 = clamp(rail_volume_1, 0, 1)
+	rail_volume_2 = clamp(rail_volume_2, 0, 1)
+	$RailSound1.max_db = lerp(-100, 3, rail_volume_1)
+	$RailSound2.max_db = lerp(-100, 3, rail_volume_2)
 	
 	# Accelerate
 	if velocity != Vector3.ZERO:
@@ -101,6 +138,8 @@ func _process(delta):
 				if "Rail" in node.name:
 					controller.rails_just_halted.append(node)
 					controller.rails_just_halted_timer = 0
+					
+			$StopSound.play()
 		
 		# Save rails touching
 		rails_touching = result["rails"]
@@ -110,7 +149,6 @@ func _process(delta):
 	# Do per-rail logic
 	var was_delivered = delivered
 	delivered = false
-	var to_remove = null
 	for rail in rails_touching:
 		# Mark rail pressed, and add to glow
 		rail.glow += delta * 10
@@ -119,16 +157,6 @@ func _process(delta):
 		# Mark ourselves as delivered, if this rail is a target and we're still
 		if rail.is_target and velocity == Vector3.ZERO:
 			delivered = true
-
-		# If this rail moved, check that we're still touching it
-		var touching = false
-		for edge in edges:
-			if not touching and point_on_rail(translation + edge["a"], rail)["on"] and point_on_rail(translation + edge["b"], rail)["on"]:
-				touching = true
-		if not touching:
-			to_remove = rail
-	if to_remove:
-		rails_touching.erase(to_remove)
 		
 	# Of rails that just stopped moving, check if we're touching any,
 	# and if so, count that we're touching them
@@ -143,6 +171,12 @@ func _process(delta):
 					if not rail in rails_touching:
 						rails_touching.append(rail)
 	
+	if velocity == Vector3.ZERO:
+		for rail in controller.rails_just_departed:
+			if rail in rails_touching:
+				rails_touching.erase(rail)
+		
+	
 	# Bumping state - make the mesh do a little bump in the direction
 	# we failed to move in
 	if bumping:
@@ -155,8 +189,10 @@ func _process(delta):
 
 	if delivered and not was_delivered:
 		emit_signal("delivered", self, true)
+		$DeliveredSound.play()
 	elif was_delivered and not delivered:
 		emit_signal("delivered", self, false)
+		$UndeliveredSound.play()
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):
@@ -189,7 +225,22 @@ func on_rails(to_move):
 				if not result["barely"]: rails[rail] = true
 			
 			# Check midpoint (kind of hacky)
-			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.5), rail)
+			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.2), rail)
+			if result["on"]:
+				c = true
+				if not result["barely"]: rails[rail] = true
+				
+			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.6), rail)
+			if result["on"]:
+				c = true
+				if not result["barely"]: rails[rail] = true
+				
+			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.6), rail)
+			if result["on"]:
+				c = true
+				if not result["barely"]: rails[rail] = true
+				
+			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.8), rail)
 			if result["on"]:
 				c = true
 				if not result["barely"]: rails[rail] = true
@@ -198,26 +249,22 @@ func on_rails(to_move):
 		if a and b and c:
 			valid = true
 	
-	
 	# Check if we're colliding with another box.
 	# This is jank, but kinda works.
 	var my_shape = get_node("CollisionShape")
 	var my_pos = my_shape.get_global_transform().origin
-	var my_extents = my_shape.shape.extents
+	var my_extents = my_shape.shape.extents * scale
 	for box in controller.boxes:
 		if box == self:  continue
 		if not rail_nearby(box, to_move):  continue
 
 		var other_shape = box.get_node("CollisionShape")
 		var other_pos = other_shape.get_global_transform().origin
-		var other_extents = other_shape.shape.extents
+		var other_extents = other_shape.shape.extents * box.scale
 
 		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
 			valid = false
 			break
-		
-	#if $Area.get_overlapping_areas().size() > 0:
-	#	valid = false
 			
 	return {"valid": valid, "rails": rails.keys()}
 
@@ -232,12 +279,12 @@ func rectangular_prisms_overlap(a_pos, a_extents, b_pos, b_extents):
 
 # Rough check if the rail is closeby on the grid
 func rail_nearby(rail, to_move):
-	var cutoff = 2
+	var cutoff = 1
 	var me = get_global_transform().origin + to_move
 	var them = rail.get_global_transform().origin
-	if abs(round(me.x) - round(them.x)) > cutoff: return false
-	if abs(round(me.y) - round(them.y)) > cutoff: return false
-	if abs(round(me.z) - round(them.z)) > cutoff: return false
+	if abs(round(me.x) - round(them.x)) > cutoff + scale.x: return false
+	if abs(round(me.y) - round(them.y)) > cutoff + scale.y: return false
+	if abs(round(me.z) - round(them.z)) > cutoff + scale.z: return false
 	return true
 
 func point_on_rail(point, rail):

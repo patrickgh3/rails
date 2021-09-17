@@ -27,6 +27,7 @@ onready var cam_root = $CamRoot
 onready var camera = $CamRoot/Camera
 onready var cubio_body = $CubioBody
 onready var accel = ACCEL_TYPE["default"]
+onready var controller = $"/root/Root/Controller"
 
 
 # Strafe leaning
@@ -233,6 +234,11 @@ func try_highlight_box ():
 	else: highlight.hide()
 
 func try_pull_box():
+	# If any box is moving, don't highlight any box
+	for box in controller.boxes:
+		if box.velocity != Vector3.ZERO:
+			return
+	
 	if box_hit:
 		box_hit.face_pulled(highlight_info.face)
 		
