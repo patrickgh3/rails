@@ -2,20 +2,23 @@ extends Node
 
 var rails = Array()
 var boxes = Array()
+var grounds = Array()
 var rails_just_halted = Array()
 var rails_just_halted_timer = 0
 var rails_just_departed = Array()
 var rails_just_departed_timer = 0
 
-onready var music1 = $Music1
-onready var music2 = $Music2
-var music_fade = 0
+onready var volumes = {}
+onready var music_active = {}
+onready var rng = RandomNumberGenerator.new()
 
 func _ready():
 	
 	for node in $"/root/Root".get_children():
 		if "Box" in node.name:
 			boxes.append(node)
+		if "Ground" in node.name:
+			grounds.append(node)
 			
 	for rail in get_tree().get_nodes_in_group("Rails"):
 		rails.append(rail)
@@ -26,8 +29,15 @@ func _ready():
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:
 		spawn.hide()
-		
-	music2.set_volume_db(-100)
+	
+	volumes[$MusicRoot1Piano] = 0
+	volumes[$MusicRoot2Deep] = 0
+	volumes[$MusicRoot3Hope] = 0
+	volumes[$MusicGuitarEcho] = 0
+	music_active[$MusicRoot1Piano] = randf() < 0.5
+	music_active[$MusicRoot2Deep] = randf() < 0.5
+	music_active[$MusicRoot3Hope] = randf() < 0.5
+	music_active[$MusicGuitarEcho] = randf() < 0.5
 	
 	
 
@@ -39,14 +49,16 @@ func _process(_delta):
 	if rails_just_departed_timer == 2:
 		rails_just_departed.clear()
 		
-	# Fade in and out music
-	if Input.is_key_pressed(KEY_U):
-		music_fade += _delta
-	else:
-		music_fade -= _delta
-	music_fade = clamp(music_fade, 0, 1)
-	#music1.set_volume_db(lerp(-20, 0, music_fade))
-	music2.set_volume_db(lerp(-30, 0, music_fade))
+	# Gradually fade music layers in and out depending on which ones
+	# we want to be playing right now
+	for node in volumes.keys():
+		if music_active[node]:
+			volumes[node] += _delta
+		else:
+			volumes[node] -= _delta
+		volumes[node] = clamp(volumes[node], 0, 1)
+		node.set_volume_db(lerp(-30, 0, volumes[node]))
+	
 
 func spawn_cubio_if_no_cubio():
 	var cub = get_node_or_null("../Cubio")
@@ -61,7 +73,21 @@ func spawn_cubio_if_no_cubio():
 		cub.translation = spawn.translation
 		cub.rotation = spawn.rotation
 		spawn.queue_free()
-			
+		
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		if event.scancode == KEY_4:
+			music_active[$MusicRoot1Piano] = not music_active[$MusicRoot1Piano]
+		if event.scancode == KEY_5:
+			music_active[$MusicRoot2Deep] = not music_active[$MusicRoot2Deep]
+		if event.scancode == KEY_6:
+			music_active[$MusicRoot3Hope] = not music_active[$MusicRoot3Hope]
+		if event.scancode == KEY_7:
+			music_active[$MusicGuitarEcho] = not music_active[$MusicGuitarEcho]
+		if event.scancode == KEY_8:
+			for node in volumes.keys():
+				music_active[node] = randf() < 0.5
+
 func vectors_equal (a, b, margin = .1):
 	return abs(a.x - b.x) < margin and abs(a.y - b.y) < margin and abs(a.z - b.z) < margin	
 
