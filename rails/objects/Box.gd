@@ -1,4 +1,4 @@
-extends Spatial
+extends KinematicBody
 class_name Box
 
 const box_speed = 2.5
@@ -10,6 +10,8 @@ onready var mesh = $MeshInstance
 enum Face {X_PLUS, X_MINUS, Y_PLUS, Y_MINUS, Z_PLUS, Z_MINUS}
 
 signal delivered(box, yes)
+
+export(bool) var launcher = false
 
 var velocity = Vector3()
 var grab_velocity : Vector3
@@ -249,14 +251,14 @@ func on_rails(to_move):
 	
 	# Check if we're colliding with another box.
 	# This is jank, but kinda works.
-	var my_shape = get_node("Area").get_node("CollisionShape")
+	var my_shape = get_node("CollisionShape")
 	var my_pos = my_shape.get_global_transform().origin
 	var my_extents = my_shape.shape.extents * scale
 	for box in controller.boxes:
 		if box == self:  continue
 		if not rail_nearby(box, to_move):  continue
 
-		var other_shape = box.get_node("Area").get_node("CollisionShape")
+		var other_shape = box.get_node("CollisionShape")
 		var other_pos = other_shape.get_global_transform().origin
 		var other_extents = other_shape.shape.extents * box.scale
 
