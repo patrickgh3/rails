@@ -1,0 +1,200 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/Box.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Ground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Controller.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/Cubio.tscn" type="PackedScene" id=6]
+
+[node name="Root" type="Spatial"]
+
+[node name="Controller" parent="." instance=ExtResource( 5 )]
+
+[node name="Ground" parent="." instance=ExtResource( 4 )]
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0, 1, 0 )
+
+[node name="Ground2" parent="." instance=ExtResource( 4 )]
+transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 5, 0, -1, -30 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.29068, -0.48635 )
+
+[node name="Box" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -1, -4, -11 )
+
+[node name="Rail" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 1 )
+
+[node name="Rail2" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 0.5 )
+
+[node name="Rail3" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 1.5 )
+
+[node name="Rail4" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 2 )
+
+[node name="Rail5" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 0 )
+
+[node name="Rail6" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, -0.5 )
+
+[node name="Rail7" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 1 )
+
+[node name="Rail8" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 0.5 )
+
+[node name="Rail9" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 1.5 )
+
+[node name="Rail13" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1, 0, 1 )
+
+[node name="Rail14" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1.5, 0, 1 )
+
+[node name="Rail15" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0.5, 0, 1 )
+
+[node name="Rail16" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0, 1 )
+
+[node name="Rail17" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -0.5, 0, 1 )
+
+[node name="Rail18" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -1, 0, 1 )
+
+[node name="Rail19" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -1, 0, 0 )
+
+[node name="Rail20" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -0.5, 0, 0 )
+
+[node name="Rail21" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="Rail22" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0.5, 0, 0 )
+
+[node name="Rail23" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1, 0, 0 )
+
+[node name="Rail24" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1.5, 0, 0 )
+
+[node name="Rail10" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 2 )
+
+[node name="Rail11" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 0 )
+
+[node name="Rail12" parent="Box" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, -0.5 )
+
+[node name="Box2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 4, 0, 0, 0, 2, -1, -4, -13 )
+
+[node name="Rail" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 1 )
+
+[node name="Rail2" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 0.5 )
+
+[node name="Rail3" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 1.5 )
+
+[node name="Rail4" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 2 )
+
+[node name="Rail5" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, 0 )
+
+[node name="Rail6" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 0, 0, -0.5 )
+
+[node name="Rail7" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 1 )
+
+[node name="Rail8" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 0.5 )
+
+[node name="Rail9" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 1.5 )
+
+[node name="Rail13" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1, 0, 1 )
+
+[node name="Rail14" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1.5, 0, 1 )
+
+[node name="Rail15" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0.5, 0, 1 )
+
+[node name="Rail16" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0, 1 )
+
+[node name="Rail17" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -0.5, 0, 1 )
+
+[node name="Rail18" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -1, 0, 1 )
+
+[node name="Rail19" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -1, 0, 0 )
+
+[node name="Rail20" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, -0.5, 0, 0 )
+
+[node name="Rail21" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0, 0, 0 )
+
+[node name="Rail22" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 0.5, 0, 0 )
+
+[node name="Rail23" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1, 0, 0 )
+
+[node name="Rail24" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.5, 1.5, 0, 0 )
+
+[node name="Rail10" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 2 )
+
+[node name="Rail11" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, 0 )
+
+[node name="Rail12" parent="Box2" instance=ExtResource( 1 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.25, 0, -0.5, 0, -2.18557e-08, 1, 0, -0.5 )
+
+[node name="Ground3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 16, -6, 4, -15 )
+
+[node name="Ground4" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 16, 6, 4, -15 )
+
+[node name="Ground6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 1, -14 )
+
+[node name="Ground10" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 0, 3.5, -14 )
+
+[node name="Ground15" parent="." instance=ExtResource( 4 )]
+transform = Transform( -2.18557e-08, 5, 0, -0.5, -2.18557e-07, 0, 0, 0, 0.5, 0, 6.5, -14 )
+
+[node name="Ground16" parent="." instance=ExtResource( 4 )]
+transform = Transform( -2.18557e-08, 5, 0, -0.5, -2.18557e-07, 0, 0, 0, 0.5, 0, 6.5, -20 )
+
+[node name="Ground13" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, 4, 3.5, -20 )
+
+[node name="Ground14" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.5, 0, 0, 0, 2.5, 0, 0, 0, 0.5, -4, 3.5, -20 )
+
+[node name="Ground8" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, -4, 1, -20 )
+
+[node name="Ground9" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 4, 1, -20 )

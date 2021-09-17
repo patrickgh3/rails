@@ -1,7 +1,7 @@
 extends KinematicBody
 class_name Box
 
-const box_speed = 2.5
+const box_speed = 1
 
 onready var controller = $"/root/Root/Controller"
 onready var mesh = $MeshInstance
@@ -185,7 +185,7 @@ func _process(delta):
 			bump_t = 1
 			bumping = false
 		var bump_dist = lerp(0.06, 0, controller.ease_out_quad(bump_t))
-		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir
+		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir / scale
 
 	if delivered and not was_delivered:
 		emit_signal("delivered", self, true)
@@ -230,7 +230,7 @@ func on_rails(to_move):
 				c = true
 				if not result["barely"]: rails[rail] = true
 				
-			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.6), rail)
+			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.4), rail)
 			if result["on"]:
 				c = true
 				if not result["barely"]: rails[rail] = true
@@ -266,6 +266,17 @@ func on_rails(to_move):
 			valid = false
 			break
 			
+#	for ground in controller.grounds:
+#		#if not rail_nearby(ground, to_move):  continue
+#		var other_shape = ground.get_node("Area").get_node("CollisionShape")
+#		var other_pos = other_shape.get_global_transform().origin
+#		var other_extents = other_shape.shape.extents * ground.scale
+#		other_pos -= other_extents/2
+#
+#		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
+#			valid = false
+#			break
+			
 	return {"valid": valid, "rails": rails.keys()}
 
 func rectangular_prisms_overlap(a_pos, a_extents, b_pos, b_extents):
@@ -279,18 +290,18 @@ func rectangular_prisms_overlap(a_pos, a_extents, b_pos, b_extents):
 
 # Rough check if the rail is closeby on the grid
 func rail_nearby(rail, to_move):
-	var cutoff = 1
+	var cutoff = 1 + max(max(scale.x, scale.y), scale.z)
 	var me = get_global_transform().origin + to_move
 	var them = rail.get_global_transform().origin
-	if abs(round(me.x) - round(them.x)) > cutoff + scale.x: return false
-	if abs(round(me.y) - round(them.y)) > cutoff + scale.y: return false
-	if abs(round(me.z) - round(them.z)) > cutoff + scale.z: return false
+	if abs(round(me.x) - round(them.x)) > cutoff: return false
+	if abs(round(me.y) - round(them.y)) > cutoff: return false
+	if abs(round(me.z) - round(them.z)) > cutoff: return false
 	return true
 
 func point_on_rail(point, rail):
 	var line_a = rail.get_global_transform().origin
 	# We get the basis here to account for the rails being rotated in the scene editor
-	var line_b = rail.get_global_transform().origin + rail.transform.basis.x
+	var line_b = rail.get_global_transform().origin + rail.transform.basis.x.normalized()
 	
 	# This formula is from: https://stackoverflow.com/a/17590923/2134837
 	var ab = (line_a - line_b).length()
@@ -396,6 +407,7 @@ func face_pulled(face):
 		Face.Z_MINUS:
 			grab_velocity = Vector3.FORWARD
 			continue
+	grab_velocity *= box_speed
 			
 	
 #not used by Cubio, only the old player	
