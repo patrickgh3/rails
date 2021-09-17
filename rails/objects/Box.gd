@@ -147,7 +147,6 @@ func _process(delta):
 	# Do per-rail logic
 	var was_delivered = delivered
 	delivered = false
-	var to_remove = null
 	for rail in rails_touching:
 		# Mark rail pressed, and add to glow
 		rail.glow += delta * 10
@@ -252,14 +251,14 @@ func on_rails(to_move):
 	# This is jank, but kinda works.
 	var my_shape = get_node("Area").get_node("CollisionShape")
 	var my_pos = my_shape.get_global_transform().origin
-	var my_extents = my_shape.shape.extents
+	var my_extents = my_shape.shape.extents * scale
 	for box in controller.boxes:
 		if box == self:  continue
 		if not rail_nearby(box, to_move):  continue
 
 		var other_shape = box.get_node("Area").get_node("CollisionShape")
 		var other_pos = other_shape.get_global_transform().origin
-		var other_extents = other_shape.shape.extents
+		var other_extents = other_shape.shape.extents * box.scale
 
 		if rectangular_prisms_overlap(my_pos + to_move, my_extents, other_pos, other_extents):
 			valid = false
