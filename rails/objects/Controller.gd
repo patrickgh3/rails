@@ -57,13 +57,10 @@ func spawn_cubio_if_no_cubio():
 		get_tree().current_scene.call_deferred("add_child", cub)
 	
 	var spawn = get_node_or_null("../CubioSpawn")
-	if not spawn == null:
+	if not spawn == null and not cub == null:
 		cub.translation = spawn.translation
 		cub.rotation = spawn.rotation
 		spawn.queue_free()
-	else:
-		print (cub.name, " did not find spawn")
-		cub.translation = Vector3.ONE
 			
 func vectors_equal (a, b, margin = .1):
 	return abs(a.x - b.x) < margin and abs(a.y - b.y) < margin and abs(a.z - b.z) < margin	
