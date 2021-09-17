@@ -26,7 +26,6 @@ var rail_volume_2 = 0
 var rail_sound_index = 1
 var initial_translation
 var initial_rotation
-var launch_handler
 
 func _enter_tree():
 	add_to_group("Boxes")
@@ -37,8 +36,7 @@ func _ready():
 	initial_translation = translation
 	initial_rotation = rotation
 	
-	if launcher:
-		launch_handler = load("res://objects/LaunchHandler.gd").new()
+
 		
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
@@ -61,7 +59,6 @@ func _ready():
 	for edge in edges:
 		edge["a"] *= scale
 		edge["b"] *= scale
-	print("scale of box ", scale)
 
 func _process(delta):
 	# Apply grab velocity, if it was set
@@ -113,11 +110,8 @@ func _process(delta):
 		
 		if result["valid"]:
 			# The place we want to move to is valid, so move there!
-			var collision = move_and_collide(to_move)
-			if collision:
-				translation += to_move
-				if collision.collider.is_in_group("Player") and launcher:
-					launch_handler.hit_moving_launcher(self, collision.collider)
+			translation += to_move
+			
 				
 		else:
 			# Keep travelling by small increments until we are about to leave the rails
@@ -198,7 +192,7 @@ func _process(delta):
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir / scale
 
 	if delivered and not was_delivered:
-		emit_signal("delivered", self, true)
+		emit_signal("signal_delivered", self, true)
 		$DeliveredSound.play()
 	elif was_delivered and not delivered:
 		emit_signal("signal_delivered", self, false)
