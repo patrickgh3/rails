@@ -10,6 +10,7 @@ onready var music2 = $Music2
 var music_fade = 0
 
 func _ready():
+	
 	for node in $"/root/Root".get_children():
 		if "Box" in node.name:
 			boxes.append(node)
@@ -18,6 +19,7 @@ func _ready():
 		rails.append(rail)
 	rails_just_halted = rails.duplicate()
 	
+	spawn_cubio_if_no_cubio()
 	
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:
@@ -41,24 +43,16 @@ func _process(_delta):
 	#music1.set_volume_db(lerp(-20, 0, music_fade))
 	music2.set_volume_db(lerp(-30, 0, music_fade))
 
-func _input(event):
-	if event is InputEventKey:
-		if event.scancode == KEY_U and event.is_pressed():
-			make_cubio()
-		
-		
-func make_cubio():
-	var cub = load("res://objects/Cubio.tscn").instance()
-	if cub == null:
-		print ("no cub")
-		cub = load("res://objects/Cubio.tscn").instance()
-		
-	else:
-		print ("found cub ", cub.name)
-		
-	var spawn = get_node_or_null("/root/Root/CubioSpawn")
+func spawn_cubio_if_no_cubio():
+	var cub = get_node_or_null("../Cubio")
+	var player = get_node_or_null("../Player")
+	if cub == null and player == null:
+		print ("no cubio or player, making cubio")
+		cub = load("res://player/Cubio.tscn").instance()
+		get_tree().current_scene.call_deferred("add_child", cub)
+	
+	var spawn = get_node_or_null("../CubioSpawn")
 	if not spawn == null:
-		print ("found spawn")
 		cub.translation = spawn.translation
 		cub.rotation = spawn.rotation
 		spawn.queue_free()
