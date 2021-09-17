@@ -1,4 +1,7 @@
 extends KinematicBody
+
+class_name Cubio
+
 # Constant variables for Movement
 const SPEED = 5
 const GRAVITY = 50
@@ -6,7 +9,7 @@ const JUMP = 5
 const FALL_MULTY = 0.5
 const JUMP_MULTY = 0.9
 const CAM_ACCEL = 40
-const ACCEL_TYPE = {"default": 10, "air": 4}
+const ACCEL_TYPE = {"default": 10, "air": 4, "launched": .25}
 
 
 const SHAPE_STANDING_Y = .5
@@ -44,17 +47,24 @@ var mouse_captured = true
 var crouching = false
 var highlight 
 var debug_marker
-var box_hit : Box
+var box_hit
 var highlight_info
 var snap
 var first_person
 var lean_cam = false # set false for now for max's sake during development
+var launched
+var hit_launch_pad
+var launch_box
+var launch_box_offset
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	stand_up()
 	first_person_cam()
+	
+	add_to_group("Player")
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -84,11 +94,19 @@ func _process(delta):
 			
 		if lean_cam:
 			cam_root.rotation.z = lerp(cam_root.rotation.z, currentStrafeDir * LEAN_MULT, delta * LEAN_SMOOTH)
-		
+	
+	if not launch_box == null:
+		translation = launch_box.translation + launch_box_offset
 
 func _physics_process(delta):
 	
 	try_highlight_box()
+	
+		# 	warning: probably not good to just set positino of the kinematic body now
+	if Input.is_action_just_pressed("crouch"):
+		if crouching: stand_up()
+		else: crouch()
+	
 
 	# keyboard movement
 	dir = Vector3.ZERO
@@ -106,31 +124,37 @@ func _physics_process(delta):
 	
 	dir = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
 	
+	
+	
+		
 	# Jumping and gravity
 	if is_on_floor():
 		snap = -get_floor_normal()
 		accel = ACCEL_TYPE["default"]
 		gravity_vec = Vector3.ZERO
+		launched = false
+	elif launched:
+		dir = Vector3.ZERO
+		snap = Vector3.DOWN
+		accel = ACCEL_TYPE["launched"]
+		gravity_vec += Vector3.DOWN * GRAVITY * delta
 	else:
 		snap = Vector3.DOWN
 		accel = ACCEL_TYPE["air"]
 		gravity_vec += Vector3.DOWN * GRAVITY * delta
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		snap = Vector3.ZERO
-		gravity_vec = Vector3.UP * JUMP
-		if crouching: stand_up()
+		do_jump ()
 		
-		# 	warning: probably not good to just set positino of the kinematic body now
-	if Input.is_action_just_pressed("crouch"):
-		if crouching: stand_up()
-		else: crouch()
-	
+	if hit_launch_pad:
+		do_launch()
+		
 	# Moving
 	if crouching:
 		velocity = velocity.linear_interpolate(dir * SPEED / 4, accel * delta)
 	else:
 		velocity = velocity.linear_interpolate(dir * SPEED, accel * delta)
+		
 	if(gravity_vec > Vector3.ZERO):
 		movement = velocity + gravity_vec * JUMP_MULTY
 	elif(gravity_vec < Vector3.ZERO):
@@ -139,13 +163,8 @@ func _physics_process(delta):
 		movement = velocity + gravity_vec
 	
 	# warning-ignore:return_value_discarded
-	move_and_slide_with_snap(movement, snap, Vector3.UP)
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		if collision.collider.get_parent() is Box:
-			var box_hit = collision.collider.get_parent() as Box
-			if box_hit.launcher and box_hit.moving():
-				velocity = box_hit.velocity
+	if launch_box == null:
+		move_and_slide_with_snap(movement, snap, Vector3.UP)
 
 
 func _input(event):
@@ -300,3 +319,27 @@ func first_person_cam():
 	cubio_body.hide()
 	if crouching: crouch()
 	else: stand_up()
+	
+func do_jump():
+	snap = Vector3.ZERO
+	gravity_vec = Vector3.UP * JUMP
+	if crouching: stand_up()
+	
+func do_launch():
+	launched = true
+	hit_launch_pad = false
+	launch_box = null
+	snap = Vector3.ZERO
+	gravity_vec = Vector3.UP * 50
+	velocity = Vector3.FORWARD * 100
+	if crouching: stand_up()
+
+func try_launch():
+	if not launch_box == null:
+		hit_launch_pad = true
+		
+
+func hit_moving_launchbox(hit_launch_box):
+	if not launched and launch_box == null:
+		launch_box = hit_launch_box
+		launch_box_offset = translation - launch_box.translation

@@ -13,7 +13,7 @@ func _ready():
 			
 			
 	for box in get_tree().get_nodes_in_group("Boxes"):
-		box.connect("delivered", self, "receive_box_delivered")
+		box.connect("signal_delivered", self, "receive_box_delivered")
 
 func _process(delta):
 	# Check if all boxes are delivered
