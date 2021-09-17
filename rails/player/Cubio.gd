@@ -1,14 +1,12 @@
 extends KinematicBody
 # Constant variables for Movement
 const SPEED = 5
-const GRAVITY = 10
-const JUMP = 2
+const GRAVITY = 50
+const JUMP = 10
 const FALL_MULTY = 0.5
 const JUMP_MULTY = 0.9
 const CAM_ACCEL = 40
 const ACCEL_TYPE = {"default": 10, "air": 4}
-
-
 
 
 const SHAPE_STANDING_Y = .5
@@ -27,9 +25,8 @@ const CAM_OFFSET1 = Vector3(0, 1, 0)
 onready var shape = $CollisionShape
 onready var cam_root = $CamRoot
 onready var camera = $CamRoot/Camera
-onready var cube_person = $Cube_Person
+onready var cubio_body = $CubioBody
 onready var accel = ACCEL_TYPE["default"]
-onready var cube_pieces : PiecesOfCube = cube_person as PiecesOfCube
 
 
 # Strafe leaning
@@ -253,7 +250,7 @@ func stand_up():
 		cam_root.translation.y = CAM_STANDING_Y
 		shape.translation.y = SHAPE_STANDING_Y
 		shape.scale.y = SHAPE_SCALE_STANDING_Y
-		cube_pieces.stand_up()
+		cubio_body.stand_up()
 		
 		
 		var sprite = $Sprite
@@ -270,7 +267,7 @@ func stand_up():
 		
 func crouch():
 	crouching = true
-	cube_pieces.crouch()
+	cubio_body.crouch()
 	
 	cam_root.translation.y = CAM_CROUCHING_Y
 	shape.translation.y = SHAPE_CROUCHING_Y
@@ -289,12 +286,12 @@ func crouch():
 	
 func third_person_cam():
 	first_person = false
-	cube_person.show()
+	cubio_body.show()
 	if crouching: crouch()
 	else: stand_up()
 	
 func first_person_cam():
 	first_person = true
-	cube_person.hide()
+	cubio_body.hide()
 	if crouching: crouch()
 	else: stand_up()

@@ -4,13 +4,13 @@
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/Controller.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/Cubio.tscn" type="PackedScene" id=6]
+[ext_resource path="res://player/Cubio.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Door.tscn" type="PackedScene" id=7]
 
 [node name="Root" type="Spatial"]
 
 [node name="Cubio" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.713186, 2 )
 
 [node name="Ground" parent="." instance=ExtResource( 4 )]
 transform = Transform( 7, 0, 0, 0, 1, 0, 0, 0, 7, 0, -1, 0 )

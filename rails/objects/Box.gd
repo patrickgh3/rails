@@ -23,7 +23,6 @@ var initial_translation
 var initial_rotation
 
 func _enter_tree():
-	prints(name, "entered tree, joined Boxes group")
 	add_to_group("Boxes")
 	
 

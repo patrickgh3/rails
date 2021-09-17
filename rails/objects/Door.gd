@@ -5,12 +5,7 @@ onready var translation_start = translation
 onready var controller = $"/root/Root/Controller"
 var door_t = 0
 
-func _enter_tree():
-	prints("door entered tree")
-
 func _ready():
-	prints("door readied up")
-	
 	for i in range(boxes.size()):
 		boxes[i] = get_node(boxes[i])
 		if (boxes[i] == null):
@@ -18,7 +13,6 @@ func _ready():
 			
 			
 	for box in get_tree().get_nodes_in_group("Boxes"):
-		print ("connecting ", box.name, " to this ", name)
 		box.connect("delivered", self, "receive_box_delivered")
 
 func _process(delta):
@@ -40,4 +34,4 @@ func _process(delta):
 	
 # this hears the signal Box.delivered(box, yes)
 func receive_box_delivered(box, yes):
-	prints ("box delivered ", box.name, yes)
+	prints ("signal received, box delivered ", box.name, yes)

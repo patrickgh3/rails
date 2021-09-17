@@ -4,7 +4,7 @@
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=3]
 [ext_resource path="res://objects/Ground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/Controller.tscn" type="PackedScene" id=5]
-[ext_resource path="res://objects/Cubio.tscn" type="PackedScene" id=6]
+[ext_resource path="res://player/Cubio.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Door.tscn" type="PackedScene" id=7]
 
 [node name="Root" type="Spatial"]
@@ -56,4 +56,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
 boxes = [ NodePath("../Box2") ]
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29068, 1.51365 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6686, 2.91039 )

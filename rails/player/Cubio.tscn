@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://objects/Cubio.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://objects/CubePerson.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/Cubio.gd" type="Script" id=1]
+[ext_resource path="res://player/icon.png" type="Texture" id=2]
+[ext_resource path="res://player/CubioBody.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -11,7 +11,7 @@
 [node name="Cubio" type="KinematicBody"]
 script = ExtResource( 1 )
 
-[node name="Cube_Person" parent="." instance=ExtResource( 3 )]
+[node name="CubioBody" parent="." instance=ExtResource( 3 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.321814, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]

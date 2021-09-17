@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/Cube_Person_Thing.glb-58bc26433e93a6605d6721b9d7de64a0.scn"
+path="res://.import/Cube_Person_Thing.glb-3ddfdc83d9b0ff69d8291b67e851d08c.scn"
 
 [deps]
 
-source_file="res://models/Cube_Person_Thing.glb"
-dest_files=[ "res://.import/Cube_Person_Thing.glb-58bc26433e93a6605d6721b9d7de64a0.scn" ]
+source_file="res://player/Cube_Person_Thing.glb"
+dest_files=[ "res://.import/Cube_Person_Thing.glb-3ddfdc83d9b0ff69d8291b67e851d08c.scn" ]
 
 [params]
 
