@@ -2,7 +2,7 @@ extends KinematicBody
 # Constant variables for Movement
 const SPEED = 5
 const GRAVITY = 50
-const JUMP = 10
+const JUMP = 5
 const FALL_MULTY = 0.5
 const JUMP_MULTY = 0.9
 const CAM_ACCEL = 40
