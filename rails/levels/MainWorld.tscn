@@ -7,7 +7,7 @@
 [ext_resource path="res://objects/Ground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=7]
 
-[node name="Root2" type="Spatial"]
+[node name="Root" type="Spatial"]
 
 [node name="Controller" parent="." instance=ExtResource( 3 )]
 

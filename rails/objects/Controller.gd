@@ -59,11 +59,6 @@ func _process(_delta):
 		volumes[node] = clamp(volumes[node], 0, 1)
 		node.set_volume_db(lerp(-30, 0, volumes[node]))
 	
-	# Test key to randomize music layers
-	if Input.is_key_pressed(KEY_U):
-		for node in volumes.keys():
-			music_active[node] = randf() < 0.5
-	
 
 func spawn_cubio_if_no_cubio():
 	var cub = get_node_or_null("../Cubio")
@@ -78,7 +73,21 @@ func spawn_cubio_if_no_cubio():
 		cub.translation = spawn.translation
 		cub.rotation = spawn.rotation
 		spawn.queue_free()
-			
+		
+func _input(event):
+	if event is InputEventKey and event.is_pressed():
+		if event.scancode == KEY_4:
+			music_active[$MusicRoot1Piano] = not music_active[$MusicRoot1Piano]
+		if event.scancode == KEY_5:
+			music_active[$MusicRoot2Deep] = not music_active[$MusicRoot2Deep]
+		if event.scancode == KEY_6:
+			music_active[$MusicRoot3Hope] = not music_active[$MusicRoot3Hope]
+		if event.scancode == KEY_7:
+			music_active[$MusicGuitarEcho] = not music_active[$MusicGuitarEcho]
+		if event.scancode == KEY_8:
+			for node in volumes.keys():
+				music_active[node] = randf() < 0.5
+
 func vectors_equal (a, b, margin = .1):
 	return abs(a.x - b.x) < margin and abs(a.y - b.y) < margin and abs(a.z - b.z) < margin	
 
