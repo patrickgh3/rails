@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/root03-hope.wav-6540873e79b75dc208150af8332c9c97.sample"
+
+[deps]
+
+source_file="res://sounds/root03-hope.wav"
+dest_files=[ "res://.import/root03-hope.wav-6540873e79b75dc208150af8332c9c97.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

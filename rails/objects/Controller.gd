@@ -7,9 +7,9 @@ var rails_just_halted_timer = 0
 var rails_just_departed = Array()
 var rails_just_departed_timer = 0
 
-onready var music1 = $Music1
-onready var music2 = $Music2
-var music_fade = 0
+onready var volumes = {}
+onready var music_active = {}
+onready var rng = RandomNumberGenerator.new()
 
 func _ready():
 	
@@ -26,8 +26,15 @@ func _ready():
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:
 		spawn.hide()
-		
-	music2.set_volume_db(-100)
+	
+	volumes[$MusicRoot1Piano] = 0
+	volumes[$MusicRoot2Deep] = 0
+	volumes[$MusicRoot3Hope] = 0
+	volumes[$MusicGuitarEcho] = 0
+	music_active[$MusicRoot1Piano] = false
+	music_active[$MusicRoot2Deep] = true
+	music_active[$MusicRoot3Hope] = false
+	music_active[$MusicGuitarEcho] = true
 	
 	
 
@@ -39,14 +46,18 @@ func _process(_delta):
 	if rails_just_departed_timer == 2:
 		rails_just_departed.clear()
 		
-	# Fade in and out music
+	for node in volumes.keys():
+		if music_active[node]:
+			volumes[node] += _delta
+		else:
+			volumes[node] -= _delta
+		volumes[node] = clamp(volumes[node], 0, 1)
+		node.set_volume_db(lerp(-30, 0, volumes[node]))
+	
 	if Input.is_key_pressed(KEY_U):
-		music_fade += _delta
-	else:
-		music_fade -= _delta
-	music_fade = clamp(music_fade, 0, 1)
-	#music1.set_volume_db(lerp(-20, 0, music_fade))
-	music2.set_volume_db(lerp(-30, 0, music_fade))
+		for node in volumes.keys():
+			music_active[node] = randf() < 0.5
+	
 
 func spawn_cubio_if_no_cubio():
 	var cub = get_node_or_null("../Cubio")

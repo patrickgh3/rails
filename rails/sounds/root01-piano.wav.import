@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/root01-piano.wav-d69050de3564400711033c1236403d10.sample"
+
+[deps]
+
+source_file="res://sounds/root01-piano.wav"
+dest_files=[ "res://.import/root01-piano.wav-d69050de3564400711033c1236403d10.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
