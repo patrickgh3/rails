@@ -4,6 +4,8 @@ var rails = Array()
 var boxes = Array()
 var rails_just_halted = Array()
 var rails_just_halted_timer = 0
+var rails_just_departed = Array()
+var rails_just_departed_timer = 0
 
 onready var music1 = $Music1
 onready var music2 = $Music2
@@ -33,6 +35,9 @@ func _process(_delta):
 	rails_just_halted_timer += 1
 	if rails_just_halted_timer == 2:
 		rails_just_halted.clear()
+	rails_just_departed_timer += 1
+	if rails_just_departed_timer == 2:
+		rails_just_departed.clear()
 		
 	# Fade in and out music
 	if Input.is_key_pressed(KEY_U):
