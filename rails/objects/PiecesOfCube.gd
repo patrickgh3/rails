@@ -11,7 +11,7 @@ onready var shoes = $SHOES
 
 func _ready():
 	# load your image.
-	var image = load("res://colorful_rainbow_ink_in_water-wallpaper-2560x1440.jpg")
+	var image = load("res://pretty.png")
 	# Get the 3D model
 	var mesh = get_node("FaceQuad")
 	# Get the material in slot 0
