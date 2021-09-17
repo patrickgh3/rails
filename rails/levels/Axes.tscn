@@ -86,18 +86,16 @@ transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 4, -
 [node name="Rail20" parent="." instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 5, -2 )
 
-[node name="Rail22" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 1, 0, 0, 0, 1, 1, 4.37114e-08, 0, 0, 5, -2 )
-
-[node name="Rail23" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 1.06581e-14, 0, 0, 0, 1, 1.42109e-14, -1, 0, 0, 5, -2 )
-
 [node name="Rail11" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 5, -1 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 5, -3 )
 is_target = true
 
 [node name="Rail21" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 5, -2 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 5, -1 )
+is_target = true
+
+[node name="Rail22" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1, 5, -3 )
 is_target = true
 
 [node name="Door" parent="." instance=ExtResource( 5 )]
