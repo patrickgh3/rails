@@ -210,6 +210,7 @@ nodes/fragment/connections = PoolIntArray( 7, 0, 0, 0, 5, 0, 7, 2, 9, 0, 0, 1, 1
 
 [sub_resource type="ShaderMaterial" id=20]
 resource_local_to_scene = true
+render_priority = 1
 shader = SubResource( 19 )
 shader_param/is_target = false
 shader_param/glow = 0.0

@@ -11,20 +11,25 @@ var rails_just_departed_timer = 0
 onready var volumes = {}
 onready var music_active = {}
 onready var rng = RandomNumberGenerator.new()
+onready var master_controller = get_parent().name == "Root"
 
 func _ready():
 	
-	for node in $"/root/Root".get_children():
-		if "Box" in node.name:
-			boxes.append(node)
-		if "Ground" in node.name:
-			grounds.append(node)
-			
+	#for node in $"/root/Root".get_children():
+		#if "Box" in node.name:
+		#	boxes.append(node)
+		#if "Ground" in node.name:
+		#	grounds.append(node)
+		
+	for box in get_tree().get_nodes_in_group("Boxes"):
+		if get_parent().is_a_parent_of(box):
+			boxes.append(box)
+	
 	for rail in get_tree().get_nodes_in_group("Rails"):
 		rails.append(rail)
 	rails_just_halted = rails.duplicate()
 	
-	spawn_cubio_if_no_cubio()
+	#spawn_cubio_if_no_cubio()
 	
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:
@@ -38,6 +43,11 @@ func _ready():
 	music_active[$MusicRoot2Deep] = randf() < 0.5
 	music_active[$MusicRoot3Hope] = randf() < 0.5
 	music_active[$MusicGuitarEcho] = randf() < 0.5
+	if not master_controller:
+		music_active[$MusicRoot1Piano] = false
+		music_active[$MusicRoot2Deep] = false
+		music_active[$MusicRoot3Hope] = false
+		music_active[$MusicGuitarEcho] = false
 	
 	
 
@@ -57,7 +67,7 @@ func _process(_delta):
 		else:
 			volumes[node] -= _delta
 		volumes[node] = clamp(volumes[node], 0, 1)
-		node.set_volume_db(lerp(-30, 0, volumes[node]))
+		node.set_volume_db(lerp(-50, 0, volumes[node]))
 	
 
 func spawn_cubio_if_no_cubio():
@@ -75,18 +85,19 @@ func spawn_cubio_if_no_cubio():
 		spawn.queue_free()
 		
 func _input(event):
-	if event is InputEventKey and event.is_pressed():
-		if event.scancode == KEY_4:
-			music_active[$MusicRoot1Piano] = not music_active[$MusicRoot1Piano]
-		if event.scancode == KEY_5:
-			music_active[$MusicRoot2Deep] = not music_active[$MusicRoot2Deep]
-		if event.scancode == KEY_6:
-			music_active[$MusicRoot3Hope] = not music_active[$MusicRoot3Hope]
-		if event.scancode == KEY_7:
-			music_active[$MusicGuitarEcho] = not music_active[$MusicGuitarEcho]
-		if event.scancode == KEY_8:
-			for node in volumes.keys():
-				music_active[node] = randf() < 0.5
+	if master_controller:
+		if event is InputEventKey and event.is_pressed():
+			if event.scancode == KEY_4:
+				music_active[$MusicRoot1Piano] = not music_active[$MusicRoot1Piano]
+			if event.scancode == KEY_5:
+				music_active[$MusicRoot2Deep] = not music_active[$MusicRoot2Deep]
+			if event.scancode == KEY_6:
+				music_active[$MusicRoot3Hope] = not music_active[$MusicRoot3Hope]
+			if event.scancode == KEY_7:
+				music_active[$MusicGuitarEcho] = not music_active[$MusicGuitarEcho]
+			if event.scancode == KEY_8:
+				for node in volumes.keys():
+					music_active[node] = randf() < 0.5
 
 func vectors_equal (a, b, margin = .1):
 	return abs(a.x - b.x) < margin and abs(a.y - b.y) < margin and abs(a.z - b.z) < margin	
