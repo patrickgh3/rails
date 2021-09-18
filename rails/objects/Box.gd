@@ -442,16 +442,15 @@ func was_pulled (collision_position):
 	
 	
 	
-func become_human():
+func become_human(flesh_rot):
 	if not flesh == null:
 		return
 		
 	$MeshInstance.hide()
 	flesh = load("res://player/PlayerFace.tscn").instance()
 	add_child((flesh))
-	# kinda hacky!
 	flesh.translation = mesh.scale
-	flesh.rotation = Vector3.ZERO
+	flesh.set_rotation(flesh_rot)
 	
 func become_box():
 	$MeshInstance.show()

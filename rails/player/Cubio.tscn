@@ -25,7 +25,7 @@ current = true
 far = 300.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 0.45, 0, 0, 0, 0.95, 0, 0, 0, 0.5, 0, 0.5, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.95, 0, 0, 0, 0.2, 0, 0.5, 0 )
 shape = SubResource( 1 )
 
 [node name="RayCast" type="RayCast" parent="."]
