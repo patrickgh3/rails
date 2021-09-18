@@ -108,7 +108,6 @@ func _process(delta):
 	
 	# Accelerate
 	if velocity != Vector3.ZERO:
-		call_deferred("remove_from_group", "Employees")
 		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
 		
 		# Check if we're about to go off the rails!
@@ -120,7 +119,9 @@ func _process(delta):
 			translation += to_move
 			if is_the_boss:
 				for b in get_tree().get_nodes_in_group("Employees"):
+					# There is employee slipping, however
 					b.translation += to_move
+			else: remove_from_group("Employees")
 				
 		else:
 			# Keep travelling by small increments until we are about to leave the rails
@@ -274,6 +275,7 @@ func on_rails(to_move):
 	var my_extents = my_shape.shape.extents * scale
 	for box in controller.boxes:
 		if box == self:  continue
+		if is_the_boss and box.is_in_group("Employees"): continue
 		if not rail_nearby(box, to_move):  continue
 
 		var other_shape = box.get_node("CollisionShape")
