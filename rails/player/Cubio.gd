@@ -403,7 +403,7 @@ func box_form():
 	my_box.translation = Vector3(x,y,z) 
 	
 	var y_rad = atan2(global_transform.basis.z.x, global_transform.basis.z.z)
-	var y_eul = rad2deg(y_rad)
+	var _y_eul = rad2deg(y_rad)
 	
 	while y_rad < 0: 
 		y_rad += 2 * PI
@@ -419,7 +419,7 @@ func box_form():
 	else:
 		y_rad = 0
 	
-	y_eul = rad2deg(y_rad)
+	_y_eul = rad2deg(y_rad)
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0))
 	translation = my_box.get_world_center()

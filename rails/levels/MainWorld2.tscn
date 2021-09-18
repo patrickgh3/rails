@@ -60,36 +60,38 @@ shader = SubResource( 3 )
 [node name="Controller" parent="." instance=ExtResource( 5 )]
 
 [node name="Cubio" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 1, 1 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 1, -1 )
 
-[node name="Ground2" parent="." instance=ExtResource( 4 )]
+[node name="MiscGrounds" type="Spatial" parent="."]
+
+[node name="Ground2" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 12, 0, 0, 0, 60, 0, 0, 0, 30, -110, 8, 11 )
 
-[node name="Ground5" parent="." instance=ExtResource( 4 )]
+[node name="Ground5" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 12, 0, 0, 0, 60, 0, 0, 0, 30, -217, 8, -116 )
 
-[node name="Ground6" parent="." instance=ExtResource( 4 )]
+[node name="Ground6" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 60, 0, 0, 0, 30, -199, 8, -298 )
 
-[node name="Ground7" parent="." instance=ExtResource( 4 )]
+[node name="Ground7" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 60, 0, 0, 0, 30, -362, 8, -160 )
 
-[node name="Ground10" parent="." instance=ExtResource( 4 )]
+[node name="Ground10" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 60, 0, 0, 0, 30, -575, 8, 132 )
 
-[node name="Ground11" parent="." instance=ExtResource( 4 )]
+[node name="Ground11" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 60, 0, 0, 0, 30, -627, 8, -99 )
 
-[node name="Ground8" parent="." instance=ExtResource( 4 )]
+[node name="Ground8" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 60, 0, 0, 0, 30, -321, 8, 190 )
 
-[node name="Ground9" parent="." instance=ExtResource( 4 )]
+[node name="Ground9" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 30, 0, 0, 0, 60, 0, 0, 0, 30, -135, 8, 248 )
 
-[node name="Ground3" parent="." instance=ExtResource( 4 )]
+[node name="Ground3" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 60, 0, 0, 0, 40, -78, 15, 8 )
 
-[node name="Ground4" parent="." instance=ExtResource( 4 )]
+[node name="Ground4" parent="MiscGrounds" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 60, 0, 0, 0, 40, -77, 15, -86 )
 
 [node name="TempBridges" type="Spatial" parent="."]
@@ -134,7 +136,7 @@ transform = Transform( -2.25576, 0.0868241, -1.96962, 7.5, 0.866025, 0, 12.793, 
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, -126, -11, -65 )
 
 [node name="Ground24" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -141, -11, -65 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 25, -141, -11, -65 )
 
 [node name="Ground25" parent="TempBridges" instance=ExtResource( 7 )]
 transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -148, -11, -18 )
@@ -146,10 +148,10 @@ transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -169, -11, -15 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -169, -11, -41 )
 
 [node name="Ground28" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -184, -11, -52 )
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 1, -184, -11, -55 )
 
 [node name="Ground32" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 10, -183, -11, -52 )
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 10, -183, -11, -54 )
 
 [node name="Ground29" parent="TempBridges" instance=ExtResource( 7 )]
 transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -210, -11, -46 )
@@ -430,7 +432,10 @@ transform = Transform( 1, 0, 0, 0, 15, 0, 0, 0, 20, 15, 0, -10 )
 transform = Transform( 24, 0, 0, 0, 15, 0, 0, 0, 1, -9, 0, -10 )
 
 [node name="EnterPuzzleTrigger" parent="01 PullBoxes" instance=ExtResource( 10 )]
-transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 11, 0, -1 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 11, 0, -3 )
+
+[node name="EnterPuzzleTrigger2" parent="01 PullBoxes" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -9, 0, -4 )
 
 [node name="02 WeirdRails" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 )
@@ -568,10 +573,22 @@ transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 0 )
 
 [node name="EnterPuzzleTrigger" parent="02 WeirdRails" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 8, 13, 0, -4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, 14, 0, -4 )
+
+[node name="EnterPuzzleTrigger2" parent="02 WeirdRails" instance=ExtResource( 10 )]
+transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 6 )
 
 [node name="03 UpAndOver" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 22 )
+
+[node name="CubioSpawn" parent="03 UpAndOver" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -7 )
+
+[node name="EnterPuzzleTrigger" parent="03 UpAndOver" instance=ExtResource( 10 )]
+transform = Transform( 12, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -13 )
+
+[node name="EnterPuzzleTrigger2" parent="03 UpAndOver" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 12, -8, 0, -11 )
 
 [node name="Controller" parent="03 UpAndOver" instance=ExtResource( 5 )]
 
@@ -756,6 +773,13 @@ transform = Transform( -1, 4.37114e-08, 0, 0, -1.91069e-15, 1, 4.37114e-08, 1, 1
 [node name="Rail84" parent="035 Pack" instance=ExtResource( 1 )]
 transform = Transform( -1, 4.37114e-08, 0, 0, -1.91069e-15, 1, 4.37114e-08, 1, 1.91069e-15, -1, 1, -5 )
 
+[node name="CubioSpawn" parent="035 Pack" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, 0 )
+
+[node name="EnterPuzzleTrigger" parent="035 Pack" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="035 Pack" instance=ExtResource( 10 )]
+
 [node name="04 FiremensPole" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, -1 )
 
@@ -824,6 +848,13 @@ is_target = true
 
 [node name="Door" parent="04 FiremensPole" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, 0 )
+
+[node name="CubioSpawn" parent="04 FiremensPole" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 3 )
+
+[node name="EnterPuzzleTrigger" parent="04 FiremensPole" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="04 FiremensPole" instance=ExtResource( 10 )]
 
 [node name="05 Rescue" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, -2 )
@@ -920,6 +951,13 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -
 
 [node name="Rail216" parent="05 Rescue" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3 )
+
+[node name="CubioSpawn" parent="05 Rescue" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 0 )
+
+[node name="EnterPuzzleTrigger" parent="05 Rescue" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="05 Rescue" instance=ExtResource( 10 )]
 
 [node name="06 Perpetual" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 0, -21 )
@@ -1024,6 +1062,13 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 3, 
 
 [node name="Door" parent="06 Perpetual" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="CubioSpawn" parent="06 Perpetual" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="EnterPuzzleTrigger" parent="06 Perpetual" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="06 Perpetual" instance=ExtResource( 10 )]
 
 [node name="07 MovingTarget" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -38 )
@@ -1136,6 +1181,13 @@ transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 1, 0
 [node name="Door" parent="07 MovingTarget" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, 0 )
 
+[node name="CubioSpawn" parent="07 MovingTarget" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5 )
+
+[node name="EnterPuzzleTrigger" parent="07 MovingTarget" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="07 MovingTarget" instance=ExtResource( 10 )]
+
 [node name="075 LookBehindBasic" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -87, 0, -36 )
 
@@ -1219,6 +1271,13 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -
 
 [node name="Rail146" parent="075 LookBehindBasic" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -1 )
+
+[node name="CubioSpawn" parent="075 LookBehindBasic" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 0 )
+
+[node name="EnterPuzzleTrigger" parent="075 LookBehindBasic" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="075 LookBehindBasic" instance=ExtResource( 10 )]
 
 [node name="08 LookBehind" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -104, 0, -36 )
@@ -1364,6 +1423,13 @@ transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2, 0, -7 
 [node name="Rail170" parent="08 LookBehind" instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3, 0, 6 )
 is_target = true
+
+[node name="CubioSpawn" parent="08 LookBehind" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 0 )
+
+[node name="EnterPuzzleTrigger" parent="08 LookBehind" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="08 LookBehind" instance=ExtResource( 10 )]
 
 [node name="09 GetBehindSequence" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -118, -10, -36 )
@@ -1565,6 +1631,13 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 
 [node name="Door" parent="09 GetBehindSequence" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21 )
 
+[node name="CubioSpawn" parent="09 GetBehindSequence" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
+
+[node name="EnterPuzzleTrigger" parent="09 GetBehindSequence" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="09 GetBehindSequence" instance=ExtResource( 10 )]
+
 [node name="10 Thin Bridge" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -133, -10, -75 )
 
@@ -1616,13 +1689,20 @@ transform = Transform( -2.18557e-07, 0, -0.5, 0, 0.5, 0, 5, 0, -2.18557e-08, 0.5
 [node name="Ground14" parent="10 Thin Bridge" instance=ExtResource( 4 )]
 transform = Transform( -8, 0, 4.37114e-08, 0, 0.5, 0, -6.99382e-07, 0, -0.5, 1, -0.5, 11.5 )
 
+[node name="CubioSpawn" parent="10 Thin Bridge" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 11 )
+
+[node name="EnterPuzzleTrigger" parent="10 Thin Bridge" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="10 Thin Bridge" instance=ExtResource( 10 )]
+
 [node name="11 Catwalk" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -141, -10, -18 )
 
 [node name="Controller" parent="11 Catwalk" instance=ExtResource( 5 )]
 
 [node name="Ground" parent="11 Catwalk" instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 20, 0.5, -1, -19 )
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 12, 0.5, -1, -10 )
 
 [node name="Ground3" parent="11 Catwalk" instance=ExtResource( 4 )]
 transform = Transform( -2.18557e-08, 0, -3, 0, 1, 0, 0.5, 0, -1.31134e-07, -3, -1, -13.5 )
@@ -1728,6 +1808,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13 )
 
 [node name="Door" parent="11 Catwalk" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+
+[node name="CubioSpawn" parent="11 Catwalk" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -22 )
+
+[node name="EnterPuzzleTrigger" parent="11 Catwalk" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="11 Catwalk" instance=ExtResource( 10 )]
 
 [node name="115 2by1Align" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -154, -10, -10 )
@@ -1865,6 +1952,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3 )
 [node name="Door" parent="115 2by1Align" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 0, -1 )
 
+[node name="CubioSpawn" parent="115 2by1Align" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, -6 )
+
+[node name="EnterPuzzleTrigger" parent="115 2by1Align" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="115 2by1Align" instance=ExtResource( 10 )]
+
 [node name="12 CrouchIntro" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -169, -10, -18 )
 
@@ -1925,6 +2019,13 @@ transform = Transform( -1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, 
 [node name="Door" parent="12 CrouchIntro" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
 
+[node name="CubioSpawn" parent="12 CrouchIntro" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="EnterPuzzleTrigger" parent="12 CrouchIntro" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="12 CrouchIntro" instance=ExtResource( 10 )]
+
 [node name="13 CourchDodge" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -169, -10, -39 )
 
@@ -1937,59 +2038,63 @@ transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 2, 0.5, -1, -3 )
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 2, 0.5, -1, -7 )
 
 [node name="Ground4" parent="13 CourchDodge" instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 2, 0.5, -1, -12 )
-
-[node name="Ground5" parent="13 CourchDodge" instance=ExtResource( 4 )]
-transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 2, 0.5, -1, -16 )
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 6, 3.5, -1, -15 )
 
 [node name="Box" parent="13 CourchDodge" instance=ExtResource( 2 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -6 )
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 1, -2, 1, -6 )
 
 [node name="Rail12" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -3 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -3 )
 
 [node name="Rail23" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -2 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -2 )
 
 [node name="Rail24" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -1 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -1 )
 
 [node name="Rail25" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, 0 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, 0 )
 
 [node name="Rail26" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, 1 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, 1 )
 
 [node name="Rail13" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -4 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -4 )
 
 [node name="Rail14" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -5 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -5 )
 
 [node name="Rail15" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -6 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -6 )
 
 [node name="Rail16" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -7 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -7 )
 
 [node name="Rail18" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -8 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -8 )
 
 [node name="Rail28" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -1, 2, -9 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, 1.31134e-07, 4.37114e-08, -2, 2, -9 )
 is_target = true
 
 [node name="Rail30" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -1, 1.31134e-07, 8.74228e-08, 8.74228e-08, -7.64274e-15, 1, -1, 1, -10 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -1, 1.31134e-07, 8.74228e-08, 8.74228e-08, -7.64274e-15, 1, -2, 1, -10 )
 
 [node name="Rail31" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -1, 1.31134e-07, 8.74228e-08, 8.74228e-08, -7.64274e-15, 1, -1, 2, -10 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -1, 1.31134e-07, 8.74228e-08, 8.74228e-08, -7.64274e-15, 1, -2, 2, -10 )
 
 [node name="Rail32" parent="13 CourchDodge" instance=ExtResource( 1 )]
-transform = Transform( 1.31134e-07, 1, -3.82137e-15, -1, 1.31134e-07, 8.74228e-08, 8.74228e-08, -7.64274e-15, 1, -1, 0, -10 )
+transform = Transform( 1.31134e-07, 1, -3.82137e-15, -1, 1.31134e-07, 8.74228e-08, 8.74228e-08, -7.64274e-15, 1, -2, 0, -10 )
 
 [node name="Door" parent="13 CourchDodge" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -16 )
+
+[node name="CubioSpawn" parent="13 CourchDodge" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+
+[node name="EnterPuzzleTrigger" parent="13 CourchDodge" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="13 CourchDodge" instance=ExtResource( 10 )]
 
 [node name="14 FlyingMachine" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -189, -12, -49 )
@@ -2182,8 +2287,15 @@ transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, -4, 1, -20 )
 [node name="Ground9" parent="14 FlyingMachine" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.25, 0, 0, 0, 1, 4, 1, -20 )
 
+[node name="CubioSpawn" parent="14 FlyingMachine" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+
+[node name="EnterPuzzleTrigger" parent="14 FlyingMachine" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="14 FlyingMachine" instance=ExtResource( 10 )]
+
 [node name="15 Axes" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -217, -10, -48 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 0, -12 )
 
 [node name="Controller" parent="15 Axes" instance=ExtResource( 5 )]
 
@@ -2264,6 +2376,13 @@ is_target = true
 
 [node name="Door" parent="15 Axes" instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 1 )
+
+[node name="CubioSpawn" parent="15 Axes" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 0, 2 )
+
+[node name="EnterPuzzleTrigger" parent="15 Axes" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="15 Axes" instance=ExtResource( 10 )]
 
 [node name="16 Island" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -236, -10, -35 )
@@ -2521,6 +2640,13 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0,
 
 [node name="Door" parent="16 Island" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+
+[node name="CubioSpawn" parent="16 Island" instance=ExtResource( 8 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -12 )
+
+[node name="EnterPuzzleTrigger" parent="16 Island" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="16 Island" instance=ExtResource( 10 )]
 
 [node name="17 WallScoopJump" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -293, -24, 16 )
@@ -2862,3 +2988,9 @@ is_target = true
 
 [node name="Door" parent="17 WallScoopJump" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -37, -292 )
+
+[node name="CubioSpawn" parent="17 WallScoopJump" instance=ExtResource( 8 )]
+
+[node name="EnterPuzzleTrigger" parent="17 WallScoopJump" instance=ExtResource( 10 )]
+
+[node name="EnterPuzzleTrigger2" parent="17 WallScoopJump" instance=ExtResource( 10 )]

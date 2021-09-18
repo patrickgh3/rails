@@ -16,9 +16,6 @@ var current_puzzle
 
 func _ready():
 	
-	if master_controller:
-		print("master_controller")
-	
 	#for node in $"/root/Root".get_children():
 		#if "Box" in node.name:
 		#	boxes.append(node)
@@ -35,11 +32,12 @@ func _ready():
 	
 	#spawn_cubio_if_no_cubio()
 	
-	var spawn = get_parent().get_node_or_null("CubioSpawn")
-	if spawn == null:
-		printerr("Spawn not found for controller in this level: "+get_parent().name)
-	else:
-		spawn.hide()
+	if not master_controller:
+		var spawn = get_parent().get_node_or_null("CubioSpawn")
+		if spawn == null:
+			printerr("Spawn not found for controller in this level: "+get_parent().name)
+		else:
+			spawn.hide()
 	
 	volumes[$MusicRoot1Piano] = 0
 	volumes[$MusicRoot2Deep] = 0

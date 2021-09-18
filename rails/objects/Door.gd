@@ -35,8 +35,9 @@ func _process(delta):
 	
 	
 # this hears the signal Box.delivered(box, yes)
-func receive_box_delivered(box, yes):
+func receive_box_delivered(box, _yes):
 	for i in range(boxes.size()):
 		if (boxes[i] == box):
-			print (name, "'s ", box.name, " was delivered: ", yes)
+			#print (name, "'s ", box.name, " was delivered: ", yes)
+			pass
 		
