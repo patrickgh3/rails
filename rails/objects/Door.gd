@@ -9,9 +9,6 @@ func _ready():
 	for box in controller.boxes:
 		boxes.append(box)
 		box.connect("signal_delivered", self, "receive_box_delivered")
-			
-	#for box in get_tree().get_nodes_in_group("Boxes"):
-		#box.connect("signal_delivered", self, "receive_box_delivered")
 
 func _process(delta):
 	# Check if all boxes are delivered

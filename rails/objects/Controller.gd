@@ -21,7 +21,8 @@ func _ready():
 		#	grounds.append(node)
 		
 	for box in get_tree().get_nodes_in_group("Boxes"):
-		boxes.append(box)
+		if get_parent().is_a_parent_of(box):
+			boxes.append(box)
 	
 	for rail in get_tree().get_nodes_in_group("Rails"):
 		rails.append(rail)
