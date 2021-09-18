@@ -1471,39 +1471,30 @@ transform = Transform( 10, 0, 0, 0, 62, 0, 0, 0, 1, 0, 1, 38 )
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -10 )
-boxes = [ NodePath("../Box"), NodePath("../Box2") ]
 
 [node name="Door2" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 0, 20 )
-boxes = [ NodePath("../Box11") ]
 
 [node name="Door6" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 40, 0, 20 )
-boxes = [ NodePath("../Box12") ]
 
 [node name="Door8" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 49, 0, 10 )
-boxes = [ NodePath("../Box19") ]
 
 [node name="Door9" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 71, 0, 10 )
-boxes = [ NodePath("../Box19") ]
 
 [node name="Door10" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 91, 0, 10 )
-boxes = [ NodePath("../Box22") ]
 
 [node name="Door3" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2, 0, 26 )
-boxes = [ NodePath("../Box8") ]
 
 [node name="Door7" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -12, 0, 20 )
-boxes = [ NodePath("../Box8") ]
 
 [node name="Door4" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 7 )
-boxes = [ NodePath("../Box4"), NodePath("../Box5"), NodePath("../Box6"), NodePath("../Box7") ]
 
 [node name="Box24" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 0, -2 )
