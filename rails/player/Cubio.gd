@@ -127,11 +127,11 @@ func _process(delta):
 		camera_offset_t += delta * 3
 		if camera_offset_t > 1:
 			camera_offset_t = 1
-			camera.translation = target_camera_offset
+			cam_root.translation = target_camera_offset
 		else:
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
-			camera.translation = Vector3(0, y, z)
+			cam_root.translation = Vector3(0, y, z)
 
 func _physics_process(delta):
 	
@@ -324,7 +324,7 @@ func stand_up():
 		var node = sprite as Node2D
 		
 		camera_offset_t = 0
-		last_camera_offset = camera.translation
+		last_camera_offset = cam_root.translation
 		if first_person:
 			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
 			target_camera_offset = CAM_OFFSET1
@@ -346,7 +346,7 @@ func crouch():
 	var node = sprite as Node2D
 	
 	camera_offset_t = 0
-	last_camera_offset = camera.translation
+	last_camera_offset = cam_root.translation
 	if not my_box == null:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * .625)
 		target_camera_offset = CAM_BOX_FORM_OFFSET3
@@ -403,14 +403,12 @@ func box_form():
 	var z = int(floor(translation.z))
 	my_box.translation = Vector3(x,y,z) 
 	
-	print ("global_transfor.basis.z ", global_transform.basis.z)
 	var y_rad = atan2(global_transform.basis.z.x, global_transform.basis.z.z)
 	var y_eul = rad2deg(y_rad)
 	
 	while y_rad < 0: 
 		y_rad += 2 * PI
 	
-	print ("y_rad: ", y_rad)
 	if y_rad > 7 * PI / 4:
 		y_rad = 0
 	elif y_rad > 5 * PI / 4:
@@ -423,8 +421,6 @@ func box_form():
 		y_rad = 0
 	
 	y_eul = rad2deg(y_rad)
-	print ("y_eul snapped to: ", y_eul)
-	print ("y_rad snapped to: ", y_rad)
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0))
 	translation = my_box.get_world_center()
