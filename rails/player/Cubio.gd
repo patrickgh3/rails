@@ -3,7 +3,8 @@ extends KinematicBody
 class_name Cubio
 
 # Constant variables for Movement
-const SPEED = 7
+const WALKING_SPEED = 5
+const SPRINTING_SPEED = 10
 const GRAVITY = 50
 const JUMP = 5
 const FALL_MULTY = 0.5
@@ -44,6 +45,7 @@ const LEAN_AMOUNT : float = 0.7
 
 var self_aware = true # @DEBUG the boss should turn this true?
 
+var speed = WALKING_SPEED
 var velocity: Vector3
 var dir: Vector3
 var gravity_vec = Vector3()
@@ -190,9 +192,9 @@ func _physics_process(delta):
 		
 	# Moving
 	if crouching:
-		velocity = velocity.linear_interpolate(dir * SPEED / 4, accel * delta)
+		velocity = velocity.linear_interpolate(dir * speed / 4, accel * delta)
 	else:
-		velocity = velocity.linear_interpolate(dir * SPEED, accel * delta)
+		velocity = velocity.linear_interpolate(dir * speed, accel * delta)
 		
 	if(gravity_vec > Vector3.ZERO):
 		movement = velocity + gravity_vec * JUMP_MULTY
@@ -221,7 +223,12 @@ func _input(event):
 						box_form()
 				else:
 					unbox()
-	
+					
+	if event.is_action_pressed("sprint"):
+		speed = SPRINTING_SPEED
+	elif event.is_action_released("sprint"):
+		speed = WALKING_SPEED
+					
 	
 	if event is InputEventKey:
 		if event.scancode == KEY_M and event.is_pressed():
