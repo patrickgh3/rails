@@ -12,6 +12,7 @@ onready var volumes = {}
 onready var music_active = {}
 onready var rng = RandomNumberGenerator.new()
 onready var master_controller = get_parent().name == "Root"
+var current_puzzle
 
 func _ready():
 	
@@ -31,9 +32,12 @@ func _ready():
 	
 	#spawn_cubio_if_no_cubio()
 	
-	var spawn = get_node_or_null("/root/Root/CubioSpawn")
-	if not spawn == null:
-		spawn.hide()
+	if not master_controller:
+		var spawn = get_parent().get_node_or_null("CubioSpawn")
+		if spawn == null:
+			printerr("Spawn not found for controller in this level: "+get_parent().name)
+		else:
+			spawn.hide()
 	
 	volumes[$MusicRoot1Piano] = 0
 	volumes[$MusicRoot2Deep] = 0
@@ -70,8 +74,35 @@ func _process(_delta):
 		node.set_volume_db(lerp(-50, 0, volumes[node]))
 	
 	# Skip puzzle button
-	if Input.is_action_just_pressed("skip_puzzle"):
-		pass
+	if master_controller:
+		if Input.is_action_just_pressed("reset_puzzle"):
+			reset_puzzle()
+		if Input.is_action_just_pressed("skip_puzzle"):
+			var door = current_puzzle.get_node("Door")
+			if door != null:
+				door.skipped = true
+			
+func reset_puzzle():
+	var cubio = get_tree().root.get_node("Root/Cubio")
+	var spawn = current_puzzle.get_node("CubioSpawn")
+	var controller = current_puzzle.get_node("Controller")
+	var door = current_puzzle.get_node("Door")
+	
+	if door != null:
+		door.skipped = false
+	cubio.transform = spawn.get_global_transform()
+	# Move the player out from in the ground, to avoid stutter for 1 frame
+	# This number 0.451 is from inspecting the player's actual y translation
+	# in remote view. So it's a hack!
+	cubio.translation += Vector3.UP * 0.451
+	cubio.velocity = Vector3.ZERO
+	cubio.get_node("CamRoot").rotation_degrees.x = 0
+	for box in controller.boxes:
+		box.reset_transform_to_initial_values()
+		box.velocity = Vector3.ZERO
+		box.rails_touching.clear()
+		
+	controller.rails_just_halted = controller.rails.duplicate()
 
 func spawn_cubio_if_no_cubio():
 	var cub = get_node_or_null("../Cubio")
