@@ -5,22 +5,22 @@
 
 [sub_resource type="CubeMesh" id=1]
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=14]
+[sub_resource type="VisualShaderNodeScalarConstant" id=2]
 constant = 0.5
 
-[sub_resource type="VisualShaderNodeInput" id=15]
+[sub_resource type="VisualShaderNodeInput" id=3]
 input_name = "uv"
 
-[sub_resource type="VisualShaderNodeVectorOp" id=16]
+[sub_resource type="VisualShaderNodeVectorOp" id=4]
 operator = 2
 
-[sub_resource type="VisualShaderNodeTexture" id=2]
+[sub_resource type="VisualShaderNodeTexture" id=5]
 texture = ExtResource( 1 )
 
-[sub_resource type="VisualShaderNodeVec3Uniform" id=10]
+[sub_resource type="VisualShaderNodeVec3Uniform" id=6]
 uniform_name = "Scale"
 
-[sub_resource type="VisualShader" id=4]
+[sub_resource type="VisualShader" id=7]
 code = "shader_type spatial;
 render_mode specular_schlick_ggx;
 
@@ -66,25 +66,25 @@ void light() {
 "
 graph_offset = Vector2( -662.6, 275.2 )
 nodes/fragment/0/position = Vector2( 380, 340 )
-nodes/fragment/3/node = SubResource( 2 )
+nodes/fragment/3/node = SubResource( 5 )
 nodes/fragment/3/position = Vector2( 100, 220 )
-nodes/fragment/7/node = SubResource( 10 )
+nodes/fragment/7/node = SubResource( 6 )
 nodes/fragment/7/position = Vector2( -540, 440 )
-nodes/fragment/11/node = SubResource( 14 )
+nodes/fragment/11/node = SubResource( 2 )
 nodes/fragment/11/position = Vector2( 120, 520 )
-nodes/fragment/12/node = SubResource( 15 )
+nodes/fragment/12/node = SubResource( 3 )
 nodes/fragment/12/position = Vector2( -480, 280 )
-nodes/fragment/13/node = SubResource( 16 )
+nodes/fragment/13/node = SubResource( 4 )
 nodes/fragment/13/position = Vector2( -300, 360 )
 nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 3, 1, 0, 1, 11, 0, 0, 2, 7, 0, 13, 1, 12, 0, 13, 0, 13, 0, 3, 0 )
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
-shader_param/Scale = Vector3( 8, 4, 8 )
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/Scale = Vector3( 8, 1, 8 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=9]
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=10]
 
 [node name="Ground" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
@@ -95,14 +95,14 @@ __meta__ = {
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
-material/0 = SubResource( 5 )
+material/0 = SubResource( 8 )
 
 [node name="KinematicBody" type="KinematicBody" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="Area" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Area"]
-shape = SubResource( 7 )
+shape = SubResource( 10 )

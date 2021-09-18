@@ -14,17 +14,20 @@ onready var rng = RandomNumberGenerator.new()
 
 func _ready():
 	
-	for node in $"/root/Root".get_children():
-		if "Box" in node.name:
-			boxes.append(node)
-		if "Ground" in node.name:
-			grounds.append(node)
-			
+	#for node in $"/root/Root".get_children():
+		#if "Box" in node.name:
+		#	boxes.append(node)
+		#if "Ground" in node.name:
+		#	grounds.append(node)
+		
+	for box in get_tree().get_nodes_in_group("Boxes"):
+		boxes.append(box)
+	
 	for rail in get_tree().get_nodes_in_group("Rails"):
 		rails.append(rail)
 	rails_just_halted = rails.duplicate()
 	
-	spawn_cubio_if_no_cubio()
+	#spawn_cubio_if_no_cubio()
 	
 	var spawn = get_node_or_null("/root/Root/CubioSpawn")
 	if not spawn == null:

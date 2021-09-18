@@ -3,7 +3,7 @@ class_name Box
 
 const box_speed = 1
 
-onready var controller = $"/root/Root/Controller"
+onready var controller = $"../Controller"
 onready var mesh = $MeshInstance
 
 
@@ -169,7 +169,7 @@ func _process(delta):
 		if (rail_nearby(rail, Vector3.ZERO)):
 			var touching = false
 			for edge in edges:
-				if not touching and point_on_rail(translation + edge["a"], rail)["on"] and point_on_rail(translation + edge["b"], rail)["on"]:
+				if not touching and point_on_rail(global_transform.origin + edge["a"], rail)["on"] and point_on_rail(global_transform.origin + edge["b"], rail)["on"]:
 					touching = true
 				if touching:
 					if not rail in rails_touching:
@@ -220,33 +220,33 @@ func on_rails(to_move):
 		var c = false
 		for rail in nearby_rails:
 			
-			var result = point_on_rail(translation + to_move + edge["a"], rail)
+			var result = point_on_rail(get_global_transform().origin + to_move + edge["a"], rail)
 			if result["on"]:
 				a = true
 				if not result["barely"]: rails[rail] = true
 
-			result = point_on_rail(translation + to_move + edge["b"], rail)
+			result = point_on_rail(get_global_transform().origin + to_move + edge["b"], rail)
 			if result["on"]:
 				b = true
 				if not result["barely"]: rails[rail] = true
 			
 			# Check midpoint (kind of hacky)
-			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.2), rail)
+			result = point_on_rail(get_global_transform().origin + to_move + lerp(edge["a"], edge["b"], 0.2), rail)
 			if result["on"]:
 				c = true
 				if not result["barely"]: rails[rail] = true
 				
-			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.4), rail)
+			result = point_on_rail(get_global_transform().origin + to_move + lerp(edge["a"], edge["b"], 0.4), rail)
 			if result["on"]:
 				c = true
 				if not result["barely"]: rails[rail] = true
 				
-			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.6), rail)
+			result = point_on_rail(get_global_transform().origin + to_move + lerp(edge["a"], edge["b"], 0.6), rail)
 			if result["on"]:
 				c = true
 				if not result["barely"]: rails[rail] = true
 				
-			result = point_on_rail(translation + to_move + lerp(edge["a"], edge["b"], 0.8), rail)
+			result = point_on_rail(get_global_transform().origin + to_move + lerp(edge["a"], edge["b"], 0.8), rail)
 			if result["on"]:
 				c = true
 				if not result["barely"]: rails[rail] = true

@@ -32,7 +32,7 @@ onready var cam_root = $CamRoot
 onready var camera = $CamRoot/Camera
 onready var cubio_body = $CubioBody
 onready var accel = ACCEL_TYPE["default"]
-onready var controller = $"/root/Root/Controller"
+onready var controller = $"../Controller"
 
 
 
