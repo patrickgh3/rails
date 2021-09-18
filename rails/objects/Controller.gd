@@ -69,6 +69,9 @@ func _process(_delta):
 		volumes[node] = clamp(volumes[node], 0, 1)
 		node.set_volume_db(lerp(-50, 0, volumes[node]))
 	
+	# Skip puzzle button
+	if Input.is_action_just_pressed("skip_puzzle"):
+		pass
 
 func spawn_cubio_if_no_cubio():
 	var cub = get_node_or_null("../Cubio")
@@ -85,8 +88,9 @@ func spawn_cubio_if_no_cubio():
 		spawn.queue_free()
 		
 func _input(event):
-	if master_controller:
-		if event is InputEventKey and event.is_pressed():
+	if event is InputEventKey and event.is_pressed():
+		# Debug music keys
+		if master_controller:
 			if event.scancode == KEY_4:
 				music_active[$MusicRoot1Piano] = not music_active[$MusicRoot1Piano]
 			if event.scancode == KEY_5:

@@ -16,6 +16,7 @@ func _process(delta):
 	for box in boxes:
 		if box != null and not box.delivered:
 			all_pressed = false
+	all_pressed = true
 	
 	# Open and shut door
 	var door_t_last = door_t

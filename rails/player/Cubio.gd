@@ -3,7 +3,7 @@ extends KinematicBody
 class_name Cubio
 
 # Constant variables for Movement
-const SPEED = 5
+const SPEED = 7
 const GRAVITY = 50
 const JUMP = 5
 const FALL_MULTY = 0.5
