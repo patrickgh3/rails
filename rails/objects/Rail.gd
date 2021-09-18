@@ -8,7 +8,8 @@ var glow = 0
 var attached_to_boss
 
 func _ready():
-	attached_to_boss = get_parent().is_in_group("Boss")
+	if get_parent().is_in_group("Boxes"):
+		attached_to_boss = get_parent().is_the_boss
 
 func _process(delta):
 	# Pass params to shader

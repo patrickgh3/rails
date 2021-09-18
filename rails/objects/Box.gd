@@ -31,7 +31,6 @@ var flesh
 
 func _enter_tree():
 	add_to_group("Boxes")
-	if is_the_boss: add_to_group("Boss")
 
 func _ready():
 	initial_translation = translation
@@ -109,7 +108,7 @@ func _process(delta):
 	
 	# Accelerate
 	if velocity != Vector3.ZERO:
-		remove_from_group("Employees")
+		call_deferred("remove_from_group", "Employees")
 		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
 		
 		# Check if we're about to go off the rails!

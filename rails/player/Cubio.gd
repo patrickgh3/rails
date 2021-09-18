@@ -45,6 +45,7 @@ const LEAN_AMOUNT : float = 0.7
 
 var self_aware = true # @DEBUG the boss should turn this true?
 
+var boss
 var speed = WALKING_SPEED
 var velocity: Vector3
 var dir: Vector3
@@ -71,13 +72,15 @@ var camera_offset_t
 var target_camera_offset
 var last_camera_offset
 
+func _enter_tree():
+	add_to_group("Player")
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	stand_up()
 	first_person_cam()
 	
-	add_to_group("Player")
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -91,6 +94,10 @@ func _ready():
 	
 	highlight_info = load("res://objects/BoxHighlightInfo.gd").new()
 	
+	for b in get_tree().get_nodes_in_group("Boxes"):
+		print ("b.name ", b.name)
+		if b.is_the_boss:
+			boss = b
 	
 	
 func _process(delta):
@@ -102,7 +109,10 @@ func _process(delta):
 		get_tree().quit()
 	
 	if Input.is_action_just_pressed("left_click"):
-		try_pull_box()
+		try_pull_box(false)
+		
+	if Input.is_action_just_pressed("right_click"):
+		try_pull_box(true)
 		
 	if first_person:
 		# Camera physics interpolation to reduce physics jitter on high refresh-rate monitors
@@ -300,14 +310,17 @@ func try_highlight_box ():
 		highlight.show()
 	else: highlight.hide()
 
-func try_pull_box():
+func try_pull_box(var pull_boss):
 	# If any box is moving, don't highlight any box
 	for box in controller.boxes:
 		if box.velocity != Vector3.ZERO:
 			return
 	
 	if box_hit:
-		box_hit.face_pulled(highlight_info.face)
+		if pull_boss and not boss == null:
+			boss.face_pulled(highlight_info.face)
+		else:
+			box_hit.face_pulled(highlight_info.face)
 		
 func stand_up():
 	var space_state = get_world().direct_space_state
