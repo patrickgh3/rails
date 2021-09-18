@@ -4,6 +4,7 @@ var boxes = Array()
 onready var translation_start = translation
 onready var controller = $"../Controller"
 var door_t = 0
+var skipped = false
 
 func _ready():
 	for box in controller.boxes:
@@ -16,7 +17,7 @@ func _process(delta):
 	for box in boxes:
 		if box != null and not box.delivered:
 			all_pressed = false
-	all_pressed = true
+	if skipped: all_pressed = true
 	
 	# Open and shut door
 	var door_t_last = door_t

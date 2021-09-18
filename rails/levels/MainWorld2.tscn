@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
@@ -7,7 +7,9 @@
 [ext_resource path="res://objects/Controller.tscn" type="PackedScene" id=5]
 [ext_resource path="res://player/Cubio.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/CubioSpawn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/LaunchArea.gd" type="Script" id=9]
+[ext_resource path="res://objects/EnterPuzzleTrigger.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -57,8 +59,8 @@ shader = SubResource( 3 )
 
 [node name="Controller" parent="." instance=ExtResource( 5 )]
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 24, 1, 1 )
+[node name="Cubio" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 1, 1 )
 
 [node name="Ground2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 12, 0, 0, 0, 60, 0, 0, 0, 30, -110, 8, 11 )
@@ -90,8 +92,79 @@ transform = Transform( 1, 0, 0, 0, 60, 0, 0, 0, 40, -78, 15, 8 )
 [node name="Ground4" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 60, 0, 0, 0, 40, -77, 15, -86 )
 
+[node name="TempBridges" type="Spatial" parent="."]
+
+[node name="Ground" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 9, 0, 0, 0, 1, 0, 0, 0, 5, -6, -1, -3 )
+
+[node name="Ground12" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 9, 0, 0, 0, 1, 0, 0, 0, 5, -22, -1, 8 )
+
+[node name="Ground14" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 6, -48, -1, 4 )
+
+[node name="Ground16" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, -67, -1, -13 )
+
+[node name="Ground17" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -69, -1, -31 )
+
+[node name="Ground15" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 3, -57, -1, -3 )
+
+[node name="Ground13" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 5, -39, -1, 15 )
+
+[node name="Ground18" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -79, -1, -38 )
+
+[node name="Ground19" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -97, -1, -36 )
+
+[node name="Ground22" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, -117, -6, -32 )
+
+[node name="Ground20" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( -5.67828e-07, 2.18557e-08, 2, 7.5, 0.866025, 0, -12.9904, 0.5, -8.74228e-08, -109, -10, -23 )
+
+[node name="Ground21" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( -2.25576, 0.0868241, -1.96962, 7.5, 0.866025, 0, 12.793, -0.492404, -0.347296, -116, -11, -35 )
+
+[node name="Ground23" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, -126, -11, -65 )
+
+[node name="Ground24" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -141, -11, -65 )
+
+[node name="Ground25" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -148, -11, -18 )
+
+[node name="Ground26" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -169, -11, -15 )
+
+[node name="Ground27" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -169, -11, -41 )
+
+[node name="Ground28" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -184, -11, -52 )
+
+[node name="Ground32" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 10, -183, -11, -52 )
+
+[node name="Ground29" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -210, -11, -46 )
+
+[node name="Ground30" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -234, -11, -46 )
+
+[node name="Ground31" parent="TempBridges" instance=ExtResource( 7 )]
+transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 1, -262, -11, -22 )
+
 [node name="01 PullBoxes" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
+
+[node name="CubioSpawn" parent="01 PullBoxes" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -1 )
 
 [node name="Controller" parent="01 PullBoxes" instance=ExtResource( 5 )]
 
@@ -103,6 +176,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
 
 [node name="Box17" parent="01 PullBoxes" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2 )
+
+[node name="Box18" parent="01 PullBoxes" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
 
 [node name="Rail30" parent="01 PullBoxes" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2 )
@@ -215,6 +291,9 @@ transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 4 )
 
 [node name="Rail126" parent="01 PullBoxes" instance=ExtResource( 1 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1, 0, 5 )
+
+[node name="Rail146" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 7.35137e-08, 0, 1, 0, -7.35137e-08, 0, 1, 0, 0, 6 )
 is_target = true
 
 [node name="Rail128" parent="01 PullBoxes" instance=ExtResource( 1 )]
@@ -223,12 +302,57 @@ transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1, 0, 4 )
 [node name="Rail129" parent="01 PullBoxes" instance=ExtResource( 1 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1, 0, 3 )
 
+[node name="Rail145" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 7.35137e-08, 0, 1, 0, -7.35137e-08, 0, 1, 0, 0, 2 )
+
+[node name="Rail130" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 0, 0, -5 )
+
+[node name="Rail137" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 0, 0, -4 )
+
+[node name="Rail138" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 1, 0, -4 )
+
+[node name="Rail139" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 2, 0, -4 )
+
+[node name="Rail140" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 3, 0, -4 )
+
+[node name="Rail141" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 4, 0, -4 )
+
+[node name="Rail142" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 5, 0, -4 )
+
+[node name="Rail143" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( -8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 6, 0, -4 )
+is_target = true
+
+[node name="Rail144" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( -8.84149e-08, 0, 1, 0, 1, 0, -1, 0, -8.84149e-08, 0, 0, -4 )
+
+[node name="Rail131" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 1, 0, -5 )
+
+[node name="Rail133" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 2, 0, -5 )
+
+[node name="Rail134" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 3, 0, -5 )
+
+[node name="Rail135" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 4, 0, -5 )
+
+[node name="Rail136" parent="01 PullBoxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 4.47035e-08, 0, 1, 0, -4.47035e-08, 0, 1, 5, 0, -5 )
+
 [node name="Rail132" parent="01 PullBoxes" instance=ExtResource( 1 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 1, 0, 2 )
 
 [node name="Rail127" parent="01 PullBoxes" instance=ExtResource( 1 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 0, 0, 5 )
-is_target = true
 
 [node name="Rail63" parent="01 PullBoxes" instance=ExtResource( 1 )]
 transform = Transform( 2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, -4, 0, -1 )
@@ -304,6 +428,9 @@ transform = Transform( 1, 0, 0, 0, 15, 0, 0, 0, 20, 15, 0, -10 )
 
 [node name="Ground3" parent="01 PullBoxes" instance=ExtResource( 7 )]
 transform = Transform( 24, 0, 0, 0, 15, 0, 0, 0, 1, -9, 0, -10 )
+
+[node name="EnterPuzzleTrigger" parent="01 PullBoxes" instance=ExtResource( 10 )]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 11, 0, -1 )
 
 [node name="02 WeirdRails" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0 )
@@ -436,6 +563,12 @@ transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114
 
 [node name="Rail102" parent="02 WeirdRails" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.91069e-15, 3, 2, 6 )
+
+[node name="CubioSpawn" parent="02 WeirdRails" instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 0, 0 )
+
+[node name="EnterPuzzleTrigger" parent="02 WeirdRails" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 8, 13, 0, -4 )
 
 [node name="03 UpAndOver" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, 22 )
@@ -2729,71 +2862,3 @@ is_target = true
 
 [node name="Door" parent="17 WallScoopJump" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -37, -292 )
-
-[node name="TempBridges" type="Spatial" parent="."]
-
-[node name="Ground" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 9, 0, 0, 0, 1, 0, 0, 0, 5, -6, -1, -3 )
-
-[node name="Ground12" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 9, 0, 0, 0, 1, 0, 0, 0, 5, -22, -1, 8 )
-
-[node name="Ground14" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 6, -48, -1, 4 )
-
-[node name="Ground16" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, -67, -1, -13 )
-
-[node name="Ground17" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -69, -1, -31 )
-
-[node name="Ground15" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 3, -57, -1, -3 )
-
-[node name="Ground13" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 5, -39, -1, 15 )
-
-[node name="Ground18" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -79, -1, -38 )
-
-[node name="Ground19" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -97, -1, -36 )
-
-[node name="Ground22" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, -117, -6, -32 )
-
-[node name="Ground20" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( -5.67828e-07, 2.18557e-08, 2, 7.5, 0.866025, 0, -12.9904, 0.5, -8.74228e-08, -109, -10, -23 )
-
-[node name="Ground21" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( -2.25576, 0.0868241, -1.96962, 7.5, 0.866025, 0, 12.793, -0.492404, -0.347296, -116, -11, -35 )
-
-[node name="Ground23" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 2, -126, -11, -65 )
-
-[node name="Ground24" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, -141, -11, -65 )
-
-[node name="Ground25" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -148, -11, -18 )
-
-[node name="Ground26" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 1, -169, -11, -15 )
-
-[node name="Ground27" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -169, -11, -41 )
-
-[node name="Ground28" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -184, -11, -52 )
-
-[node name="Ground32" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 10, -183, -11, -52 )
-
-[node name="Ground29" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -210, -11, -46 )
-
-[node name="Ground30" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 15, 0, 0, 0, 1, 0, 0, 0, 1, -234, -11, -46 )
-
-[node name="Ground31" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 1, -262, -11, -22 )

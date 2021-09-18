@@ -132,6 +132,10 @@ func _process(delta):
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
 			camera.translation = Vector3(0, y, z)
+			
+	# Restart puzzle if you fall too far
+	if translation.y < -50:
+		controller.reset_puzzle()
 
 func _physics_process(delta):
 	
@@ -236,11 +240,6 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_1 and event.is_pressed():
 			first_person_cam()
-			
-	if event is InputEventKey:
-		if event.scancode == KEY_R and event.is_pressed():
-			for b in get_tree().get_nodes_in_group("Boxes"):
-				b.reset_transform_to_initial_values()
 				
 func toggle_cursor ():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -443,3 +442,6 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
+	
+func register_puzzle(enter_puzzle_trigger):
+	controller.current_puzzle = enter_puzzle_trigger.get_parent()
