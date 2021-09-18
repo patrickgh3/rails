@@ -23,7 +23,7 @@ const RAY_LENGTH = 18
 const CAM_OFFSET3 = Vector3(0, 2, 6)
 const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
-const CAM_OFFSET1 = Vector3(0, 1, 0)
+const CAM_OFFSET1 = Vector3(0, 0, 0)
 
 
 
@@ -127,11 +127,11 @@ func _process(delta):
 		camera_offset_t += delta * 3
 		if camera_offset_t > 1:
 			camera_offset_t = 1
-			cam_root.translation = target_camera_offset
+			camera.translation = target_camera_offset
 		else:
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
-			cam_root.translation = Vector3(0, y, z)
+			camera.translation = Vector3(0, y, z)
 
 func _physics_process(delta):
 	
@@ -324,7 +324,7 @@ func stand_up():
 		var node = sprite as Node2D
 		
 		camera_offset_t = 0
-		last_camera_offset = cam_root.translation
+		last_camera_offset = camera.translation
 		if first_person:
 			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
 			target_camera_offset = CAM_OFFSET1
@@ -346,7 +346,7 @@ func crouch():
 	var node = sprite as Node2D
 	
 	camera_offset_t = 0
-	last_camera_offset = cam_root.translation
+	last_camera_offset = camera.translation
 	if not my_box == null:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * .625)
 		target_camera_offset = CAM_BOX_FORM_OFFSET3
