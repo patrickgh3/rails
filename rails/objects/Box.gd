@@ -26,10 +26,10 @@ var rail_volume_2 = 0
 var rail_sound_index = 1
 var initial_translation
 var initial_rotation
+var flesh
 
 func _enter_tree():
 	add_to_group("Boxes")
-
 
 
 func _ready():
@@ -190,6 +190,8 @@ func _process(delta):
 			bumping = false
 		var bump_dist = lerp(0.06, 0, controller.ease_out_quad(bump_t))
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir / scale
+		if not flesh == null:
+			flesh.translation = $MeshInstance.translation
 
 	if delivered and not was_delivered:
 		emit_signal("signal_delivered", self, true)
@@ -437,3 +439,24 @@ func was_pulled (collision_position):
 	else:
 		print ("BADDDDDDDDD")
 	grab_velocity *= box_speed
+	
+	
+	
+func become_human():
+	if not flesh == null:
+		return
+		
+	$MeshInstance.hide()
+	flesh = load("res://player/PlayerFace.tscn").instance()
+	add_child((flesh))
+	# kinda hacky!
+	flesh.translation = mesh.scale
+	flesh.rotation = Vector3.ZERO
+	
+func become_box():
+	$MeshInstance.show()
+	if not flesh == null:
+		flesh.hide()
+		flesh.queue_free()
+		flesh = null
+
