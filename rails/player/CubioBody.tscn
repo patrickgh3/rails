@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://player/Cube_Person_Thing.glb" type="PackedScene" id=1]
 [ext_resource path="res://player/CubioBody.gd" type="Script" id=2]
-
-[sub_resource type="QuadMesh" id=1]
-
-[sub_resource type="SpatialMaterial" id=2]
+[ext_resource path="res://player/PlayerFace.tscn" type="PackedScene" id=3]
 
 [node name="CubeBody" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="FaceQuad" type="MeshInstance" parent="." index="0"]
-transform = Transform( -0.889997, 0, -0.00249591, 0, 0.72, 0, 0.00222136, 0, -0.999997, 0, 1.455, 2.07823 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+[node name="faces" parent="." index="0" instance=ExtResource( 3 )]
+
+[node name="HEAD" parent="." index="2"]
+visible = false

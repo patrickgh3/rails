@@ -22,7 +22,9 @@ const MOUSE_SENSITIVITY = 0.1
 const RAY_LENGTH = 1000
 const CAM_OFFSET3 = Vector3(0, 2, 6)
 const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
+const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
 const CAM_OFFSET1 = Vector3(0, 1, 0)
+
 
 
 onready var shape = $CollisionShape
@@ -31,6 +33,7 @@ onready var camera = $CamRoot/Camera
 onready var cubio_body = $CubioBody
 onready var accel = ACCEL_TYPE["default"]
 onready var controller = $"/root/Root/Controller"
+
 
 
 # Strafe leaning
@@ -51,12 +54,12 @@ var box_hit
 var highlight_info
 var snap
 var first_person
-var lean_cam = false # set false for now for max's sake during development
+var lean_cam = false # @DEBUG set false for now for max's sake during development
 var launched
 var hit_launch_pad
 var launch_box
 var launch_box_offset
-
+var my_box
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -69,6 +72,7 @@ func _ready():
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
 	debug_marker = load("res://objects/DebugCube.tscn").instance()
+	debug_marker.hide() # @DEBUG, hidden for release
 	get_tree().current_scene.call_deferred("add_child", debug_marker)
 	highlight_info = load("res://objects/BoxHighlightInfo.gd").new()
 	
@@ -97,6 +101,10 @@ func _process(delta):
 	
 	if not launch_box == null:
 		translation = launch_box.translation + launch_box_offset
+		
+	if not my_box == null:
+		translation = my_box.get_world_center()
+		cubio_body.rotation
 
 func _physics_process(delta):
 	
@@ -171,12 +179,26 @@ func _input(event):
 	if mouse_captured:
 		if event is InputEventMouseMotion:
 			rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
-			
 			# Make sure you can't look too far up or down
 			$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -75, 75)
 			
-			
+	if event is InputEventKey:
+		if event.scancode == KEY_B and event.is_pressed():
+			if my_box == null:
+				var dist_to = 999999
+				var nearest_box = null
+				for b in get_tree().get_nodes_in_group("Boxes"):
+					var this_dist = translation.distance_squared_to(b.translation)
+					if this_dist < dist_to:
+						nearest_box = b
+						dist_to = this_dist
+						
+				if not nearest_box == null:
+					attach_to_box(nearest_box)
+			else: detach_from_box()
+	
+	
 	if event is InputEventKey:
 		if event.scancode == KEY_M and event.is_pressed():
 			toggle_cursor ()
@@ -281,6 +303,7 @@ func stand_up():
 		var screen_rect = sprite.get_viewport_rect()
 		var node = sprite as Node2D
 		
+		
 		if first_person:
 			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
 			camera.translation = CAM_OFFSET1
@@ -301,7 +324,10 @@ func crouch():
 	var screen_rect = sprite.get_viewport_rect()
 	var node = sprite as Node2D
 	
-	if first_person:
+	if not my_box == null:
+		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * .625)
+		camera.translation = CAM_BOX_FORM_OFFSET3
+	elif first_person:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
 		camera.translation = CAM_OFFSET1
 	else:
@@ -343,3 +369,23 @@ func hit_moving_launchbox(hit_launch_box):
 	if not launched and launch_box == null:
 		launch_box = hit_launch_box
 		launch_box_offset = translation - launch_box.translation
+		
+func attach_to_box(mom_box):
+	third_person_cam()
+	translation = mom_box.translation
+	rotation = mom_box.rotation
+	my_box = mom_box
+	my_box.become_human()
+	$CollisionShape.disabled = true
+	crouch()
+	cubio_body.hide()
+	
+func detach_from_box():
+	if not my_box == null:
+		translation = my_box.translation + Vector3.UP
+		my_box.become_box()
+	
+	first_person_cam()
+	stand_up()
+	$CollisionShape.disabled = false
+	my_box = null
