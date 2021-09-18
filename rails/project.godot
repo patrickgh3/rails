@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="rails"
-run/main_scene="res://levels/MainWorld.tscn"
+run/main_scene="res://levels/MainWorld2.tscn"
 config/icon="res://player/icon.png"
 
 [display]
