@@ -12,6 +12,7 @@ enum Face {X_PLUS, X_MINUS, Y_PLUS, Y_MINUS, Z_PLUS, Z_MINUS}
 signal signal_delivered(box, yes)
 
 export(bool) var launcher = false
+export(bool) var is_the_boss = false
 
 var velocity = Vector3()
 var grab_velocity : Vector3
@@ -30,7 +31,7 @@ var flesh
 
 func _enter_tree():
 	add_to_group("Boxes")
-
+	if is_the_boss: add_to_group("Boss")
 
 func _ready():
 	initial_translation = translation
@@ -59,6 +60,12 @@ func _ready():
 	for edge in edges:
 		edge["a"] *= scale
 		edge["b"] *= scale
+		
+	if is_the_boss:
+		become_human(Vector3.ZERO, true)
+		
+		
+		
 
 func _process(delta):
 	# Apply grab velocity, if it was set
@@ -102,6 +109,7 @@ func _process(delta):
 	
 	# Accelerate
 	if velocity != Vector3.ZERO:
+		remove_from_group("Employees")
 		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
 		
 		# Check if we're about to go off the rails!
@@ -111,7 +119,9 @@ func _process(delta):
 		if result["valid"]:
 			# The place we want to move to is valid, so move there!
 			translation += to_move
-			
+			if is_the_boss:
+				for b in get_tree().get_nodes_in_group("Employees"):
+					b.translation += to_move
 				
 		else:
 			# Keep travelling by small increments until we are about to leave the rails
@@ -150,6 +160,7 @@ func _process(delta):
 	
 
 
+	# @OPTIMIZE adding/removing from employees every frame isn't necessary
 	# Do per-rail logic
 	var was_delivered = delivered
 	delivered = false
@@ -159,8 +170,10 @@ func _process(delta):
 		rail.glow = min(rail.glow, 1)
 		
 		# Mark ourselves as delivered, if this rail is a target and we're still
-		if rail.is_target and velocity == Vector3.ZERO:
-			delivered = true
+		if velocity == Vector3.ZERO:
+			if rail.is_target: delivered = true
+			if rail.attached_to_boss: add_to_group("Employees")
+			
 		
 	# Of rails that just stopped moving, check if we're touching any,
 	# and if so, count that we're touching them
@@ -442,7 +455,7 @@ func was_pulled (collision_position):
 	
 	
 	
-func become_human(flesh_rot):
+func become_human(flesh_rot, promote_to_boss = false):
 	if not flesh == null:
 		return
 		
@@ -451,6 +464,13 @@ func become_human(flesh_rot):
 	add_child((flesh))
 	flesh.translation = mesh.scale
 	flesh.set_rotation(flesh_rot)
+	
+	if promote_to_boss:
+		var boss_face = load("res://boss/andre_cube.jpg")
+		for s in flesh.get_children():
+			if s is Sprite3D:
+				s.texture = boss_face
+	
 	
 func become_box():
 	$MeshInstance.show()

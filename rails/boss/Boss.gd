@@ -1,5 +1,7 @@
 extends KinematicBody
 
+class_name Boss
+
 # Constant variables for Movement
 const SPEED = 5
 const GRAVITY = 50

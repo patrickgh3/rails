@@ -6,6 +6,7 @@ var launch_handler
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# unused return value
 	var c = connect("body_entered", self, "on_body_entered")
 	launch_handler = load("res://objects/LaunchHandler.gd").new()
 
