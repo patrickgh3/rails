@@ -19,7 +19,7 @@ const SHAPE_SCALE_CROUCHING_Y = .45
 const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
 const MOUSE_SENSITIVITY = 0.1
-const RAY_LENGTH = 30
+const RAY_LENGTH = 18
 const CAM_OFFSET3 = Vector3(0, 2, 6)
 const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
@@ -32,7 +32,7 @@ onready var cam_root = $CamRoot
 onready var camera = $CamRoot/Camera
 onready var cubio_body = $CubioBody
 onready var accel = ACCEL_TYPE["default"]
-onready var controller = $"/root/Root/Controller"
+onready var controller = $"../Controller"
 
 
 

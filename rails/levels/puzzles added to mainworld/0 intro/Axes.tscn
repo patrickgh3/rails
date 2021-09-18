@@ -100,7 +100,6 @@ is_target = true
 
 [node name="Door" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
-boxes = [ NodePath("../Box"), NodePath("../Box2"), NodePath("../Box3") ]
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29068, 1.51365 )

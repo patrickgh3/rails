@@ -1,18 +1,13 @@
 extends Spatial
 
-export(Array) var boxes
+var boxes = Array()
 onready var translation_start = translation
-onready var controller = $"/root/Root/Controller"
+onready var controller = $"../Controller"
 var door_t = 0
 
 func _ready():
-	for i in range(boxes.size()):
-		boxes[i] = get_node(boxes[i])
-		if (boxes[i] == null):
-			printerr("null box assigned to door")
-			
-			
-	for box in get_tree().get_nodes_in_group("Boxes"):
+	for box in controller.boxes:
+		boxes.append(box)
 		box.connect("signal_delivered", self, "receive_box_delivered")
 
 func _process(delta):
