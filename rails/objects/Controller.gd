@@ -121,7 +121,9 @@ func reset_puzzle(with_lerp):
 	
 	if door != null:
 		door.skipped = false
-		
+	
+	if cubio.my_box != null:
+		cubio.unbox()
 	cubio.warp(with_lerp, spawn.get_global_transform())
 	
 #	cubio.transform = spawn.get_global_transform()

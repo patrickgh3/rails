@@ -70,6 +70,7 @@ var my_box
 
 var camera_offset_t
 var target_camera_offset
+var transitioning_camera_offset = false
 var last_camera_offset
 var warping_cam
 
@@ -137,6 +138,7 @@ func _process(delta):
 		translation = my_box.get_world_center()
 		
 		
+	#if transitioning_camera_offset:
 	if camera.translation != target_camera_offset:
 		var cam_lerp_speed = 3
 		if warping_cam: cam_lerp_speed = .5
@@ -150,6 +152,7 @@ func _process(delta):
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
 			camera.translation = Vector3(0, y, z)
+			transitioning_camera_offset = false
 			
 	# Restart puzzle if you fall too far
 	if translation.y < -13:
@@ -235,10 +238,11 @@ func _input(event):
 			
 	if event is InputEventKey:
 		if event.scancode == KEY_B and event.is_pressed() and self_aware:
-				if my_box == null:
-					if is_on_floor():
-						box_form()
-				else: unbox()
+			if my_box == null and is_on_floor():
+				box_form()
+			else:
+				if my_box.velocity == Vector3.ZERO:
+					unbox()
 					
 	if event.is_action_pressed("sprint"):
 		speed = SPRINTING_SPEED
@@ -355,6 +359,8 @@ func stand_up():
 		else:
 			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 3 / 5)
 			target_camera_offset = CAM_OFFSET3
+			
+		transitioning_camera_offset = true
 		
 		
 func crouch():
@@ -380,6 +386,8 @@ func crouch():
 	else:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
 		target_camera_offset = CAM_CROUCH_OFFSET3
+		
+	transitioning_camera_offset = true
 	
 func third_person_cam():
 	first_person = false
