@@ -21,4 +21,4 @@ func _ready():
 		print("Notice: starting the player at puzzle "+get_parent().name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
 		var controller = $"/root/Root/Controller"
 		controller.register_puzzle(self)
-		controller.reset_puzzle()
+		controller.reset_puzzle(false)
