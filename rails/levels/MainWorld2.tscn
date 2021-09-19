@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://objects/CubioSpawn.tscn" type="PackedScene" id=8]
 [ext_resource path="res://objects/LaunchArea.gd" type="Script" id=9]
 [ext_resource path="res://objects/EnterPuzzleTrigger.tscn" type="PackedScene" id=10]
+[ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -61,6 +62,14 @@ shader = SubResource( 3 )
 
 [node name="Cubio" parent="." instance=ExtResource( 6 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 25, 1, 15 )
+
+[node name="Fog" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 0, 0 )
+light_color = Color( 0.329412, 0.294118, 0.431373, 1 )
+shadow_enabled = true
 
 [node name="MiscGrounds" type="Spatial" parent="."]
 
