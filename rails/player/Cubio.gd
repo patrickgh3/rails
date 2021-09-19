@@ -95,7 +95,6 @@ func _ready():
 	highlight_info = load("res://objects/BoxHighlightInfo.gd").new()
 	
 	for b in get_tree().get_nodes_in_group("Boxes"):
-		print ("b.name ", b.name)
 		if b.is_the_boss:
 			boss = b
 	
@@ -416,7 +415,6 @@ func hit_moving_launchbox(hit_launch_box):
 		
 func box_form():
 	my_box = load("res://objects/Box.tscn").instance()
-	print("translation ", translation)
 	var x = int(floor(translation.x))
 	var y = int(floor(translation.y))
 	var z = int(floor(translation.z))
@@ -467,9 +465,7 @@ func box_on_ground():
 	var from = shape.global_transform.origin
 	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
 	var ground_below = space_state.intersect_ray(from, to, [shape])
-	if ground_below:
-		print ("box is on ground!")
-		return true
+	if ground_below: return true
 	else: return false
 	
 	

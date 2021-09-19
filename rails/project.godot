@@ -25,11 +25,6 @@ _global_script_classes=[ {
 "path": "res://player/Cubio.gd"
 }, {
 "base": "Spatial",
-"class": "Ground",
-"language": "GDScript",
-"path": "res://objects/Ground.gd"
-}, {
-"base": "Spatial",
 "class": "Rail",
 "language": "GDScript",
 "path": "res://objects/Rail.gd"
@@ -38,7 +33,6 @@ _global_script_class_icons={
 "Boss": "",
 "Box": "",
 "Cubio": "",
-"Ground": "",
 "Rail": ""
 }
 
