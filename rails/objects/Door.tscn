@@ -1,13 +1,48 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://objects/Door.gd" type="Script" id=1]
 [ext_resource path="res://sounds/gameplay/box_all_delivered.wav" type="AudioStream" id=2]
+[ext_resource path="res://sounds/gameplay/door-closed.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/gameplay/door-opened.wav" type="AudioStream" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
 
 [sub_resource type="BoxShape" id=3]
+
+[sub_resource type="Curve" id=4]
+_data = [ Vector2( 0, 0 ), 0.0, 0.195376, 0, 0, Vector2( 0.429603, 0.531818 ), 0.451981, 0.451981, 0, 0, Vector2( 1, 0 ), -2.19256, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=5]
+curve = SubResource( 4 )
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.66
+emission_shape = 2
+emission_box_extents = Vector3( 2, 0, 1 )
+spread = 180.0
+gravity = Vector3( 0, 2, 0 )
+initial_velocity = 2.0
+angular_velocity = 120.0
+angular_velocity_random = 1.0
+damping = 2.0
+angle = 720.0
+angle_random = 1.0
+scale_random = 0.51
+scale_curve = SubResource( 5 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="CubeMesh" id=8]
+material = SubResource( 7 )
+size = Vector3( 1, 1, 1 )
 
 [node name="Door" type="Spatial"]
 script = ExtResource( 1 )
@@ -35,3 +70,22 @@ shape = SubResource( 3 )
 [node name="ChimeSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 stream = ExtResource( 2 )
+
+[node name="DoorClosedSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+unit_size = 4.0
+
+[node name="DoorOpenedSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_size = 4.0
+
+[node name="DustParticles" type="Particles" parent="."]
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+preprocess = 0.3
+explosiveness = 0.89
+local_coords = false
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 8 )

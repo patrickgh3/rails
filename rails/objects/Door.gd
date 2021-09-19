@@ -31,7 +31,21 @@ func _process(delta):
 	
 	# Play sound on open
 	if door_t_last == 0 and door_t != 0:
+		# Door opening
 		$ChimeSound.play()
+		$DoorOpenedSound.play()
+		$DustParticles.emitting = true
+	if door_t == 1 and door_t_last != 1:
+		# Door fully opened
+		pass
+		
+	# Play sound on close
+	if door_t_last == 1 and door_t != 1:
+		# Closing
+		$DoorClosedSound.play()
+	if door_t == 0 and door_t_last != 0:
+		# Door fully closed
+		$DustParticles.emitting = true
 	
 	
 # this hears the signal Box.delivered(box, yes)

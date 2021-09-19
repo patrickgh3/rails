@@ -11,3 +11,6 @@ export_presets.cfg
 data_*/
 
 rails/addons/ridiculous_coding/*
+
+# jotson's Waveform project for sfx
+/rails-sfx/*
