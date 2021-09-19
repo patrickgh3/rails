@@ -10,6 +10,7 @@ onready var mesh = $MeshInstance
 enum Face {X_PLUS, X_MINUS, Y_PLUS, Y_MINUS, Z_PLUS, Z_MINUS}
 
 signal signal_delivered(box, yes)
+signal moved
 
 export(bool) var launcher = false
 export(bool) var is_the_boss = false
@@ -155,6 +156,7 @@ func _process(delta):
 					controller.rails_just_halted_timer = 0
 					
 			$StopSound.play()
+			$moveTriggerTimer.stop()
 		
 		# Save rails touching
 		rails_touching = result["rails"]
@@ -414,6 +416,8 @@ func reset_transform_to_initial_values():
 func face_pulled(face):
 	if moving(): return
 	
+	$moveTriggerTimer.start()
+	
 	match face:
 		Face.X_PLUS:
 			grab_velocity = Vector3.RIGHT
@@ -486,3 +490,11 @@ func become_box():
 		flesh.queue_free()
 		flesh = null
 
+
+
+func _on_moveTriggerTimer_timeout():
+	# If a box has moved for at least Timer.wait_time long
+	# then it has moved and emit the "moved" signal
+	# The moved signal triggers updating the move counter
+	emit_signal("moved")
+	

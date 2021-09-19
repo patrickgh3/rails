@@ -8,6 +8,10 @@ var rails_just_halted_timer = 0
 var rails_just_departed = Array()
 var rails_just_departed_timer = 0
 
+# Track the total number of moves used in all puzzles
+# See PuzzleRoot for moves in the current puzzle
+var total_moves = 0
+
 onready var music_players = [
 	$wind,
 	$root_01_piano,
@@ -32,6 +36,7 @@ func _ready():
 	for box in get_tree().get_nodes_in_group("Boxes"):
 		if get_parent().is_a_parent_of(box):
 			boxes.append(box)
+			box.connect("moved", self, "increment_move_counter")
 	
 	for rail in get_tree().get_nodes_in_group("Rails"):
 		if get_parent().is_a_parent_of(rail):
@@ -186,3 +191,39 @@ func register_puzzle(new_puzzle):
 	music_active[5] = current_puzzle.melody_02_guitar_harmonics
 	music_active[6] = current_puzzle.melody_03_piano_keys
 	music_active[7] = current_puzzle.melody_04_bell_arpeggios
+	
+	update_ui()
+	
+
+func update_ui():
+	if not current_puzzle:
+		return
+		
+	if not is_inside_tree():
+		return
+		
+	if not $"/root/Root/hud":
+		return
+		
+	var movesLabel = $"/root/Root/hud".find_node("MovesLabel")
+	movesLabel.text = "Moves: %s" % str(current_puzzle.move_counter)
+	
+	var totalMovesLabel = $"/root/Root/hud".find_node("TotalMovesLabel")
+	totalMovesLabel.text = "Total moves: %s" % str(total_moves)
+
+
+func increment_move_counter():
+	if not current_puzzle:
+		return
+		
+	if not is_inside_tree():
+		return
+		
+	if not $"/root/Root/hud":
+		return
+		
+	# Called whenever a box is moved
+	current_puzzle.move_counter += 1
+	total_moves += 1
+	update_ui()
+	
