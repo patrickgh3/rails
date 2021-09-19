@@ -300,7 +300,7 @@ func try_highlight_box ():
 					turn_on_highlight = highlight.visible
 				else:
 					highlight.transform.basis = Basis(highlight_info.dirs[0], highlight_info.dirs[1], highlight_info.dirs[2])
-					highlight.translation = box_hit.get_world_center() + highlight_info.dirs[2]
+					highlight.translation = box_hit.get_world_center_with_bumping() + highlight_info.dirs[2]
 					highlight.transform.orthonormalized()
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()

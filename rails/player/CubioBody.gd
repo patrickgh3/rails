@@ -31,7 +31,7 @@ func stand_up():
 		legs.hide()
 	else:
 		faces.show()
-		arms.show()
+		#arms.show()
 		torso.show()
 		legs.show()
 		
