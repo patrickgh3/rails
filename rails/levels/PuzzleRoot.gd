@@ -12,6 +12,10 @@ export(bool) var melody_04_bell_arpeggios = false
 
 export(bool) var debug_spawn_here = false
 
+# Track the number of moves used in THIS puzzle
+# See Controller for total overall moves in all puzzles
+var move_counter = 0
+
 func _ready():
 	if debug_spawn_here:
 		print("Notice: starting the player at puzzle "+get_parent().name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
