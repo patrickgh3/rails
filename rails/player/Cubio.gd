@@ -146,7 +146,7 @@ func _process(delta):
 			camera.translation = Vector3(0, y, z)
 			
 	# Restart puzzle if you fall too far
-	if translation.y < -50:
+	if translation.y < -13:
 		controller.reset_puzzle()
 
 func _physics_process(delta):
@@ -400,7 +400,7 @@ func do_launch():
 	launch_box = null
 	snap = Vector3.ZERO
 	gravity_vec = Vector3.UP * 50
-	velocity = Vector3.FORWARD * 100
+	velocity = Vector3.LEFT * 100
 	if crouching: stand_up()
 
 func try_launch():
