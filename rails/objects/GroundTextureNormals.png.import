@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/GroundTexture.png-c9c084ae06375325b9f8de1a2e011c1d.s3tc.stex"
-path.etc="res://.import/GroundTexture.png-c9c084ae06375325b9f8de1a2e011c1d.etc.stex"
+path.s3tc="res://.import/GroundTextureNormals.png-58834ead14dca981c889218f984feb86.s3tc.stex"
+path.etc="res://.import/GroundTextureNormals.png-58834ead14dca981c889218f984feb86.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://objects/GroundTexture.png"
-dest_files=[ "res://.import/GroundTexture.png-c9c084ae06375325b9f8de1a2e011c1d.s3tc.stex", "res://.import/GroundTexture.png-c9c084ae06375325b9f8de1a2e011c1d.etc.stex" ]
+source_file="res://objects/GroundTextureNormals.png"
+dest_files=[ "res://.import/GroundTextureNormals.png-58834ead14dca981c889218f984feb86.s3tc.stex", "res://.import/GroundTextureNormals.png-58834ead14dca981c889218f984feb86.etc.stex" ]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
-compress/normal_map=0
+compress/normal_map=1
 flags/repeat=true
 flags/filter=true
 flags/mipmaps=true
 flags/anisotropic=false
-flags/srgb=1
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
