@@ -3,7 +3,7 @@
 [ext_resource path="res://player/CubioBody.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/CubioSpawn.gd" type="Script" id=2]
 
-[sub_resource type="SphereMesh" id=1]
+[sub_resource type="PrismMesh" id=1]
 
 [node name="CubioSpawn" type="Spatial"]
 script = ExtResource( 2 )
@@ -15,6 +15,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.321814, 0 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Offset"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2, 0 )
+transform = Transform( 0.5, 0, 0, 0, -2.18557e-08, 0.5, 0, -0.5, -2.18557e-08, 0, 2, 0 )
 mesh = SubResource( 1 )
 material/0 = null
