@@ -8,6 +8,7 @@ export(bool) var root_03_hope = false
 export(bool) var melody_01_guitar_echo = false
 export(bool) var melody_02_guitar_harmonics = false
 export(bool) var melody_03_piano_keys = false
+export(bool) var melody_04_bell_arpeggios = false
 
 export(bool) var debug_spawn_here = false
 
