@@ -148,8 +148,8 @@ func register_puzzle(enter_puzzle_trigger):
 	if current_puzzle != null:
 		for rail in current_puzzle.get_node("Controller").rails:
 			rail.set_current_puzzle(false)
+	
 	current_puzzle = enter_puzzle_trigger.get_parent()
+	
 	for rail in current_puzzle.get_node("Controller").rails:
 		rail.set_current_puzzle(true)
-		
-	print(current_puzzle.name)
