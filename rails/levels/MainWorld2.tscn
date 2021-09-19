@@ -16514,12 +16514,15 @@ margin_right = 1580.0
 margin_bottom = 60.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="hud/MarginContainer/CenterContainer"]
-margin_left = 556.0
-margin_right = 1004.0
-margin_bottom = 40.0
+visible = false
+margin_left = 780.0
+margin_top = 20.0
+margin_right = 780.0
+margin_bottom = 20.0
 custom_constants/separation = 50
 
 [node name="MovesLabel" type="Label" parent="hud/MarginContainer/CenterContainer/HBoxContainer"]
+visible = false
 margin_right = 151.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 15 )
@@ -16529,8 +16532,8 @@ __meta__ = {
 }
 
 [node name="TotalMovesLabel" type="Label" parent="hud/MarginContainer/CenterContainer/HBoxContainer"]
-margin_left = 201.0
-margin_right = 448.0
+visible = false
+margin_right = 247.0
 margin_bottom = 40.0
 custom_fonts/font = ExtResource( 15 )
 text = "Total moves: 0"
