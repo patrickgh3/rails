@@ -49,7 +49,6 @@ void fragment() {
 
 // Output:0
 	ALBEDO = n_out3p0;
-	ALPHA = n_out3p1;
 	METALLIC = n_out11p0;
 
 }
@@ -59,7 +58,7 @@ void light() {
 
 }
 "
-graph_offset = Vector2( -564, 241 )
+graph_offset = Vector2( 0, 225 )
 nodes/fragment/0/position = Vector2( 380, 340 )
 nodes/fragment/3/node = SubResource( 5 )
 nodes/fragment/3/position = Vector2( 100, 220 )
@@ -69,7 +68,7 @@ nodes/fragment/12/node = SubResource( 3 )
 nodes/fragment/12/position = Vector2( -480, 280 )
 nodes/fragment/13/node = SubResource( 4 )
 nodes/fragment/13/position = Vector2( -300, 360 )
-nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 3, 1, 0, 1, 11, 0, 0, 2, 12, 0, 13, 0, 13, 0, 3, 0 )
+nodes/fragment/connections = PoolIntArray( 3, 0, 0, 0, 11, 0, 0, 2, 12, 0, 13, 0, 13, 0, 3, 0 )
 
 [sub_resource type="ShaderMaterial" id=7]
 shader = SubResource( 6 )
