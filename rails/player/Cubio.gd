@@ -176,14 +176,15 @@ func _physics_process(delta):
 	dir = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
 	
 	
-	
-		
 	# Jumping and gravity
 	if is_on_floor():
 		snap = -get_floor_normal()
 		accel = ACCEL_TYPE["default"]
 		gravity_vec = Vector3.ZERO
-		launched = false
+		if launched:
+			self_aware = true
+			third_person_cam()
+			launched = false
 	elif launched:
 		dir = Vector3.ZERO
 		snap = Vector3.DOWN
