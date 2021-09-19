@@ -1,30 +1,43 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://objects/Controller.gd" type="Script" id=1]
-[ext_resource path="res://sounds/root03-hope.wav" type="AudioStream" id=2]
-[ext_resource path="res://sounds/root02-deep.wav" type="AudioStream" id=3]
-[ext_resource path="res://sounds/root01-piano.wav" type="AudioStream" id=4]
-[ext_resource path="res://sounds/melody01-guitarEcho.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/music/root03-hope.wav" type="AudioStream" id=2]
+[ext_resource path="res://sounds/music/root02-deep.wav" type="AudioStream" id=3]
+[ext_resource path="res://sounds/music/root01-piano.wav" type="AudioStream" id=4]
+[ext_resource path="res://sounds/music/melody01-guitarEcho.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/music/wind loop 1.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/music/melody02-guitarHarmonics.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/music/melody03-piano.wav" type="AudioStream" id=8]
+[ext_resource path="res://sounds/music/melody04-bellArpeggios.wav" type="AudioStream" id=9]
 
 [node name="Controller" type="Node"]
 script = ExtResource( 1 )
 
-[node name="MusicRoot1Piano" type="AudioStreamPlayer" parent="."]
+[node name="wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -18.0
+
+[node name="root_01_piano" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -80.0
-autoplay = true
+volume_db = -4.0
 
-[node name="MusicRoot2Deep" type="AudioStreamPlayer" parent="."]
+[node name="root_02_deep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-volume_db = -80.0
-autoplay = true
+volume_db = -4.0
 
-[node name="MusicRoot3Hope" type="AudioStreamPlayer" parent="."]
+[node name="root_03_hope" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
-volume_db = -80.0
-autoplay = true
+volume_db = -4.0
 
-[node name="MusicGuitarEcho" type="AudioStreamPlayer" parent="."]
+[node name="melody_01_guitar_echo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -80.0
-autoplay = true
+
+[node name="melody_02_guitar_harmonics" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = 3.0
+
+[node name="melody_03_piano" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="melody_04_bell_arpeggios" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )

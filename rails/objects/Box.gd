@@ -121,7 +121,8 @@ func _process(delta):
 				for b in get_tree().get_nodes_in_group("Employees"):
 					# There is employee slipping, however
 					b.translation += to_move
-			else: remove_from_group("Employees")
+			elif is_in_group("Employees"):
+				remove_from_group("Employees")
 				
 		else:
 			# Keep travelling by small increments until we are about to leave the rails

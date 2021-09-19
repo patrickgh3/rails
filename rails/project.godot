@@ -25,6 +25,16 @@ _global_script_classes=[ {
 "path": "res://player/Cubio.gd"
 }, {
 "base": "Spatial",
+"class": "Ground",
+"language": "GDScript",
+"path": "res://objects/Ground.gd"
+}, {
+"base": "Spatial",
+"class": "PuzzleRoot",
+"language": "GDScript",
+"path": "res://levels/PuzzleRoot.gd"
+}, {
+"base": "Spatial",
 "class": "Rail",
 "language": "GDScript",
 "path": "res://objects/Rail.gd"
@@ -33,6 +43,8 @@ _global_script_class_icons={
 "Boss": "",
 "Box": "",
 "Cubio": "",
+"Ground": "",
+"PuzzleRoot": "",
 "Rail": ""
 }
 
@@ -49,7 +61,7 @@ window/size/height=900
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/ridiculous_coding/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 
@@ -128,7 +140,6 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
