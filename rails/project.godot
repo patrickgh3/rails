@@ -67,6 +67,11 @@ enabled=PoolStringArray(  )
 
 gravity=false
 
+[gui]
+
+theme/custom="res://ui/ui-theme.tres"
+theme/custom_font="res://ui/font-bold-outline-32.tres"
+
 [input]
 
 ui_left={
