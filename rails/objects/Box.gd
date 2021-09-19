@@ -128,10 +128,10 @@ func _process(delta):
 		else:
 			# Keep travelling by small increments until we are about to leave the rails
 			while true:
-				result = on_rails(to_move*0.2)
+				result = on_rails(to_move*0.1)
 				if not result["valid"]:
 					break
-				translation += to_move*0.2
+				translation += to_move*0.1
 			
 			# Start bumping state if we are at a standstill
 			if was_still:

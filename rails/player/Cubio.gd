@@ -71,6 +71,7 @@ var my_box
 var camera_offset_t
 var target_camera_offset
 var last_camera_offset
+var warping_cam
 
 func _enter_tree():
 	add_to_group("Player")
@@ -81,7 +82,8 @@ func _ready():
 	stand_up()
 	first_person_cam()
 	
-	get_tree().get_root().connect("size_changed", self, "window_resized")
+	# Return value isn't used
+	var _c = get_tree().get_root().connect("size_changed", self, "window_resized")
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -136,8 +138,12 @@ func _process(delta):
 		
 		
 	if camera.translation != target_camera_offset:
-		camera_offset_t += delta * 3
+		var cam_lerp_speed = 3
+		if warping_cam: cam_lerp_speed = .5
+		camera_offset_t += delta * cam_lerp_speed
 		if camera_offset_t > 1:
+			if warping_cam: print ("Done warping")
+			warping_cam = false
 			camera_offset_t = 1
 			camera.translation = target_camera_offset
 		else:
@@ -483,3 +489,22 @@ func register_puzzle(enter_puzzle_trigger):
 func window_resized():
 	if first_person: first_person_cam()
 	else: third_person_cam()
+
+
+func warp(with_cam_lerp, new_transform):
+	var old_camera_pos = camera.global_transform.origin
+	transform = new_transform
+	# Move the player out from in the ground, to avoid stutter for 1 frame
+	# This number 0.451 is from inspecting the player's actual y translation
+	# in remote view. So it's a hack!
+	translation += Vector3.UP * 0.451
+	velocity = Vector3.ZERO
+	cam_root.rotation_degrees.x = 0
+
+# 	if with_cam_lerp:
+#		
+#		warping_cam = true
+#		camera.global_transform.origin = old_camera_pos
+#		debug_marker.translation = 
+		
+	stand_up()

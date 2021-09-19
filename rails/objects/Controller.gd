@@ -91,7 +91,8 @@ func _process(_delta):
 	# Reset and skip puzzle buttons
 	if master_controller:
 		if Input.is_action_just_pressed("reset_puzzle"):
-			reset_puzzle()
+			var no_lerp = false
+			reset_puzzle(no_lerp)
 		if Input.is_action_just_pressed("skip_puzzle"):
 			# Open the door
 			var door = current_puzzle.get_node("Door")
@@ -105,26 +106,33 @@ func _process(_delta):
 				if child is PuzzleRoot:
 					if found:
 						register_puzzle(child)
-						reset_puzzle()
+						# Puts player at spawn of next puzzle
+						var with_lerp = true
+						reset_puzzle(with_lerp)
 						break
 					if child == current_puzzle:
 						found = true
 			
-func reset_puzzle():
+func reset_puzzle(with_lerp):
 	var cubio = get_tree().root.get_node("Root/Cubio")
 	var spawn = current_puzzle.get_node("CubioSpawn")
 	var controller = current_puzzle.get_node("Controller")
-	var door = current_puzzle.get_node("Door")
+	var door = current_puzzle.get_node_or_null("Door")
 	
 	if door != null:
 		door.skipped = false
-	cubio.transform = spawn.get_global_transform()
-	# Move the player out from in the ground, to avoid stutter for 1 frame
-	# This number 0.451 is from inspecting the player's actual y translation
-	# in remote view. So it's a hack!
-	cubio.translation += Vector3.UP * 0.451
-	cubio.velocity = Vector3.ZERO
-	cubio.get_node("CamRoot").rotation_degrees.x = 0
+		
+	cubio.warp(with_lerp, spawn.get_global_transform())
+	
+#	cubio.transform = spawn.get_global_transform()
+#	# Move the player out from in the ground, to avoid stutter for 1 frame
+#	# This number 0.451 is from inspecting the player's actual y translation
+#	# in remote view. So it's a hack!
+#	cubio.translation += Vector3.UP * 0.451
+#	cubio.velocity = Vector3.ZERO
+#	cubio.get_node("CamRoot").rotation_degrees.x = 0
+	
+	
 	for box in controller.boxes:
 		box.reset_transform_to_initial_values()
 		box.velocity = Vector3.ZERO
