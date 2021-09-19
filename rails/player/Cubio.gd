@@ -153,7 +153,7 @@ func _process(delta):
 			
 	# Restart puzzle if you fall too far
 	if translation.y < -13:
-		controller.reset_puzzle()
+		controller.reset_puzzle(false)
 
 func _physics_process(delta):
 	
