@@ -1,8 +1,9 @@
-[gd_scene load_steps=2757 format=2]
+[gd_scene load_steps=2758 format=2]
 
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
 [ext_resource path="res://objects/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://levels/PuzzleRoot.gd" type="Script" id=4]
 [ext_resource path="res://objects/Controller.tscn" type="PackedScene" id=5]
 [ext_resource path="res://player/Cubio.tscn" type="PackedScene" id=6]
 [ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=7]
@@ -16566,6 +16567,9 @@ transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 3, -57, -1, 11 )
 
 [node name="01 PullBoxes" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 16 )
+script = ExtResource( 4 )
+root_01_piano = true
+melody_01_guitar_echo = true
 
 [node name="CubioSpawn" parent="01 PullBoxes" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -1 )
@@ -16989,6 +16993,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -9, 0, -4 )
 
 [node name="02 WeirdRails" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16 )
+script = ExtResource( 4 )
+root_01_piano = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="02 WeirdRails" instance=ExtResource( 5 )]
 
@@ -17226,6 +17234,10 @@ transform = Transform( 22, 0, 0, 0, 1, 0, 0, 0, 20, -9, 13, -8 )
 
 [node name="03 UpAndOver" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 39 )
+script = ExtResource( 4 )
+root_01_piano = true
+melody_01_guitar_echo = true
+melody_03_piano_keys = true
 
 [node name="CubioSpawn" parent="03 UpAndOver" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -7 )
@@ -17421,6 +17433,9 @@ transform = Transform( 12, 0, 0, 0, 20, 0, 0, 0, 2, -14, 0, 3 )
 
 [node name="04 Pack" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, 34 )
+script = ExtResource( 4 )
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="04 Pack" instance=ExtResource( 5 )]
 
@@ -17552,6 +17567,10 @@ transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 4, 7, 4, -2 )
 
 [node name="05 Axes" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 15 )
+script = ExtResource( 4 )
+root_01_piano = true
+root_02_deep = true
+melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="05 Axes" instance=ExtResource( 5 )]
 
@@ -17687,6 +17706,9 @@ transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 14, -3, -2, -9 )
 
 [node name="06 Rescue" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 12 )
+script = ExtResource( 4 )
+root_03_hope = true
+melody_01_guitar_echo = true
 
 [node name="Controller" parent="06 Rescue" instance=ExtResource( 5 )]
 
@@ -17847,6 +17869,10 @@ transform = Transform( 16, 0, 0, 0, 2, 0, 0, 0, 16, -8, -2, -8 )
 
 [node name="07 Perpetual" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67, 0, -7 )
+script = ExtResource( 4 )
+root_03_hope = true
+melody_01_guitar_echo = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="07 Perpetual" instance=ExtResource( 5 )]
 
@@ -18021,6 +18047,12 @@ transform = Transform( 16, 0, 0, 0, 2, 0, 0, 0, 16, -8, -2, -8 )
 
 [node name="08 MovingTarget" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -24 )
+script = ExtResource( 4 )
+root_01_piano = true
+root_03_hope = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Box" parent="08 MovingTarget" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1 )
@@ -18204,6 +18236,10 @@ transform = Transform( 14, 0, 0, 0, 2, 0, 0, 0, 14, -7, -2, -7 )
 
 [node name="09 FiremensPole" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -71, 0, -37 )
+script = ExtResource( 4 )
+root_01_piano = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="09 FiremensPole" instance=ExtResource( 5 )]
 
@@ -18327,10 +18363,12 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 5, -3 )
 transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -1, -1, -2 )
 
 [node name="Ground23" parent="09 FiremensPole" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1.87939, -1.02606, 0, 0.68404, 2.81908, -1, -1.45185, -1.429 )
+transform = Transform( 1, 0, 0, 0, 1.87939, -1.02606, 0, 0.68404, 2.81908, -1, -0.884076, -1.69429 )
 
 [node name="10 LookBehindBasic" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -111, 0, -36 )
+script = ExtResource( 4 )
+wind = true
 
 [node name="Controller" parent="10 LookBehindBasic" instance=ExtResource( 5 )]
 
@@ -18479,6 +18517,10 @@ transform = Transform( 16, 0, 0, 0, 2, 0, 0, 0, 3, 19, -2, -1 )
 
 [node name="11 LookBehind" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, -36 )
+script = ExtResource( 4 )
+wind = true
+melody_02_guitar_harmonics = true
+debug_spawn_here = true
 
 [node name="Controller" parent="11 LookBehind" instance=ExtResource( 5 )]
 
@@ -18723,6 +18765,10 @@ transform = Transform( 18, 0, 0, 0, 2, 0, 0, 0, 3, -9, -2, -1 )
 
 [node name="12 Thin Bridge" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 7, -48 )
+script = ExtResource( 4 )
+wind = true
+root_02_deep = true
+melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="12 Thin Bridge" instance=ExtResource( 5 )]
 
@@ -18805,6 +18851,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 1 )
 
 [node name="13 GetBehindSequence" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -157, 7, -38 )
+script = ExtResource( 4 )
+wind = true
+root_02_deep = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="13 GetBehindSequence" instance=ExtResource( 5 )]
 
@@ -19114,6 +19165,12 @@ transform = Transform( 11, 0, 0, 0, 2, 0, 0, 0, 1, -11, -2, -8 )
 
 [node name="14 Catwalk" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -173, 7, -30 )
+script = ExtResource( 4 )
+wind = true
+root_02_deep = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="14 Catwalk" instance=ExtResource( 5 )]
 
@@ -19295,6 +19352,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, 0, -1, -30 )
 
 [node name="15 2by1Align" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -177, 7, -17 )
+script = ExtResource( 4 )
+wind = true
+root_01_piano = true
 
 [node name="Controller" parent="15 2by1Align" instance=ExtResource( 5 )]
 
@@ -19521,6 +19581,10 @@ transform = Transform( 10.6066, 0.707107, 0, -10.6066, 0.707107, 0, 0, 0, 1, -17
 
 [node name="16 CrouchIntro" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195, 14, -22 )
+script = ExtResource( 4 )
+wind = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="16 CrouchIntro" instance=ExtResource( 5 )]
 
@@ -19618,6 +19682,10 @@ transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, -9 )
 
 [node name="17 CourchDodge" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195, 14, -43 )
+script = ExtResource( 4 )
+wind = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="17 CourchDodge" instance=ExtResource( 5 )]
 
@@ -19718,6 +19786,12 @@ transform = Transform( 9.19239, 0.707107, 0, -9.19239, 0.707107, 0, 0, 0, 1, -21
 
 [node name="18 FlyingMachine" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -223, 20, -53 )
+script = ExtResource( 4 )
+wind = true
+root_02_deep = true
+root_03_hope = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="18 FlyingMachine" instance=ExtResource( 5 )]
 
@@ -20017,6 +20091,13 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 14, -9, 4, -7 )
 
 [node name="19 Island" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 22, -39 )
+script = ExtResource( 4 )
+wind = true
+root_02_deep = true
+root_03_hope = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="19 Island" instance=ExtResource( 5 )]
 
@@ -20433,6 +20514,8 @@ transform = Transform( -8.74228e-08, 0, 7, 0, 2, 0, -2, 0, -3.0598e-07, -10, -2,
 
 [node name="20 WallScoopJump" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -296, 15, -21 )
+script = ExtResource( 4 )
+wind = true
 
 [node name="Controller" parent="20 WallScoopJump" instance=ExtResource( 5 )]
 
@@ -20983,6 +21066,9 @@ transform = Transform( -2.62268e-06, 0, 60, 0, 2, 0, -60, 0, -2.62268e-06, -287,
 
 [node name="21 Lilypads" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -564, 4, -75 )
+script = ExtResource( 4 )
+wind = true
+root_02_deep = true
 
 [node name="Controller" parent="21 Lilypads" instance=ExtResource( 5 )]
 
@@ -21611,6 +21697,9 @@ transform = Transform( 8, 0, 0, 0, 2, 0, 0, 0, 1, -1, 0, 14 )
 [node name="EnterPuzzleTrigger" parent="21 Lilypads" instance=ExtResource( 10 )]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 15 )
 
+[node name="EnterPuzzleTrigger3" parent="21 Lilypads" instance=ExtResource( 10 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 13 )
+
 [node name="EnterPuzzleTrigger2" parent="21 Lilypads" instance=ExtResource( 10 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 1, 5, -4, -7 )
 
@@ -21619,6 +21708,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 13 )
 
 [node name="22 CliffsOfInsanity" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -556, -1, -94 )
+script = ExtResource( 4 )
+wind = true
+root_01_piano = true
+root_02_deep = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="22 CliffsOfInsanity" instance=ExtResource( 5 )]
 

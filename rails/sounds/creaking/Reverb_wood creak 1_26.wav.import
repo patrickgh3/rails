@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Reverb_wood creak 1_26.wav-c550e5e909125e03548f22221de9365c.sample"
+
+[deps]
+
+source_file="res://sounds/creaking/Reverb_wood creak 1_26.wav"
+dest_files=[ "res://.import/Reverb_wood creak 1_26.wav-c550e5e909125e03548f22221de9365c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
