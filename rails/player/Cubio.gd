@@ -232,7 +232,7 @@ func _input(event):
 				if my_box == null:
 					if is_on_floor():
 						box_form()
-				else:
+				elif box_on_ground():
 					unbox()
 					
 	if event.is_action_pressed("sprint"):
@@ -338,7 +338,6 @@ func stand_up():
 		shape.scale.y = SHAPE_SCALE_STANDING_Y
 		cubio_body.stand_up()
 		
-		
 		var sprite = $Sprite
 		var screen_rect = sprite.get_viewport_rect()
 		var node = sprite as Node2D
@@ -425,7 +424,6 @@ func box_form():
 	
 	var y_rad = atan2(global_transform.basis.z.x, global_transform.basis.z.z)
 	
-	
 	while y_rad < 0: 
 		y_rad += 2 * PI
 	
@@ -463,6 +461,17 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
+	
+func box_on_ground():
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+	var ground_below = space_state.intersect_ray(from, to, [shape])
+	if ground_below:
+		print ("box is on ground!")
+		return true
+	else: return false
+	
 	
 func register_puzzle(enter_puzzle_trigger):
 	controller.current_puzzle = enter_puzzle_trigger.get_parent()
