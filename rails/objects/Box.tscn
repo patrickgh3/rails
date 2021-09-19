@@ -5,12 +5,11 @@
 [ext_resource path="res://sounds/gameplay/box_delivered.wav" type="AudioStream" id=3]
 [ext_resource path="res://sounds/gameplay/box_undelivered.wav" type="AudioStream" id=4]
 [ext_resource path="res://sounds/gameplay/box_rail.wav" type="AudioStream" id=5]
+[ext_resource path="res://objects/package.mesh" type="ArrayMesh" id=6]
 
 [sub_resource type="BoxShape" id=1]
 
-[sub_resource type="CubeMesh" id=2]
-
-[sub_resource type="AudioStreamRandomPitch" id=3]
+[sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 2 )
 
 [node name="Box" type="KinematicBody"]
@@ -22,7 +21,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 )
-mesh = SubResource( 2 )
+mesh = ExtResource( 6 )
 material/0 = null
 
 [node name="RailSound1" type="AudioStreamPlayer3D" parent="."]
@@ -35,7 +34,7 @@ stream = ExtResource( 5 )
 
 [node name="StopSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
-stream = SubResource( 3 )
+stream = SubResource( 2 )
 
 [node name="DeliveredSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
