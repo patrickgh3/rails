@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://objects/Ground.gd"
 }, {
 "base": "Spatial",
+"class": "PuzzleRoot",
+"language": "GDScript",
+"path": "res://levels/PuzzleRoot.gd"
+}, {
+"base": "Spatial",
 "class": "Rail",
 "language": "GDScript",
 "path": "res://objects/Rail.gd"
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "Box": "",
 "Cubio": "",
 "Ground": "",
+"PuzzleRoot": "",
 "Rail": ""
 }
 

@@ -18520,7 +18520,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, -36 )
 script = ExtResource( 4 )
 wind = true
 melody_02_guitar_harmonics = true
-debug_spawn_here = true
 
 [node name="Controller" parent="11 LookBehind" instance=ExtResource( 5 )]
 

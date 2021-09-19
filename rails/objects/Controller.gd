@@ -87,9 +87,22 @@ func _process(_delta):
 		if Input.is_action_just_pressed("reset_puzzle"):
 			reset_puzzle()
 		if Input.is_action_just_pressed("skip_puzzle"):
+			# Open the door
 			var door = current_puzzle.get_node("Door")
 			if door != null:
 				door.skipped = true
+			
+			# Put you in the next puzzle
+			var par = current_puzzle.get_parent()
+			var found = false
+			for child in par.get_children():
+				if child is PuzzleRoot:
+					if found:
+						register_puzzle(child)
+						reset_puzzle()
+						break
+					if child == current_puzzle:
+						found = true
 			
 func reset_puzzle():
 	var cubio = get_tree().root.get_node("Root/Cubio")

@@ -1,4 +1,5 @@
 extends Spatial
+class_name PuzzleRoot
 
 export(bool) var wind = false
 export(bool) var root_01_piano = false
