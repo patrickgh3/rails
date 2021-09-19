@@ -19,6 +19,11 @@ var velocity = Vector3()
 var grab_velocity : Vector3
 var edges = Array()
 export(bool) var delivered = false
+# For boxes which have a target rail directly on one of their edges,
+# currently just the one box in MovingTarget puzzle
+export(bool) var always_delivered_hack = false
+
+
 var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
@@ -176,7 +181,8 @@ func _process(delta):
 		if velocity == Vector3.ZERO:
 			if rail.is_target: delivered = true
 			if rail.attached_to_boss: add_to_group("Employees")
-			
+	
+	if always_delivered_hack:  delivered = true
 		
 	# Of rails that just stopped moving, check if we're touching any,
 	# and if so, count that we're touching them

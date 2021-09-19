@@ -1,4 +1,4 @@
-[gd_scene load_steps=2760 format=2]
+[gd_scene load_steps=2730 format=2]
 
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
@@ -2779,7 +2779,7 @@ shader_param/glow = null
 [sub_resource type="ShaderMaterial" id=461]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
-shader_param/is_target = true
+shader_param/is_target = false
 shader_param/glow = 0.0
 
 [sub_resource type="ShaderMaterial" id=462]
@@ -2903,18 +2903,6 @@ shader_param/is_target = false
 shader_param/glow = 0.0
 
 [sub_resource type="ShaderMaterial" id=482]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=483]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=484]
 resource_local_to_scene = true
 shader = ExtResource( 12 )
 shader_param/is_target = null
@@ -5224,18 +5212,6 @@ shader = ExtResource( 12 )
 shader_param/is_target = null
 shader_param/glow = null
 
-[sub_resource type="ShaderMaterial" id=869]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=870]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
 [sub_resource type="ShaderMaterial" id=871]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
@@ -5243,30 +5219,6 @@ shader_param/is_target = false
 shader_param/glow = 0.0
 
 [sub_resource type="ShaderMaterial" id=872]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=873]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=874]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=875]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=876]
 resource_local_to_scene = true
 shader = ExtResource( 12 )
 shader_param/is_target = null
@@ -5332,90 +5284,6 @@ shader = ExtResource( 12 )
 shader_param/is_target = null
 shader_param/glow = null
 
-[sub_resource type="ShaderMaterial" id=887]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=888]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=889]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=890]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=891]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=892]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=893]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=894]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=895]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=896]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=897]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=898]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=899]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=900]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
 [sub_resource type="ShaderMaterial" id=901]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
@@ -5435,54 +5303,6 @@ shader_param/is_target = false
 shader_param/glow = 0.0
 
 [sub_resource type="ShaderMaterial" id=904]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=905]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=906]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=907]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=908]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=909]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=910]
-resource_local_to_scene = true
-shader = ExtResource( 12 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=911]
-resource_local_to_scene = true
-shader = ExtResource( 13 )
-shader_param/is_target = false
-shader_param/glow = 0.0
-
-[sub_resource type="ShaderMaterial" id=912]
 resource_local_to_scene = true
 shader = ExtResource( 12 )
 shader_param/is_target = null
@@ -16511,14 +16331,12 @@ __meta__ = {
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1580.0
-margin_bottom = 60.0
+margin_bottom = 20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="hud/MarginContainer/CenterContainer"]
 visible = false
 margin_left = 780.0
-margin_top = 20.0
 margin_right = 780.0
-margin_bottom = 20.0
 custom_constants/separation = 50
 
 [node name="MovesLabel" type="Label" parent="hud/MarginContainer/CenterContainer/HBoxContainer"]
@@ -18131,21 +17949,26 @@ root_03_hope = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
+debug_spawn_here = true
 
 [node name="Box" parent="08 MovingTarget" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1 )
-
-[node name="Box2" parent="08 MovingTarget" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -1 )
 
+[node name="Box4" parent="08 MovingTarget" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1 )
+
+[node name="Box2" parent="08 MovingTarget" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1 )
+always_delivered_hack = true
+
 [node name="Rail10" parent="08 MovingTarget/Box2" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 1 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1, 0, 1 )
 is_target = true
 usual_material = SubResource( 457 )
 depth_disable_material = SubResource( 458 )
 
 [node name="Box3" parent="08 MovingTarget" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1 )
 
 [node name="Rail2" parent="08 MovingTarget" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
@@ -18154,7 +17977,6 @@ depth_disable_material = SubResource( 460 )
 
 [node name="Rail4" parent="08 MovingTarget" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
-is_target = true
 usual_material = SubResource( 461 )
 depth_disable_material = SubResource( 462 )
 
@@ -18208,10 +18030,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, -2 )
 usual_material = SubResource( 481 )
 depth_disable_material = SubResource( 482 )
 
-[node name="Rail3" parent="08 MovingTarget" instance=ExtResource( 1 )]
-usual_material = SubResource( 483 )
-depth_disable_material = SubResource( 484 )
-
 [node name="Rail11" parent="08 MovingTarget" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
 usual_material = SubResource( 485 )
@@ -18219,6 +18037,10 @@ depth_disable_material = SubResource( 486 )
 
 [node name="Rail26" parent="08 MovingTarget" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0 )
+usual_material = SubResource( 487 )
+depth_disable_material = SubResource( 488 )
+
+[node name="Rail35" parent="08 MovingTarget" instance=ExtResource( 1 )]
 usual_material = SubResource( 487 )
 depth_disable_material = SubResource( 488 )
 
@@ -18234,6 +18056,11 @@ depth_disable_material = SubResource( 492 )
 
 [node name="Rail29" parent="08 MovingTarget" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0 )
+usual_material = SubResource( 493 )
+depth_disable_material = SubResource( 494 )
+
+[node name="Rail36" parent="08 MovingTarget" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0 )
 usual_material = SubResource( 493 )
 depth_disable_material = SubResource( 494 )
 
@@ -19435,10 +19262,10 @@ root_01_piano = true
 [node name="Controller" parent="15 2by1Align" instance=ExtResource( 5 )]
 
 [node name="Box" parent="15 2by1Align" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3 )
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
 
 [node name="Box2" parent="15 2by1Align" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3 )
 
 [node name="Rail2" parent="15 2by1Align" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
@@ -19470,39 +19297,44 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3 )
 usual_material = SubResource( 867 )
 depth_disable_material = SubResource( 868 )
 
-[node name="Rail49" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4 )
-usual_material = SubResource( 869 )
-depth_disable_material = SubResource( 870 )
-
 [node name="Rail55" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5 )
 usual_material = SubResource( 871 )
 depth_disable_material = SubResource( 872 )
 
 [node name="Rail56" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4 )
-usual_material = SubResource( 873 )
-depth_disable_material = SubResource( 874 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 5 )
+usual_material = SubResource( 871 )
+depth_disable_material = SubResource( 872 )
+
+[node name="Rail58" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 5 )
+usual_material = SubResource( 871 )
+depth_disable_material = SubResource( 872 )
+
+[node name="Rail59" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 5 )
+usual_material = SubResource( 871 )
+depth_disable_material = SubResource( 872 )
 
 [node name="Rail57" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
-usual_material = SubResource( 875 )
-depth_disable_material = SubResource( 876 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 5 )
+usual_material = SubResource( 871 )
+depth_disable_material = SubResource( 872 )
 
-[node name="Rail67" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4 )
+[node name="Rail81" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5 )
 usual_material = SubResource( 877 )
 depth_disable_material = SubResource( 878 )
 
 [node name="Rail65" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 5 )
 is_target = true
 usual_material = SubResource( 879 )
 depth_disable_material = SubResource( 880 )
 
 [node name="Rail66" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 5 )
 is_target = true
 usual_material = SubResource( 881 )
 depth_disable_material = SubResource( 882 )
@@ -19512,45 +19344,25 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -
 usual_material = SubResource( 883 )
 depth_disable_material = SubResource( 884 )
 
+[node name="Rail47" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 6, 0, -3 )
+usual_material = SubResource( 883 )
+depth_disable_material = SubResource( 884 )
+
+[node name="Rail48" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 6, 1, -3 )
+usual_material = SubResource( 883 )
+depth_disable_material = SubResource( 884 )
+
+[node name="Rail50" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 1.91069e-15, 6, 2, -3 )
+usual_material = SubResource( 883 )
+depth_disable_material = SubResource( 884 )
+
 [node name="Rail52" parent="15 2by1Align" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -2 )
 usual_material = SubResource( 885 )
 depth_disable_material = SubResource( 886 )
-
-[node name="Rail58" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -3 )
-usual_material = SubResource( 887 )
-depth_disable_material = SubResource( 888 )
-
-[node name="Rail59" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -2 )
-usual_material = SubResource( 889 )
-depth_disable_material = SubResource( 890 )
-
-[node name="Rail60" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, -1 )
-usual_material = SubResource( 891 )
-depth_disable_material = SubResource( 892 )
-
-[node name="Rail61" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 0 )
-usual_material = SubResource( 893 )
-depth_disable_material = SubResource( 894 )
-
-[node name="Rail62" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 1 )
-usual_material = SubResource( 895 )
-depth_disable_material = SubResource( 896 )
-
-[node name="Rail63" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 2 )
-usual_material = SubResource( 897 )
-depth_disable_material = SubResource( 898 )
-
-[node name="Rail64" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1, 0, 3 )
-usual_material = SubResource( 899 )
-depth_disable_material = SubResource( 900 )
 
 [node name="Rail53" parent="15 2by1Align" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -1 )
@@ -19561,26 +19373,6 @@ depth_disable_material = SubResource( 902 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 0 )
 usual_material = SubResource( 903 )
 depth_disable_material = SubResource( 904 )
-
-[node name="Rail36" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 0, -3 )
-usual_material = SubResource( 905 )
-depth_disable_material = SubResource( 906 )
-
-[node name="Rail37" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 1, -3 )
-usual_material = SubResource( 907 )
-depth_disable_material = SubResource( 908 )
-
-[node name="Rail40" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 2, -3 )
-usual_material = SubResource( 909 )
-depth_disable_material = SubResource( 910 )
-
-[node name="Rail41" parent="15 2by1Align" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 3, -3 )
-usual_material = SubResource( 911 )
-depth_disable_material = SubResource( 912 )
 
 [node name="Rail23" parent="15 2by1Align" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -1 )
@@ -19617,6 +19409,11 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 
 usual_material = SubResource( 925 )
 depth_disable_material = SubResource( 926 )
 
+[node name="Rail42" parent="15 2by1Align" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 4 )
+usual_material = SubResource( 925 )
+depth_disable_material = SubResource( 926 )
+
 [node name="Rail10" parent="15 2by1Align" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3 )
 usual_material = SubResource( 927 )
@@ -19638,7 +19435,7 @@ usual_material = SubResource( 933 )
 depth_disable_material = SubResource( 934 )
 
 [node name="Door" parent="15 2by1Align" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8, 0, -1.5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 0, -1.5 )
 
 [node name="CubioSpawn" parent="15 2by1Align" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 0, -8 )
@@ -19650,7 +19447,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 5, -8, 0, -4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11 )
 
 [node name="Ground2" parent="15 2by1Align" instance=ExtResource( 7 )]
-transform = Transform( 16, 0, 0, 0, 2, 0, 0, 0, 16, -9, -2, -9 )
+transform = Transform( 18, 0, 0, 0, 2, 0, 0, 0, 16, -9, -2, -9 )
 
 [node name="Ground3" parent="15 2by1Align" instance=ExtResource( 7 )]
 transform = Transform( 10.6066, 0.707107, 0, -10.6066, 0.707107, 0, 0, 0, 1, -17, 7, -2 )
