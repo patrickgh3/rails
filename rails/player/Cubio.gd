@@ -463,6 +463,4 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
-	
-func register_puzzle(enter_puzzle_trigger):
-	controller.current_puzzle = enter_puzzle_trigger.get_parent()
+

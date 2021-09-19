@@ -12,7 +12,7 @@ onready var volumes = {}
 onready var music_active = {}
 onready var rng = RandomNumberGenerator.new()
 onready var master_controller = get_parent().name == "Root"
-var current_puzzle
+var current_puzzle = null
 
 func _ready():
 	
@@ -27,7 +27,8 @@ func _ready():
 			boxes.append(box)
 	
 	for rail in get_tree().get_nodes_in_group("Rails"):
-		rails.append(rail)
+		if get_parent().is_a_parent_of(rail):
+			rails.append(rail)
 	rails_just_halted = rails.duplicate()
 	
 	#spawn_cubio_if_no_cubio()
@@ -143,3 +144,12 @@ func ease_out_quad(x):
 func ease_in_quad(x):
 	return x * x
 
+func register_puzzle(enter_puzzle_trigger):
+	if current_puzzle != null:
+		for rail in current_puzzle.get_node("Controller").rails:
+			rail.set_current_puzzle(false)
+	current_puzzle = enter_puzzle_trigger.get_parent()
+	for rail in current_puzzle.get_node("Controller").rails:
+		rail.set_current_puzzle(true)
+		
+	print(current_puzzle.name)
