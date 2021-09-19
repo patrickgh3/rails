@@ -95,7 +95,6 @@ func _ready():
 	highlight_info = load("res://objects/BoxHighlightInfo.gd").new()
 	
 	for b in get_tree().get_nodes_in_group("Boxes"):
-		print ("b.name ", b.name)
 		if b.is_the_boss:
 			boss = b
 	
@@ -232,7 +231,7 @@ func _input(event):
 				if my_box == null:
 					if is_on_floor():
 						box_form()
-				else:
+				elif box_on_ground():
 					unbox()
 					
 	if event.is_action_pressed("sprint"):
@@ -301,7 +300,7 @@ func try_highlight_box ():
 					turn_on_highlight = highlight.visible
 				else:
 					highlight.transform.basis = Basis(highlight_info.dirs[0], highlight_info.dirs[1], highlight_info.dirs[2])
-					highlight.translation = box_hit.get_world_center() + highlight_info.dirs[2]
+					highlight.translation = box_hit.get_world_center_with_bumping() + highlight_info.dirs[2]
 					highlight.transform.orthonormalized()
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()
@@ -337,7 +336,6 @@ func stand_up():
 		shape.translation.y = SHAPE_STANDING_Y
 		shape.scale.y = SHAPE_SCALE_STANDING_Y
 		cubio_body.stand_up()
-		
 		
 		var sprite = $Sprite
 		var screen_rect = sprite.get_viewport_rect()
@@ -417,14 +415,12 @@ func hit_moving_launchbox(hit_launch_box):
 		
 func box_form():
 	my_box = load("res://objects/Box.tscn").instance()
-	print("translation ", translation)
 	var x = int(floor(translation.x))
 	var y = int(floor(translation.y))
 	var z = int(floor(translation.z))
 	my_box.translation = Vector3(x,y,z) 
 	
 	var y_rad = atan2(global_transform.basis.z.x, global_transform.basis.z.z)
-	
 	
 	while y_rad < 0: 
 		y_rad += 2 * PI
@@ -463,4 +459,15 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
-
+	
+func box_on_ground():
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+	var ground_below = space_state.intersect_ray(from, to, [shape])
+	if ground_below: return true
+	else: return false
+	
+	
+func register_puzzle(enter_puzzle_trigger):
+	controller.current_puzzle = enter_puzzle_trigger.get_parent()

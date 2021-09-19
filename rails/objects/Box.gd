@@ -397,6 +397,11 @@ func get_world_center ():
 	var y = global_transform.basis.y * mesh.scale.y
 	var z = global_transform.basis.z * mesh.scale.z
 	return global_transform.origin + x + y + z
+	
+func get_world_center_with_bumping():
+	var mesh_bumped = mesh.translation - Vector3.ONE * .5
+	return get_world_center() + mesh_bumped
+	
 
 func moving():
 	return velocity != Vector3.ZERO
