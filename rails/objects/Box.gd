@@ -486,3 +486,13 @@ func become_box():
 		flesh.queue_free()
 		flesh = null
 
+func check_for_rail_attached_to_boss():
+	var result = on_rails(Vector3())
+	if result["valid"]:
+		var rails_just_attached_to = result["rails"]
+		for rail in rails_just_attached_to:
+				if rail.is_target: delivered = true
+				if rail.attached_to_boss: 
+					add_to_group("Employees")
+					print ("boxformed on rails, added to employees")
+	else: print ("box form not on rails")

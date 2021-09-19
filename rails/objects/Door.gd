@@ -30,7 +30,7 @@ func _process(delta):
 	translation.y = translation_start.y + lerp(0, 4, lerp_t)
 	
 	# Play sound on open
-	if door_t_last == 0 and door_t != 0:
+	if door_t_last == 0 and door_t != 0 and all_pressed:
 		# Door opening
 		$ChimeSound.play()
 		$DoorOpenedSound.play()

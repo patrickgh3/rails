@@ -2369,7 +2369,7 @@ shader_param/glow = null
 [sub_resource type="ShaderMaterial" id=393]
 resource_local_to_scene = true
 shader = ExtResource( 13 )
-shader_param/is_target = false
+shader_param/is_target = true
 shader_param/glow = 0.0
 
 [sub_resource type="ShaderMaterial" id=394]
@@ -17862,6 +17862,7 @@ depth_disable_material = SubResource( 392 )
 
 [node name="Rail222" parent="06 Rescue" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -4 )
+is_target = true
 usual_material = SubResource( 393 )
 depth_disable_material = SubResource( 394 )
 

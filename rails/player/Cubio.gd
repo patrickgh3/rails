@@ -81,6 +81,7 @@ func _ready():
 	stand_up()
 	first_person_cam()
 	
+	get_tree().get_root().connect("size_changed", self, "window_resized")
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -231,8 +232,7 @@ func _input(event):
 				if my_box == null:
 					if is_on_floor():
 						box_form()
-				elif box_on_ground():
-					unbox()
+				else: unbox()
 					
 	if event.is_action_pressed("sprint"):
 		speed = SPRINTING_SPEED
@@ -446,6 +446,22 @@ func box_form():
 	crouch()
 	cubio_body.hide()
 	
+	
+	# Check for box forming ontop of boss
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+	var something_below = space_state.intersect_ray(from, to, [shape])
+	if something_below.collider is Box:
+		var box_below = something_below.collider as Box
+		if box_below.is_the_boss:
+			print ("boxformed on boss, added to employees")
+			my_box.add_to_group("Employees")
+		
+	# Check for boxforming on rail that is attached to box
+	if not my_box.is_in_group("Employees"):
+		my_box.check_for_rail_attached_to_boss()
+	
 func unbox():
 	if not my_box == null:
 		my_box.become_box()
@@ -460,14 +476,10 @@ func unbox():
 	$CollisionShape.disabled = false
 	my_box = null
 	
-func box_on_ground():
-	var space_state = get_world().direct_space_state
-	var from = shape.global_transform.origin
-	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
-	var ground_below = space_state.intersect_ray(from, to, [shape])
-	if ground_below: return true
-	else: return false
-	
-	
 func register_puzzle(enter_puzzle_trigger):
 	controller.current_puzzle = enter_puzzle_trigger.get_parent()
+
+
+func window_resized():
+	if first_person: first_person_cam()
+	else: third_person_cam()
