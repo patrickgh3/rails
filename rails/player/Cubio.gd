@@ -3,7 +3,8 @@ extends KinematicBody
 class_name Cubio
 
 # Constant variables for Movement
-const SPEED = 7
+const WALKING_SPEED = 5
+const SPRINTING_SPEED = 10
 const GRAVITY = 50
 const JUMP = 5
 const FALL_MULTY = 0.5
@@ -44,6 +45,8 @@ const LEAN_AMOUNT : float = 0.7
 
 var self_aware = true # @DEBUG the boss should turn this true?
 
+var boss
+var speed = WALKING_SPEED
 var velocity: Vector3
 var dir: Vector3
 var gravity_vec = Vector3()
@@ -69,13 +72,15 @@ var camera_offset_t
 var target_camera_offset
 var last_camera_offset
 
+func _enter_tree():
+	add_to_group("Player")
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	stand_up()
 	first_person_cam()
 	
-	add_to_group("Player")
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -89,6 +94,9 @@ func _ready():
 	
 	highlight_info = load("res://objects/BoxHighlightInfo.gd").new()
 	
+	for b in get_tree().get_nodes_in_group("Boxes"):
+		if b.is_the_boss:
+			boss = b
 	
 	
 func _process(delta):
@@ -100,7 +108,10 @@ func _process(delta):
 		get_tree().quit()
 	
 	if Input.is_action_just_pressed("left_click"):
-		try_pull_box()
+		try_pull_box(false)
+		
+	if Input.is_action_just_pressed("right_click"):
+		try_pull_box(true)
 		
 	if first_person:
 		# Camera physics interpolation to reduce physics jitter on high refresh-rate monitors
@@ -132,6 +143,10 @@ func _process(delta):
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
 			camera.translation = Vector3(0, y, z)
+			
+	# Restart puzzle if you fall too far
+	if translation.y < -13:
+		controller.reset_puzzle()
 
 func _physics_process(delta):
 	
@@ -160,14 +175,15 @@ func _physics_process(delta):
 	dir = Vector3(h_input, 0, f_input).rotated(Vector3.UP, h_rot).normalized()
 	
 	
-	
-		
 	# Jumping and gravity
 	if is_on_floor():
 		snap = -get_floor_normal()
 		accel = ACCEL_TYPE["default"]
 		gravity_vec = Vector3.ZERO
-		launched = false
+		if launched:
+			self_aware = true
+			third_person_cam()
+			launched = false
 	elif launched:
 		dir = Vector3.ZERO
 		snap = Vector3.DOWN
@@ -186,9 +202,9 @@ func _physics_process(delta):
 		
 	# Moving
 	if crouching:
-		velocity = velocity.linear_interpolate(dir * SPEED / 4, accel * delta)
+		velocity = velocity.linear_interpolate(dir * speed / 4, accel * delta)
 	else:
-		velocity = velocity.linear_interpolate(dir * SPEED, accel * delta)
+		velocity = velocity.linear_interpolate(dir * speed, accel * delta)
 		
 	if(gravity_vec > Vector3.ZERO):
 		movement = velocity + gravity_vec * JUMP_MULTY
@@ -215,9 +231,14 @@ func _input(event):
 				if my_box == null:
 					if is_on_floor():
 						box_form()
-				else:
+				elif box_on_ground():
 					unbox()
-	
+					
+	if event.is_action_pressed("sprint"):
+		speed = SPRINTING_SPEED
+	elif event.is_action_released("sprint"):
+		speed = WALKING_SPEED
+					
 	
 	if event is InputEventKey:
 		if event.scancode == KEY_M and event.is_pressed():
@@ -236,11 +257,6 @@ func _input(event):
 	if event is InputEventKey:
 		if event.scancode == KEY_1 and event.is_pressed():
 			first_person_cam()
-			
-	if event is InputEventKey:
-		if event.scancode == KEY_R and event.is_pressed():
-			for b in get_tree().get_nodes_in_group("Boxes"):
-				b.reset_transform_to_initial_values()
 				
 func toggle_cursor ():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
@@ -284,7 +300,7 @@ func try_highlight_box ():
 					turn_on_highlight = highlight.visible
 				else:
 					highlight.transform.basis = Basis(highlight_info.dirs[0], highlight_info.dirs[1], highlight_info.dirs[2])
-					highlight.translation = box_hit.get_world_center() + highlight_info.dirs[2]
+					highlight.translation = box_hit.get_world_center_with_bumping() + highlight_info.dirs[2]
 					highlight.transform.orthonormalized()
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()
@@ -294,14 +310,17 @@ func try_highlight_box ():
 		highlight.show()
 	else: highlight.hide()
 
-func try_pull_box():
+func try_pull_box(var pull_boss):
 	# If any box is moving, don't highlight any box
 	for box in controller.boxes:
 		if box.velocity != Vector3.ZERO:
 			return
 	
 	if box_hit:
-		box_hit.face_pulled(highlight_info.face)
+		if pull_boss and not boss == null:
+			boss.face_pulled(highlight_info.face)
+		else:
+			box_hit.face_pulled(highlight_info.face)
 		
 func stand_up():
 	var space_state = get_world().direct_space_state
@@ -317,7 +336,6 @@ func stand_up():
 		shape.translation.y = SHAPE_STANDING_Y
 		shape.scale.y = SHAPE_SCALE_STANDING_Y
 		cubio_body.stand_up()
-		
 		
 		var sprite = $Sprite
 		var screen_rect = sprite.get_viewport_rect()
@@ -380,7 +398,7 @@ func do_launch():
 	launch_box = null
 	snap = Vector3.ZERO
 	gravity_vec = Vector3.UP * 50
-	velocity = Vector3.FORWARD * 100
+	velocity = Vector3.LEFT * 100
 	if crouching: stand_up()
 
 func try_launch():
@@ -397,14 +415,12 @@ func hit_moving_launchbox(hit_launch_box):
 		
 func box_form():
 	my_box = load("res://objects/Box.tscn").instance()
-	print("translation ", translation)
 	var x = int(floor(translation.x))
 	var y = int(floor(translation.y))
 	var z = int(floor(translation.z))
 	my_box.translation = Vector3(x,y,z) 
 	
 	var y_rad = atan2(global_transform.basis.z.x, global_transform.basis.z.z)
-	var y_eul = rad2deg(y_rad)
 	
 	while y_rad < 0: 
 		y_rad += 2 * PI
@@ -420,7 +436,7 @@ func box_form():
 	else:
 		y_rad = 0
 	
-	y_eul = rad2deg(y_rad)
+	
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0))
 	translation = my_box.get_world_center()
@@ -443,3 +459,15 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
+	
+func box_on_ground():
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+	var ground_below = space_state.intersect_ray(from, to, [shape])
+	if ground_below: return true
+	else: return false
+	
+	
+func register_puzzle(enter_puzzle_trigger):
+	controller.current_puzzle = enter_puzzle_trigger.get_parent()

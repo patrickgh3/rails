@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://boss/andre.jpg" type="Texture" id=1]
+
+[node name="Poster" type="Spatial"]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 1, -26, 4, -5 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture = ExtResource( 1 )

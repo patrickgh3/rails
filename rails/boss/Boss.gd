@@ -1,5 +1,7 @@
 extends KinematicBody
 
+class_name Boss
+
 # Constant variables for Movement
 const SPEED = 5
 const GRAVITY = 50
@@ -35,10 +37,11 @@ var launch_box
 var launch_box_offset
 var my_box
 
+func _enter_tree():
+	add_to_group("Boss")
 
 func _ready():
 	stand_up()
-	add_to_group("Boss")
 	
 	debug_marker = load("res://objects/DebugCube.tscn").instance()
 	debug_marker1 = load("res://objects/DebugCube.tscn").instance()
