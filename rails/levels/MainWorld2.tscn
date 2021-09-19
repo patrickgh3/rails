@@ -16491,7 +16491,7 @@ shader_param/glow = null
 [node name="Controller" parent="." instance=ExtResource( 5 )]
 
 [node name="Cubio" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1, 15 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 1, 15 )
 
 [node name="Fog" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -199, -11, -14 )
@@ -16543,15 +16543,12 @@ transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -351, -52, 160 )
 transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -165, -52, 218 )
 
 [node name="Ground20" parent="MiscGrounds" instance=ExtResource( 7 )]
-transform = Transform( 2, 0, 0, 0, 120, 0, 0, 0, 80, -79, -45, -32 )
+transform = Transform( 2, 0, 0, 0, 120, 0, 0, 0, 80, -81, -45, -32 )
 
 [node name="Ground21" parent="MiscGrounds" instance=ExtResource( 7 )]
-transform = Transform( 2, 0, 0, 0, 120, 0, 0, 0, 80, -78, -45, -126 )
+transform = Transform( 2, 0, 0, 0, 120, 0, 0, 0, 80, -80, -45, -126 )
 
 [node name="TempBridges" type="Spatial" parent="."]
-
-[node name="Ground14" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 6, -48, -1, 20 )
 
 [node name="Ground16" parent="TempBridges" instance=ExtResource( 7 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 3, -67, -1, 1 )
@@ -16562,11 +16559,8 @@ transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -69, -1, -17 )
 [node name="Ground20" parent="TempBridges" instance=ExtResource( 7 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 2, -69, -1, -32 )
 
-[node name="Ground15" parent="TempBridges" instance=ExtResource( 7 )]
-transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 3, -57, -1, 11 )
-
 [node name="01 PullBoxes" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 16 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 16 )
 script = ExtResource( 4 )
 root_01_piano = true
 melody_01_guitar_echo = true
@@ -16577,7 +16571,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -
 [node name="Controller" parent="01 PullBoxes" instance=ExtResource( 5 )]
 
 [node name="Door" parent="01 PullBoxes" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10, 0, 0 )
 
 [node name="Box3" parent="01 PullBoxes" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
@@ -16992,7 +16986,7 @@ transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 11, 0, -3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -9, 0, -4 )
 
 [node name="02 WeirdRails" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, 16 )
 script = ExtResource( 4 )
 root_01_piano = true
 melody_01_guitar_echo = true
@@ -17001,7 +16995,7 @@ melody_02_guitar_harmonics = true
 [node name="Controller" parent="02 WeirdRails" instance=ExtResource( 5 )]
 
 [node name="Door" parent="02 WeirdRails" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 12 )
 
 [node name="Box8" parent="02 WeirdRails" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
@@ -17233,7 +17227,7 @@ transform = Transform( 1, 0, 0, 0, 15, 0, 0, 0, 20, -9, -2, -8 )
 transform = Transform( 22, 0, 0, 0, 1, 0, 0, 0, 20, -9, 13, -8 )
 
 [node name="03 UpAndOver" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, 39 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, 39 )
 script = ExtResource( 4 )
 root_01_piano = true
 melody_01_guitar_echo = true
@@ -17251,7 +17245,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -13, 0, -8 )
 [node name="Controller" parent="03 UpAndOver" instance=ExtResource( 5 )]
 
 [node name="Door" parent="03 UpAndOver" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -14, 0, -5 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, -5 )
 
 [node name="Box" parent="03 UpAndOver" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
@@ -17432,7 +17426,7 @@ transform = Transform( 22, 0, 0, 0, 20, 0, 0, 0, 1, -11, -1, 21.0564 )
 transform = Transform( 12, 0, 0, 0, 20, 0, 0, 0, 2, -14, 0, 3 )
 
 [node name="04 Pack" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47, 0, 34 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0, 34 )
 script = ExtResource( 4 )
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
@@ -17440,7 +17434,7 @@ melody_02_guitar_harmonics = true
 [node name="Controller" parent="04 Pack" instance=ExtResource( 5 )]
 
 [node name="Door" parent="04 Pack" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9 )
 
 [node name="Box4" parent="04 Pack" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 5 )
@@ -17566,7 +17560,7 @@ transform = Transform( 1, 0, 0, 0, 8, 0, 0, 0, 6, 7, 0, 2 )
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 4, 7, 4, -2 )
 
 [node name="05 Axes" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, 15 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50, 0, 11 )
 script = ExtResource( 4 )
 root_01_piano = true
 root_02_deep = true
@@ -17575,134 +17569,155 @@ melody_02_guitar_harmonics = true
 [node name="Controller" parent="05 Axes" instance=ExtResource( 5 )]
 
 [node name="Box" parent="05 Axes" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1 )
 
 [node name="Box2" parent="05 Axes" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
 
 [node name="Box3" parent="05 Axes" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 1 )
 
 [node name="Rail" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 2 )
 usual_material = SubResource( 307 )
 depth_disable_material = SubResource( 308 )
 
 [node name="Rail14" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -3 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 1 )
 usual_material = SubResource( 309 )
 depth_disable_material = SubResource( 310 )
 
 [node name="Rail15" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -2 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 2 )
 usual_material = SubResource( 311 )
 depth_disable_material = SubResource( 312 )
 
 [node name="Rail16" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -1 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 3 )
 usual_material = SubResource( 313 )
 depth_disable_material = SubResource( 314 )
 
 [node name="Rail17" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 4 )
 usual_material = SubResource( 315 )
 depth_disable_material = SubResource( 316 )
 
 [node name="Rail18" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 1 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 5 )
 usual_material = SubResource( 317 )
 depth_disable_material = SubResource( 318 )
 
 [node name="Rail19" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 2 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 6 )
 usual_material = SubResource( 319 )
 depth_disable_material = SubResource( 320 )
 
 [node name="Rail2" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
 usual_material = SubResource( 321 )
 depth_disable_material = SubResource( 322 )
 
 [node name="Rail3" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 2 )
 usual_material = SubResource( 323 )
 depth_disable_material = SubResource( 324 )
 
 [node name="Rail4" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2 )
 usual_material = SubResource( 325 )
 depth_disable_material = SubResource( 326 )
 
 [node name="Rail12" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 2 )
 usual_material = SubResource( 327 )
 depth_disable_material = SubResource( 328 )
 
 [node name="Rail13" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2 )
 usual_material = SubResource( 329 )
 depth_disable_material = SubResource( 330 )
 
 [node name="Rail5" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1, -2 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 1, 2 )
 usual_material = SubResource( 331 )
 depth_disable_material = SubResource( 332 )
 
 [node name="Rail6" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 2, -2 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 2, 2 )
 usual_material = SubResource( 333 )
 depth_disable_material = SubResource( 334 )
 
 [node name="Rail9" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 3, -2 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 3, 2 )
 usual_material = SubResource( 335 )
 depth_disable_material = SubResource( 336 )
 
 [node name="Rail10" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 4, -2 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 4, 2 )
 usual_material = SubResource( 337 )
 depth_disable_material = SubResource( 338 )
 
 [node name="Rail20" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 5, -2 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 2, 5, 2 )
 usual_material = SubResource( 339 )
 depth_disable_material = SubResource( 340 )
 
 [node name="Rail11" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 5, -3 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 3, 5, 1 )
 is_target = true
 usual_material = SubResource( 341 )
 depth_disable_material = SubResource( 342 )
 
 [node name="Rail21" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 5, -1 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 3, 5, 3 )
 is_target = true
 usual_material = SubResource( 343 )
 depth_disable_material = SubResource( 344 )
 
 [node name="Rail22" parent="05 Axes" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1, 5, -3 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 1, 5, 1 )
 is_target = true
 usual_material = SubResource( 345 )
 depth_disable_material = SubResource( 346 )
 
 [node name="Door" parent="05 Axes" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -3 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 5 )
 
 [node name="CubioSpawn" parent="05 Axes" instance=ExtResource( 8 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 4, 0, 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 11 )
 
 [node name="EnterPuzzleTrigger" parent="05 Axes" instance=ExtResource( 10 )]
-transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8 )
+transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 12 )
 
 [node name="EnterPuzzleTrigger2" parent="05 Axes" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -3, 0, -4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -6, 0, 1 )
 
 [node name="Ground2" parent="05 Axes" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 14, -3, -2, -9 )
+transform = Transform( 21, 0, 0, 0, 2, 0, 0, 0, 21, -7, -2, -6 )
+
+[node name="Ground5" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 20, 0, 0, 0, 2, 0, 0, 0, 20, -7, 12, -6 )
 
 [node name="Ground3" parent="05 Axes" instance=ExtResource( 7 )]
-transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 14, -3, -2, -9 )
+transform = Transform( 20, 0, 0, 0, 14, 0, 0, 0, 1, -7, -2, -5 )
+
+[node name="Ground6" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 4, 0, 0, 0, 14, 0, 0, 0, 1, -7, -2, 14 )
+
+[node name="Ground8" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 20, 0, 0, 0, 4, 0, 0, 0, 1, -7, 8, 14 )
+
+[node name="Ground4" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 14, 0, 0, 0, 20, 13, -2, -5 )
+
+[node name="Ground7" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 14, 0, 0, 0, 7, -8, -2, -4 )
+
+[node name="Ground10" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 8, 0, 0, 0, 4, -8, 4, 3 )
+
+[node name="Ground9" parent="05 Axes" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 14, 0, 0, 0, 7, -8, -2, 7 )
 
 [node name="06 Rescue" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, 12 )
@@ -17856,7 +17871,7 @@ depth_disable_material = SubResource( 398 )
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 0 )
 
 [node name="EnterPuzzleTrigger" parent="06 Rescue" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, 7, 0, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, 5, 0, 0 )
 
 [node name="EnterPuzzleTrigger2" parent="06 Rescue" instance=ExtResource( 10 )]
 transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8 )
