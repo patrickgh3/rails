@@ -107,10 +107,6 @@ func _process(delta):
 	
 	debug_marker.translation = translation
 	
-	# Press Esc to quit
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
-	
 	if Input.is_action_just_pressed("left_click"):
 		try_pull_box(false)
 		
@@ -229,6 +225,11 @@ func _physics_process(delta):
 
 
 func _input(event):
+	# Press Esc to pause
+	if Input.is_action_just_pressed("ui_cancel"):
+		var pause_menu = preload("res://ui/PauseMenu.tscn").instance()
+		get_tree().current_scene.add_child(pause_menu)
+	
 	if mouse_captured:
 		if event is InputEventMouseMotion:
 			rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))

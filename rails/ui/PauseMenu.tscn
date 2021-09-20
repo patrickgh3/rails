@@ -1,0 +1,138 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ui/PauseMenu.gd" type="Script" id=1]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0.498039 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 952.0
+margin_top = -266.592
+margin_right = 1247.0
+margin_bottom = -136.592
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="MainButtons"]
+margin_right = 295.0
+margin_bottom = 60.0
+text = "Continue"
+
+[node name="QuitButton" type="Button" parent="MainButtons"]
+margin_top = 70.0
+margin_right = 295.0
+margin_bottom = 130.0
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="VBoxContainer" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 916.866
+margin_top = -7.40869
+margin_right = 1297.87
+margin_bottom = 289.591
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoveCounterCheckbox" type="CheckButton" parent="Options"]
+margin_right = 381.0
+margin_bottom = 60.0
+text = "Move counter"
+
+[node name="FxLabel" type="Label" parent="Options"]
+margin_top = 70.0
+margin_right = 381.0
+margin_bottom = 110.0
+text = "FX volume"
+
+[node name="FxVolumeSlider" type="HSlider" parent="Options"]
+margin_top = 120.0
+margin_right = 381.0
+margin_bottom = 170.0
+min_value = -30.0
+max_value = 0.0
+value = -6.0
+
+[node name="MusicLabel" type="Label" parent="Options"]
+margin_top = 180.0
+margin_right = 381.0
+margin_bottom = 220.0
+text = "Music volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Options"]
+margin_top = 230.0
+margin_right = 381.0
+margin_bottom = 280.0
+min_value = -30.0
+max_value = 0.0
+value = -6.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 275.589
+margin_top = 178.272
+margin_right = -810.411
+margin_bottom = -170.728
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionsLabel" type="Label" parent="MarginContainer"]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 494.0
+margin_bottom = 510.0
+text = "CONTROLS
+
+WASD - Move
+Shift - Sprint
+C - Crouch
+Left Click - Pull box
+R - Reset puzzle
+K - Skip current puzzle
+B - ???
+Esc - open/close menu
+Space - jump"
+align = 1
+autowrap = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_PauseMenu_tree_exiting"]
+[connection signal="pressed" from="MainButtons/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="MainButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="toggled" from="Options/MoveCounterCheckbox" to="." method="_on_MoveCounterCheckbox_toggled"]
+[connection signal="value_changed" from="Options/FxVolumeSlider" to="." method="_on_FxVolumeSlider_value_changed"]
+[connection signal="value_changed" from="Options/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://ui/Credits.gd" type="Script" id=1]
+[ext_resource path="res://sounds/music/wind loop 1.wav" type="AudioStream" id=2]
 [ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=4]
 [ext_resource path="res://ui/ui-theme.tres" type="Theme" id=5]
@@ -43,15 +44,17 @@ __meta__ = {
 
 [node name="CreditsLabel" type="Label" parent="Panel/MarginContainer"]
 margin_left = 20.0
-margin_top = 226.0
+margin_top = 183.0
 margin_right = 1352.0
-margin_bottom = 481.0
+margin_bottom = 524.0
 text = "WE MADE THIS
+for VimJam 2021 \"Boss\"
 
 Patrick
 maaaaxaxa
 Fizziberry
-jotson"
+jotson
+TorchFire"
 align = 1
 autowrap = true
 
@@ -111,5 +114,10 @@ transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -351, -52, 160 )
 
 [node name="Ground27" parent="bg/MiscGrounds" instance=ExtResource( 3 )]
 transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -216.082, -120.193, 99.6778 )
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+bus = "Sfx"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]
