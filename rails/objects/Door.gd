@@ -27,10 +27,10 @@ func _process(delta):
 		door_t -= 1 * delta
 	door_t = clamp(door_t, 0, 1)
 	var lerp_t = controller.ease_in_quad(door_t)
-	translation.y = translation_start.y + lerp(0, 4, lerp_t)
+	translation.y = translation_start.y + lerp(0, 3.5, lerp_t)
 	
 	# Play sound on open
-	if door_t_last == 0 and door_t != 0:
+	if door_t_last == 0 and door_t != 0 and all_pressed:
 		# Door opening
 		$ChimeSound.play()
 		$DoorOpenedSound.play()
@@ -40,7 +40,7 @@ func _process(delta):
 		pass
 		
 	# Play sound on close
-	if door_t_last == 1 and door_t != 1:
+	if door_t_last == 1 and door_t != 1 and not all_pressed:
 		# Closing
 		$DoorClosedSound.play()
 	if door_t == 0 and door_t_last != 0:

@@ -70,7 +70,9 @@ var my_box
 
 var camera_offset_t
 var target_camera_offset
+var transitioning_camera_offset = false
 var last_camera_offset
+var warping_cam
 
 func _enter_tree():
 	add_to_group("Player")
@@ -81,6 +83,8 @@ func _ready():
 	stand_up()
 	first_person_cam()
 	
+	# Return value isn't used
+	var _c = get_tree().get_root().connect("size_changed", self, "window_resized")
 	
 	highlight = load("res://objects/Highlight.tscn").instance()
 	get_tree().current_scene.call_deferred("add_child", highlight)
@@ -134,19 +138,25 @@ func _process(delta):
 		translation = my_box.get_world_center()
 		
 		
+	#if transitioning_camera_offset:
 	if camera.translation != target_camera_offset:
-		camera_offset_t += delta * 3
+		var cam_lerp_speed = 3
+		if warping_cam: cam_lerp_speed = .5
+		camera_offset_t += delta * cam_lerp_speed
 		if camera_offset_t > 1:
+			if warping_cam: print ("Done warping")
+			warping_cam = false
 			camera_offset_t = 1
 			camera.translation = target_camera_offset
 		else:
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
 			camera.translation = Vector3(0, y, z)
+			transitioning_camera_offset = false
 			
 	# Restart puzzle if you fall too far
 	if translation.y < -13:
-		controller.reset_puzzle()
+		controller.reset_puzzle(false)
 
 func _physics_process(delta):
 	
@@ -228,10 +238,10 @@ func _input(event):
 			
 	if event is InputEventKey:
 		if event.scancode == KEY_B and event.is_pressed() and self_aware:
-				if my_box == null:
-					if is_on_floor():
-						box_form()
-				elif box_on_ground():
+			if my_box == null and is_on_floor():
+				box_form()
+			else:
+				if my_box.velocity == Vector3.ZERO:
 					unbox()
 					
 	if event.is_action_pressed("sprint"):
@@ -349,6 +359,8 @@ func stand_up():
 		else:
 			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 3 / 5)
 			target_camera_offset = CAM_OFFSET3
+			
+		transitioning_camera_offset = true
 		
 		
 func crouch():
@@ -374,6 +386,8 @@ func crouch():
 	else:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
 		target_camera_offset = CAM_CROUCH_OFFSET3
+		
+	transitioning_camera_offset = true
 	
 func third_person_cam():
 	first_person = false
@@ -446,6 +460,22 @@ func box_form():
 	crouch()
 	cubio_body.hide()
 	
+	
+	# Check for box forming ontop of boss
+	var space_state = get_world().direct_space_state
+	var from = shape.global_transform.origin
+	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+	var something_below = space_state.intersect_ray(from, to, [shape])
+	if something_below.collider is Box:
+		var box_below = something_below.collider as Box
+		if box_below.is_the_boss:
+			print ("boxformed on boss, added to employees")
+			my_box.add_to_group("Employees")
+		
+	# Check for boxforming on rail that is attached to box
+	if not my_box.is_in_group("Employees"):
+		my_box.check_for_rail_attached_to_boss()
+	
 func unbox():
 	if not my_box == null:
 		my_box.become_box()
@@ -460,14 +490,29 @@ func unbox():
 	$CollisionShape.disabled = false
 	my_box = null
 	
-func box_on_ground():
-	var space_state = get_world().direct_space_state
-	var from = shape.global_transform.origin
-	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
-	var ground_below = space_state.intersect_ray(from, to, [shape])
-	if ground_below: return true
-	else: return false
-	
-	
 func register_puzzle(enter_puzzle_trigger):
 	controller.current_puzzle = enter_puzzle_trigger.get_parent()
+
+
+func window_resized():
+	if first_person: first_person_cam()
+	else: third_person_cam()
+
+
+func warp(with_cam_lerp, new_transform):
+	var old_camera_pos = camera.global_transform.origin
+	transform = new_transform
+	# Move the player out from in the ground, to avoid stutter for 1 frame
+	# This number 0.451 is from inspecting the player's actual y translation
+	# in remote view. So it's a hack!
+	translation += Vector3.UP * 0.451
+	velocity = Vector3.ZERO
+	cam_root.rotation_degrees.x = 0
+
+# 	if with_cam_lerp:
+#		
+#		warping_cam = true
+#		camera.global_transform.origin = old_camera_pos
+#		debug_marker.translation = 
+		
+	stand_up()

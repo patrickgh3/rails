@@ -15,6 +15,9 @@ func _ready():
 		attached_to_boss = get_parent().is_the_boss
 	current = true
 	set_current_puzzle(false)
+	
+	# @DEBUG maclark overriding to always use usual_mat
+	$MeshInstance.set_surface_material(0, usual_material)
 
 func _process(delta):
 	# Pass params to shader
@@ -29,5 +32,7 @@ func set_current_puzzle(cur):
 		if current:
 			$MeshInstance.set_surface_material(0, usual_material)
 		else:
-			$MeshInstance.set_surface_material(0, depth_disable_material)
+			# @DEBUG maclark overriding to always use usual_mat
+			#$MeshInstance.set_surface_material(0, depth_disable_material)
+			$MeshInstance.set_surface_material(0, usual_material)
 	current = cur

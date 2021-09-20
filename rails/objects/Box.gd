@@ -2,6 +2,7 @@ extends KinematicBody
 class_name Box
 
 const box_speed = 1
+const ENLARGED_SCALE = Vector3(6,6,6)
 
 onready var controller = $"../Controller"
 onready var mesh = $MeshInstance
@@ -19,6 +20,13 @@ var velocity = Vector3()
 var grab_velocity : Vector3
 var edges = Array()
 export(bool) var delivered = false
+# For boxes which have a target rail directly on one of their edges,
+# currently just the one box in MovingTarget puzzle
+export(bool) var always_delivered_hack = false
+
+
+var enlarging = false
+var enlarge_t = 0
 var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
@@ -128,10 +136,10 @@ func _process(delta):
 		else:
 			# Keep travelling by small increments until we are about to leave the rails
 			while true:
-				result = on_rails(to_move*0.2)
+				result = on_rails(to_move*0.1)
 				if not result["valid"]:
 					break
-				translation += to_move*0.2
+				translation += to_move*0.1
 			
 			# Start bumping state if we are at a standstill
 			if was_still:
@@ -176,7 +184,8 @@ func _process(delta):
 		if velocity == Vector3.ZERO:
 			if rail.is_target: delivered = true
 			if rail.attached_to_boss: add_to_group("Employees")
-			
+	
+	if always_delivered_hack:  delivered = true
 		
 	# Of rails that just stopped moving, check if we're touching any,
 	# and if so, count that we're touching them
@@ -215,6 +224,18 @@ func _process(delta):
 	elif was_delivered and not delivered:
 		emit_signal("signal_delivered", self, false)
 		$UndeliveredSound.play()
+		
+		
+	# BECOMING BOSS BOX!!!!
+	if enlarging:
+		enlarge_t += delta * .5
+		if enlarge_t > 1:
+			enlarge_t = 1
+			enlarging = false
+			scale = ENLARGED_SCALE
+		else:
+			var s = lerp(1, 6, controller.ease_out_quad(enlarge_t))
+			scale = Vector3.ONE * s
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):
@@ -466,7 +487,7 @@ func was_pulled (collision_position):
 	
 	
 	
-func become_human(flesh_rot, promote_to_boss = false):
+func become_human(flesh_rot, promote_to_boss):
 	if not flesh == null:
 		return
 		
@@ -477,6 +498,8 @@ func become_human(flesh_rot, promote_to_boss = false):
 	flesh.set_rotation(flesh_rot)
 	
 	if promote_to_boss:
+		is_the_boss = true
+		enlarging = true
 		var boss_face = load("res://boss/andre_cube.jpg")
 		for s in flesh.get_children():
 			if s is Sprite3D:
@@ -489,7 +512,18 @@ func become_box():
 		flesh.hide()
 		flesh.queue_free()
 		flesh = null
-
+		
+	
+func check_for_rail_attached_to_boss():
+	var result = on_rails(Vector3())
+	if result["valid"]:
+		var rails_just_attached_to = result["rails"]
+		for rail in rails_just_attached_to:
+				if rail.is_target: delivered = true
+				if rail.attached_to_boss: 
+					add_to_group("Employees")
+					print ("boxformed on rails, added to employees")
+	else: print ("box form not on rails")
 
 
 func _on_moveTriggerTimer_timeout():

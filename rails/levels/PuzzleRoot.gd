@@ -18,7 +18,7 @@ var move_counter = 0
 
 func _ready():
 	if debug_spawn_here:
-		print("Notice: starting the player at puzzle "+get_parent().name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
+		print("Notice: starting the player at puzzle "+name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
 		var controller = $"/root/Root/Controller"
 		controller.register_puzzle(self)
-		controller.reset_puzzle()
+		controller.reset_puzzle(false)

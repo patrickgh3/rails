@@ -154,7 +154,7 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
 [sub_resource type="ShaderMaterial" id=13]
 shader = SubResource( 12 )
 
-[sub_resource type="CubeMesh" id=19]
+[sub_resource type="CubeMesh" id=14]
 material = ExtResource( 1 )
 size = Vector3( 0.1, 0.1, 0.1 )
 
@@ -185,7 +185,9 @@ material/0 = SubResource( 13 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0 )
-amount = 50
+amount = 5
+lifetime = 0.1
 preprocess = 1.0
+speed_scale = 0.1
 process_material = ExtResource( 2 )
-draw_pass_1 = SubResource( 19 )
+draw_pass_1 = SubResource( 14 )

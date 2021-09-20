@@ -1,0 +1,2268 @@
+[gd_scene load_steps=217 format=2]
+
+[ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Cubio.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/Controller.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Door.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/Box.tscn" type="PackedScene" id=5]
+[ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/RailVisualShaderDepthDisable.tres" type="Shader" id=7]
+[ext_resource path="res://objects/RailVisualShader.tres" type="Shader" id=8]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=4]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=5]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=8]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=9]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=10]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=11]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=12]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=13]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=14]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=15]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=16]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=17]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=18]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=19]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=20]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=21]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=22]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=23]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=24]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=25]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=26]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=27]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=28]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=29]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=30]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=31]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = true
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=32]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=33]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = true
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=34]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=35]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=36]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=37]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=38]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=39]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=40]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=41]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=42]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=43]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=44]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=45]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=46]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=47]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=48]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=49]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=50]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=51]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=52]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=53]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=54]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=55]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=56]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=57]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=58]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=59]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=60]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=61]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=62]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=63]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=64]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=65]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=66]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=67]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=68]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=69]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=70]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=71]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=72]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=73]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=74]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=75]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=76]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=77]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=78]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=79]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=80]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=81]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=82]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=83]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=84]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=85]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=86]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=87]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=88]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=89]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=90]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=91]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=92]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=93]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=94]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=95]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=96]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=97]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=98]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=99]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=100]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=101]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=102]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=103]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=104]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=105]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=106]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=107]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=108]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=109]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=110]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=111]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=112]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=113]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=114]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=115]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=116]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=117]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=118]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=119]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=120]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=121]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=122]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=123]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=124]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=125]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=126]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=127]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=128]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=129]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=130]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=131]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=132]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=133]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=134]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=135]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=136]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=137]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=138]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=139]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=140]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=141]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=142]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=143]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=144]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=145]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=146]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=147]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=148]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=149]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=150]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=151]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=152]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=153]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=154]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=155]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=156]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=157]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=158]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=159]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=160]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=161]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=162]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=163]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=164]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=165]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=166]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=167]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=168]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=169]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=170]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=171]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=172]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=173]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=174]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=175]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=176]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=177]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=178]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=179]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=180]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=181]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=182]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=183]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=184]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=185]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=186]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=187]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=188]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=189]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=190]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=191]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=192]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=193]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=194]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=195]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=196]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=197]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=198]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=199]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=200]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=201]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=202]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=203]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=204]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=205]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=206]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[sub_resource type="ShaderMaterial" id=207]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/is_target = false
+shader_param/glow = 0.0
+
+[sub_resource type="ShaderMaterial" id=208]
+resource_local_to_scene = true
+shader = ExtResource( 7 )
+shader_param/is_target = null
+shader_param/glow = null
+
+[node name="Root" type="Spatial"]
+
+[node name="Controller" parent="." instance=ExtResource( 3 )]
+
+[node name="Ground" parent="." instance=ExtResource( 6 )]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, -34, -1, -23 )
+
+[node name="Box" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3 )
+
+[node name="Box2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 10 )
+
+[node name="Box3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 3, 0, 0 )
+
+[node name="Box4" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -16, 0, 8 )
+
+[node name="Box5" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -16, 0, -8 )
+
+[node name="Box6" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -20, 0, -3 )
+
+[node name="BigBox" parent="." instance=ExtResource( 5 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 10 )
+
+[node name="BigBox3" parent="." instance=ExtResource( 5 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -16, 0, -14 )
+
+[node name="BossBox" parent="." instance=ExtResource( 5 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -16, 0, -3 )
+is_the_boss = true
+
+[node name="Rail119" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.166667, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail120" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail121" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.333333, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail122" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.5, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail123" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.666667, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail124" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.833333, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail125" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 1, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail126" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail130" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, -0.166667 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail131" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, -0.333333 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail127" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0.166667 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail128" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0.5 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail129" parent="BossBox" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0.333333 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="BossBox2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, -26, 0, -3 )
+is_the_boss = true
+
+[node name="Rail119" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.166667, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail120" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail121" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.333333, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail122" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.5, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail123" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.666667, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail124" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 0.833333, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail125" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, -0.166667, 0, 0.166667, -7.28523e-09, 0, 0, 0, 0.166667, 0.5, 1, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail126" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail130" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, -0.166667 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail131" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, -0.333333 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail127" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0.166667 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail128" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0.5 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail129" parent="BossBox2" instance=ExtResource( 1 )]
+transform = Transform( -7.28523e-09, 0, -0.166667, 0, 0.166667, 0, 0.166667, 0, -7.28523e-09, 0.5, 1, 0.333333 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail2" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -3 )
+usual_material = SubResource( 5 )
+depth_disable_material = SubResource( 6 )
+
+[node name="Rail9" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail16" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3 )
+usual_material = SubResource( 9 )
+depth_disable_material = SubResource( 10 )
+
+[node name="Rail31" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -3 )
+usual_material = SubResource( 11 )
+depth_disable_material = SubResource( 12 )
+
+[node name="Rail32" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3 )
+usual_material = SubResource( 13 )
+depth_disable_material = SubResource( 14 )
+
+[node name="Rail33" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -3 )
+usual_material = SubResource( 15 )
+depth_disable_material = SubResource( 16 )
+
+[node name="Rail49" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4 )
+usual_material = SubResource( 17 )
+depth_disable_material = SubResource( 18 )
+
+[node name="Rail55" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4 )
+usual_material = SubResource( 19 )
+depth_disable_material = SubResource( 20 )
+
+[node name="Rail56" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 4 )
+usual_material = SubResource( 21 )
+depth_disable_material = SubResource( 22 )
+
+[node name="Rail61" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 4 )
+usual_material = SubResource( 23 )
+depth_disable_material = SubResource( 24 )
+
+[node name="Rail62" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4 )
+usual_material = SubResource( 25 )
+depth_disable_material = SubResource( 26 )
+
+[node name="Rail57" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+usual_material = SubResource( 27 )
+depth_disable_material = SubResource( 28 )
+
+[node name="Rail67" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 4 )
+usual_material = SubResource( 29 )
+depth_disable_material = SubResource( 30 )
+
+[node name="Rail65" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 4 )
+is_target = true
+usual_material = SubResource( 31 )
+depth_disable_material = SubResource( 32 )
+
+[node name="Rail66" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4 )
+is_target = true
+usual_material = SubResource( 33 )
+depth_disable_material = SubResource( 34 )
+
+[node name="Rail46" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -3 )
+usual_material = SubResource( 35 )
+depth_disable_material = SubResource( 36 )
+
+[node name="Rail52" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -2 )
+usual_material = SubResource( 37 )
+depth_disable_material = SubResource( 38 )
+
+[node name="Rail53" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -1 )
+usual_material = SubResource( 39 )
+depth_disable_material = SubResource( 40 )
+
+[node name="Rail54" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 0 )
+usual_material = SubResource( 41 )
+depth_disable_material = SubResource( 42 )
+
+[node name="Rail58" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 1 )
+usual_material = SubResource( 43 )
+depth_disable_material = SubResource( 44 )
+
+[node name="Rail59" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 2 )
+usual_material = SubResource( 45 )
+depth_disable_material = SubResource( 46 )
+
+[node name="Rail115" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 8 )
+usual_material = SubResource( 35 )
+depth_disable_material = SubResource( 36 )
+
+[node name="Rail133" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 6 )
+usual_material = SubResource( 35 )
+depth_disable_material = SubResource( 36 )
+
+[node name="Rail134" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 7 )
+usual_material = SubResource( 35 )
+depth_disable_material = SubResource( 36 )
+
+[node name="Rail135" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 4 )
+usual_material = SubResource( 35 )
+depth_disable_material = SubResource( 36 )
+
+[node name="Rail136" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 5 )
+usual_material = SubResource( 35 )
+depth_disable_material = SubResource( 36 )
+
+[node name="Rail116" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 9 )
+usual_material = SubResource( 37 )
+depth_disable_material = SubResource( 38 )
+
+[node name="Rail117" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 10 )
+usual_material = SubResource( 39 )
+depth_disable_material = SubResource( 40 )
+
+[node name="Rail118" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 11 )
+usual_material = SubResource( 41 )
+depth_disable_material = SubResource( 42 )
+
+[node name="Rail131" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 12 )
+usual_material = SubResource( 43 )
+depth_disable_material = SubResource( 44 )
+
+[node name="Rail132" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 13 )
+usual_material = SubResource( 45 )
+depth_disable_material = SubResource( 46 )
+
+[node name="Rail137" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 14 )
+usual_material = SubResource( 45 )
+depth_disable_material = SubResource( 46 )
+
+[node name="Rail138" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 15 )
+usual_material = SubResource( 45 )
+depth_disable_material = SubResource( 46 )
+
+[node name="Rail60" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, 3 )
+usual_material = SubResource( 47 )
+depth_disable_material = SubResource( 48 )
+
+[node name="Rail64" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -3 )
+usual_material = SubResource( 49 )
+depth_disable_material = SubResource( 50 )
+
+[node name="Rail68" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -2 )
+usual_material = SubResource( 51 )
+depth_disable_material = SubResource( 52 )
+
+[node name="Rail69" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -1 )
+usual_material = SubResource( 53 )
+depth_disable_material = SubResource( 54 )
+
+[node name="Rail70" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, 0 )
+usual_material = SubResource( 55 )
+depth_disable_material = SubResource( 56 )
+
+[node name="Rail71" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, 1 )
+usual_material = SubResource( 57 )
+depth_disable_material = SubResource( 58 )
+
+[node name="Rail72" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, 2 )
+usual_material = SubResource( 59 )
+depth_disable_material = SubResource( 60 )
+
+[node name="Rail73" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, 3 )
+usual_material = SubResource( 61 )
+depth_disable_material = SubResource( 62 )
+
+[node name="Rail74" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -10 )
+usual_material = SubResource( 63 )
+depth_disable_material = SubResource( 64 )
+
+[node name="Rail75" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -9 )
+usual_material = SubResource( 65 )
+depth_disable_material = SubResource( 66 )
+
+[node name="Rail76" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -8 )
+usual_material = SubResource( 67 )
+depth_disable_material = SubResource( 68 )
+
+[node name="Rail77" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -7 )
+usual_material = SubResource( 69 )
+depth_disable_material = SubResource( 70 )
+
+[node name="Rail78" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -6 )
+usual_material = SubResource( 71 )
+depth_disable_material = SubResource( 72 )
+
+[node name="Rail79" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -5 )
+usual_material = SubResource( 73 )
+depth_disable_material = SubResource( 74 )
+
+[node name="Rail80" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -4 )
+usual_material = SubResource( 75 )
+depth_disable_material = SubResource( 76 )
+
+[node name="Rail81" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -17 )
+usual_material = SubResource( 77 )
+depth_disable_material = SubResource( 78 )
+
+[node name="Rail82" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -16 )
+usual_material = SubResource( 79 )
+depth_disable_material = SubResource( 80 )
+
+[node name="Rail83" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -15 )
+usual_material = SubResource( 81 )
+depth_disable_material = SubResource( 82 )
+
+[node name="Rail84" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -14 )
+usual_material = SubResource( 83 )
+depth_disable_material = SubResource( 84 )
+
+[node name="Rail85" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -13 )
+usual_material = SubResource( 85 )
+depth_disable_material = SubResource( 86 )
+
+[node name="Rail86" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -12 )
+usual_material = SubResource( 87 )
+depth_disable_material = SubResource( 88 )
+
+[node name="Rail87" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -11 )
+usual_material = SubResource( 89 )
+depth_disable_material = SubResource( 90 )
+
+[node name="Rail88" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -24 )
+usual_material = SubResource( 91 )
+depth_disable_material = SubResource( 92 )
+
+[node name="Rail89" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -23 )
+usual_material = SubResource( 93 )
+depth_disable_material = SubResource( 94 )
+
+[node name="Rail90" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -22 )
+usual_material = SubResource( 95 )
+depth_disable_material = SubResource( 96 )
+
+[node name="Rail91" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -21 )
+usual_material = SubResource( 97 )
+depth_disable_material = SubResource( 98 )
+
+[node name="Rail92" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -20 )
+usual_material = SubResource( 99 )
+depth_disable_material = SubResource( 100 )
+
+[node name="Rail93" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -19 )
+usual_material = SubResource( 101 )
+depth_disable_material = SubResource( 102 )
+
+[node name="Rail94" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -18 )
+usual_material = SubResource( 103 )
+depth_disable_material = SubResource( 104 )
+
+[node name="Rail100" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -27 )
+usual_material = SubResource( 105 )
+depth_disable_material = SubResource( 106 )
+
+[node name="Rail101" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -26 )
+usual_material = SubResource( 107 )
+depth_disable_material = SubResource( 108 )
+
+[node name="Rail102" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -25 )
+usual_material = SubResource( 109 )
+depth_disable_material = SubResource( 110 )
+
+[node name="Rail103" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -34 )
+usual_material = SubResource( 111 )
+depth_disable_material = SubResource( 112 )
+
+[node name="Rail104" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -33 )
+usual_material = SubResource( 113 )
+depth_disable_material = SubResource( 114 )
+
+[node name="Rail105" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -32 )
+usual_material = SubResource( 115 )
+depth_disable_material = SubResource( 116 )
+
+[node name="Rail106" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -31 )
+usual_material = SubResource( 117 )
+depth_disable_material = SubResource( 118 )
+
+[node name="Rail107" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -30 )
+usual_material = SubResource( 119 )
+depth_disable_material = SubResource( 120 )
+
+[node name="Rail108" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -29 )
+usual_material = SubResource( 121 )
+depth_disable_material = SubResource( 122 )
+
+[node name="Rail109" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -28 )
+usual_material = SubResource( 123 )
+depth_disable_material = SubResource( 124 )
+
+[node name="Rail110" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -35 )
+usual_material = SubResource( 125 )
+depth_disable_material = SubResource( 126 )
+
+[node name="Rail111" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 11, -36 )
+usual_material = SubResource( 127 )
+depth_disable_material = SubResource( 128 )
+
+[node name="Rail38" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 0, 4 )
+usual_material = SubResource( 129 )
+depth_disable_material = SubResource( 130 )
+
+[node name="Rail39" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 1, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail41" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 2, 4 )
+usual_material = SubResource( 131 )
+depth_disable_material = SubResource( 132 )
+
+[node name="Rail42" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 3, 4 )
+usual_material = SubResource( 133 )
+depth_disable_material = SubResource( 134 )
+
+[node name="Rail43" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 4, 4 )
+usual_material = SubResource( 135 )
+depth_disable_material = SubResource( 136 )
+
+[node name="Rail44" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 5, 4 )
+usual_material = SubResource( 137 )
+depth_disable_material = SubResource( 138 )
+
+[node name="Rail45" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 6, 4 )
+usual_material = SubResource( 139 )
+depth_disable_material = SubResource( 140 )
+
+[node name="Rail47" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 7, 4 )
+usual_material = SubResource( 141 )
+depth_disable_material = SubResource( 142 )
+
+[node name="Rail48" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 8, 4 )
+usual_material = SubResource( 143 )
+depth_disable_material = SubResource( 144 )
+
+[node name="Rail50" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 9, 4 )
+usual_material = SubResource( 145 )
+depth_disable_material = SubResource( 146 )
+
+[node name="Rail95" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 12, 4 )
+usual_material = SubResource( 147 )
+depth_disable_material = SubResource( 148 )
+
+[node name="Rail96" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 13, 4 )
+usual_material = SubResource( 149 )
+depth_disable_material = SubResource( 150 )
+
+[node name="Rail97" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 14, 4 )
+usual_material = SubResource( 151 )
+depth_disable_material = SubResource( 152 )
+
+[node name="Rail98" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 15, 4 )
+usual_material = SubResource( 153 )
+depth_disable_material = SubResource( 154 )
+
+[node name="Rail51" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 10, 4 )
+usual_material = SubResource( 155 )
+depth_disable_material = SubResource( 156 )
+
+[node name="Rail63" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -3, 11, 4 )
+usual_material = SubResource( 157 )
+depth_disable_material = SubResource( 158 )
+
+[node name="Rail23" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -1 )
+usual_material = SubResource( 159 )
+depth_disable_material = SubResource( 160 )
+
+[node name="Rail29" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -2 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail30" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, -3 )
+usual_material = SubResource( 161 )
+depth_disable_material = SubResource( 162 )
+
+[node name="Rail24" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 0 )
+usual_material = SubResource( 163 )
+depth_disable_material = SubResource( 164 )
+
+[node name="Rail26" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 1 )
+usual_material = SubResource( 165 )
+depth_disable_material = SubResource( 166 )
+
+[node name="Rail27" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 2 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail113" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -1 )
+usual_material = SubResource( 159 )
+depth_disable_material = SubResource( 160 )
+
+[node name="Rail114" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -2 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail139" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 0 )
+usual_material = SubResource( 163 )
+depth_disable_material = SubResource( 164 )
+
+[node name="Rail140" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 1 )
+usual_material = SubResource( 165 )
+depth_disable_material = SubResource( 166 )
+
+[node name="Rail141" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 2 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail142" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 4 )
+usual_material = SubResource( 159 )
+depth_disable_material = SubResource( 160 )
+
+[node name="Rail143" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 3 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail144" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 5 )
+usual_material = SubResource( 163 )
+depth_disable_material = SubResource( 164 )
+
+[node name="Rail145" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 6 )
+usual_material = SubResource( 165 )
+depth_disable_material = SubResource( 166 )
+
+[node name="Rail146" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 7 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail147" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 9 )
+usual_material = SubResource( 159 )
+depth_disable_material = SubResource( 160 )
+
+[node name="Rail148" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 8 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail149" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 10 )
+usual_material = SubResource( 163 )
+depth_disable_material = SubResource( 164 )
+
+[node name="Rail150" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 11 )
+usual_material = SubResource( 165 )
+depth_disable_material = SubResource( 166 )
+
+[node name="Rail151" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, 12 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail152" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -6 )
+usual_material = SubResource( 159 )
+depth_disable_material = SubResource( 160 )
+
+[node name="Rail153" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -7 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail154" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -5 )
+usual_material = SubResource( 163 )
+depth_disable_material = SubResource( 164 )
+
+[node name="Rail155" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -4 )
+usual_material = SubResource( 165 )
+depth_disable_material = SubResource( 166 )
+
+[node name="Rail156" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -3 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail157" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -11 )
+usual_material = SubResource( 159 )
+depth_disable_material = SubResource( 160 )
+
+[node name="Rail158" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -12 )
+usual_material = SubResource( 3 )
+depth_disable_material = SubResource( 4 )
+
+[node name="Rail159" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -10 )
+usual_material = SubResource( 163 )
+depth_disable_material = SubResource( 164 )
+
+[node name="Rail160" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -9 )
+usual_material = SubResource( 165 )
+depth_disable_material = SubResource( 166 )
+
+[node name="Rail161" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -8 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail162" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -14 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail163" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16, 0, -13 )
+usual_material = SubResource( 167 )
+depth_disable_material = SubResource( 168 )
+
+[node name="Rail28" parent="." instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3, 0, 3 )
+usual_material = SubResource( 169 )
+depth_disable_material = SubResource( 170 )
+
+[node name="Rail10" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -3 )
+usual_material = SubResource( 171 )
+depth_disable_material = SubResource( 172 )
+
+[node name="Rail21" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail22" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3 )
+usual_material = SubResource( 9 )
+depth_disable_material = SubResource( 10 )
+
+[node name="Rail119" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -3 )
+usual_material = SubResource( 11 )
+depth_disable_material = SubResource( 12 )
+
+[node name="Rail120" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3 )
+usual_material = SubResource( 13 )
+depth_disable_material = SubResource( 14 )
+
+[node name="Rail25" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -3 )
+usual_material = SubResource( 171 )
+depth_disable_material = SubResource( 172 )
+
+[node name="Rail121" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail122" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -3 )
+usual_material = SubResource( 9 )
+depth_disable_material = SubResource( 10 )
+
+[node name="Rail123" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -3 )
+usual_material = SubResource( 11 )
+depth_disable_material = SubResource( 12 )
+
+[node name="Rail124" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, -3 )
+usual_material = SubResource( 13 )
+depth_disable_material = SubResource( 14 )
+
+[node name="Rail125" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -3 )
+usual_material = SubResource( 171 )
+depth_disable_material = SubResource( 172 )
+
+[node name="Rail126" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail164" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail165" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail166" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail167" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail168" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail169" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail170" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail171" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 0, -3 )
+usual_material = SubResource( 7 )
+depth_disable_material = SubResource( 8 )
+
+[node name="Rail127" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, -3 )
+usual_material = SubResource( 9 )
+depth_disable_material = SubResource( 10 )
+
+[node name="Rail128" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -3 )
+usual_material = SubResource( 11 )
+depth_disable_material = SubResource( 12 )
+
+[node name="Rail129" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -3 )
+usual_material = SubResource( 13 )
+depth_disable_material = SubResource( 14 )
+
+[node name="Rail130" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, -3 )
+usual_material = SubResource( 171 )
+depth_disable_material = SubResource( 172 )
+
+[node name="Rail11" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 16, -34 )
+usual_material = SubResource( 173 )
+depth_disable_material = SubResource( 174 )
+
+[node name="Rail17" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 16, -34 )
+usual_material = SubResource( 175 )
+depth_disable_material = SubResource( 176 )
+
+[node name="Rail34" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 16, -34 )
+usual_material = SubResource( 177 )
+depth_disable_material = SubResource( 178 )
+
+[node name="Rail35" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 16, -34 )
+usual_material = SubResource( 179 )
+depth_disable_material = SubResource( 180 )
+
+[node name="Rail112" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 16, -34 )
+usual_material = SubResource( 181 )
+depth_disable_material = SubResource( 182 )
+
+[node name="Rail13" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 16, -34 )
+usual_material = SubResource( 183 )
+depth_disable_material = SubResource( 184 )
+
+[node name="Rail12" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 16, -34 )
+usual_material = SubResource( 185 )
+depth_disable_material = SubResource( 186 )
+
+[node name="Rail19" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 16, -34 )
+usual_material = SubResource( 187 )
+depth_disable_material = SubResource( 188 )
+
+[node name="Rail14" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 16, -34 )
+usual_material = SubResource( 189 )
+depth_disable_material = SubResource( 190 )
+
+[node name="Rail20" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 16, -34 )
+usual_material = SubResource( 191 )
+depth_disable_material = SubResource( 192 )
+
+[node name="Rail18" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 16, -34 )
+usual_material = SubResource( 193 )
+depth_disable_material = SubResource( 194 )
+
+[node name="Rail36" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 16, -34 )
+usual_material = SubResource( 195 )
+depth_disable_material = SubResource( 196 )
+
+[node name="Rail37" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 16, -34 )
+usual_material = SubResource( 197 )
+depth_disable_material = SubResource( 198 )
+
+[node name="Rail40" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 16, -34 )
+usual_material = SubResource( 199 )
+depth_disable_material = SubResource( 200 )
+
+[node name="Rail99" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, -34 )
+usual_material = SubResource( 201 )
+depth_disable_material = SubResource( 202 )
+
+[node name="Rail15" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 16, -34 )
+usual_material = SubResource( 203 )
+depth_disable_material = SubResource( 204 )
+
+[node name="Rail3" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3 )
+usual_material = SubResource( 205 )
+depth_disable_material = SubResource( 206 )
+
+[node name="Rail4" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -3 )
+usual_material = SubResource( 207 )
+depth_disable_material = SubResource( 208 )
+
+[node name="Door" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8 )
+
+[node name="Cubio" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.29068, 4.51365 )
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.914706, -0.164377, 0.369179, 0, 0.913538, 0.406753, -0.40412, -0.372059, 0.835619, 0, 8.98181, 15.2486 )

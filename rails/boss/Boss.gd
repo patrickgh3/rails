@@ -22,6 +22,7 @@ onready var body = $BossBody
 onready var accel = ACCEL_TYPE["default"]
 onready var controller = $"/root/Root/Controller"
 
+signal open_roof
 
 var velocity: Vector3
 var dir: Vector3
@@ -41,6 +42,7 @@ func _enter_tree():
 	add_to_group("Boss")
 
 func _ready():
+	body.third_person()
 	stand_up()
 	
 	debug_marker = load("res://objects/DebugCube.tscn").instance()
@@ -51,8 +53,7 @@ func _ready():
 	get_tree().current_scene.call_deferred("add_child", debug_marker1)
 	
 	
-func _process(delta):
-	
+func _process(_delta):
 	if not launch_box == null:
 		translation = launch_box.translation + launch_box_offset
 		
@@ -80,7 +81,10 @@ func _physics_process(delta):
 		gravity_vec += Vector3.DOWN * GRAVITY * delta
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		do_jump ()
+		box_form()
+		emit_signal("open_roof")
+		
+	
 		
 	if hit_launch_pad:
 		do_launch()
@@ -175,7 +179,7 @@ func box_form():
 		y_rad = 0
 	
 	get_tree().current_scene.add_child(my_box)
-	my_box.become_human(Vector3(0, y_rad,0))
+	my_box.become_human(Vector3(0, y_rad,0), true)
 	translation = my_box.get_world_center()
 	controller.boxes.append(my_box)
 	$CollisionShape.disabled = true
