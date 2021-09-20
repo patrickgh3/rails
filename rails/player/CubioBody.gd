@@ -21,7 +21,7 @@ func _ready():
 	
 
 func swap_to_player_head():
-	var was_showing = head.is_visible
+	var was_showing = head.is_visible()
 	head.hide()
 	head = player_head
 	if was_showing: 
@@ -29,7 +29,7 @@ func swap_to_player_head():
 	else: head.hide()
 
 func swap_to_boss_head_looking():
-	var was_showing = head.is_visible
+	var was_showing = head.is_visible()
 	head.hide()
 	head = boss_head_looking
 	if was_showing: 
@@ -38,7 +38,7 @@ func swap_to_boss_head_looking():
 	
 	
 func swap_to_boss_head_normal():
-	var was_showing = head.is_visible
+	var was_showing = head.is_visible()
 	head.hide()
 	head = boss_head_normal
 	if was_showing: 
@@ -46,14 +46,21 @@ func swap_to_boss_head_normal():
 	else: head.hide()
 	
 func swap_to_boss_head_smug():
-	var was_showing = head.is_visible
+	var was_showing = head.is_visible()
 	head.hide()
 	head = boss_head_normal
 	if was_showing: 
 		head.show()
 	else: head.hide()
 	
-
+func swap_to_bird_head():
+	var was_showing = head.is_visible()
+	head.hide()
+	head = bird_head
+	if was_showing: 
+		head.show()
+	else: head.hide()
+	
 	
 
 func crouch():
@@ -85,7 +92,7 @@ func stand_up():
 		
 	shoes.show()
 	
-	head.translation = Vector3(0, 1.453, 0)
+	head.translation = Vector3.ZERO
 	legs.translation = Vector3.ZERO
 	shoes.translation = Vector3.ZERO
 
