@@ -122,8 +122,8 @@ __meta__ = {
 
 [node name="WhiteFade" type="ColorRect" parent="hud"]
 visible = false
-margin_right = 1611.0
-margin_bottom = 914.0
+margin_right = 9161.0
+margin_bottom = 5015.0
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -146,6 +146,19 @@ shadow_enabled = true
 
 [node name="Boss" parent="." instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, -655.752, 54.6592, -51.3811 )
+
+[node name="OfficePoster1" parent="." instance=ExtResource( 16 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -651.05, 63, -50 )
+message = "To the moon!"
+pos = Vector2( 80, 55 )
+hide_face = true
+
+[node name="OfficePoster2" parent="." instance=ExtResource( 16 )]
+transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -657, 132, -69 )
+message = "Right click on yourself in"
+second_line = "box form to control me."
+pos = Vector2( 80, 34 )
+hide_face = true
 
 [node name="MiscGrounds" type="Spatial" parent="."]
 
@@ -179,8 +192,6 @@ pos = Vector2( 50, 35 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 15 )
 script = ExtResource( 4 )
 root_01_piano = true
-melody_01_guitar_echo = true
-melody_02_guitar_harmonics = true
 
 [node name="CubioSpawn" parent="01 PullBoxes" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 0, -1 )
@@ -486,7 +497,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 15 )
 script = ExtResource( 4 )
 root_01_piano = true
 melody_01_guitar_echo = true
-melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="02 WeirdRails" instance=ExtResource( 5 )]
 
@@ -661,7 +671,6 @@ script = ExtResource( 4 )
 root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
-melody_03_piano_keys = true
 
 [node name="CubioSpawn" parent="03 UpAndOver" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -7 )
@@ -830,8 +839,10 @@ spot_range = 14.0
 [node name="04 Pack" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 33 )
 script = ExtResource( 4 )
+root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="04 Pack" instance=ExtResource( 5 )]
 
@@ -956,8 +967,10 @@ pos = Vector2( 85, 55 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 10 )
 script = ExtResource( 4 )
 root_01_piano = true
-root_02_deep = true
+melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
+melody_05_bass_riff = true
 
 [node name="Controller" parent="05 Axes" instance=ExtResource( 5 )]
 
@@ -1087,9 +1100,10 @@ spot_angle = 30.0
 [node name="06 Rescue" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 0, 14 )
 script = ExtResource( 4 )
-root_03_hope = true
-melody_01_guitar_echo = true
-melody_02_guitar_harmonics = true
+root_01_piano = true
+melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
+melody_05_bass_riff = true
 
 [node name="Controller" parent="06 Rescue" instance=ExtResource( 5 )]
 
@@ -1227,10 +1241,12 @@ pos = Vector2( 60, 55 )
 [node name="07 Perpetual" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61, 0, -5 )
 script = ExtResource( 4 )
-root_03_hope = true
+root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
+melody_05_bass_riff = true
 
 [node name="Controller" parent="07 Perpetual" instance=ExtResource( 5 )]
 
@@ -1388,10 +1404,9 @@ spot_angle = 30.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -19 )
 script = ExtResource( 4 )
 root_01_piano = true
-root_03_hope = true
 melody_01_guitar_echo = true
-melody_02_guitar_harmonics = true
-melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
+melody_05_bass_riff = true
 
 [node name="Box" parent="08 MovingTarget" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1 )
@@ -1546,6 +1561,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -32 )
 script = ExtResource( 4 )
 root_01_piano = true
 melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
 
 [node name="Controller" parent="09 FiremensPole" instance=ExtResource( 5 )]
 
@@ -1632,7 +1648,7 @@ transform = Transform( 16, 0, 0, 0, 12, 0, 0, 0, 1, -9, 0, -12 )
 transform = Transform( 6, 0, 0, 0, 12, 0, 0, 0, 1, -9, 0, 5 )
 
 [node name="Ground18" parent="09 FiremensPole" instance=ExtResource( 7 )]
-transform = Transform( 6, 0, 0, 0, 12, 0, 0, 0, 1, 1, 0, 5 )
+transform = Transform( 6, 0, 0, 0, 12, 0, 0, 0, 1, 2, 0, 5 )
 
 [node name="Ground19" parent="09 FiremensPole" instance=ExtResource( 7 )]
 transform = Transform( 4, 0, 0, 0, 8, 0, 0, 0, 1, -3, 4, 5 )
@@ -1797,7 +1813,7 @@ transform = Transform( 26, 0, 0, 0, 2, 0, 0, 0, 4, 8, -2, -1 )
 [node name="BossPoster" parent="10 LookBehindBasic" instance=ExtResource( 16 )]
 transform = Transform( -2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 33.3933, 7, 1.13286 )
 message = "Do not stare into the moon."
-pos = Vector2( 55, 40 )
+pos = Vector2( 75, 55 )
 
 [node name="BossPoster2" parent="10 LookBehindBasic" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 1, -0.99 )
@@ -1816,7 +1832,7 @@ spot_angle = 20.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, -36 )
 script = ExtResource( 4 )
 wind = true
-melody_02_guitar_harmonics = true
+root_01_piano = true
 
 [node name="Controller" parent="11 LookBehind" instance=ExtResource( 5 )]
 
@@ -1830,37 +1846,37 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0 )
 
 [node name="Rail185" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2, 2, 0 )
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 2, 2, 1 )
 
 [node name="Rail192" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1, 2, 0 )
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1, 2, 1 )
 
 [node name="Rail187" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3, 2, 0 )
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 3, 2, 1 )
 
 [node name="Rail189" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 4, 2, 0 )
+transform = Transform( 1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 4, 2, 1 )
 
 [node name="Rail188" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 5, 1, 0 )
+transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 5, 1, 1 )
 
 [node name="Rail194" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 1, 1, 0 )
+transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 1, 1, 1 )
 
 [node name="Rail195" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 1, 2, 0 )
+transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 1, 2, 1 )
 
 [node name="Rail193" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 5, 2, 0 )
+transform = Transform( -4.37114e-08, 1, -4.65882e-22, -1, -4.37114e-08, -1.06581e-14, -1.06581e-14, 0, 1, 5, 2, 1 )
 
 [node name="Rail186" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 0 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 1 )
 
 [node name="Rail190" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -1 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 0 )
 
 [node name="Rail191" parent="11 LookBehind/Box15" instance=ExtResource( 1 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, 1 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5, 0, -1 )
 
 [node name="Rail171" parent="11 LookBehind" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -6 )
@@ -1976,13 +1992,13 @@ transform = Transform( 18, 0, 0, 0, 2, 0, 0, 0, 4, -9, -2, -1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -150, 7, -48 )
 script = ExtResource( 4 )
 wind = true
-root_02_deep = true
-melody_02_guitar_harmonics = true
+root_01_piano = true
+melody_01_guitar_echo = true
 
 [node name="Controller" parent="12 Thin Bridge" instance=ExtResource( 5 )]
 
 [node name="Door" parent="12 Thin Bridge" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 12.5 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4, 0, 13 )
 
 [node name="Box19" parent="12 Thin Bridge" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6 )
@@ -2025,7 +2041,7 @@ transform = Transform( 4.37114e-08, 1, 3.82137e-15, 1, -4.37114e-08, 8.74228e-08
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4, 0, 12.5 )
 
 [node name="EnterPuzzleTrigger" parent="12 Thin Bridge" instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 3, -3, 0, 11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4, -3, 0, 11 )
 
 [node name="EnterPuzzleTrigger2" parent="12 Thin Bridge" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4, 11, -5, 11 )
@@ -2040,7 +2056,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 10, 0, -1, 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -157, 7, -38 )
 script = ExtResource( 4 )
 wind = true
-root_02_deep = true
+root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 
@@ -2221,7 +2237,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -14 )
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, -14 )
 
 [node name="Door" parent="13 GetBehindSequence" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -19 )
 
 [node name="CubioSpawn" parent="13 GetBehindSequence" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -2 )
@@ -2250,7 +2266,7 @@ transform = Transform( 11, 0, 0, 0, 2, 0, 0, 0, 1, -11, -2, -8 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -173, 7, -30 )
 script = ExtResource( 4 )
 wind = true
-root_02_deep = true
+root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
@@ -2355,7 +2371,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -13 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13 )
 
 [node name="Door" parent="14 Catwalk" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -1 )
 
 [node name="CubioSpawn" parent="14 Catwalk" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, -22 )
@@ -2382,7 +2398,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, 0, -1, -30 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -177, 7, -17 )
 script = ExtResource( 4 )
 wind = true
-root_01_piano = true
+melody_01_guitar_echo = true
+melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
 
 [node name="Controller" parent="15 2by1Align" instance=ExtResource( 5 )]
 
@@ -2509,14 +2527,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11 )
 transform = Transform( 18, 0, 0, 0, 2, 0, 0, 0, 16, -9, -2, -9 )
 
 [node name="Ground3" parent="15 2by1Align" instance=ExtResource( 7 )]
-transform = Transform( 10.6066, 0.707107, 0, -10.6066, 0.707107, 0, 0, 0, 1, -17, 7, -2 )
+transform = Transform( 10.6066, 0.707107, 0, -10.6066, 0.707107, 0, 0, 0, 1, -17.5, 7, -2 )
 
 [node name="16 CrouchIntro" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195, 14, -22 )
 script = ExtResource( 4 )
 wind = true
-melody_02_guitar_harmonics = true
+melody_01_guitar_echo = true
 melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
 teleport_skip = true
 
 [node name="Controller" parent="16 CrouchIntro" instance=ExtResource( 5 )]
@@ -2568,7 +2587,7 @@ transform = Transform( -1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, 
 transform = Transform( -1, 8.74228e-08, 4.37114e-08, -4.37114e-08, 1.91069e-15, -1, -8.74228e-08, -1, 1.91069e-15, 4, 2, -6 )
 
 [node name="Door" parent="16 CrouchIntro" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -15 )
 
 [node name="CubioSpawn" parent="16 CrouchIntro" instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 2 )
@@ -2589,8 +2608,9 @@ transform = Transform( 4, 0, 0, 0, 1, 0, 0, 0, 1, 1, -1, -9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -195, 14, -43 )
 script = ExtResource( 4 )
 wind = true
-melody_02_guitar_harmonics = true
+melody_01_guitar_echo = true
 melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
 teleport_skip = true
 
 [node name="Controller" parent="17 CourchDodge" instance=ExtResource( 5 )]
@@ -2666,10 +2686,11 @@ transform = Transform( 9.19239, 0.707107, 0, -9.19239, 0.707107, 0, 0, 0, 1, -21
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -223, 20, -53 )
 script = ExtResource( 4 )
 wind = true
-root_02_deep = true
-root_03_hope = true
+root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
+melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
 teleport_skip = true
 
 [node name="Controller" parent="18 FlyingMachine" instance=ExtResource( 5 )]
@@ -2876,11 +2897,12 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 14, -9, 4, -7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 22, -39 )
 script = ExtResource( 4 )
 wind = true
-root_02_deep = true
-root_03_hope = true
+root_01_piano = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
+melody_04_bell_arpeggios = true
+melody_05_bass_riff = true
 
 [node name="Controller" parent="19 Island" instance=ExtResource( 5 )]
 
@@ -3505,8 +3527,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 2, 34, 7, -5 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -607, 4, -17 )
 script = ExtResource( 4 )
 wind = true
+root_01_piano = true
 root_02_deep = true
-melody_04_bell_arpeggios = true
+melody_03_piano_keys = true
 teleport_skip = true
 
 [node name="Controller" parent="21 Lilypads" instance=ExtResource( 5 )]
@@ -3947,7 +3970,7 @@ root_01_piano = true
 root_02_deep = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
-melody_04_bell_arpeggios = true
+melody_03_piano_keys = true
 teleport_skip = true
 
 [node name="Controller" parent="22 CliffsOfInsanity" instance=ExtResource( 5 )]
@@ -5646,6 +5669,7 @@ melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
 melody_04_bell_arpeggios = true
+melody_05_bass_riff = true
 final_level = true
 teleport_skip = true
 
@@ -5657,14 +5681,14 @@ transform = Transform( 22, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 [node name="Ground9" parent="23 TheOffice" instance=ExtResource( 7 )]
 transform = Transform( 24, 0, 0, 0, 1, 0, 0, 0, 20, -1, 0, 6 )
 
-[node name="Roof" type="Spatial" parent="23 TheOffice"]
+[node name="Roof2" type="Spatial" parent="23 TheOffice"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 9 )
 script = ExtResource( 18 )
 
-[node name="RoofGround" parent="23 TheOffice/Roof" instance=ExtResource( 7 )]
-transform = Transform( -1.5299e-06, -1, 0, 35, -4.37114e-08, 0, 0, 0, 28, 1.31134e-07, -8, -13 )
+[node name="RoofGround" parent="23 TheOffice/Roof2" instance=ExtResource( 7 )]
+transform = Transform( -1.5299e-06, -1, 0, 35, -4.37114e-08, 0, 0, 0, 28, 0, -8, -13 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="23 TheOffice/Roof/RoofGround"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="23 TheOffice/Roof2/RoofGround"]
 stream = ExtResource( 19 )
 
 [node name="Rail41" parent="23 TheOffice" instance=ExtResource( 1 )]
@@ -6393,11 +6417,107 @@ transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -37, 99
 [node name="Rail472" parent="23 TheOffice" instance=ExtResource( 1 )]
 transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -47 )
 
-[node name="Rail493" parent="23 TheOffice" instance=ExtResource( 1 )]
-transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -48 )
+[node name="Rail550" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 1.91069e-15, -38, 99, -47 )
 
-[node name="Rail494" parent="23 TheOffice" instance=ExtResource( 1 )]
-transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -45 )
+[node name="Rail994" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 1, -4.37114e-08, 4.37114e-08, -4.37114e-08, -1, 1.91069e-15, -38, 100, -47 )
+
+[node name="Rail987" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -45 )
+
+[node name="Rail990" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -46 )
+
+[node name="Rail993" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -47 )
+
+[node name="Rail988" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -44 )
+
+[node name="Rail989" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -43 )
+
+[node name="Rail991" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -42 )
+
+[node name="Rail992" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -41 )
+
+[node name="Rail995" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -40 )
+
+[node name="Rail996" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -39 )
+
+[node name="Rail997" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -38 )
+
+[node name="Rail998" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -37 )
+
+[node name="Rail999" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -36 )
+
+[node name="Rail1000" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, 2.13163e-14, 1, -3.82137e-15, 1, -2.13163e-14, 4.37114e-08, -38, 101, -35 )
+
+[node name="Rail1001" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -38, 101, -34 )
+
+[node name="Rail1002" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -37, 101, -34 )
+
+[node name="Rail1003" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -36, 101, -34 )
+
+[node name="Rail1004" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -35, 101, -34 )
+
+[node name="Rail1005" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -34, 101, -34 )
+
+[node name="Rail1006" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -33, 101, -34 )
+
+[node name="Rail1007" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -32, 101, -34 )
+
+[node name="Rail1008" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -31, 101, -34 )
+
+[node name="Rail1009" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -30, 101, -34 )
+
+[node name="Rail1010" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -29, 101, -34 )
+
+[node name="Rail1011" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -28, 101, -34 )
+
+[node name="Rail1012" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -27, 101, -34 )
+
+[node name="Rail1013" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -26, 101, -34 )
+
+[node name="Rail1014" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -25, 101, -34 )
+
+[node name="Rail1015" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -24, 101, -34 )
+
+[node name="Rail1016" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -23, 101, -34 )
+
+[node name="Rail1017" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -22, 101, -34 )
+
+[node name="Rail1018" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -21, 101, -34 )
+
+[node name="Rail1019" parent="23 TheOffice" instance=ExtResource( 1 )]
+transform = Transform( 1, -2.13163e-14, 8.74228e-08, 2.13163e-14, 1, -3.82137e-15, -8.74228e-08, 3.82137e-15, 1, -20, 101, -34 )
 
 [node name="Rail473" parent="23 TheOffice" instance=ExtResource( 1 )]
 transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -46 )
@@ -8636,7 +8756,16 @@ transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4
 [node name="Rail166" parent="23 TheOffice/Box4" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9, 0, -3 )
 
-[connection signal="open_roof" from="Boss" to="23 TheOffice/Roof" method="_on_Boss_open_roof"]
+[node name="SpotLight" type="SpotLight" parent="23 TheOffice" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.484567, -0.16842, 0.858388, -0.39796, 0.831417, 0.38778, -0.778988, -0.52951, 0.335853, 19.3235, 9.13015, 9.63828 )
+light_color = Color( 0.372549, 0.898039, 1, 1 )
+shadow_enabled = true
+spot_range = 24.0
+spot_angle = 60.0
+
+[connection signal="open_roof" from="Boss" to="23 TheOffice/Roof2" method="_on_Boss_open_roof"]
 [connection signal="body_entered" from="23 TheOffice/BossHelloTrigger/Spatial/Area" to="Boss" method="_on_Area_body_entered_BossHelloTrigger"]
 [connection signal="body_entered" from="23 TheOffice/EndingTrigger/Spatial/Area" to="Boss" method="_on_Area_body_entered_EndingTrigger"]
 [connection signal="body_entered" from="23 TheOffice/EndingTrigger2/Spatial/Area" to="Boss" method="_on_Area_body_entered_EndingTrigger"]

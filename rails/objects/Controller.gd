@@ -21,10 +21,11 @@ onready var music_players = [
 	$melody_02_guitar_harmonics,
 	$melody_03_piano,
 	$melody_04_bell_arpeggios,
+	$melody_05_bass_riff,
 	]
-onready var music_volumes = [0, 0, 0, 0, 0, 0, 0, 0]
-onready var music_active = [false, false, false, false, false, false, false, false]
-onready var music_max_db = [0, 0, 0, 0, 0, 0, 0, 0]
+onready var music_volumes = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+onready var music_active = [false, false, false, false, false, false, false, false, false]
+onready var music_max_db = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 onready var rng = RandomNumberGenerator.new()
 onready var master_controller = get_parent().name == "Root"
@@ -215,6 +216,7 @@ func register_puzzle(new_puzzle):
 	music_active[5] = current_puzzle.melody_02_guitar_harmonics
 	music_active[6] = current_puzzle.melody_03_piano_keys
 	music_active[7] = current_puzzle.melody_04_bell_arpeggios
+	music_active[8] = current_puzzle.melody_05_bass_riff
 	
 	update_ui()
 	
