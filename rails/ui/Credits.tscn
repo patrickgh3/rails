@@ -44,11 +44,12 @@ __meta__ = {
 
 [node name="CreditsLabel" type="Label" parent="Panel/MarginContainer"]
 margin_left = 20.0
-margin_top = 183.0
+margin_top = 162.0
 margin_right = 1352.0
-margin_bottom = 524.0
+margin_bottom = 546.0
 text = "WE MADE THIS
-for VimJam 2021 \"Boss\"
+for VimJam 2021
+\"On the edge\" + \"Boss\"
 
 Patrick
 maaaaxaxa

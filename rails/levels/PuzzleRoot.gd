@@ -12,6 +12,8 @@ export(bool) var melody_04_bell_arpeggios = false
 
 export(bool) var debug_spawn_here = false
 
+export(bool) var final_level = false
+
 # Track the number of moves used in THIS puzzle
 # See Controller for total overall moves in all puzzles
 var move_counter = 0
@@ -22,3 +24,15 @@ func _ready():
 		var controller = $"/root/Root/Controller"
 		controller.register_puzzle(self)
 		controller.reset_puzzle(false)
+		
+	if final_level:
+		hide_children_final_level(self, true)
+			
+func hide_children_final_level(node, hide):
+	for n in node.get_children():
+		if n is Spatial and n.translation.y > 10:
+			if hide:
+				n.hide()
+			else:
+				n.show()
+		hide_children_final_level(n, hide)

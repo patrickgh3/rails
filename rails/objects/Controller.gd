@@ -190,6 +190,10 @@ func ease_out_quad(x):
 
 func ease_in_quad(x):
 	return x * x
+	
+func ease_in_out_quad(x):
+	if x < 0.5:  return ease_in_quad(x*2)*0.5
+	else:  return ease_out_quad((x-0.5)*2)*0.5+0.5
 
 func register_puzzle(new_puzzle):
 	if current_puzzle != null:

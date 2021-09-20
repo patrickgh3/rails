@@ -38,6 +38,10 @@ var launch_box
 var launch_box_offset
 var my_box
 
+var fading_to_white = false
+onready var white_fade = $"/root/Root/hud".find_node("WhiteFade")
+var white_fade_t = 0
+
 func _enter_tree():
 	add_to_group("Boss")
 
@@ -60,6 +64,13 @@ func _process(_delta):
 	if not my_box == null:
 		translation = my_box.get_world_center()
 		
+		
+	if fading_to_white:
+		white_fade_t += _delta * 0.12
+		white_fade.color.a = lerp(0, 1, white_fade_t*1.15)
+		if white_fade_t >= 1:
+			white_fade.hide()
+			var _a = get_tree().change_scene("res://ui/MainMenu.tscn")
 
 
 func _physics_process(delta):
@@ -80,9 +91,9 @@ func _physics_process(delta):
 		accel = ACCEL_TYPE["air"]
 		gravity_vec += Vector3.DOWN * GRAVITY * delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		box_form()
-		emit_signal("open_roof")
+	#if Input.is_action_just_pressed("jump") and is_on_floor():
+	#	box_form()
+	#	emit_signal("open_roof")
 		
 	
 		
@@ -198,3 +209,22 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
+
+
+# Linked to boss trigger in scene editor. messy...
+func _on_Area_body_entered_BossHelloTrigger(b):
+	if b is Cubio:
+		if my_box == null:
+			box_form()
+			emit_signal("open_roof")
+			get_parent().hide_children_final_level(get_parent(), false)
+
+
+func _on_Area_body_entered_EndingTrigger(b):
+	if b is Cubio:
+		if not fading_to_white:
+			if my_box != null:
+				my_box.disable_acceleration = true
+			fading_to_white = true
+			white_fade.show()
+			#$"/root/Root/Cubio/".input_disabled = true

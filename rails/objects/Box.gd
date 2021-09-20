@@ -18,6 +18,7 @@ export(bool) var is_the_boss = false
 
 var velocity = Vector3()
 var grab_velocity : Vector3
+var disable_acceleration = false
 var edges = Array()
 export(bool) var delivered = false
 # For boxes which have a target rail directly on one of their edges,
@@ -112,9 +113,10 @@ func _process(delta):
 	$RailSound1.max_db = lerp(-100, 3, rail_volume_1)
 	$RailSound2.max_db = lerp(-100, 3, rail_volume_2)
 	
-	# Accelerate
 	if velocity != Vector3.ZERO:
-		velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
+		# Accelerate
+		if not disable_acceleration:
+			velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
 		
 		# Check if we're about to go off the rails!
 		var to_move = velocity * delta
@@ -225,7 +227,7 @@ func _process(delta):
 		
 	# BECOMING BOSS BOX!!!!
 	if enlarging:
-		enlarge_t += delta * .5
+		enlarge_t += delta * .15
 		if enlarge_t > 1:
 			enlarge_t = 1
 			enlarging = false
@@ -237,7 +239,7 @@ func _process(delta):
 				edge["a"] *= scale
 				edge["b"] *= scale
 		else:
-			var s = lerp(1, 6, controller.ease_out_quad(enlarge_t))
+			var s = lerp(1, 6, controller.ease_in_out_quad(enlarge_t))
 			scale = Vector3.ONE * s
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
