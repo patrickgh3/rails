@@ -1,7 +1,12 @@
 extends Control
 
+const MAIN_BUTTS_X_PERCENT = .73
+const OPTIONS_X_PERCENT = .675
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+	var _c = get_tree().get_root().connect("size_changed", self, "window_resized")
 	
 	# Load current audio bus volumes
 	$Options/FxVolumeSlider.value = Config.sfx_volume
@@ -9,6 +14,8 @@ func _ready():
 	
 	# Load move counter config
 	$Options/MoveCounterCheckbox.pressed = Config.show_move_counter
+	
+	window_resized()
 
 
 func _on_PlayButton_pressed():
@@ -40,3 +47,13 @@ func _on_MusicVolumeSlider_value_changed(value):
 
 func _on_MoveCounterCheckbox_toggled(button_pressed):
 	Config.show_move_counter = button_pressed
+
+func window_resized():
+	print ("Happening!")
+	var main_x = get_viewport().size.x * MAIN_BUTTS_X_PERCENT
+	$MainButtons.rect_position = Vector2(main_x, $MainButtons.rect_position.y)
+	var opt_x = get_viewport().size.x * OPTIONS_X_PERCENT
+	$Options.rect_position = Vector2(opt_x, $Options.rect_position.y)
+
+	
+	

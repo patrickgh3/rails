@@ -8,7 +8,7 @@ onready var bird_head = $HEAD_BOSS_BIRD
 
 
 
-onready var arms = $ARM
+#onready var arms = $ARM
 onready var torso = $TORSO
 onready var legs = $LEG
 onready var shoes = $SHOES
@@ -18,6 +18,7 @@ var in_first = true
 
 func _ready():
 	head = player_head
+	$ARM.hide()
 	
 
 func swap_to_player_head():
@@ -71,7 +72,7 @@ func crouch():
 		head.show()
 		
 	shoes.show()
-	arms.hide()
+	#arms.hide()
 	torso.hide()
 	
 	head.translation = Vector3(0, 0.503, .03)
@@ -81,7 +82,7 @@ func crouch():
 func stand_up():
 	if in_first:
 		head.hide()
-		arms.hide()
+		#arms.hide()
 		torso.hide()
 		legs.hide()
 	else:
@@ -100,13 +101,13 @@ func stand_up():
 func first_person():
 	in_first = true
 	head.hide()
-	arms.hide()
+	#arms.hide()
 	torso.hide()
 	legs.hide()
 	
 func third_person():
 	in_first = false
 	head.show()
-	arms.show()
+	#arms.show()
 	torso.show()
 	legs.show()

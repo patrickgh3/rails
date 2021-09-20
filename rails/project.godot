@@ -25,11 +25,6 @@ _global_script_classes=[ {
 "path": "res://player/Cubio.gd"
 }, {
 "base": "Spatial",
-"class": "Ground",
-"language": "GDScript",
-"path": "res://objects/Ground.gd"
-}, {
-"base": "Spatial",
 "class": "PuzzleRoot",
 "language": "GDScript",
 "path": "res://levels/PuzzleRoot.gd"
@@ -43,7 +38,6 @@ _global_script_class_icons={
 "Boss": "",
 "Box": "",
 "Cubio": "",
-"Ground": "",
 "PuzzleRoot": "",
 "Rail": ""
 }
@@ -52,7 +46,7 @@ _global_script_class_icons={
 
 config/name="rails"
 run/main_scene="res://ui/MainMenu.tscn"
-config/icon="res://player/icon.png"
+config/icon="res://player/Face_cube.png"
 
 [autoload]
 
@@ -62,12 +56,10 @@ Config="*res://Config.gd"
 
 window/size/width=1600
 window/size/height=900
-window/stretch/mode="2d"
-window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/ridiculous_coding/plugin.cfg" )
 
 [global]
 
@@ -142,6 +134,11 @@ right_click={
 reset_puzzle={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+boxform={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":66,"unicode":0,"echo":false,"script":null)
  ]
 }
 fullscreen={

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/melody01_02-guitarCombined.wav-67fa844dc4baf39c0e9b4e770e5ba3cc.sample"
+
+[deps]
+
+source_file="res://sounds/music/melody01_02-guitarCombined.wav"
+dest_files=[ "res://.import/melody01_02-guitarCombined.wav-67fa844dc4baf39c0e9b4e770e5ba3cc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

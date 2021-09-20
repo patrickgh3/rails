@@ -1,28 +1,15 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://objects/Rail.gd" type="Script" id=1]
 [ext_resource path="res://objects/RailVisualShader.tres" type="Shader" id=2]
-[ext_resource path="res://objects/RailVisualShaderDepthDisable.tres" type="Shader" id=3]
-
-[sub_resource type="ShaderMaterial" id=5]
-resource_local_to_scene = true
-shader = ExtResource( 2 )
-shader_param/is_target = null
-shader_param/glow = null
-
-[sub_resource type="ShaderMaterial" id=4]
-resource_local_to_scene = true
-shader = ExtResource( 3 )
-shader_param/is_target = null
-shader_param/glow = null
 
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
-shader_param/is_target = null
-shader_param/glow = null
+shader_param/is_target = false
+shader_param/glow = 0.0
 
 [sub_resource type="BoxShape" id=3]
 
@@ -30,8 +17,6 @@ shader_param/glow = null
 "Rails",
 ]]
 script = ExtResource( 1 )
-usual_material = SubResource( 5 )
-depth_disable_material = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.5, 0, 0 )

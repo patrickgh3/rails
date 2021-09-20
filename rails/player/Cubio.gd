@@ -20,13 +20,13 @@ const SHAPE_SCALE_CROUCHING_Y = .45
 const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
 const MOUSE_SENSITIVITY = 0.1
-const RAY_LENGTH = 25
+const RAY_LENGTH = 50
 const CAM_OFFSET3 = Vector3(0, 2, 6)
 const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
 const CAM_OFFSET1 = Vector3(0, 0, 0)
 
-
+const SPOTLIGHT_DIST_SQ = 40*40
 
 onready var shape = $CollisionShape
 onready var cam_root = $CamRoot
@@ -42,8 +42,8 @@ const LEAN_SMOOTH : float = 10.0
 const LEAN_MULT : float = 0.066
 const LEAN_AMOUNT : float = 0.7
 
-
-var self_aware = true # @DEBUG the boss should turn this true?
+var debug_commands = false
+var self_aware = false
 
 var boss
 var speed = WALKING_SPEED
@@ -67,12 +67,16 @@ var hit_launch_pad
 var launch_box
 var launch_box_offset
 var my_box
+# Hack to make avoid raycasts missing when calling physics process twice
+# before process
+var did_physics_process = false 
 
 var camera_offset_t
 var target_camera_offset
 var lerping_cam = false
 var last_camera_offset
 var warping_cam
+var spotlight_t = 0
 
 func _enter_tree():
 	add_to_group("Player")
@@ -104,6 +108,14 @@ func _ready():
 	
 	
 func _process(delta):
+	spotlight_t -= delta
+	if spotlight_t < 0:
+		spotlight_t = 1
+		for spot in get_tree().get_nodes_in_group("Spotlights"):
+			if (translation - spot.global_transform.origin).length_squared() > SPOTLIGHT_DIST_SQ:
+				spot.hide()
+			else:
+				 spot.show()
 	
 	debug_marker.translation = translation
 	
@@ -153,15 +165,23 @@ func _process(delta):
 	# Restart puzzle if you fall too far
 	if translation.y < -13:
 		controller.reset_puzzle(false)
+		
+	did_physics_process = false
+		
 
 func _physics_process(delta):
+	
+	# Raycasting messes up when birds fly @HACK
+	# By not running physics process twice before one process, it works?
+	if did_physics_process: return
+	did_physics_process = true
 	
 	try_highlight_box()
 	
 		# 	warning: probably not good to just set positino of the kinematic body now
 	if Input.is_action_just_pressed("crouch"):
 		if crouching: stand_up()
-		else: crouch()
+		elif first_person: crouch()
 	
 
 	# keyboard movement
@@ -229,7 +249,24 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		var pause_menu = preload("res://ui/PauseMenu.tscn").instance()
 		get_tree().current_scene.add_child(pause_menu)
-	
+		
+	if Input.is_key_pressed(KEY_QUOTELEFT):
+		debug_commands = !debug_commands
+		
+	if debug_commands:
+		if event is InputEventKey:
+			if event.scancode == KEY_M and event.is_pressed():
+				toggle_cursor ()
+					
+		if event is InputEventKey:
+			if event.scancode == KEY_3 and event.is_pressed():
+				third_person_cam()
+				
+		if event is InputEventKey:
+			if event.scancode == KEY_1 and event.is_pressed():
+				first_person_cam()
+				
+		
 	if mouse_captured:
 		if event is InputEventMouseMotion:
 			rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
@@ -237,13 +274,13 @@ func _input(event):
 			$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -80, 80)
 			
-	if event is InputEventKey:
-		if event.scancode == KEY_B and event.is_pressed() and self_aware:
+	if event.is_action_pressed("boxform") and (self_aware or debug_commands):
 			if my_box == null and is_on_floor():
 				box_form()
 			else:
-				if my_box.velocity == Vector3.ZERO:
-					unbox()
+				if my_box != null:
+					if my_box.velocity == Vector3.ZERO:
+						unbox()
 					
 	if event.is_action_pressed("sprint"):
 		speed = SPRINTING_SPEED
@@ -251,24 +288,6 @@ func _input(event):
 		speed = WALKING_SPEED
 					
 	
-	if event is InputEventKey:
-		if event.scancode == KEY_M and event.is_pressed():
-			toggle_cursor ()
-				
-				
-	if event is InputEventKey:
-		if event.scancode == KEY_H and event.is_pressed():
-			remove_child(highlight)
-			get_parent().add_child(highlight)
-			
-	if event is InputEventKey:
-		if event.scancode == KEY_3 and event.is_pressed():
-			third_person_cam()
-			
-	if event is InputEventKey:
-		if event.scancode == KEY_1 and event.is_pressed():
-			first_person_cam()
-				
 func toggle_cursor ():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -294,37 +313,49 @@ func try_highlight_box ():
 	var result = space_state.intersect_ray(from, to, [self])
 	
 	var turn_on_highlight = false
-	
+	box_hit = null
 	if result:
 		#debug_marker.translation = result.position
 		var collider_hit = result.collider
 		if not collider_hit is Box:
+			#print ("hit something other than box ", collider_hit.name)
 			box_hit = null
 		else:
 			box_hit = collider_hit as Box
 			if box_hit.moving():
+				#print ("box hit was moving")
 				box_hit = null
 			else:
 				highlight_info = box_hit.get_nearest_face (result.position, (to - from).normalized(), highlight_info)
 				if not highlight_info.cool:
 					# leave highlight on if it's visible
 					turn_on_highlight = highlight.visible
+					#print ("not cool")
 				else:
+					#print ("legimately cool")
 					highlight.transform.basis = Basis(highlight_info.dirs[0], highlight_info.dirs[1], highlight_info.dirs[2])
 					highlight.translation = box_hit.get_world_center_with_bumping() + highlight_info.dirs[2]
 					highlight.transform.orthonormalized()
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()
 					turn_on_highlight = true
-			
+	else:
+		#print ("raycast missed everything!")
+		pass
+					
+					
 	if turn_on_highlight:
+		#if not highlight.is_visible(): print ("re showing highlight")
 		highlight.show()
-	else: highlight.hide()
+	else: 
+		highlight.hide()
+		#print ("hiding highlight, no result")
 
 func try_pull_box(var pull_boss):
 	# If any box is moving, don't highlight any box
 	for box in controller.boxes:
-		if box.velocity != Vector3.ZERO:
+		if box.velocity != Vector3.ZERO and not box.is_bird:
+			print ("box is moving and not a bird")
 			return
 	
 	if box_hit:
@@ -454,6 +485,7 @@ func box_form():
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0), false)
 	translation = my_box.get_world_center()
+	controller.current_puzzle.get_node("Controller").boxes.append(my_box)
 	controller.boxes.append(my_box)
 	$CollisionShape.disabled = true
 	third_person_cam()
@@ -462,15 +494,15 @@ func box_form():
 	
 	
 	# Check for box forming ontop of boss
-	var space_state = get_world().direct_space_state
-	var from = shape.global_transform.origin
-	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
-	var something_below = space_state.intersect_ray(from, to, [shape])
-	if something_below.collider is Box:
-		var box_below = something_below.collider as Box
-		if box_below.is_the_boss:
-			print ("boxformed on boss, added to employees")
-			my_box.add_to_group("Employees")
+#	var space_state = get_world().direct_space_state
+#	var from = shape.global_transform.origin
+#	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+#	var something_below = space_state.intersect_ray(from, to, [shape])
+#	if something_below.collider is Box:
+#		var box_below = something_below.collider as Box
+#		if box_below.is_the_boss:
+#			print ("boxformed on boss, added to employees")
+#			my_box.add_to_group("Employees")
 		
 	# Check for boxforming on rail that is attached to box
 	if not my_box.is_in_group("Employees"):
@@ -479,6 +511,7 @@ func box_form():
 func unbox():
 	if not my_box == null:
 		my_box.become_box()
+		controller.current_puzzle.get_node("Controller").boxes.erase(my_box)
 		controller.boxes.erase(my_box)
 		translation = my_box.get_world_center() + Vector3.UP * 2
 		my_box.hide()

@@ -38,12 +38,18 @@ var launch_box
 var launch_box_offset
 var my_box
 
+var fading_to_white = false
+onready var white_fade = $"/root/Root/hud".find_node("WhiteFade")
+var white_fade_t = 0
+
 func _enter_tree():
 	add_to_group("Boss")
 
 func _ready():
 	body.third_person()
 	stand_up()
+	
+	body.swap_to_boss_head_smug()
 	
 	debug_marker = load("res://objects/DebugCube.tscn").instance()
 	debug_marker1 = load("res://objects/DebugCube.tscn").instance()
@@ -60,6 +66,16 @@ func _process(_delta):
 	if not my_box == null:
 		translation = my_box.get_world_center()
 		
+		
+	if fading_to_white:
+		white_fade_t += _delta * 0.12
+		white_fade.color.a = lerp(0, 1, white_fade_t*1.3)
+		if white_fade_t >= 1:
+			white_fade.hide()
+			var ending_scene = load("res://ui/Ending.tscn").instance()
+			get_tree().current_scene.add_child(ending_scene)
+			
+			#var _a = get_tree().change_scene("res://ui/Ending.tscn")
 
 
 func _physics_process(delta):
@@ -80,9 +96,9 @@ func _physics_process(delta):
 		accel = ACCEL_TYPE["air"]
 		gravity_vec += Vector3.DOWN * GRAVITY * delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		box_form()
-		emit_signal("open_roof")
+	#if Input.is_action_just_pressed("jump") and is_on_floor():
+	#	box_form()
+	#	emit_signal("open_roof")
 		
 	
 		
@@ -181,7 +197,7 @@ func box_form():
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0), true)
 	translation = my_box.get_world_center()
-	controller.boxes.append(my_box)
+	controller.current_puzzle.get_node("Controller").boxes.append(my_box)
 	$CollisionShape.disabled = true
 	crouch()
 	body.hide()
@@ -189,7 +205,7 @@ func box_form():
 func unbox():
 	if not my_box == null:
 		my_box.become_box()
-		controller.boxes.erase(my_box)
+		controller.current_puzzle.get_node("Controller").boxes.erase(my_box)
 		translation = my_box.get_world_center() + Vector3.UP * 2
 		my_box.hide()
 		my_box.queue_free()
@@ -198,3 +214,22 @@ func unbox():
 	stand_up()
 	$CollisionShape.disabled = false
 	my_box = null
+
+
+# Linked to boss trigger in scene editor. messy...
+func _on_Area_body_entered_BossHelloTrigger(b):
+	if b is Cubio:
+		if my_box == null:
+			box_form()
+			emit_signal("open_roof")
+			controller.current_puzzle.hide_children_final_level(controller.current_puzzle, false)
+
+
+func _on_Area_body_entered_EndingTrigger(b):
+	if b is Cubio:
+		if not fading_to_white:
+			if my_box != null:
+				my_box.disable_acceleration = true
+			fading_to_white = true
+			white_fade.show()
+			#$"/root/Root/Cubio/".input_disabled = true
