@@ -1,41 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=1]
-[ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/MenuBackground.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/Title.png" type="Texture" id=3]
 [ext_resource path="res://ui/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://sounds/music/root03-hope.wav" type="AudioStream" id=5]
-[ext_resource path="res://sounds/music/wind loop 1.wav" type="AudioStream" id=6]
 [ext_resource path="res://sounds/music/root01-piano.wav" type="AudioStream" id=7]
-
-[sub_resource type="Animation" id=1]
-resource_name = "default"
-length = 6.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 3 ),
-"transitions": PoolRealArray( -2, -2 ),
-"update": 0,
-"values": [ Vector3( 53.1085, 33.5146, 147.902 ), Vector3( 53.109, 31.515, 147.902 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 1, 4 ),
-"transitions": PoolRealArray( -2, -2 ),
-"update": 0,
-"values": [ Vector3( -26.961, 63, 5 ), Vector3( -26.961, 58.893, 2.568 ) ]
-}
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -144,35 +113,7 @@ min_value = -30.0
 max_value = 0.0
 value = -6.0
 
-[node name="bg" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Camera" type="Camera" parent="bg"]
-transform = Transform( 0.452723, -0.420617, 0.786208, 0.0399343, 0.890424, 0.453377, -0.890757, -0.173857, 0.419912, 53.1089, 31.9594, 147.902 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="bg/Camera"]
-autoplay = "default"
-anims/default = SubResource( 1 )
-
-[node name="Fog" parent="bg" instance=ExtResource( 1 )]
-transform = Transform( 1, -1.19209e-07, 0, -2.98023e-08, 1, 5.96046e-08, -1.78814e-07, -5.96046e-08, 1, 9.53674e-06, 7.62939e-06, -69.7919 )
-length = 20
-width = 20
-
-[node name="MiscGrounds" type="Spatial" parent="bg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 241.316, 0, 0 )
-
-[node name="Ground12" parent="bg/MiscGrounds" instance=ExtResource( 2 )]
-transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -239.039, -114.688, 118.421 )
-
-[node name="Ground16" parent="bg/MiscGrounds" instance=ExtResource( 2 )]
-transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -241.686, -52, 8.40338 )
-
-[node name="Ground18" parent="bg/MiscGrounds" instance=ExtResource( 2 )]
-transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -351, -52, 160 )
-
-[node name="Ground27" parent="bg/MiscGrounds" instance=ExtResource( 2 )]
-transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -216.082, -120.193, 99.6778 )
+[node name="bg" parent="." instance=ExtResource( 1 )]
 
 [node name="Music1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
@@ -183,11 +124,6 @@ bus = "Music"
 stream = ExtResource( 7 )
 autoplay = true
 bus = "Music"
-
-[node name="Wind" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-autoplay = true
-bus = "Sfx"
 
 [connection signal="pressed" from="MainButtons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MainButtons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
