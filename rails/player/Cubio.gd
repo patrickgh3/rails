@@ -20,7 +20,7 @@ const SHAPE_SCALE_CROUCHING_Y = .45
 const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
 const MOUSE_SENSITIVITY = 0.1
-const RAY_LENGTH = 18
+const RAY_LENGTH = 25
 const CAM_OFFSET3 = Vector3(0, 2, 6)
 const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
@@ -234,7 +234,7 @@ func _input(event):
 			rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 			# Make sure you can't look too far up or down
 			$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
-			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -75, 75)
+			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -80, 80)
 			
 	if event is InputEventKey:
 		if event.scancode == KEY_B and event.is_pressed() and self_aware:
