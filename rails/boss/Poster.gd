@@ -1,18 +1,33 @@
 tool
 extends Spatial
 
-export(String) var message = "Do not stand on boxes."
+export(String) var message = "Do not jump on boxes." 
+export(String) var second_line = ""
+export(Vector2) var pos = Vector2(70, 55)
 
-var label
+onready var quad = $Quad
+var label : Label
 
 func _ready():
-	label = find_node("Label")
-	label.text = message
-	
-func _process(delta):
+	match_label()
+
+func _process(_delta):
 	if Engine.editor_hint:
-		if label == null:
-			label = find_node(("Label"))
-		label.text = message
+		match_label()
 	else:
 		set_process(false)
+
+func match_label():
+	if label == null:
+		label = find_node(("Label"))
+		
+	if quad == null:
+		quad = $Quad
+		
+	if quad != null and label != null:
+		label.rect_position = pos
+		label.text = message
+		
+		if second_line != "":
+			label.text = message + "\n" + second_line
+		label.rect_scale = Vector2(.3 / quad.scale.x, .3 / quad.scale.y)

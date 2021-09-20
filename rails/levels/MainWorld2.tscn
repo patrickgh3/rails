@@ -1,4 +1,4 @@
-[gd_scene load_steps=2730 format=2]
+[gd_scene load_steps=2731 format=2]
 
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://objects/RailVisualShader.tres" type="Shader" id=13]
 [ext_resource path="res://ui/ui-theme.tres" type="Theme" id=14]
 [ext_resource path="res://ui/font-bold-outline-32.tres" type="DynamicFont" id=15]
+[ext_resource path="res://boss/BossPoster.tscn" type="PackedScene" id=16]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -16361,7 +16362,7 @@ __meta__ = {
 [node name="Controller" parent="." instance=ExtResource( 5 )]
 
 [node name="Cubio" parent="." instance=ExtResource( 6 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23, 1, 14 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.5, 1, 14 )
 
 [node name="Fog" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -299.651, -11, -14 )
@@ -16404,7 +16405,7 @@ melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 
 [node name="CubioSpawn" parent="01 PullBoxes" instance=ExtResource( 8 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9, 0, -1 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 0, -1 )
 
 [node name="Controller" parent="01 PullBoxes" instance=ExtResource( 5 )]
 
@@ -16823,6 +16824,33 @@ transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 10, 0, -3 )
 [node name="EnterPuzzleTrigger2" parent="01 PullBoxes" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 8, -8, 0, -4 )
 
+[node name="BossPoster3" parent="01 PullBoxes" instance=ExtResource( 16 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 3, 1.5, -8.975 )
+message = "Please deliver all boxes."
+pos = Vector2( 85, 55 )
+
+[node name="BossPoster4" parent="01 PullBoxes" instance=ExtResource( 16 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 3, 1.5, 8.99781 )
+message = "Green is a box's favorite color."
+
+[node name="BossPoster2" parent="01 PullBoxes" instance=ExtResource( 16 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -8.97612, 5.48747, 0 )
+message = "Use WASD to move."
+pos = Vector2( 90, 55 )
+
+[node name="BossPoster" parent="01 PullBoxes" instance=ExtResource( 16 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 14.9, 1.5, -1 )
+message = "Use mouse to look around."
+pos = Vector2( 80, 55 )
+
+[node name="SpotLight" type="SpotLight" parent="01 PullBoxes" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.564016, -0.304453, 0.76759, 0, 0.929551, 0.368692, -0.825764, -0.207949, 0.524282, 14.6688, 6.79102, 8.15104 )
+shadow_enabled = true
+spot_range = 24.0
+spot_angle = 60.0
+
 [node name="02 WeirdRails" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 15 )
 script = ExtResource( 4 )
@@ -17064,6 +17092,17 @@ transform = Transform( 1, 0, 0, 0, 15, 0, 0, 0, 20, -9, -2, -8 )
 [node name="Ground5" parent="02 WeirdRails" instance=ExtResource( 7 )]
 transform = Transform( 22, 0, 0, 0, 1, 0, 0, 0, 20, -9, 13, -8 )
 
+[node name="BossPoster" parent="02 WeirdRails" instance=ExtResource( 16 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 1.84527, 1.53704, -7.7535 )
+pos = Vector2( 80, 35 )
+
+[node name="SpotLight" type="SpotLight" parent="02 WeirdRails" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.758498, 0.308471, -0.574044, 0, 0.880874, 0.47335, 0.651675, -0.359036, 0.668142, -6.56482, 11.3336, 11.1098 )
+shadow_enabled = true
+spot_range = 20.0
+
 [node name="03 UpAndOver" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 0, 38 )
 script = ExtResource( 4 )
@@ -17074,6 +17113,12 @@ melody_03_piano_keys = true
 
 [node name="CubioSpawn" parent="03 UpAndOver" instance=ExtResource( 8 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1, 0, -7 )
+
+[node name="BossPoster2" parent="03 UpAndOver" instance=ExtResource( 16 )]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 5, 1.5, 2.95 )
+message = "Press C to crouch."
+second_line = "Do not forget."
+pos = Vector2( 85, 35 )
 
 [node name="EnterPuzzleTrigger" parent="03 UpAndOver" instance=ExtResource( 10 )]
 transform = Transform( 8, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10 )
@@ -17232,10 +17277,10 @@ transform = Transform( 24, 0, 0, 0, 2, 0, 0, 0, 20, -14, -2, -10.9436 )
 transform = Transform( 20, 0, 0, 0, 2, 0, 0, 0, 24, -10, -2, 9.0564 )
 
 [node name="Ground18" parent="03 UpAndOver" instance=ExtResource( 7 )]
-transform = Transform( 24, 0, 0, 0, 1, 0, 0, 0, 32, -14, 19, -10.9436 )
+transform = Transform( 24, 0, 0, 0, 1, 0, 0, 0, 35, -14, 19, -10.9436 )
 
-[node name="Ground10" parent="03 UpAndOver" instance=ExtResource( 7 )]
-transform = Transform( -6, -7.54979e-07, -2.09226e-06, 0, 8.66025, -8, 9.05975e-07, -5, -13.8564, -4, -1, 28 )
+[node name="Ramp" parent="03 UpAndOver" instance=ExtResource( 7 )]
+transform = Transform( -3, -1.50996e-07, -2.09226e-06, 0, 1.73205, -8, 4.52987e-07, -1, -13.8564, 1, 4, 18 )
 
 [node name="Ground11" parent="03 UpAndOver" instance=ExtResource( 7 )]
 transform = Transform( 2, 0, 0, 0, 6, 0, 0, 0, 2, -2, 1, 3 )
@@ -17253,16 +17298,36 @@ transform = Transform( 1, 0, 0, 0, 20, 0, 0, 0, 40, 10, -1, -11 )
 transform = Transform( 10, 0, 0, 0, 20, 0, 0, 0, 1, -14, -1, -12 )
 
 [node name="Ground20" parent="03 UpAndOver" instance=ExtResource( 7 )]
-transform = Transform( 16, 0, 0, 0, 5, 0, 0, 0, 1, -4, 14, -11 )
+transform = Transform( 16, 0, 0, 0, 5, 0, 0, 0, 1, -4, 14, -12 )
 
 [node name="Ground15" parent="03 UpAndOver" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 20, 0, 0, 0, 20, -11, -1, 5 )
 
 [node name="Ground16" parent="03 UpAndOver" instance=ExtResource( 7 )]
-transform = Transform( 22, 0, 0, 0, 20, 0, 0, 0, 1, -11, -1, 21.0564 )
+transform = Transform( 22, 0, 0, 0, 21, 0, 0, 0, 1, -11, -1, 24.0564 )
 
 [node name="Ground13" parent="03 UpAndOver" instance=ExtResource( 7 )]
 transform = Transform( 12, 0, 0, 0, 20, 0, 0, 0, 2, -14, 0, 3 )
+
+[node name="BossPoster" parent="03 UpAndOver" instance=ExtResource( 16 )]
+transform = Transform( -5.5, 0, -8.30477e-07, 0, 5.5, 0, 8.30477e-07, 0, -5.5, 0.189558, 2.61005, 23.9278 )
+message = "Treat boxes how you"
+second_line = "would like to be treated."
+pos = Vector2( 70, 35 )
+
+[node name="SpotLight" type="SpotLight" parent="03 UpAndOver" groups=[
+"Spotlights",
+]]
+transform = Transform( 1, 0, 0, 0, 0.371335, 0.928499, 0, -0.928499, 0.371335, 0, 11.2211, 0 )
+shadow_enabled = true
+spot_range = 14.0
+
+[node name="SpotLight2" type="SpotLight" parent="03 UpAndOver" groups=[
+"Spotlights",
+]]
+transform = Transform( 1, 0, 0, 0, 0.371335, 0.928499, 0, -0.928499, 0.371335, -0.353626, 11.5681, 12.6544 )
+shadow_enabled = true
+spot_range = 14.0
 
 [node name="04 Pack" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39, 0, 33 )
@@ -17271,6 +17336,11 @@ melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 
 [node name="Controller" parent="04 Pack" instance=ExtResource( 5 )]
+
+[node name="BossPoster" parent="04 Pack" instance=ExtResource( 16 )]
+transform = Transform( -8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -30.95, 1.5, -15 )
+message = "The moon cannot be put in a box."
+pos = Vector2( 60, 55 )
 
 [node name="Door" parent="04 Pack" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.5 )
@@ -17397,6 +17467,13 @@ transform = Transform( 1, 0, 0, 0, 8, 0, 0, 0, 6, 7, 0, 2 )
 
 [node name="Ground11" parent="04 Pack" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 4, 0, 0, 0, 4, 7, 4, -2 )
+
+[node name="SpotLight" type="SpotLight" parent="04 Pack" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.702166, 0.525202, -0.480756, -0.352557, 0.843082, 0.406099, 0.6186, -0.115656, 0.777147, -7, 4, 7 )
+shadow_enabled = true
+spot_range = 12.0
 
 [node name="05 Axes" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -44, 0, 10 )
@@ -17557,6 +17634,18 @@ transform = Transform( 1, 0, 0, 0, 8, 0, 0, 0, 4, -8, 4, 3 )
 
 [node name="Ground9" parent="05 Axes" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 14, 0, 0, 0, 7, -8, -2, 7 )
+
+[node name="BossPoster" parent="05 Axes" instance=ExtResource( 16 )]
+transform = Transform( 4, 0, 0, 0, -1.74846e-07, -4, 0, 4, -1.74846e-07, 2, 11, 1 )
+message = "Boxes do not fear the Edge."
+
+[node name="SpotLight" type="SpotLight" parent="05 Axes" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.0762507, 0.533924, -0.842087, -0.0481497, 0.845532, 0.531749, 0.995925, 0, 0.0901807, -5.87723, 10.321, 0 )
+shadow_enabled = true
+spot_range = 14.0
+spot_angle = 30.0
 
 [node name="06 Rescue" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 0, 14 )
@@ -17738,6 +17827,13 @@ transform = Transform( 8, 0, 0, 0, 8, 0, 0, 0, 1, 0, 0, -9 )
 [node name="Ground9" parent="06 Rescue" instance=ExtResource( 7 )]
 transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 1, -4, 4, -9 )
 
+[node name="SpotLight" type="SpotLight" parent="06 Rescue" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.973897, -0.0979439, 0.204773, 0, 0.902119, 0.431488, -0.226991, -0.420224, 0.878571, -0.118702, 6.61474, 9.22014 )
+shadow_enabled = true
+spot_range = 12.0
+
 [node name="07 Perpetual" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61, 0, -5 )
 script = ExtResource( 4 )
@@ -17765,6 +17861,10 @@ depth_disable_material = SubResource( 402 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 1 )
 usual_material = SubResource( 403 )
 depth_disable_material = SubResource( 404 )
+
+[node name="BossPoster" parent="07 Perpetual" instance=ExtResource( 16 )]
+transform = Transform( -8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 19.909, 1.5, 0 )
+message = "Beware the Cliffs of Insanity."
 
 [node name="Box3" parent="07 Perpetual" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
@@ -17949,6 +18049,14 @@ transform = Transform( 4, 0, 0, 0, 10, 0, 0, 0, 1, 4, 4, -9 )
 
 [node name="Ground5" parent="07 Perpetual" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 14, 0, 0, 0, 20, 20, 0, -9 )
+
+[node name="SpotLight" type="SpotLight" parent="07 Perpetual" groups=[
+"Spotlights",
+]]
+transform = Transform( -0.190552, 0, -0.981677, 0, 1, 0, 0.981677, 0, -0.190552, -6.08662, 2.08101, -2.66448 )
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 30.0
 
 [node name="08 MovingTarget" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -19 )
@@ -18162,6 +18270,13 @@ transform = Transform( 4, 0, 0, 0, 8, 0, 0, 0, 1, -2, 4, -8 )
 [node name="Ground4" parent="08 MovingTarget" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 12, 0, 0, 0, 12, 6, 0, -7 )
 
+[node name="SpotLight" type="SpotLight" parent="08 MovingTarget" groups=[
+"Spotlights",
+]]
+transform = Transform( 1, 0, 0, 0, 0.717239, 0.696827, 0, -0.696827, 0.717239, 0, 5.18169, 5.20602 )
+shadow_enabled = true
+spot_range = 14.0
+
 [node name="09 FiremensPole" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55, 0, -32 )
 script = ExtResource( 4 )
@@ -18328,6 +18443,23 @@ transform = Transform( 2, 0, 0, 0, 70, 0, 0, 0, 4, -22, 4.9, -5 )
 [node name="Ground31" parent="09 FiremensPole" instance=ExtResource( 7 )]
 transform = Transform( 2, 0, 0, 0, 120, 0, 0, 0, 80, -22, -45, -85 )
 
+[node name="SpotLight" type="SpotLight" parent="09 FiremensPole" groups=[
+"Spotlights",
+]]
+transform = Transform( 1, 0, 0, 0, 0.380296, 0.924865, 0, -0.924865, 0.380296, 0, 11, -2 )
+shadow_enabled = true
+spot_range = 22.0
+spot_angle = 30.0
+
+[node name="BossPoster2" parent="09 FiremensPole" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -10.95 )
+message = "Moving boxes is dangerous."
+
+[node name="BossPoster" parent="09 FiremensPole" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -9.95 )
+message = "Moving boxes are dangerous."
+pos = Vector2( 70, 35 )
+
 [node name="10 LookBehindBasic" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -111, 0, -36 )
 script = ExtResource( 4 )
@@ -18471,6 +18603,19 @@ transform = Transform( 16, 0, 0, 0, 2, 0, 0, 0, 4, -8, -2, -1 )
 
 [node name="Ground6" parent="10 LookBehindBasic" instance=ExtResource( 7 )]
 transform = Transform( 26, 0, 0, 0, 2, 0, 0, 0, 4, 8, -2, -1 )
+
+[node name="BossPoster" parent="10 LookBehindBasic" instance=ExtResource( 16 )]
+transform = Transform( -2.62268e-07, 0, -6, 0, 6, 0, 6, 0, -2.62268e-07, 33.3933, 7, 1.13286 )
+message = "Do not stare into the moon."
+pos = Vector2( 55, 40 )
+
+[node name="SpotLight" type="SpotLight" parent="10 LookBehindBasic" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.0883169, -0.0619796, 0.994162, -0.0923782, 0.993251, 0.0701293, -0.9918, -0.0980325, 0.0819953, 46, 4, 1 )
+shadow_enabled = true
+spot_range = 30.0
+spot_angle = 20.0
 
 [node name="11 LookBehind" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, -36 )
@@ -20993,6 +21138,23 @@ melody_04_bell_arpeggios = true
 
 [node name="Controller" parent="21 Lilypads" instance=ExtResource( 5 )]
 
+[node name="BossPoster" parent="21 Lilypads" instance=ExtResource( 16 )]
+transform = Transform( -8.74228e-08, -2, -8.74228e-08, 0, -8.74228e-08, 2, -2, 8.74228e-08, 3.82137e-15, 35, 1.05, -6 )
+message = "To know a box,"
+second_line = "is to love a box."
+pos = Vector2( 85, 35 )
+
+[node name="BossPoster2" parent="21 Lilypads" instance=ExtResource( 16 )]
+transform = Transform( -6.21725e-15, -2, 1.3411e-07, -8.74228e-08, 1.3411e-07, 2, -2, 0, -8.74228e-08, 28, 1.05, -6 )
+message = "To know your self,"
+second_line = "is to love your self."
+pos = Vector2( 80, 35 )
+
+[node name="BossPoster3" parent="21 Lilypads" instance=ExtResource( 16 )]
+transform = Transform( -3.55271e-15, -2, 8.9407e-08, -8.74228e-08, 8.9407e-08, 2, -2, 0, -8.74228e-08, 21, 1.05, -6 )
+message = "Press B."
+pos = Vector2( 85, 55 )
+
 [node name="Box2" parent="21 Lilypads" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 7, -16 )
 
@@ -21612,6 +21774,7 @@ transform = Transform( 8, 0, 0, 0, 2, 0, 0, 0, 1, -1, 0, 14 )
 
 [node name="EnterPuzzleTrigger3" parent="21 Lilypads" instance=ExtResource( 10 )]
 transform = Transform( -1.66103e-06, 0, 38, 0, 1, 0, -38, 0, -1.66103e-06, 6, 1, 13 )
+visible = false
 
 [node name="EnterPuzzleTrigger2" parent="21 Lilypads" instance=ExtResource( 10 )]
 transform = Transform( -2.62268e-07, 0, 1, 0, 1, 0, -6, 0, -4.37114e-08, -9, -4, -8 )
