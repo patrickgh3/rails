@@ -14,6 +14,8 @@ export(bool) var debug_spawn_here = false
 
 export(bool) var final_level = false
 
+export(bool) var teleport_skip = false
+
 # Track the number of moves used in THIS puzzle
 # See Controller for total overall moves in all puzzles
 var move_counter = 0

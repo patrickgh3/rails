@@ -102,19 +102,20 @@ func _process(_delta):
 			if door != null:
 				door.skipped = true
 			
-			# Put you in the next puzzle
-			var par = current_puzzle.get_parent()
-			var found = false
-			for child in par.get_children():
-				if child is PuzzleRoot:
-					if found:
-						register_puzzle(child)
-						# Puts player at spawn of next puzzle
-						var with_lerp = true
-						reset_puzzle(with_lerp)
-						break
-					if child == current_puzzle:
-						found = true
+			if current_puzzle.teleport_skip:
+				# Put you in the next puzzle
+				var par = current_puzzle.get_parent()
+				var found = false
+				for child in par.get_children():
+					if child is PuzzleRoot:
+						if found:
+							register_puzzle(child)
+							# Puts player at spawn of next puzzle
+							var with_lerp = true
+							reset_puzzle(with_lerp)
+							break
+						if child == current_puzzle:
+							found = true
 			
 func reset_puzzle(with_lerp):
 	var cubio = get_tree().root.get_node("Root/Cubio")

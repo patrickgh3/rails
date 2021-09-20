@@ -50,7 +50,7 @@ stream = ExtResource( 4 )
 bus = "Sfx"
 
 [node name="moveTriggerTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.05
 one_shot = true
 
 [connection signal="timeout" from="moveTriggerTimer" to="." method="_on_moveTriggerTimer_timeout"]
