@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/AnimalHead.gd" type="Script" id=1]
+[ext_resource path="res://player/Cube_Person_Thing.glb" type="PackedScene" id=2]
+
+[node name="Mesh" instance=ExtResource( 2 )]
+script = ExtResource( 1 )
+
+[node name="SHOES" parent="." index="0"]
+visible = false
+
+[node name="LEG" parent="." index="1"]
+visible = false
+
+[node name="ARM" parent="." index="2"]
+visible = false
+
+[node name="TORSO" parent="." index="3"]
+visible = false
+
+[node name="HEAD_BOSS_NORMAL" parent="." index="4"]
+visible = false
+
+[node name="HEAD_BOSS_SMUG" parent="." index="6"]
+visible = false
+
+[node name="HEAD_BOSS_LOOKING" parent="." index="7"]
+visible = false
+
+[node name="HEAD_BOSS_BIRD" parent="." index="8"]
+visible = false

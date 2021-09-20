@@ -45,7 +45,8 @@ func _ready():
 	initial_translation = translation
 	initial_rotation = rotation
 	
-
+	if is_the_boss:
+		become_human(Vector3.ZERO, true)
 		
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
@@ -69,13 +70,9 @@ func _ready():
 		edge["a"] *= scale
 		edge["b"] *= scale
 		
-	if is_the_boss:
-		become_human(Vector3.ZERO, true)
 		
-		
-		
-
 func _process(delta):
+	
 	# Apply grab velocity, if it was set
 	var was_still = velocity == Vector3.ZERO
 	if grab_velocity != Vector3.ZERO:
@@ -216,7 +213,7 @@ func _process(delta):
 		var bump_dist = lerp(0.06, 0, controller.ease_out_quad(bump_t))
 		$MeshInstance.translation = Vector3(0.5, 0.5, 0.5) + bump_dist * bump_dir / scale
 		if not flesh == null:
-			flesh.translation = $MeshInstance.translation
+			flesh.translation = $MeshInstance.translation 
 
 	if delivered and not was_delivered:
 		emit_signal("signal_delivered", self, true)
@@ -233,6 +230,12 @@ func _process(delta):
 			enlarge_t = 1
 			enlarging = false
 			scale = ENLARGED_SCALE
+			# After we've scaled up, recalculate edges
+			# WARNING: box was started scaled initially,
+			# this scaling will have undesireable multiplicative effects
+			for edge in edges:
+				edge["a"] *= scale
+				edge["b"] *= scale
 		else:
 			var s = lerp(1, 6, controller.ease_out_quad(enlarge_t))
 			scale = Vector3.ONE * s
@@ -435,6 +438,7 @@ func reset_transform_to_initial_values():
 	rotation = initial_rotation
 		
 func face_pulled(face):
+	if enlarging: return
 	if moving(): return
 	
 	$moveTriggerTimer.start()
@@ -492,19 +496,18 @@ func become_human(flesh_rot, promote_to_boss):
 		return
 		
 	$MeshInstance.hide()
-	flesh = load("res://player/PlayerFace.tscn").instance()
+	flesh = load("res://player/AnimalHead.tscn").instance()
 	add_child((flesh))
-	flesh.translation = mesh.scale
 	flesh.set_rotation(flesh_rot)
+	flesh.translation = mesh.scale
 	
 	if promote_to_boss:
+		for p in get_tree().get_nodes_in_group("Player"):
+			p.boss = self
+			
+		flesh.swap_to_boss_head_normal()
 		is_the_boss = true
 		enlarging = true
-		var boss_face = load("res://boss/andre_cube.jpg")
-		for s in flesh.get_children():
-			if s is Sprite3D:
-				s.texture = boss_face
-	
 	
 func become_box():
 	$MeshInstance.show()

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/AnimalHeadMesh.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/AnimalHead.gd" type="Script" id=2]
+
+[node name="AnimalHead" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Mesh" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.134, 0, 0, 0, 1.38, 0, 0, 0, 1.18, 0, -2, 0.066 )
+script = null

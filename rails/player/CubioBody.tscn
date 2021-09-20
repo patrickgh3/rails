@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://player/Cube_Person_Thing.glb" type="PackedScene" id=1]
 [ext_resource path="res://player/CubioBody.gd" type="Script" id=2]
-[ext_resource path="res://player/PlayerFace.tscn" type="PackedScene" id=3]
 
 [node name="CubeBody" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="faces" parent="." index="0" instance=ExtResource( 3 )]
+[node name="HEAD_BOSS_NORMAL" parent="." index="4"]
+visible = false
 
-[node name="HEAD" parent="." index="2"]
+[node name="HEAD_BOSS_SMUG" parent="." index="6"]
+visible = false
+
+[node name="HEAD_BOSS_LOOKING" parent="." index="7"]
+visible = false
+
+[node name="HEAD_BOSS_BIRD" parent="." index="8"]
 visible = false

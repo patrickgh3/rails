@@ -115,7 +115,7 @@ func _process(_delta):
 			
 func reset_puzzle(with_lerp):
 	var cubio = get_tree().root.get_node("Root/Cubio")
-	var spawn = current_puzzle.get_node("CubioSpawn")
+	var spawn = current_puzzle.get_node_or_null("CubioSpawn")
 	var controller = current_puzzle.get_node("Controller")
 	var door = current_puzzle.get_node_or_null("Door")
 	
@@ -124,7 +124,9 @@ func reset_puzzle(with_lerp):
 	
 	if cubio.my_box != null:
 		cubio.unbox()
-	cubio.warp(with_lerp, spawn.get_global_transform())
+		
+	if spawn != null:
+		cubio.warp(with_lerp, spawn.get_global_transform())
 	
 #	cubio.transform = spawn.get_global_transform()
 #	# Move the player out from in the ground, to avoid stutter for 1 frame
