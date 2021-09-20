@@ -147,6 +147,12 @@ shadow_enabled = true
 [node name="Boss" parent="." instance=ExtResource( 17 )]
 transform = Transform( -4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, -655.752, 54.6592, -51.3811 )
 
+[node name="OfficePoster1" parent="." instance=ExtResource( 16 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -651.05, 63, -50 )
+message = "To the moon!"
+pos = Vector2( 80, 55 )
+hide_face = true
+
 [node name="MiscGrounds" type="Spatial" parent="."]
 
 [node name="Ground12" parent="MiscGrounds" instance=ExtResource( 7 )]
@@ -5658,14 +5664,14 @@ transform = Transform( 22, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 [node name="Ground9" parent="23 TheOffice" instance=ExtResource( 7 )]
 transform = Transform( 24, 0, 0, 0, 1, 0, 0, 0, 20, -1, 0, 6 )
 
-[node name="Roof" type="Spatial" parent="23 TheOffice"]
+[node name="Roof2" type="Spatial" parent="23 TheOffice"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9, 9 )
 script = ExtResource( 18 )
 
-[node name="RoofGround" parent="23 TheOffice/Roof" instance=ExtResource( 7 )]
-transform = Transform( -1.5299e-06, -1, 0, 35, -4.37114e-08, 0, 0, 0, 28, 1.31134e-07, -8, -13 )
+[node name="RoofGround" parent="23 TheOffice/Roof2" instance=ExtResource( 7 )]
+transform = Transform( -1.5299e-06, -1, 0, 35, -4.37114e-08, 0, 0, 0, 28, 0, -8, -13 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="23 TheOffice/Roof/RoofGround"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="23 TheOffice/Roof2/RoofGround"]
 stream = ExtResource( 19 )
 
 [node name="Rail41" parent="23 TheOffice" instance=ExtResource( 1 )]
@@ -8637,7 +8643,23 @@ transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4
 [node name="Rail166" parent="23 TheOffice/Box4" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9, 0, -3 )
 
-[connection signal="open_roof" from="Boss" to="23 TheOffice/Roof" method="_on_Boss_open_roof"]
+[node name="SpotLight" type="SpotLight" parent="23 TheOffice" groups=[
+"Spotlights",
+]]
+transform = Transform( 0.484567, -0.16842, 0.858388, -0.39796, 0.831417, 0.38778, -0.778988, -0.52951, 0.335853, 19.3235, 9.13015, 9.63828 )
+light_color = Color( 0.372549, 0.898039, 1, 1 )
+shadow_enabled = true
+spot_range = 24.0
+spot_angle = 60.0
+
+[node name="BossPoster" parent="." instance=ExtResource( 16 )]
+transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -657, 132, -69 )
+message = "Right click on yourself in"
+second_line = "box form to control me."
+pos = Vector2( 80, 34 )
+hide_face = true
+
+[connection signal="open_roof" from="Boss" to="23 TheOffice/Roof2" method="_on_Boss_open_roof"]
 [connection signal="body_entered" from="23 TheOffice/BossHelloTrigger/Spatial/Area" to="Boss" method="_on_Area_body_entered_BossHelloTrigger"]
 [connection signal="body_entered" from="23 TheOffice/EndingTrigger/Spatial/Area" to="Boss" method="_on_Area_body_entered_EndingTrigger"]
 [connection signal="body_entered" from="23 TheOffice/EndingTrigger2/Spatial/Area" to="Boss" method="_on_Area_body_entered_EndingTrigger"]

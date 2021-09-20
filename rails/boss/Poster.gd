@@ -4,12 +4,15 @@ extends Spatial
 export(String) var message = "Do not jump on boxes." 
 export(String) var second_line = ""
 export(Vector2) var pos = Vector2(70, 55)
+export(bool) var hide_face = false
 
 onready var quad = $Quad
 var label : Label
 
 func _ready():
 	match_label()
+	if hide_face:
+		$Sprite3D.hide()
 
 func _process(_delta):
 	if Engine.editor_hint:
