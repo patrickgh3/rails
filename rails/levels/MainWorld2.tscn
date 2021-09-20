@@ -3974,7 +3974,6 @@ root_02_deep = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
-debug_spawn_here = true
 teleport_skip = true
 
 [node name="Controller" parent="22 CliffsOfInsanity" instance=ExtResource( 5 )]
@@ -6044,7 +6043,6 @@ melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
 melody_04_bell_arpeggios = true
 melody_05_bass_riff = true
-debug_spawn_here = true
 final_level = true
 teleport_skip = true
 
