@@ -70,14 +70,17 @@ shape = SubResource( 3 )
 [node name="ChimeSound" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
 stream = ExtResource( 2 )
+bus = "Sfx"
 
 [node name="DoorClosedSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 3 )
 unit_size = 4.0
+bus = "Sfx"
 
 [node name="DoorOpenedSound" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource( 4 )
 unit_size = 4.0
+bus = "Sfx"
 
 [node name="DustParticles" type="Particles" parent="."]
 emitting = false

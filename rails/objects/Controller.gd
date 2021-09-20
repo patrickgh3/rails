@@ -59,6 +59,9 @@ func _ready():
 			mp.set_volume_db(-80)
 			mp.play()
 			i += 1
+			
+	if master_controller:
+		Config.show_move_counter_ui()
 	
 
 func _process(_delta):

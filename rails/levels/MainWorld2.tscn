@@ -16334,7 +16334,6 @@ margin_right = 1580.0
 margin_bottom = 20.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="hud/MarginContainer/CenterContainer"]
-visible = false
 margin_left = 780.0
 margin_right = 780.0
 custom_constants/separation = 50
