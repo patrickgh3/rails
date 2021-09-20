@@ -49,6 +49,8 @@ func _ready():
 	body.third_person()
 	stand_up()
 	
+	body.swap_to_boss_head_smug()
+	
 	debug_marker = load("res://objects/DebugCube.tscn").instance()
 	debug_marker1 = load("res://objects/DebugCube.tscn").instance()
 	debug_marker.hide() # @DEBUG, hidden for release
