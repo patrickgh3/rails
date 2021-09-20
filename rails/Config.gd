@@ -28,6 +28,7 @@ func set_music_volume(value):
 
 func set_show_move_counter(value):
 	show_move_counter = value
+	show_move_counter_ui()
 
 
 func show_move_counter_ui():

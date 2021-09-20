@@ -1,6 +1,12 @@
 extends Control
 
+var old_mouse_mode
+
+
 func _ready():
+	old_mouse_mode = Input.get_mouse_mode()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	get_tree().paused = true
 
 	# Load current audio bus volumes
@@ -12,15 +18,17 @@ func _ready():
 
 
 func _on_PauseMenu_tree_exiting():
+	Input.set_mouse_mode(old_mouse_mode)
 	get_tree().paused = false
 
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		queue_free()
 
 
 func _on_QuitButton_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://ui/MainMenu.tscn")
 
 
