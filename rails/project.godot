@@ -54,6 +54,10 @@ config/name="rails"
 run/main_scene="res://levels/MainWorld2.tscn"
 config/icon="res://player/icon.png"
 
+[autoload]
+
+Config="*res://Config.gd"
+
 [display]
 
 window/size/width=1600

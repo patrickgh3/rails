@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=2]
 [ext_resource path="res://ui/Title.png" type="Texture" id=3]
 [ext_resource path="res://ui/MainMenu.gd" type="Script" id=4]
+[ext_resource path="res://sounds/music/root03-hope.wav" type="AudioStream" id=5]
+[ext_resource path="res://sounds/music/wind loop 1.wav" type="AudioStream" id=6]
+[ext_resource path="res://sounds/music/root01-piano.wav" type="AudioStream" id=7]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -91,6 +94,9 @@ text = "FX volume"
 margin_top = 120.0
 margin_right = 381.0
 margin_bottom = 170.0
+min_value = -30.0
+max_value = 0.0
+value = -6.0
 
 [node name="MusicLabel" type="Label" parent="Options"]
 margin_top = 180.0
@@ -105,6 +111,9 @@ __meta__ = {
 margin_top = 230.0
 margin_right = 381.0
 margin_bottom = 280.0
+min_value = -30.0
+max_value = 0.0
+value = -6.0
 
 [node name="bg" type="CanvasLayer" parent="."]
 layer = 0
@@ -132,7 +141,25 @@ transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -351, -52, 160 )
 [node name="Ground27" parent="bg/MiscGrounds" instance=ExtResource( 2 )]
 transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -216.082, -120.193, 99.6778 )
 
+[node name="Music1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Music"
+
+[node name="Music2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+bus = "Music"
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+bus = "Sfx"
+
 [connection signal="pressed" from="MainButtons/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="MainButtons/ControlsButton" to="." method="_on_ControlsButton_pressed"]
 [connection signal="pressed" from="MainButtons/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="MainButtons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="toggled" from="Options/MoveCounterCheckbox" to="." method="_on_MoveCounterCheckbox_toggled"]
+[connection signal="value_changed" from="Options/FxVolumeSlider" to="." method="_on_FxVolumeSlider_value_changed"]
+[connection signal="value_changed" from="Options/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_value_changed"]
