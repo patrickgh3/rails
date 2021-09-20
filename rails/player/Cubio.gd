@@ -452,7 +452,7 @@ func box_form():
 	
 	
 	get_tree().current_scene.add_child(my_box)
-	my_box.become_human(Vector3(0, y_rad,0))
+	my_box.become_human(Vector3(0, y_rad,0), false)
 	translation = my_box.get_world_center()
 	controller.boxes.append(my_box)
 	$CollisionShape.disabled = true
@@ -499,8 +499,8 @@ func window_resized():
 	else: third_person_cam()
 
 
-func warp(with_cam_lerp, new_transform):
-	var old_camera_pos = camera.global_transform.origin
+func warp(_with_cam_lerp, new_transform):
+	var _old_camera_pos = camera.global_transform.origin
 	transform = new_transform
 	# Move the player out from in the ground, to avoid stutter for 1 frame
 	# This number 0.451 is from inspecting the player's actual y translation
