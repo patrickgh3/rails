@@ -36,3 +36,13 @@ func show_move_counter_ui():
 	if scene.find_node("MovesLabel"):
 		scene.find_node("MovesLabel").visible = Config.show_move_counter
 		scene.find_node("TotalMovesLabel").visible = Config.show_move_counter
+
+
+func _input(_event):
+	if Input.is_action_just_pressed("fullscreen"):
+		if OS.window_fullscreen:
+			OS.window_fullscreen = false
+		else:
+			OS.window_fullscreen = true
+			
+			

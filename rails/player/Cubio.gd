@@ -462,6 +462,7 @@ func box_form():
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0), false)
 	translation = my_box.get_world_center()
+	controller.current_puzzle.get_node("Controller").boxes.append(my_box)
 	controller.boxes.append(my_box)
 	$CollisionShape.disabled = true
 	third_person_cam()
@@ -487,6 +488,7 @@ func box_form():
 func unbox():
 	if not my_box == null:
 		my_box.become_box()
+		controller.current_puzzle.get_node("Controller").boxes.erase(my_box)
 		controller.boxes.erase(my_box)
 		translation = my_box.get_world_center() + Vector3.UP * 2
 		my_box.hide()

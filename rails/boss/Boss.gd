@@ -219,7 +219,7 @@ func _on_Area_body_entered_BossHelloTrigger(b):
 		if my_box == null:
 			box_form()
 			emit_signal("open_roof")
-			get_parent().hide_children_final_level(get_parent(), false)
+			controller.current_puzzle.hide_children_final_level(controller.current_puzzle, false)
 
 
 func _on_Area_body_entered_EndingTrigger(b):
