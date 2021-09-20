@@ -131,6 +131,10 @@ func reset_puzzle(with_lerp):
 	if spawn != null:
 		cubio.warp(with_lerp, spawn.get_global_transform())
 	
+	total_moves -= current_puzzle.move_counter
+	current_puzzle.move_counter = 0
+	update_ui()
+	
 #	cubio.transform = spawn.get_global_transform()
 #	# Move the player out from in the ground, to avoid stutter for 1 frame
 #	# This number 0.451 is from inspecting the player's actual y translation
