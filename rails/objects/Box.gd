@@ -15,6 +15,8 @@ signal moved
 
 export(bool) var launcher = false
 export(bool) var is_the_boss = false
+export(bool) var is_bird = false
+export(int) var bird_pi_halves = 2
 
 var velocity = Vector3()
 var grab_velocity : Vector3
@@ -25,7 +27,9 @@ export(bool) var delivered = false
 # currently just the one box in MovingTarget puzzle
 export(bool) var always_delivered_hack = false
 
-
+var bird_brain : RandomNumberGenerator
+var bird_was_still = false
+var bird_t = 0
 var enlarging = false
 var enlarge_t = 0
 var bumping = false
@@ -48,6 +52,9 @@ func _ready():
 	
 	if is_the_boss:
 		become_human(Vector3.ZERO, true)
+		
+	if is_bird:
+		become_fowl()
 		
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
@@ -74,6 +81,10 @@ func _ready():
 		
 func _process(delta):
 	
+	if is_bird:
+		fly(delta)
+		
+		
 	# Apply grab velocity, if it was set
 	var was_still = velocity == Vector3.ZERO
 	if grab_velocity != Vector3.ZERO:
@@ -83,10 +94,10 @@ func _process(delta):
 		if rail_sound_index == 1: rail_sound_index = 2
 		else: rail_sound_index = 1
 		if rail_sound_index == 1:
-			$RailSound1.play()
+			if not is_bird: $RailSound1.play()
 			rail_volume_1 = 0
 		else:
-			$RailSound2.play()
+			if not is_bird: $RailSound2.play()
 			rail_volume_2 = 0
 			
 		for node in get_children():
@@ -110,8 +121,8 @@ func _process(delta):
 		rail_volume_1 -= volume_delta
 	rail_volume_1 = clamp(rail_volume_1, 0, 1)
 	rail_volume_2 = clamp(rail_volume_2, 0, 1)
-	$RailSound1.max_db = lerp(-100, 3, rail_volume_1)
-	$RailSound2.max_db = lerp(-100, 3, rail_volume_2)
+	if not is_bird: $RailSound1.max_db = lerp(-100, 3, rail_volume_1)
+	if not is_bird: $RailSound2.max_db = lerp(-100, 3, rail_volume_2)
 	
 	if velocity != Vector3.ZERO:
 		# Accelerate
@@ -141,7 +152,7 @@ func _process(delta):
 				translation += to_move*0.1
 			
 			# Start bumping state if we are at a standstill
-			if was_still:
+			if was_still and not is_bird:
 				bumping = true
 				bump_t = 0
 				bump_dir = Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z))
@@ -162,7 +173,7 @@ func _process(delta):
 					controller.rails_just_halted.append(node)
 					controller.rails_just_halted_timer = 0
 					
-			$StopSound.play()
+			if not is_bird: $StopSound.play()
 			$moveTriggerTimer.stop()
 		
 		# Save rails touching
@@ -219,10 +230,10 @@ func _process(delta):
 
 	if delivered and not was_delivered:
 		emit_signal("signal_delivered", self, true)
-		$DeliveredSound.play()
+		if not is_bird: $DeliveredSound.play()
 	elif was_delivered and not delivered:
 		emit_signal("signal_delivered", self, false)
-		$UndeliveredSound.play()
+		if not is_bird: $UndeliveredSound.play()
 		
 		
 	# BECOMING BOSS BOX!!!!
@@ -518,6 +529,8 @@ func become_box():
 		flesh.queue_free()
 		flesh = null
 		
+		
+		
 	
 func check_for_rail_attached_to_boss():
 	var result = on_rails(Vector3())
@@ -536,4 +549,36 @@ func _on_moveTriggerTimer_timeout():
 	# then it has moved and emit the "moved" signal
 	# The moved signal triggers updating the move counter
 	emit_signal("moved")
+
+
 	
+func become_fowl():
+	if not flesh == null:
+		return
+		
+	$MeshInstance.hide()
+	flesh = load("res://player/AnimalHead.tscn").instance()
+	add_child((flesh))
+	
+	var rot = Vector3(0, bird_pi_halves * PI / 2, 0)
+	flesh.set_rotation(rot)
+	flesh.translation = mesh.scale
+	flesh.swap_to_bird_head()
+	bird_brain  = RandomNumberGenerator.new()
+	
+	rotation = Vector3.ZERO # Birds placed inside other scenes can start with non zero rotation
+
+func fly(delta):
+	bird_t -= delta
+	if bird_was_still:
+		if velocity == Vector3.ZERO:
+			# still still
+			if bird_t <= 0:
+				bird_t = 0
+				var face = bird_brain.randi_range(Face.X_PLUS, Face.Z_MINUS)
+				face_pulled(face)
+		else:
+			bird_was_still = false
+			bird_t = bird_brain.randf_range(0, 1)
+	elif velocity == Vector3.ZERO:
+		bird_was_still = true
