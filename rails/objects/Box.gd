@@ -2,6 +2,7 @@ extends KinematicBody
 class_name Box
 
 const box_speed = 1
+const ENLARGED_SCALE = Vector3(6,6,6)
 
 onready var controller = $"../Controller"
 onready var mesh = $MeshInstance
@@ -24,6 +25,8 @@ export(bool) var delivered = false
 export(bool) var always_delivered_hack = false
 
 
+var enlarging = false
+var enlarge_t = 0
 var bumping = false
 var bump_t = 0
 var bump_dir = Vector3()
@@ -221,6 +224,18 @@ func _process(delta):
 	elif was_delivered and not delivered:
 		emit_signal("signal_delivered", self, false)
 		$UndeliveredSound.play()
+		
+		
+	# BECOMING BOSS BOX!!!!
+	if enlarging:
+		enlarge_t += delta * .5
+		if enlarge_t > 1:
+			enlarge_t = 1
+			enlarging = false
+			scale = ENLARGED_SCALE
+		else:
+			var s = lerp(1, 6, controller.ease_out_quad(enlarge_t))
+			scale = Vector3.ONE * s
 
 # A box is defined to be on the rails if it has at least 1 edge where both vertices are on any rail.
 func on_rails(to_move):
@@ -472,7 +487,7 @@ func was_pulled (collision_position):
 	
 	
 	
-func become_human(flesh_rot, promote_to_boss = false):
+func become_human(flesh_rot, promote_to_boss):
 	if not flesh == null:
 		return
 		
@@ -483,6 +498,8 @@ func become_human(flesh_rot, promote_to_boss = false):
 	flesh.set_rotation(flesh_rot)
 	
 	if promote_to_boss:
+		is_the_boss = true
+		enlarging = true
 		var boss_face = load("res://boss/andre_cube.jpg")
 		for s in flesh.get_children():
 			if s is Sprite3D:
@@ -495,7 +512,8 @@ func become_box():
 		flesh.hide()
 		flesh.queue_free()
 		flesh = null
-
+		
+	
 func check_for_rail_attached_to_boss():
 	var result = on_rails(Vector3())
 	if result["valid"]:

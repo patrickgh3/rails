@@ -40,7 +40,7 @@ func _process(delta):
 		pass
 		
 	# Play sound on close
-	if door_t_last == 1 and door_t != 1:
+	if door_t_last == 1 and door_t != 1 and not all_pressed:
 		# Closing
 		$DoorClosedSound.play()
 	if door_t == 0 and door_t_last != 0:
