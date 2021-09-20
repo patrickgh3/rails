@@ -7,5 +7,5 @@
 script = ExtResource( 2 )
 
 [node name="Mesh" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.134, 0, 0, 0, 1.38, 0, 0, 0, 1.18, 0, -2, 0.066 )
+transform = Transform( -1.134, 0, -1.03159e-07, 0, 1.38, 0, 9.91374e-08, 0, -1.18, 0, -2, -0.066 )
 script = null

@@ -47,179 +47,6 @@ script = ExtResource( 10 )
 [node name="RoofGround" parent="Roof" instance=ExtResource( 1 )]
 transform = Transform( -1.5299e-06, -1, 0, 35, -4.37114e-08, 0, 0, 0, 28, 1.31134e-07, -8, -13 )
 
-[node name="Rail43" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 3, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail44" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 4, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail45" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 6, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail46" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 5, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail47" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 7, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail48" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 8, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail49" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 9, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail50" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 10, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail51" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 11, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail52" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 13, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail53" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 12, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail54" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 14, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail55" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 15, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail56" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 16, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail57" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 17, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail58" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 18, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail59" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 20, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail60" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 19, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail61" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 21, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail62" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 22, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail63" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 23, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail64" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 24, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail65" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 25, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail66" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 26, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail67" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, -4, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail68" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53673e-07, -5, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail69" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53672e-07, -6, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail70" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.5367e-07, -7, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail71" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53679e-07, -8, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail72" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53676e-07, -3, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail73" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, -1, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail74" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53677e-07, -2, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail75" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 0, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail76" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 1, -5 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail77" parent="Roof" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53675e-07, 2, -5 )
-=======
 [node name="Rail41" parent="." instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 12, 12 )
 usual_material = SubResource( 1 )
@@ -396,147 +223,2842 @@ usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail157" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, 11 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, 11 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail168" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, 10 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, 10 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail169" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, 9 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, 9 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail170" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, 8 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, 8 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail171" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, 7 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, 7 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail172" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, 6 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, 6 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail147" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 11, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail163" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 1, 3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, 4.37114e-08, 9, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail164" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 9, 41, 3 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail165" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 10, 41, 3 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail148" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 10, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail149" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 9, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail150" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 8, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail151" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 7, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail152" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 6, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail153" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 12, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail154" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 13, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail155" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 14, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail156" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 15, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail173" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 16, 41, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail174" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 17, 41, 4 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
+[node name="Rail163" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 1, 3.82137e-15, -4.37114e-08, 1.91069e-15, -1, -1, -4.37114e-08, 4.37114e-08, 15, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail164" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 15, 41, 3 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail165" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 16, 41, 3 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail148" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 16, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail149" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 15, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail150" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 14, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail151" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 13, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail152" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 12, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail187" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 11, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail153" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 18, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail154" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 19, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail156" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, -1.06581e-14, -4.37114e-08, -4.37114e-08, 1.91069e-15, -1, 1.06581e-14, 1, 1.91069e-15, 20, 41, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
 [node name="Rail139" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -1 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -1 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail140" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -2 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -2 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail141" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -3 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -3 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail142" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -4 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -4 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail143" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -5 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -5 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail144" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -6 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -6 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail145" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -7 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -7 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail146" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9.53674e-07, 41, -8 )
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -8 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail158" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -9 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail159" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail160" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail161" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -12 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail162" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -13 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail166" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, 6, 41, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail167" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 53, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail175" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 54, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail186" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 41, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail188" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 42, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail189" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 43, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail190" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 44, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail191" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 45, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail192" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 46, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail193" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 47, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail194" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 48, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail195" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 10, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail199" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, 10, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail196" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 9, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail197" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 8, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail198" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 7, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail200" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 6, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail201" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 5, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail202" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 4, 49, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail176" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 55, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail177" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 56, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail178" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 57, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail173" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 48, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail319" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 49, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail320" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 50, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail321" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 51, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail322" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 52, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail174" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 43, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail327" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 42, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail328" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 41, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail323" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 44, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail324" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 45, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail325" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 46, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail326" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 47, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail179" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 58, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail180" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 59, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail181" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 60, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail182" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 61, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail183" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 62, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail184" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 63, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail185" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 64, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail203" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 65, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail204" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 66, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail205" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 67, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail206" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 68, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail207" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 69, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail208" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 70, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail209" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail215" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 6, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail216" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 5, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail217" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 4, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail218" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 3, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail219" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 2, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail220" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail221" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail222" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -1, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail257" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 71, -22 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail286" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 72, -22 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail287" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 73, -22 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail288" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -1, 74, -22 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail223" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -2, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail229" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -13 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail232" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -12 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail233" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail234" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail235" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -9 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail236" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -8 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail237" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -7 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail238" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -6 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail239" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -5 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail240" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail701" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -3 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail702" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -2 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail241" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, 3 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail242" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail243" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -2, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail244" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -3, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail245" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -4, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail246" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -5, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail247" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -6, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail248" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -7, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail249" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -8, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail250" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -9, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail251" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -10, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail252" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -11, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail253" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -12, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail254" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -13, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail255" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -14, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail256" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -15, 77, 4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail258" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, 3 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail259" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, 2 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail260" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -5 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail261" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -6 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail262" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -7 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail263" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -8 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail264" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -9 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail265" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -10 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail276" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, -1 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail364" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail365" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, 1 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail366" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -2, 71, 2 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail367" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, 1 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail368" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, 0 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail697" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -1 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail698" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -2 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail699" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -3 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail700" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -4 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail266" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -11 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail267" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -12 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail268" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -13 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail269" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail270" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -15 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail271" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -16 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail272" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -17 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail273" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -18 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail274" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -19 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail275" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -20 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail277" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -22 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail363" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -21 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail278" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -23 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail279" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail280" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -25 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail281" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -26 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail339" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -43 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail345" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -42 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail346" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -41 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail347" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -40 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail355" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -39 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail356" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -38 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail357" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -37 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail358" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -36 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail359" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -34 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail361" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -33 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail372" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -32 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail373" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -31 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail487" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail495" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -29 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail511" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -28 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail512" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -27 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail695" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -26 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail696" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -25 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail360" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -35 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail340" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail341" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -45 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail342" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -46 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail343" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail362" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -16, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail709" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -15, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail716" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -14, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail717" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -13, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail718" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -12, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail719" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -11, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail720" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -10, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail369" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -17, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail370" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -18, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail371" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -19, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail374" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -20, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail375" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -21, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail376" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -22, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail377" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -23, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail378" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -24, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail379" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -25, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail380" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -26, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail381" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -27, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail382" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -28, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail383" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -29, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail384" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -30, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail385" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -31, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail386" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -32, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail387" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -33, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail388" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -34, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail389" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -35, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail390" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -36, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail410" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -37, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail472" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail493" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -48 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail494" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -45 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail473" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -38, 99, -46 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail391" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail398" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -48 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail399" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -49 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail400" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -50 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail401" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -51 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail402" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -52 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail466" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -53 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail467" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -54 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail468" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -55 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail469" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -56 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail470" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -57 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail471" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -58 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail403" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -53 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail404" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -54 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail405" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -55 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail406" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -56 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail407" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -57 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail408" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -58 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail409" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -59 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail411" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -60 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail412" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -61 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail413" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -62 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail414" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -63 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail415" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -64 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail416" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -65 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail417" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -66 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail418" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -67 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail419" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 100, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail421" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 101, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail422" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 102, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail423" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 103, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail424" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 104, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail425" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 105, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail426" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 106, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail427" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 107, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail428" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 108, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail429" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 109, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail430" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 110, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail431" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 111, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail432" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 112, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail433" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 113, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail434" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 114, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail435" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -1, 1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -37, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail436" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -36, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail437" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -35, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail438" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -34, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail439" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -33, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail440" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -32, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail441" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -31, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail442" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -30, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail443" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -29, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail444" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -28, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail445" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -27, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail446" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -26, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail447" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -25, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail448" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -24, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail449" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -23, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail450" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -22, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail451" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -21, 115, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail452" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 114, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail453" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 113, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail454" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 112, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail455" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 111, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail456" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 110, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail457" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 109, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail458" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 108, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail459" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 107, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail460" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 106, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail461" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 105, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail462" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 104, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail463" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 103, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail464" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 102, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail465" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 101, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail479" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 100, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail480" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 99, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail481" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 98, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail482" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 92, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail483" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 91, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail484" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 90, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail474" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 97, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail475" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 96, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail476" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 95, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail477" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 94, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail478" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 93, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail485" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 84, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail486" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail496" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -22, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail513" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -21, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail497" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -23, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail498" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -24, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail499" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -26, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail500" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -25, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail501" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -27, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail502" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -28, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail503" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -29, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail504" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -30, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail505" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -31, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail506" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -32, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail507" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -33, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail508" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -34, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail509" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -35, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail510" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -36, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail514" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -37, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail515" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 1.31134e-07, 0, 0, -1.91069e-15, 1, 1.31134e-07, 1, 1.91069e-15, -38, 83, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail516" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -68 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail517" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -67 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail518" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -66 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail519" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -65 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail520" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -64 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail521" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -63 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail522" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -62 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail523" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -61 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail524" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -60 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail525" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -59 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail526" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -58 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail527" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -57 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail528" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -56 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail529" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -55 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail530" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -54 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail531" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -53 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail532" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -52 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail533" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -51 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail534" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -50 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail535" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -49 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail536" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -48 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail537" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -47 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail538" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -46 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail539" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -45 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail540" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, 0, -1.91069e-15, 1, -1, 8.74228e-08, -8.35187e-23, -39, 83, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail541" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 84, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail542" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 85, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail543" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 86, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail544" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 87, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail545" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 88, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail546" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 89, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail547" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 90, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail548" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 91, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail549" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 92, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail550" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 93, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail551" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 94, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail552" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 95, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail553" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 96, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail554" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 97, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail555" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 98, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail556" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 99, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail557" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 100, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail558" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 101, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail559" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 102, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail560" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 103, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail561" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 104, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail562" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 105, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail563" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 106, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail564" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 107, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail565" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 108, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail566" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 109, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail567" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 110, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail568" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 111, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail569" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 112, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail570" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 113, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail571" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 114, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail572" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 115, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail573" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 116, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail574" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 117, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail575" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 118, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail576" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 119, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail577" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 120, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail578" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 121, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail579" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 122, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail580" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 123, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail581" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 124, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail582" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 125, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail583" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 126, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail584" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 127, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail585" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 128, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail586" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 129, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail587" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 130, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail588" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 131, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail589" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 132, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail590" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 133, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail591" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 134, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail592" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 135, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail593" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 136, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail594" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 137, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail595" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 138, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail596" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 139, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail597" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 140, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail598" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 141, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail599" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 142, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail600" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 143, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail601" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 144, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail602" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 145, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail603" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 146, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail604" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 147, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail605" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 148, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail606" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 149, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail607" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 150, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail608" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 151, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail609" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 152, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail610" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 153, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail611" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 154, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail612" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 155, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail613" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 156, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail614" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 157, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail615" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 158, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail616" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 159, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail617" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 160, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail618" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 161, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail619" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 162, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail620" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 163, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail621" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 164, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail622" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 165, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail623" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 166, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail624" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 167, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail625" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 168, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail626" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 169, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail627" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 170, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail628" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 171, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail629" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 172, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail630" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 173, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail631" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 174, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail632" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 175, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail633" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 176, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail634" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 177, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail635" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 178, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail636" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 179, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail637" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 180, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail638" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 181, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail639" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 182, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail640" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 183, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail641" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 184, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail642" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 185, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail643" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 186, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail644" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 187, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail645" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 188, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail646" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 189, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail647" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 190, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail648" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 191, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail649" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 192, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail650" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 193, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail651" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 194, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail652" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 195, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail653" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 196, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail654" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 197, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail655" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 198, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail656" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 199, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail657" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 200, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail658" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 201, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail659" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 202, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail660" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 203, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail661" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 204, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail662" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 205, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail663" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 206, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail664" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 207, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail665" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 208, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail666" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 209, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail667" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 210, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail668" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 211, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail669" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 212, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail670" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 213, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail671" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 214, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail672" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 215, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail673" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 216, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail674" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 217, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail675" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 218, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail676" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 219, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail677" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 220, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail678" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 221, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail679" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 222, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail680" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 223, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail681" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 224, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail682" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 225, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail683" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 226, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail684" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 227, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail685" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 228, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail686" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 229, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail687" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 230, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail688" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 231, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail689" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 232, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail690" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 233, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail691" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 234, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail692" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 235, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail693" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 236, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail694" parent="." instance=ExtResource( 4 )]
+transform = Transform( -8.74228e-08, -1, -1.91069e-15, -1, 8.74228e-08, -4.37114e-08, 4.37114e-08, -1.91069e-15, -1, -39, 237, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail488" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 89, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail489" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 88, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail490" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 87, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail491" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 86, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail492" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -7.64274e-15, 1, 1, -1.31134e-07, -4.37114e-08, 1.31134e-07, 1, 1.91069e-15, -21, 85, -69 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail420" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -37, 99, -68 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail394" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -44 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail395" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -43 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail396" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -42 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail397" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -41 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail392" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -46 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail393" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, -1, -8.74228e-08, -1, 0, -1, 8.74228e-08, -4.37114e-08, -31, 99, -45 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail344" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -10, 99, -48 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail282" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -27 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail283" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -28 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail284" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -29 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail285" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -8.74228e-08, -1, 0, 1, -8.74228e-08, -4.37114e-08, -16, 71, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail289" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 71, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail290" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 70, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail291" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 69, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail292" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 68, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail293" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 67, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail294" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 66, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail703" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 77, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail704" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 76, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail705" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 75, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail706" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 74, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail707" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 73, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail708" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 72, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail710" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 83, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail711" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 82, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail712" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 81, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail713" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 80, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail714" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 79, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail715" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 78, -24 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail301" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 78, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail302" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 79, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail303" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 80, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail304" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 81, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail305" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 82, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail306" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 83, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail307" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 84, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail329" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 85, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail330" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 86, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail331" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 87, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail332" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 88, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail333" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 89, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail334" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 90, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail335" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 91, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail336" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 92, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail337" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 93, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail338" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 94, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail308" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 95, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail309" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 96, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail310" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 97, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail311" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 98, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail312" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 99, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail313" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 100, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail314" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 101, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail315" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 102, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail316" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 103, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail317" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 104, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail318" parent="." instance=ExtResource( 4 )]
+transform = Transform( 4.37114e-08, -3.82137e-15, 1, -1, 1.31134e-07, 4.37114e-08, -1.31134e-07, -1, 1.91069e-15, -16, 105, -30 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail224" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -3, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail225" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -4, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail226" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -5, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail227" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -6, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail228" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -7, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail230" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -8, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail231" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -9, 71, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail210" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 72, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail211" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 73, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail212" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 74, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail213" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 75, -14 )
+usual_material = SubResource( 1 )
+depth_disable_material = SubResource( 2 )
+
+[node name="Rail214" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -9.53674e-07, 76, -14 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
@@ -599,9 +3121,6 @@ depth_disable_material = SubResource( 2 )
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 9, 9 )
 script = ExtResource( 10 )
 
-[node name="RoofGround" parent="Roof" instance=ExtResource( 1 )]
-transform = Transform( 35, 0, 0, 0, 1, 0, 0, 0, 28, -8, 2.18557e-07, -13 )
-
 [node name="Ground2" parent="." instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-07, -1, 0, 10, -4.37114e-08, 0, 0, 0, 20, 0, 0, 0 )
 
@@ -612,19 +3131,22 @@ transform = Transform( -4.37114e-07, -1, 0, 10, -4.37114e-08, 0, 0, 0, 20, 23, 0
 transform = Transform( 1.91068e-14, 4.37114e-08, -22, 10, -4.37114e-08, -3.37681e-20, -4.37114e-07, -1, -9.61651e-07, 22, 0, 0 )
 
 [node name="Ground5" parent="." instance=ExtResource( 1 )]
-transform = Transform( 24, 0, 0, 0, 2, 0, 0, 0, 20, -3, 39, -14 )
-
-[node name="Ground12" parent="." instance=ExtResource( 1 )]
-transform = Transform( 2, 0, 0, 0, 8, 0, 0, 0, 6, -2, 47, 6 )
+transform = Transform( 10, 0, 0, 0, 2, 0, 0, 0, 10, 6, 39, -14 )
 
 [node name="Ground13" parent="." instance=ExtResource( 1 )]
-transform = Transform( 2, 0, 0, 0, 8, 0, 0, 0, 6, 6, 47, 6 )
+transform = Transform( 16, 0, 0, 0, 2, 0, 0, 0, 16, -10, 69, -30 )
+
+[node name="Ground15" parent="." instance=ExtResource( 1 )]
+transform = Transform( 8, 0, 0, 0, 2, 0, 0, 0, 2, -10, 69, -14 )
 
 [node name="Ground14" parent="." instance=ExtResource( 1 )]
-transform = Transform( 10, 0, 0, 0, 8, 0, 0, 0, 2, -2, 47, 12 )
+transform = Transform( 12, 0, 0, 0, 2, 0, 0, 0, 8, -22, 97, -38 )
+
+[node name="Ground12" parent="." instance=ExtResource( 1 )]
+transform = Transform( 18, 0, 0, 0, 2, 0, 0, 0, 10, 6, 39, -4 )
 
 [node name="Ground11" parent="." instance=ExtResource( 1 )]
-transform = Transform( 8.48528, 5.65685, 0, -8.48528, 5.65685, 0, 0, 0, 6, -5, 3, 12 )
+transform = Transform( 9.8995, 5.65685, 0, -9.8995, 5.65685, 0, 0, 0, 7, -6, 4, 12 )
 
 [node name="Ground6" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1.91068e-14, 4.37114e-08, -10, 10, -4.37114e-08, -1.40042e-20, -4.37114e-07, -1, -4.37114e-07, 23, 0, 20 )
@@ -636,39 +3158,19 @@ transform = Transform( 9.55343e-15, 4.37114e-08, -4, 5, -4.37114e-08, 1.1299e-21
 transform = Transform( 1.91068e-14, 4.37114e-08, -10, 10, -4.37114e-08, -1.40042e-20, -4.37114e-07, -1, -4.37114e-07, 9, 0, 20 )
 
 [node name="Cubio" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3667, 2, 31.492 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.3667, 2, 31.492 )
 
 [node name="Box" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 23 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 24 )
 
 [node name="Boss" parent="." instance=ExtResource( 8 )]
-transform = Transform( -0.962265, 0, -0.272112, 0, 1, 0, 0.272112, 0, -0.962265, 9.24758, 1.65924, 4.61888 )
+transform = Transform( -4.37114e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -4.37114e-08, 4.24758, 1.65924, 4.61888 )
 
 [node name="Door" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 1, 20.5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 19.5 )
 
 [node name="Rail" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail21" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail22" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail23" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 4 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail24" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 4 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
@@ -893,223 +3395,112 @@ usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 23 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail3" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 23 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 24 )
 is_target = true
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail4" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 4, 24 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 25 )
 is_target = true
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail5" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 3, 24 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 3, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail6" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 2, 24 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 2, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail7" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 1, 24 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 1, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail8" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 3, 24 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 11, 3, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail9" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 2, 24 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 11, 2, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail10" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 1, 24 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 11, 1, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail11" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 3, 23 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 11, 3, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail12" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 2, 23 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 11, 2, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail13" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 7, 1, 23 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 11, 1, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail14" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 3, 23 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 3, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail15" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 2, 23 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 2, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail16" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 6, 1, 23 )
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 10, 1, 24 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail17" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 1, 24 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 1, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail18" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 4, 24 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 4, 25 )
 is_target = true
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail19" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 4, 24 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 4, 25 )
 is_target = true
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="Rail20" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 1, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Box2" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 23 )
-
-[node name="Rail43" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail89" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail44" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 4, 23 )
-is_target = true
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail45" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 4, 24 )
-is_target = true
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail46" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 3, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail47" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 2, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail48" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 1, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail49" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 3, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail50" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 2, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail51" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 1, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail52" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 3, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail53" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 2, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail54" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16, 1, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail55" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 3, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail56" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 2, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail57" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 1, 23 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail58" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 1, 24 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail59" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15, 4, 24 )
-is_target = true
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail60" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 4, 24 )
-is_target = true
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail61" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16, 1, 24 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 1, 25 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
 [node name="CubioSpawn" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 29 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 1, 30 )
 
 [node name="EnterPuzzleTrigger" parent="." instance=ExtResource( 12 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 6, 9, 1, 29 )
 
-[node name="Box3" parent="." instance=ExtResource( 2 )]
-transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 6, 1, 1, 4 )
-always_delivered_hack = true
-
 [node name="Box4" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 41, 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 41, 3 )
 always_delivered_hack = true
 
 [node name="Rail147" parent="Box4" instance=ExtResource( 4 )]
@@ -1197,11 +3588,6 @@ transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 
-[node name="Rail163" parent="Box4" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9, 0, 3 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
 [node name="Rail164" parent="Box4" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9, 0, -1 )
 usual_material = SubResource( 1 )
@@ -1214,11 +3600,6 @@ depth_disable_material = SubResource( 2 )
 
 [node name="Rail166" parent="Box4" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9, 0, -3 )
-usual_material = SubResource( 1 )
-depth_disable_material = SubResource( 2 )
-
-[node name="Rail167" parent="Box4" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -9, 0, -4 )
 usual_material = SubResource( 1 )
 depth_disable_material = SubResource( 2 )
 

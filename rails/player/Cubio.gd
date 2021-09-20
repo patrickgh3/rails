@@ -20,7 +20,7 @@ const SHAPE_SCALE_CROUCHING_Y = .45
 const CAM_CROUCHING_Y = 0
 const CAM_STANDING_Y = 1
 const MOUSE_SENSITIVITY = 0.1
-const RAY_LENGTH = 25
+const RAY_LENGTH = 50
 const CAM_OFFSET3 = Vector3(0, 2, 6)
 const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
@@ -304,6 +304,7 @@ func try_highlight_box ():
 	
 	var turn_on_highlight = false
 	
+	box_hit = null
 	if result:
 		#debug_marker.translation = result.position
 		var collider_hit = result.collider

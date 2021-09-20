@@ -9,4 +9,3 @@ params_billboard_keep_scale = true
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
-albedo_color = Color( 0.517647, 0.113725, 0.709804, 1 )
