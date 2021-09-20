@@ -170,7 +170,7 @@ func _physics_process(delta):
 		# 	warning: probably not good to just set positino of the kinematic body now
 	if Input.is_action_just_pressed("crouch"):
 		if crouching: stand_up()
-		else: crouch()
+		elif first_person: crouch()
 	
 
 	# keyboard movement
