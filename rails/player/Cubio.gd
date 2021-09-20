@@ -67,6 +67,9 @@ var hit_launch_pad
 var launch_box
 var launch_box_offset
 var my_box
+# Hack to make avoid raycasts missing when calling physics process twice
+# before process
+var did_physics_process = false 
 
 var camera_offset_t
 var target_camera_offset
@@ -162,8 +165,16 @@ func _process(delta):
 	# Restart puzzle if you fall too far
 	if translation.y < -13:
 		controller.reset_puzzle(false)
+		
+	did_physics_process = false
+		
 
 func _physics_process(delta):
+	
+	# Raycasting messes up when birds fly @HACK
+	# By not running physics process twice before one process, it works?
+	if did_physics_process: return
+	did_physics_process = true
 	
 	try_highlight_box()
 	
@@ -302,37 +313,49 @@ func try_highlight_box ():
 	var result = space_state.intersect_ray(from, to, [self])
 	
 	var turn_on_highlight = false
-	
 	box_hit = null
 	if result:
 		#debug_marker.translation = result.position
 		var collider_hit = result.collider
 		if not collider_hit is Box:
+			#print ("hit something other than box ", collider_hit.name)
 			box_hit = null
 		else:
 			box_hit = collider_hit as Box
 			if box_hit.moving():
+				#print ("box hit was moving")
 				box_hit = null
 			else:
 				highlight_info = box_hit.get_nearest_face (result.position, (to - from).normalized(), highlight_info)
 				if not highlight_info.cool:
 					# leave highlight on if it's visible
 					turn_on_highlight = highlight.visible
+					#print ("not cool")
 				else:
+					#print ("legimately cool")
 					highlight.transform.basis = Basis(highlight_info.dirs[0], highlight_info.dirs[1], highlight_info.dirs[2])
 					highlight.translation = box_hit.get_world_center_with_bumping() + highlight_info.dirs[2]
 					highlight.transform.orthonormalized()
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()
 					turn_on_highlight = true
+	else:
+		#print ("raycast missed everything!")
+		pass
+					
+					
 	if turn_on_highlight:
+		#if not highlight.is_visible(): print ("re showing highlight")
 		highlight.show()
-	else: highlight.hide()
+	else: 
+		highlight.hide()
+		#print ("hiding highlight, no result")
 
 func try_pull_box(var pull_boss):
 	# If any box is moving, don't highlight any box
 	for box in controller.boxes:
-		if box.velocity != Vector3.ZERO:
+		if box.velocity != Vector3.ZERO and not box.is_bird:
+			print ("box is moving and not a bird")
 			return
 	
 	if box_hit:

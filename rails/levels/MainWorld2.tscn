@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://objects/Rail.tscn" type="PackedScene" id=1]
 [ext_resource path="res://objects/Box.tscn" type="PackedScene" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://objects/LaunchArea.gd" type="Script" id=9]
 [ext_resource path="res://objects/EnterPuzzleTrigger.tscn" type="PackedScene" id=10]
 [ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=11]
+[ext_resource path="res://objects/BirdBox.tscn" type="PackedScene" id=12]
+[ext_resource path="res://ui/rails.tscn" type="PackedScene" id=13]
 [ext_resource path="res://ui/ui-theme.tres" type="Theme" id=14]
 [ext_resource path="res://ui/font-bold-outline-32.tres" type="DynamicFont" id=15]
 [ext_resource path="res://boss/BossPoster.tscn" type="PackedScene" id=16]
@@ -3971,6 +3973,7 @@ root_02_deep = true
 melody_01_guitar_echo = true
 melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
+debug_spawn_here = true
 teleport_skip = true
 
 [node name="Controller" parent="22 CliffsOfInsanity" instance=ExtResource( 5 )]
@@ -4470,6 +4473,18 @@ transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e
 [node name="Rail577" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.66667, 4 )
 
+[node name="Rail586" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 8.33334, 3 )
+
+[node name="Rail587" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 8, 3 )
+
+[node name="Rail588" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.66667, 3 )
+
+[node name="Rail589" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.33334, 3 )
+
 [node name="Rail523" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 8.66667, 3.66667 )
 
@@ -4558,13 +4573,58 @@ transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e
 transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.33333, 4.66667 )
 
 [node name="Rail564" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
-transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.33333, 4.33333 )
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.33333, 4 )
 
 [node name="Rail565" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
-transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7, 4.33333 )
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7, 4 )
 
 [node name="Rail566" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
-transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 6.66667, 4.33333 )
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 6.66667, 4 )
+
+[node name="Rail594" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 6.33333, 4 )
+
+[node name="Rail596" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 6, 4 )
+
+[node name="Rail597" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 5.66667, 4 )
+
+[node name="Rail598" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 5.33333, 4 )
+
+[node name="Rail599" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 5, 4 )
+
+[node name="Rail600" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 4.66667, 4 )
+
+[node name="Rail601" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 4.33333, 4 )
+
+[node name="Rail602" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 4, 4 )
+
+[node name="Rail603" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 3.66667, 4 )
+
+[node name="Rail604" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 3.33333, 4 )
+
+[node name="Rail605" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 3, 4 )
+
+[node name="Rail606" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 2.66667, 4 )
+
+[node name="Rail607" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 2.33334, 4 )
+
+[node name="Rail608" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 2, 4 )
+
+[node name="Rail595" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 7.33334, 3.66666 )
 
 [node name="Rail526" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( 6.36895e-16, -1.45705e-08, 0.333333, -0.333333, -1.45705e-08, 0, 1.45705e-08, -0.333333, -1.45705e-08, -13.3333, 9.66667, 4.33333 )
@@ -5481,6 +5541,18 @@ transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, 
 [node name="Rail519" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 7.66667, 4.66667 )
 
+[node name="Rail590" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 7.33334, 3 )
+
+[node name="Rail591" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 7.33334, 3.33334 )
+
+[node name="Rail592" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 7.33334, 3.66667 )
+
+[node name="Rail593" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 7.33334, 4 )
+
 [node name="Rail520" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 7.66667, 5.33333 )
 
@@ -5495,6 +5567,15 @@ transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, 
 
 [node name="Rail575" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 8, 4 )
+
+[node name="Rail583" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 8, 3.66667 )
+
+[node name="Rail584" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 8, 3.33333 )
+
+[node name="Rail585" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
+transform = Transform( -1.45705e-08, 0, 0.333333, 0, 0.333333, 0, -0.333333, 0, -1.45705e-08, -13.3333, 8, 3 )
 
 [node name="Rail201" parent="22 CliffsOfInsanity/Rails" instance=ExtResource( 1 )]
 transform = Transform( -0.333333, 0, -2.91409e-08, 0, 0.333333, 0, 2.91409e-08, 0, -0.333333, -11, 8, 7 )
@@ -5657,6 +5738,298 @@ transform = Transform( -0.333333, 0, -2.91409e-08, 0, 0.333333, 0, 2.91409e-08, 
 
 [node name="CubioSpawn" parent="22 CliffsOfInsanity" instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17, 1, -32 )
+
+[node name="Bird" parent="22 CliffsOfInsanity" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 30, -34 )
+
+[node name="Bird2" parent="22 CliffsOfInsanity" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 30, -34 )
+
+[node name="Bird3" parent="22 CliffsOfInsanity" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 6, -38 )
+
+[node name="Bird4" parent="22 CliffsOfInsanity" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 32, -7 )
+bird_pi_halves = 0
+
+[node name="Bird5" parent="22 CliffsOfInsanity" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 32, -9 )
+bird_pi_halves = 3
+
+[node name="Bird6" parent="22 CliffsOfInsanity" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 62, -12 )
+bird_pi_halves = 0
+
+[node name="BirdNests" type="Spatial" parent="22 CliffsOfInsanity"]
+
+[node name="Rail" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 30, -34 )
+
+[node name="Rail53" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 61, -12 )
+
+[node name="Rail54" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 61, -12 )
+
+[node name="Rail55" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 61, -12 )
+
+[node name="Rail56" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 61, -12 )
+
+[node name="Rail65" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 63, -12 )
+
+[node name="Rail66" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 63, -12 )
+
+[node name="Rail71" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 63, -12 )
+
+[node name="Rail89" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 63, -12 )
+
+[node name="Rail90" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 61, -12 )
+
+[node name="Rail72" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 63, -12 )
+
+[node name="Rail78" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 63, -12 )
+
+[node name="Rail67" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 63, -12 )
+
+[node name="Rail57" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 61, -12 )
+
+[node name="Rail59" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 61, -12 )
+
+[node name="Rail61" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26, 61, -12 )
+
+[node name="Rail60" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 63, -12 )
+
+[node name="Rail62" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -19, 63, -12 )
+
+[node name="Rail91" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -19, 60, -12 )
+
+[node name="Rail75" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -25, 62, -12 )
+
+[node name="Rail88" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -25, 63, -12 )
+
+[node name="Rail76" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -25, 61, -12 )
+
+[node name="Rail79" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -25, 60, -12 )
+
+[node name="Rail77" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -25, 61, -12 )
+
+[node name="Rail63" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -19, 62, -12 )
+
+[node name="Rail64" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -19, 61, -12 )
+
+[node name="Rail15" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 7, -37 )
+
+[node name="Rail16" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 7, -37 )
+
+[node name="Rail17" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 7, -37 )
+
+[node name="Rail22" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 6, -37 )
+
+[node name="Rail23" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 5, -37 )
+
+[node name="Rail24" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 15, 4, -37 )
+
+[node name="Rail2" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 30, -34 )
+
+[node name="Rail3" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 30, -34 )
+
+[node name="Rail4" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 30, -34 )
+
+[node name="Rail68" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 30, -34 )
+
+[node name="Rail83" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 29, -34 )
+
+[node name="Rail69" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 31, -34 )
+
+[node name="Rail70" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 32, -34 )
+
+[node name="Rail73" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 32, -31 )
+
+[node name="Rail74" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 31, -31 )
+
+[node name="Rail80" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 30, -31 )
+
+[node name="Rail81" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 5, 29, -31 )
+
+[node name="Rail11" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 30, -31 )
+
+[node name="Rail12" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 30, -31 )
+
+[node name="Rail13" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 30, -31 )
+
+[node name="Rail14" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 30, -31 )
+
+[node name="Rail5" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 30, -33 )
+
+[node name="Rail6" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 30, -32 )
+
+[node name="Rail58" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 29, -32 )
+
+[node name="Rail82" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 29, -31 )
+
+[node name="Rail84" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 29, -33 )
+
+[node name="Rail85" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 33, -33 )
+
+[node name="Rail86" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 33, -32 )
+
+[node name="Rail87" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 33, -31 )
+
+[node name="Rail7" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6, 30, -31 )
+
+[node name="Rail8" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 30, -33 )
+
+[node name="Rail9" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 30, -32 )
+
+[node name="Rail10" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 30, -31 )
+
+[node name="Rail18" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 32, -7 )
+
+[node name="Rail46" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 32, -7 )
+
+[node name="Rail34" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -6 )
+
+[node name="Rail35" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -7 )
+
+[node name="Rail36" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -8 )
+
+[node name="Rail37" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -9 )
+
+[node name="Rail38" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -10 )
+
+[node name="Rail39" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -11 )
+
+[node name="Rail40" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -12 )
+
+[node name="Rail41" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -37, 32, -13 )
+
+[node name="Rail42" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -37, 32, -7 )
+
+[node name="Rail48" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -37, 31, -7 )
+
+[node name="Rail49" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -37, 30, -7 )
+
+[node name="Rail50" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -37, 29, -7 )
+
+[node name="Rail51" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -37, 28, -7 )
+
+[node name="Rail52" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -37, 27, -7 )
+
+[node name="Rail21" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36, 32, -7 )
+
+[node name="Rail25" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35, 32, -7 )
+
+[node name="Rail26" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34, 32, -7 )
+
+[node name="Rail27" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33, 32, -7 )
+
+[node name="Rail28" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 32, -7 )
+
+[node name="Rail29" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 32, -7 )
+
+[node name="Rail30" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 32, -7 )
+
+[node name="Rail31" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 32, -7 )
+
+[node name="Rail32" parent="22 CliffsOfInsanity/BirdNests" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 32, -7 )
+
+[node name="JotsonRails" type="Spatial" parent="22 CliffsOfInsanity"]
+
+[node name="rails" parent="22 CliffsOfInsanity/JotsonRails" instance=ExtResource( 13 )]
+transform = Transform( 0.0234219, 0.0441748, 0, -0.0435384, 0.0230845, -0.00845629, -0.0074711, 0.00396125, 0.0492797, -35.6219, 38.3167, -17.2127 )
+
+[node name="rails2" parent="22 CliffsOfInsanity/JotsonRails" instance=ExtResource( 13 )]
+transform = Transform( 0.0234219, 0.0441748, 0, -0.0431114, 0.0228581, -0.0109046, -0.00963418, 0.00510814, 0.0487964, -34.6219, 29.2925, -21.9234 )
+
+[node name="rails5" parent="22 CliffsOfInsanity/JotsonRails" instance=ExtResource( 13 )]
+transform = Transform( 0.0234219, 0.0441748, 0, -0.0431114, 0.0228581, -0.0109046, -0.00963418, 0.00510814, 0.0487964, -34.6219, 36.2925, -13.9234 )
+
+[node name="rails3" parent="22 CliffsOfInsanity/JotsonRails" instance=ExtResource( 13 )]
+transform = Transform( 0.0234219, 0.0441748, 0, -0.0431114, 0.0228581, -0.0109046, -0.00963418, 0.00510814, 0.0487964, -37.6219, 46.7775, -24.2426 )
+
+[node name="rails4" parent="22 CliffsOfInsanity/JotsonRails" instance=ExtResource( 13 )]
+transform = Transform( 0.0196596, 0.0458554, 0.00328372, -0.0449512, 0.0199223, -0.00908238, -0.00963791, 0.000618966, 0.0490584, -34.5422, 37.7783, -4.81432 )
 
 [node name="23 TheOffice" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -660, 53, -56 )

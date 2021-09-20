@@ -2938,7 +2938,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, 30 )
 
 [node name="Bird" parent="." instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3, 33 )
-bird_pi_halves = 3
+bird_pi_halves = 1
 
 [node name="EnterPuzzleTrigger" parent="." instance=ExtResource( 12 )]
 transform = Transform( 6, 0, 0, 0, 1, 0, 0, 0, 6, 12, 1, 29 )

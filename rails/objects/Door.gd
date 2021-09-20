@@ -45,7 +45,6 @@ func _process(delta):
 		$DoorClosedSound.play()
 	if door_t == 0 and door_t_last != 0:
 		# Door fully closed
-		print ("door emitting particles, all_pressed: ", all_pressed)
 		$DustParticles.emitting = true
 	
 	

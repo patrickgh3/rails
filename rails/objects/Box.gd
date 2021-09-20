@@ -16,6 +16,7 @@ signal moved
 export(bool) var launcher = false
 export(bool) var is_the_boss = false
 export(bool) var is_bird = false
+export(bool) var debug_kill_bird = false
 export(int) var bird_pi_halves = 2
 
 var velocity = Vector3()
@@ -56,6 +57,9 @@ func _ready():
 	if is_bird:
 		become_fowl()
 		
+	if debug_kill_bird:
+		set_process(false)
+		
 	# Bottom
 	edges.append({"a": Vector3(0, 0, 0), "b": Vector3(1, 0, 0)})
 	edges.append({"a": Vector3(1, 0, 0), "b": Vector3(1, 0, 1)})
@@ -84,13 +88,13 @@ func _process(delta):
 	if is_bird:
 		fly(delta)
 		
-		
+
 	# Apply grab velocity, if it was set
 	var was_still = velocity == Vector3.ZERO
 	if grab_velocity != Vector3.ZERO:
 		velocity = grab_velocity
 		grab_velocity = Vector3.ZERO
-		
+
 		if rail_sound_index == 1: rail_sound_index = 2
 		else: rail_sound_index = 1
 		if rail_sound_index == 1:
@@ -99,12 +103,12 @@ func _process(delta):
 		else:
 			if not is_bird: $RailSound2.play()
 			rail_volume_2 = 0
-			
+
 		for node in get_children():
 			if "Rail" in node.name:
 				controller.rails_just_departed.append(node)
 				controller.rails_just_departed_timer = 0
-		
+
 	# Set rail sound volumes
 	var volume_delta = delta*10
 	if rail_sound_index == 1:
@@ -123,16 +127,16 @@ func _process(delta):
 	rail_volume_2 = clamp(rail_volume_2, 0, 1)
 	if not is_bird: $RailSound1.max_db = lerp(-100, 3, rail_volume_1)
 	if not is_bird: $RailSound2.max_db = lerp(-100, 3, rail_volume_2)
-	
+
 	if velocity != Vector3.ZERO:
 		# Accelerate
 		if not disable_acceleration:
 			velocity += Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z)) * 20 * delta
-		
+
 		# Check if we're about to go off the rails!
 		var to_move = velocity * delta
 		var result = on_rails(to_move)
-		
+
 		if result["valid"]:
 			# The place we want to move to is valid, so move there!
 			translation += to_move
@@ -142,24 +146,24 @@ func _process(delta):
 					b.translation += to_move
 			elif is_in_group("Employees"):
 				remove_from_group("Employees")
-				
+
 		else:
 			# Keep travelling by small increments until we are about to leave the rails
-			while true:
+			while true and not is_bird:
 				result = on_rails(to_move*0.1)
 				if not result["valid"]:
 					break
 				translation += to_move*0.1
-			
+
 			# Start bumping state if we are at a standstill
 			if was_still and not is_bird:
 				bumping = true
 				bump_t = 0
 				bump_dir = Vector3(sign(velocity.x), sign(velocity.y), sign(velocity.z))
-			
+
 			# Stop
 			velocity = Vector3()
-			
+
 			# Snap position to the nearest cell (hack, this doesn't support off-grid rails)
 			translation.x = round(translation.x)
 			translation.y = round(translation.y)
@@ -172,14 +176,13 @@ func _process(delta):
 				if "Rail" in node.name:
 					controller.rails_just_halted.append(node)
 					controller.rails_just_halted_timer = 0
-					
-			if not is_bird: $StopSound.play()
-			$moveTriggerTimer.stop()
-		
+
+			if not is_bird: 
+				$StopSound.play()
+				$moveTriggerTimer.stop()
+
 		# Save rails touching
 		rails_touching = result["rails"]
-	
-
 
 	# @OPTIMIZE adding/removing from employees every frame isn't necessary
 	# Do per-rail logic
@@ -189,14 +192,14 @@ func _process(delta):
 		# Mark rail pressed, and add to glow
 		rail.glow += delta * 10
 		rail.glow = min(rail.glow, 1)
-		
+
 		# Mark ourselves as delivered, if this rail is a target and we're still
 		if velocity == Vector3.ZERO:
 			if rail.is_target: delivered = true
 			if rail.attached_to_boss: add_to_group("Employees")
-	
+
 	if always_delivered_hack:  delivered = true
-		
+
 	# Of rails that just stopped moving, check if we're touching any,
 	# and if so, count that we're touching them
 	for rail in controller.rails_just_halted:
@@ -209,13 +212,13 @@ func _process(delta):
 				if touching:
 					if not rail in rails_touching:
 						rails_touching.append(rail)
-	
+
 	if velocity == Vector3.ZERO:
 		for rail in controller.rails_just_departed:
 			if rail in rails_touching:
 				rails_touching.erase(rail)
-		
-	
+
+
 	# Bumping state - make the mesh do a little bump in the direction
 	# we failed to move in
 	if bumping:
@@ -234,8 +237,8 @@ func _process(delta):
 	elif was_delivered and not delivered:
 		emit_signal("signal_delivered", self, false)
 		if not is_bird: $UndeliveredSound.play()
-		
-		
+
+
 	# BECOMING BOSS BOX!!!!
 	if enlarging:
 		enlarge_t += delta * .15
@@ -454,7 +457,7 @@ func face_pulled(face):
 	if enlarging: return
 	if moving(): return
 	
-	$moveTriggerTimer.start()
+	if not is_bird: $moveTriggerTimer.start()
 	
 	match face:
 		Face.X_PLUS:
@@ -566,19 +569,23 @@ func become_fowl():
 	flesh.swap_to_bird_head()
 	bird_brain  = RandomNumberGenerator.new()
 	
-	rotation = Vector3.ZERO # Birds placed inside other scenes can start with non zero rotation
 
+var tried_bird_move = 10
 func fly(delta):
 	bird_t -= delta
 	if bird_was_still:
 		if velocity == Vector3.ZERO:
 			# still still
-			if bird_t <= 0:
+			if tried_bird_move > 0:
+				tried_bird_move -= 1
+			elif bird_t <= 0:
 				bird_t = 0
 				var face = bird_brain.randi_range(Face.X_PLUS, Face.Z_MINUS)
 				face_pulled(face)
+				tried_bird_move = 10
 		else:
+			tried_bird_move = 0
 			bird_was_still = false
-			bird_t = bird_brain.randf_range(0, 1)
+			bird_t = bird_brain.randf_range(0, 5)
 	elif velocity == Vector3.ZERO:
 		bird_was_still = true
