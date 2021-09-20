@@ -98,23 +98,24 @@ func _process(_delta):
 			reset_puzzle(no_lerp)
 		if Input.is_action_just_pressed("skip_puzzle"):
 			# Open the door
-			var door = current_puzzle.get_node("Door")
+			var door = current_puzzle.get_node_or_null("Door")
 			if door != null:
 				door.skipped = true
 			
-			# Put you in the next puzzle
-			var par = current_puzzle.get_parent()
-			var found = false
-			for child in par.get_children():
-				if child is PuzzleRoot:
-					if found:
-						register_puzzle(child)
-						# Puts player at spawn of next puzzle
-						var with_lerp = true
-						reset_puzzle(with_lerp)
-						break
-					if child == current_puzzle:
-						found = true
+			if current_puzzle.teleport_skip:
+				# Put you in the next puzzle
+				var par = current_puzzle.get_parent()
+				var found = false
+				for child in par.get_children():
+					if child is PuzzleRoot:
+						if found:
+							register_puzzle(child)
+							# Puts player at spawn of next puzzle
+							var with_lerp = true
+							reset_puzzle(with_lerp)
+							break
+						if child == current_puzzle:
+							found = true
 			
 func reset_puzzle(with_lerp):
 	var cubio = get_tree().root.get_node("Root/Cubio")
@@ -190,6 +191,10 @@ func ease_out_quad(x):
 
 func ease_in_quad(x):
 	return x * x
+	
+func ease_in_out_quad(x):
+	if x < 0.5:  return ease_in_quad(x*2)*0.5
+	else:  return ease_out_quad((x-0.5)*2)*0.5+0.5
 
 func register_puzzle(new_puzzle):
 	if current_puzzle != null:

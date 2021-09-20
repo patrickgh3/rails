@@ -267,8 +267,9 @@ func _input(event):
 			if my_box == null and is_on_floor():
 				box_form()
 			else:
-				if my_box.velocity == Vector3.ZERO:
-					unbox()
+				if my_box != null:
+					if my_box.velocity == Vector3.ZERO:
+						unbox()
 					
 	if event.is_action_pressed("sprint"):
 		speed = SPRINTING_SPEED
