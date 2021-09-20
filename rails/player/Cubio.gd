@@ -70,7 +70,7 @@ var my_box
 
 var camera_offset_t
 var target_camera_offset
-var transitioning_camera_offset = false
+var lerping_cam = false
 var last_camera_offset
 var warping_cam
 
@@ -139,21 +139,21 @@ func _process(delta):
 		translation = my_box.get_world_center()
 		
 		
-	#if transitioning_camera_offset:
-	if camera.translation != target_camera_offset:
+	if lerping_cam:
 		var cam_lerp_speed = 3
 		if warping_cam: cam_lerp_speed = .5
 		camera_offset_t += delta * cam_lerp_speed
 		if camera_offset_t > 1:
 			if warping_cam: print ("Done warping")
 			warping_cam = false
+			lerping_cam = false
 			camera_offset_t = 1
 			camera.translation = target_camera_offset
 		else:
 			var y = lerp (last_camera_offset.y, target_camera_offset.y, camera_offset_t)
 			var z = lerp (last_camera_offset.z, target_camera_offset.z, camera_offset_t)
 			camera.translation = Vector3(0, y, z)
-			transitioning_camera_offset = false
+
 			
 	# Restart puzzle if you fall too far
 	if translation.y < -13:
@@ -352,6 +352,7 @@ func stand_up():
 		var screen_rect = sprite.get_viewport_rect()
 		var node = sprite as Node2D
 		
+		lerping_cam = true
 		camera_offset_t = 0
 		last_camera_offset = camera.translation
 		if first_person:
@@ -360,8 +361,6 @@ func stand_up():
 		else:
 			node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 3 / 5)
 			target_camera_offset = CAM_OFFSET3
-			
-		transitioning_camera_offset = true
 		
 		
 func crouch():
@@ -376,6 +375,7 @@ func crouch():
 	var screen_rect = sprite.get_viewport_rect()
 	var node = sprite as Node2D
 	
+	lerping_cam = true
 	camera_offset_t = 0
 	last_camera_offset = camera.translation
 	if not my_box == null:
@@ -388,7 +388,6 @@ func crouch():
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
 		target_camera_offset = CAM_CROUCH_OFFSET3
 		
-	transitioning_camera_offset = true
 	
 func third_person_cam():
 	first_person = false
@@ -500,8 +499,8 @@ func window_resized():
 	else: third_person_cam()
 
 
-func warp(with_cam_lerp, new_transform):
-	var old_camera_pos = camera.global_transform.origin
+func warp(_with_cam_lerp, new_transform):
+	var _old_camera_pos = camera.global_transform.origin
 	transform = new_transform
 	# Move the player out from in the ground, to avoid stutter for 1 frame
 	# This number 0.451 is from inspecting the player's actual y translation
