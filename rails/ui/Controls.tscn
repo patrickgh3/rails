@@ -42,9 +42,9 @@ __meta__ = {
 
 [node name="InstructionsLabel" type="Label" parent="Panel/MarginContainer"]
 margin_left = 20.0
-margin_top = 119.0
+margin_top = 97.0
 margin_right = 1352.0
-margin_bottom = 589.0
+margin_bottom = 610.0
 text = "CONTROLS
 
 WASD - Move
@@ -55,7 +55,8 @@ R - Reset puzzle
 K - Skip current puzzle
 B - ???
 Esc - open/close menu
-Space - jump"
+Space - jump
+F - Fullscreen toggle"
 align = 1
 autowrap = true
 
