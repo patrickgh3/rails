@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ui/Credits.gd" type="Script" id=1]
-[ext_resource path="res://sounds/music/wind loop 1.wav" type="AudioStream" id=2]
-[ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=3]
-[ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/MenuBackground.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/ui-theme.tres" type="Theme" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -90,35 +88,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Camera" type="Camera" parent="bg"]
-transform = Transform( 0.452723, -0.420617, 0.786208, 0.0399343, 0.890424, 0.453376, -0.890757, -0.173857, 0.419912, 53.1085, 33.5146, 147.902 )
-
-[node name="Fog" parent="bg" instance=ExtResource( 4 )]
-transform = Transform( 1, -1.19209e-07, 0, -2.98023e-08, 1, 5.96046e-08, -1.78814e-07, -5.96046e-08, 1, 9.53674e-06, 7.62939e-06, -69.7919 )
-length = 20
-width = 20
-
-[node name="MiscGrounds" type="Spatial" parent="bg"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 241.316, 0, 0 )
-
-[node name="Ground12" parent="bg/MiscGrounds" instance=ExtResource( 3 )]
-transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -239.039, -114.688, 118.421 )
-
-[node name="Ground16" parent="bg/MiscGrounds" instance=ExtResource( 3 )]
-transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -241.686, -52, 8.40338 )
-
-[node name="Ground18" parent="bg/MiscGrounds" instance=ExtResource( 3 )]
-transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -351, -52, 160 )
-
-[node name="Ground27" parent="bg/MiscGrounds" instance=ExtResource( 3 )]
-transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -216.082, -120.193, 99.6778 )
-
-[node name="Wind" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
-autoplay = true
-bus = "Sfx"
+[node name="bg" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]

@@ -26,7 +26,7 @@ const CAM_CROUCH_OFFSET3 = Vector3(0, 2, 4)
 const CAM_BOX_FORM_OFFSET3 = Vector3(0, .5, 3)
 const CAM_OFFSET1 = Vector3(0, 0, 0)
 
-
+const SPOTLIGHT_DIST_SQ = 40*40
 
 onready var shape = $CollisionShape
 onready var cam_root = $CamRoot
@@ -43,7 +43,7 @@ const LEAN_MULT : float = 0.066
 const LEAN_AMOUNT : float = 0.7
 
 
-var self_aware = true # @DEBUG the boss should turn this true?
+var self_aware = true # @DEBUG
 
 var boss
 var speed = WALKING_SPEED
@@ -73,6 +73,7 @@ var target_camera_offset
 var lerping_cam = false
 var last_camera_offset
 var warping_cam
+var spotlight_t = 0
 
 func _enter_tree():
 	add_to_group("Player")
@@ -104,6 +105,14 @@ func _ready():
 	
 	
 func _process(delta):
+	spotlight_t -= delta
+	if spotlight_t < 0:
+		spotlight_t = 1
+		for spot in get_tree().get_nodes_in_group("Spotlights"):
+			if (translation - spot.global_transform.origin).length_squared() > SPOTLIGHT_DIST_SQ:
+				spot.hide()
+			else:
+				 spot.show()
 	
 	debug_marker.translation = translation
 	
@@ -317,7 +326,6 @@ func try_highlight_box ():
 					highlight.scale.x = 2 * highlight_info.dirs[0].length()
 					highlight.scale.y = 2 * highlight_info.dirs[1].length()
 					turn_on_highlight = true
-			
 	if turn_on_highlight:
 		highlight.show()
 	else: highlight.hide()

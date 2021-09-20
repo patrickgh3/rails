@@ -1,0 +1,117 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/GroundAligned.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fog/Fog.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sounds/music/wind loop 1.wav" type="AudioStream" id=5]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.0588235, 0.0588235, 0.172549, 1 )
+sky_horizon_color = Color( 0.0588235, 0.0588235, 0.172549, 1 )
+ground_bottom_color = Color( 0.0588235, 0.0588235, 0.172549, 1 )
+ground_horizon_color = Color( 0.0588235, 0.0588235, 0.172549, 1 )
+sun_color = Color( 0.384314, 0.278431, 0.568627, 1 )
+sun_longitude = -65.27
+sun_angle_min = 2.0
+sun_angle_max = 40.0
+sun_curve = 0.136604
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 0.0588235, 0.0588235, 0.172549, 1 )
+ambient_light_color = Color( 0.654902, 0.654902, 0.654902, 1 )
+ambient_light_sky_contribution = 0.55
+fog_enabled = true
+fog_color = Color( 0.0588235, 0.0588235, 0.172549, 1 )
+fog_sun_color = Color( 1, 0.901961, 0.701961, 1 )
+fog_depth_begin = 40.0
+fog_depth_end = 150.0
+fog_depth_curve = 0.784584
+tonemap_mode = 3
+ssao_intensity = 5.13
+dof_blur_far_distance = 40.0
+glow_intensity = 0.5
+glow_bloom = 0.15
+glow_blend_mode = 0
+adjustment_enabled = true
+
+[sub_resource type="Animation" id=3]
+length = 6.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector3( 53.1085, 8.41006, 147.902 ), Vector3( 58.2377, 10.0714, 144.214 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 4 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector3( 14.395, 87, 7.379 ), Vector3( 12.865, 83, 1.896 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../SpotLight:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2, 5 ),
+"transitions": PoolRealArray( -2, -2 ),
+"update": 0,
+"values": [ Vector3( 19.3438, 51.7292, 95.9598 ), Vector3( 19.3438, 51.7292, 61.9932 ) ]
+}
+
+[node name="bg" type="CanvasLayer"]
+layer = 0
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.996157, -0.0799933, 0.0356711, -0.0788871, -0.642484, 0.762228, -0.038055, -0.762113, -0.646325, 19.3438, 51.7292, 71.1264 )
+light_color = Color( 0.117647, 0.658824, 0.894118, 1 )
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 105.13
+spot_angle = 32.0321
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.36176, 0.178769, 0.914971, 0.0832973, 0.971319, -0.222712, -0.928543, 0.156783, 0.336493, 57.3145, 9.77233, 144.878 )
+environment = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera"]
+autoplay = "default"
+anims/default = SubResource( 3 )
+
+[node name="Fog" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, -1.19209e-07, 0, -2.98023e-08, 1, 5.96046e-08, -1.78814e-07, -5.96046e-08, 1, 9.53674e-06, 7.62939e-06, -69.7919 )
+length = 20
+width = 20
+
+[node name="MiscGrounds" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 241.316, 0, 0 )
+
+[node name="Ground12" parent="MiscGrounds" instance=ExtResource( 2 )]
+transform = Transform( 24, 0, 0, 0, 120, 0, 0, 0, 60, -239.039, -114.688, 118.421 )
+
+[node name="Ground16" parent="MiscGrounds" instance=ExtResource( 2 )]
+transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -258.214, -52, 8.40338 )
+
+[node name="Ground18" parent="MiscGrounds" instance=ExtResource( 2 )]
+transform = Transform( 60, 0, 0, 0, 120, 0, 0, 0, 60, -332.233, -52, 174.972 )
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Sfx"
