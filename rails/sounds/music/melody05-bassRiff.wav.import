@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/melody05-bassRiff.wav-bbe03b07232e9e62aff0c2db39cfcf1e.sample"
+
+[deps]
+
+source_file="res://sounds/music/melody05-bassRiff.wav"
+dest_files=[ "res://.import/melody05-bassRiff.wav-bbe03b07232e9e62aff0c2db39cfcf1e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

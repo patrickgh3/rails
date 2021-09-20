@@ -69,7 +69,7 @@ func _process(_delta):
 		
 	if fading_to_white:
 		white_fade_t += _delta * 0.12
-		white_fade.color.a = lerp(0, 1, white_fade_t*1.15)
+		white_fade.color.a = lerp(0, 1, white_fade_t*1.3)
 		if white_fade_t >= 1:
 			white_fade.hide()
 			var _a = get_tree().change_scene("res://ui/MainMenu.tscn")

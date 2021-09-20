@@ -471,15 +471,15 @@ func box_form():
 	
 	
 	# Check for box forming ontop of boss
-	var space_state = get_world().direct_space_state
-	var from = shape.global_transform.origin
-	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
-	var something_below = space_state.intersect_ray(from, to, [shape])
-	if something_below.collider is Box:
-		var box_below = something_below.collider as Box
-		if box_below.is_the_boss:
-			print ("boxformed on boss, added to employees")
-			my_box.add_to_group("Employees")
+#	var space_state = get_world().direct_space_state
+#	var from = shape.global_transform.origin
+#	var to = shape.global_transform.origin - shape.global_transform.basis.y.normalized() * 1
+#	var something_below = space_state.intersect_ray(from, to, [shape])
+#	if something_below.collider is Box:
+#		var box_below = something_below.collider as Box
+#		if box_below.is_the_boss:
+#			print ("boxformed on boss, added to employees")
+#			my_box.add_to_group("Employees")
 		
 	# Check for boxforming on rail that is attached to box
 	if not my_box.is_in_group("Employees"):
