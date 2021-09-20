@@ -42,8 +42,8 @@ const LEAN_SMOOTH : float = 10.0
 const LEAN_MULT : float = 0.066
 const LEAN_AMOUNT : float = 0.7
 
-
-var self_aware = true # @DEBUG
+var debug_commands = false
+var self_aware = false
 
 var boss
 var speed = WALKING_SPEED
@@ -238,7 +238,24 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		var pause_menu = preload("res://ui/PauseMenu.tscn").instance()
 		get_tree().current_scene.add_child(pause_menu)
-	
+		
+	if Input.is_key_pressed(KEY_QUOTELEFT):
+		debug_commands = !debug_commands
+		
+	if debug_commands:
+		if event is InputEventKey:
+			if event.scancode == KEY_M and event.is_pressed():
+				toggle_cursor ()
+					
+		if event is InputEventKey:
+			if event.scancode == KEY_3 and event.is_pressed():
+				third_person_cam()
+				
+		if event is InputEventKey:
+			if event.scancode == KEY_1 and event.is_pressed():
+				first_person_cam()
+				
+		
 	if mouse_captured:
 		if event is InputEventMouseMotion:
 			rotate_y(deg2rad(event.relative.x * MOUSE_SENSITIVITY * -1))
@@ -246,8 +263,7 @@ func _input(event):
 			$CamRoot.rotate_x(deg2rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 			$CamRoot.rotation_degrees.x = clamp($CamRoot.rotation_degrees.x, -80, 80)
 			
-	if event is InputEventKey:
-		if event.scancode == KEY_B and event.is_pressed() and self_aware:
+	if event.is_action_pressed("boxform") and (self_aware or debug_commands):
 			if my_box == null and is_on_floor():
 				box_form()
 			else:
@@ -260,24 +276,6 @@ func _input(event):
 		speed = WALKING_SPEED
 					
 	
-	if event is InputEventKey:
-		if event.scancode == KEY_M and event.is_pressed():
-			toggle_cursor ()
-				
-				
-	if event is InputEventKey:
-		if event.scancode == KEY_H and event.is_pressed():
-			remove_child(highlight)
-			get_parent().add_child(highlight)
-			
-	if event is InputEventKey:
-		if event.scancode == KEY_3 and event.is_pressed():
-			third_person_cam()
-			
-	if event is InputEventKey:
-		if event.scancode == KEY_1 and event.is_pressed():
-			first_person_cam()
-				
 func toggle_cursor ():
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
