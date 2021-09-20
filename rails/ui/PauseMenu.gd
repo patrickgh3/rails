@@ -3,7 +3,11 @@ extends Control
 var old_mouse_mode
 
 
+const OPTIONS_X_PERCENT = 0.573041
+const MARGINS_CONTAINER_X_PERCENT = 0.1722
+
 func _ready():
+	
 	old_mouse_mode = Input.get_mouse_mode()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
@@ -15,6 +19,14 @@ func _ready():
 	
 	# Load move counter config
 	$Options/MoveCounterCheckbox.pressed = Config.show_move_counter
+	
+	var butt_x = get_viewport().size.x * OPTIONS_X_PERCENT
+	$MainButtons.rect_position = Vector2(butt_x, $MainButtons.rect_position.y)
+	$Options.rect_position = Vector2(butt_x, $Options.rect_position.y)
+	
+	var marg_x = get_viewport().size.x * MARGINS_CONTAINER_X_PERCENT
+	$MarginContainer.rect_position = Vector2(marg_x, $MarginContainer.rect_position.y)
+
 
 
 func _on_PauseMenu_tree_exiting():

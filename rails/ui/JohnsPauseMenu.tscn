@@ -103,7 +103,6 @@ margin_left = 275.589
 margin_top = 178.272
 margin_right = -810.411
 margin_bottom = -170.728
-mouse_filter = 2
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
