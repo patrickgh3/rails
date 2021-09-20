@@ -72,7 +72,10 @@ func _process(_delta):
 		white_fade.color.a = lerp(0, 1, white_fade_t*1.3)
 		if white_fade_t >= 1:
 			white_fade.hide()
-			var _a = get_tree().change_scene("res://ui/MainMenu.tscn")
+			var ending_scene = load("res://ui/Ending.tscn").instance()
+			get_tree().current_scene.add_child(ending_scene)
+			
+			#var _a = get_tree().change_scene("res://ui/Ending.tscn")
 
 
 func _physics_process(delta):

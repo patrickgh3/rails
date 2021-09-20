@@ -126,6 +126,7 @@ __meta__ = {
 visible = false
 margin_right = 9161.0
 margin_bottom = 5015.0
+mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -957,12 +958,12 @@ spot_range = 12.0
 
 [node name="BossPoster2" parent="04 Pack" instance=ExtResource( 16 )]
 transform = Transform( -6.55671e-08, 0, 2, 0, 1.5, 0, -1.5, 0, -8.74228e-08, -7.95, 1.5, 0 )
-message = "Press R to reset."
-pos = Vector2( 80, 55 )
+message = "Press R to reset puzzle."
+pos = Vector2( 85, 55 )
 
 [node name="BossPoster3" parent="04 Pack" instance=ExtResource( 16 )]
 transform = Transform( -1.5, 0, 3.01992e-07, 0, 1.5, 0, -2.26494e-07, 0, -2, -1, 1.5, 7.95 )
-message = "Press K to skip."
+message = "Press K to skip puzzle."
 pos = Vector2( 85, 55 )
 
 [node name="05 Axes" type="Spatial" parent="."]
@@ -6043,6 +6044,7 @@ melody_02_guitar_harmonics = true
 melody_03_piano_keys = true
 melody_04_bell_arpeggios = true
 melody_05_bass_riff = true
+debug_spawn_here = true
 final_level = true
 teleport_skip = true
 
@@ -9052,19 +9054,6 @@ visible = false
 mesh = SubResource( 8 )
 material/0 = SubResource( 9 )
 
-[node name="EndingTrigger2" type="Spatial" parent="23 TheOffice"]
-transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, 22, 1, 6 )
-
-[node name="Spatial" type="Spatial" parent="23 TheOffice/EndingTrigger2"]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 )
-
-[node name="Area" type="Area" parent="23 TheOffice/EndingTrigger2/Spatial"]
-
-[node name="MeshInstance" type="MeshInstance" parent="23 TheOffice/EndingTrigger2/Spatial"]
-visible = false
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
-
 [node name="Box4" parent="23 TheOffice" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 41, 3 )
 always_delivered_hack = true
@@ -9141,4 +9130,3 @@ spot_angle = 60.0
 [connection signal="open_roof" from="Boss" to="23 TheOffice/Roof2" method="_on_Boss_open_roof"]
 [connection signal="body_entered" from="23 TheOffice/BossHelloTrigger/Spatial/Area" to="Boss" method="_on_Area_body_entered_BossHelloTrigger"]
 [connection signal="body_entered" from="23 TheOffice/EndingTrigger/Spatial/Area" to="Boss" method="_on_Area_body_entered_EndingTrigger"]
-[connection signal="body_entered" from="23 TheOffice/EndingTrigger2/Spatial/Area" to="Boss" method="_on_Area_body_entered_EndingTrigger"]
