@@ -98,7 +98,7 @@ func _process(_delta):
 			reset_puzzle(no_lerp)
 		if Input.is_action_just_pressed("skip_puzzle"):
 			# Open the door
-			var door = current_puzzle.get_node("Door")
+			var door = current_puzzle.get_node_or_null("Door")
 			if door != null:
 				door.skipped = true
 			

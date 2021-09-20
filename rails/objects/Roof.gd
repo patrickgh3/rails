@@ -33,3 +33,4 @@ func _process(delta):
 func _on_Boss_open_roof():
 	opening = true
 	t = 0
+	$"RoofGround/AudioStreamPlayer".play()
