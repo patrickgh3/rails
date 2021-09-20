@@ -31,6 +31,7 @@ func set_show_move_counter(value):
 
 
 func show_move_counter_ui():
-	if $"/root".find_node("MovesLabel"):
-		$"/root".find_node("MovesLabel").visible = Config.show_move_counter
-		$"/root".find_node("TotalMovesLabel").visible = Config.show_move_counter
+	var scene = get_tree().current_scene
+	if scene.find_node("MovesLabel"):
+		scene.find_node("MovesLabel").visible = Config.show_move_counter
+		scene.find_node("TotalMovesLabel").visible = Config.show_move_counter

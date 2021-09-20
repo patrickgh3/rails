@@ -109,7 +109,8 @@ func _process(delta):
 	
 	# Press Esc to quit
 	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().quit()
+		var pause_menu = preload("res://ui/PauseMenu.tscn").instance()
+		get_tree().current_scene.add_child(pause_menu)
 	
 	if Input.is_action_just_pressed("left_click"):
 		try_pull_box(false)
