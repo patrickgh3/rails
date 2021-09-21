@@ -2,6 +2,8 @@ extends KinematicBody
 
 class_name Cubio
 
+export(float) var standing_on_boss_offset = 6.5
+
 # Constant variables for Movement
 const WALKING_SPEED = 5
 const SPRINTING_SPEED = 10
@@ -47,6 +49,7 @@ var debug_commands = false
 var self_aware = false
 
 var boss
+var on_the_boss
 var speed = WALKING_SPEED
 var velocity: Vector3
 var dir: Vector3
@@ -149,7 +152,11 @@ func _process(delta):
 		
 	if not my_box == null:
 		translation = my_box.get_world_center()
-		
+	
+	if on_the_boss:
+		if boss.moving():
+			global_transform.origin = boss.global_transform.origin + Vector3(3, standing_on_boss_offset, 3)
+			
 		
 	if lerping_cam:
 		var cam_lerp_speed = 3
@@ -255,11 +262,12 @@ func _physics_process(delta):
 	# warning-ignore:return_value_discarded
 	if launch_box == null:
 		move_and_slide_with_snap(movement, snap, Vector3.UP)
-
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		print ("collision.colllider.name ", collision.collider.name)
-
+	
+	if boss != null:
+		if not boss.moving():
+			check_on_top_of_boss()
+	else: on_the_boss = false
+	
 func _input(event):
 	# Press Esc to pause
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -526,6 +534,19 @@ func box_form():
 	# Check for boxforming on rail that is attached to box
 	if not my_box.is_in_group("Employees"):
 		my_box.check_for_rail_attached_to_boss()
+		
+		
+func check_on_top_of_boss():
+	var space_state = get_world().direct_space_state
+	var from = global_transform.origin
+	var to = global_transform.origin + Vector3.DOWN
+	var result = space_state.intersect_ray(from, to, [shape])
+	
+	on_the_boss = false
+	if result:
+		if result.collider is Box:
+			if result.collider.is_the_boss:
+				on_the_boss = true
 	
 func unbox():
 	if not my_box == null:
