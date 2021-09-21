@@ -43,7 +43,7 @@ onready var white_fade = $"/root/Root/hud".find_node("WhiteFade")
 var white_fade_t = 0
 
 func _enter_tree():
-	add_to_group("Boss")
+	if not is_in_group("Boss"): add_to_group("Boss")
 
 func _ready():
 	body.third_person()

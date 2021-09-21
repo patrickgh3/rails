@@ -45,7 +45,7 @@ var initial_rotation
 var flesh
 
 func _enter_tree():
-	add_to_group("Boxes")
+	if not is_in_group("Boxes"): add_to_group("Boxes")
 
 func _ready():
 	initial_translation = translation

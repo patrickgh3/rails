@@ -8,6 +8,8 @@ var rails_just_halted_timer = 0
 var rails_just_departed = Array()
 var rails_just_departed_timer = 0
 
+
+
 # Track the total number of moves used in all puzzles
 # See PuzzleRoot for moves in the current puzzle
 var total_moves = 0
@@ -30,10 +32,12 @@ onready var music_max_db = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 onready var rng = RandomNumberGenerator.new()
 onready var master_controller = get_parent().name == "Root"
 onready var root_puzzle = get_parent()
+onready var world = $"/root/Root"
+
 var current_puzzle = null
 
 func _ready():
-		
+	
 	for box in get_tree().get_nodes_in_group("Boxes"):
 		if get_parent().is_a_parent_of(box):
 			boxes.append(box)
@@ -196,13 +200,18 @@ func ease_in_quad(x):
 func ease_in_out_quad(x):
 	if x < 0.5:  return ease_in_quad(x*2)*0.5
 	else:  return ease_out_quad((x-0.5)*2)*0.5+0.5
+	
+	
 
 func register_puzzle(new_puzzle):
+	
 	if current_puzzle != null:
 		for rail in current_puzzle.get_node("Controller").rails:
 			rail.set_current_puzzle(false)
 	
-	current_puzzle = new_puzzle
+	if current_puzzle != new_puzzle:
+		current_puzzle = new_puzzle
+		world.set_current_puzzle(current_puzzle)
 	
 	for rail in current_puzzle.get_node("Controller").rails:
 		rail.set_current_puzzle(true)
@@ -220,7 +229,6 @@ func register_puzzle(new_puzzle):
 	
 	update_ui()
 	
-
 func update_ui():
 	if not current_puzzle:
 		return

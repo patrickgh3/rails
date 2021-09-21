@@ -5,7 +5,7 @@ class_name Cubio
 # Constant variables for Movement
 const WALKING_SPEED = 5
 const SPRINTING_SPEED = 10
-const GRAVITY = 50
+var GRAVITY = 50
 const JUMP = 5
 const FALL_MULTY = 0.5
 const JUMP_MULTY = 0.9
@@ -42,6 +42,7 @@ const LEAN_SMOOTH : float = 10.0
 const LEAN_MULT : float = 0.066
 const LEAN_AMOUNT : float = 0.7
 
+var dev_cheat = true # false #@BUILD @DEBUG
 var debug_commands = false
 var self_aware = false
 
@@ -79,9 +80,13 @@ var warping_cam
 var spotlight_t = 0
 
 func _enter_tree():
-	add_to_group("Player")
+	if not is_in_group("Player"): add_to_group("Player")
 
 func _ready():
+	
+	if dev_cheat:
+		self_aware = true
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	stand_up()
@@ -180,6 +185,8 @@ func _physics_process(delta):
 	
 		# 	warning: probably not good to just set positino of the kinematic body now
 	if Input.is_action_just_pressed("crouch"):
+		if debug_commands:
+			translation -= Vector3.UP
 		if crouching: stand_up()
 		elif first_person: crouch()
 	
@@ -220,11 +227,17 @@ func _physics_process(delta):
 		accel = ACCEL_TYPE["air"]
 		gravity_vec += Vector3.DOWN * GRAVITY * delta
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		do_jump ()
-		
-	if hit_launch_pad:
-		do_launch()
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or debug_commands):
+		if debug_commands:
+			GRAVITY = 0
+			translation += Vector3.UP
+		else: 
+			GRAVITY = 50
+			do_jump ()
+			
+	if launch_box != null:
+		if !launch_box.moving():
+			do_launch()
 		
 	# Moving
 	if crouching:
@@ -243,6 +256,9 @@ func _physics_process(delta):
 	if launch_box == null:
 		move_and_slide_with_snap(movement, snap, Vector3.UP)
 
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		print ("collision.colllider.name ", collision.collider.name)
 
 func _input(event):
 	# Press Esc to pause
@@ -253,7 +269,7 @@ func _input(event):
 	if Input.is_key_pressed(KEY_QUOTELEFT):
 		debug_commands = !debug_commands
 		
-	if debug_commands:
+	if dev_cheat or debug_commands:
 		if event is InputEventKey:
 			if event.scancode == KEY_M and event.is_pressed():
 				toggle_cursor ()
@@ -439,6 +455,8 @@ func do_jump():
 	
 func do_launch():
 	launched = true
+	var launch_area = launch_box.get_node("Area")
+	launch_area.launched_cubio()
 	hit_launch_pad = false
 	launch_box = null
 	snap = Vector3.ZERO
@@ -449,13 +467,14 @@ func do_launch():
 func try_launch():
 	if not launch_box == null:
 		hit_launch_pad = true
-		
 
 func hit_moving_launchbox(hit_launch_box):
 	if not launched and launch_box == null:
 		launch_box = hit_launch_box
 		launch_box_offset = translation - launch_box.translation
-		
+		var launch_area = launch_box.get_node("Area")
+		launch_area.disable_shapes()
+		print ("hit moving launchbox with launch_box_offset: ", launch_box_offset)
 		
 		
 func box_form():
@@ -524,8 +543,9 @@ func unbox():
 	my_box = null
 	
 func register_puzzle(enter_puzzle_trigger):
-	controller.current_puzzle = enter_puzzle_trigger.get_parent()
-
+	print ("cubio's register puzzle called")
+	controller.set_current_puzzle(enter_puzzle_trigger.get_parent())
+	
 
 func window_resized():
 	if first_person: first_person_cam()

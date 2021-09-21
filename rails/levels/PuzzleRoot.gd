@@ -1,6 +1,9 @@
 extends Spatial
 class_name PuzzleRoot
 
+export(int) var area_num = 0
+export(int) var transition_num = 0
+
 export(bool) var wind = false
 export(bool) var root_01_piano = false
 export(bool) var root_02_deep = false
@@ -22,15 +25,19 @@ export(bool) var teleport_skip = false
 var move_counter = 0
 
 func _ready():
-	if debug_spawn_here:
-		print("Notice: starting the player at puzzle "+name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
+	var world = $"/root/Root"
+	world.add_puzzle(self)
+	
+	if debug_spawn_here and OS.is_debug_build():
 		var controller = $"/root/Root/Controller"
+		print("Notice: starting the player at puzzle "+name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
 		controller.register_puzzle(self)
 		controller.reset_puzzle(false)
 		
 	if final_level:
 		hide_children_final_level(self, true)
 			
+
 func hide_children_final_level(node, hide):
 	for n in node.get_children():
 		if n is Spatial and n.translation.y > 10:
