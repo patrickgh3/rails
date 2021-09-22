@@ -22,20 +22,19 @@ var stratosphere = null
 var regions = [null, null, null, null, null, null]
 
 func _ready():
-	warehouse = preload("res://regions/Warehouse.tscn")
-	platforms = preload("res://regions/Platforms.tscn")
-	longjump = preload("res://regions/LongJump.tscn")
-	cliffs = preload("res://regions/Cliffs.tscn")
-	stratosphere = preload("res://regions/Office.tscn")
-	
-	regions[PuzzleRegion.WAREHOUSE] = instance_puzzle_region_scene(PuzzleRegion.WAREHOUSE)
-	print ("regions[1]: ", regions[1])
-	print ("regions[1] == null: ", regions[1] == null)
-	print ("regions[PuzzleRegion.WAREHOUSE]: ", regions[PuzzleRegion.WAREHOUSE])
-	print ("regions[PuzzleRegion.WAREHOUSE] == null: ", regions[PuzzleRegion.WAREHOUSE] == null)
-	print ("world done readying")
+	if do_dynamic_loading:
+		warehouse = preload("res://regions/Warehouse.tscn")
+		platforms = preload("res://regions/Platforms.tscn")
+		longjump = preload("res://regions/LongJump.tscn")
+		cliffs = preload("res://regions/Cliffs.tscn")
+		stratosphere = preload("res://regions/Office.tscn")
+		regions[PuzzleRegion.WAREHOUSE] = instance_puzzle_region_scene(PuzzleRegion.WAREHOUSE)
+
 
 func set_current_puzzle(new_puzzle):
+	
+	if not do_dynamic_loading:
+		return
 	
 	if current_puzzle == new_puzzle:
 		print ("same puzzle")

@@ -33,7 +33,6 @@ albedo_color = Color( 1, 0.392157, 0.964706, 0.556863 )
 
 [node name="Root" type="Spatial"]
 script = ExtResource( 20 )
-do_dynamic_loading = true
 
 [node name="hud" type="CanvasLayer" parent="."]
 
