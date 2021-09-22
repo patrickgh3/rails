@@ -15,6 +15,7 @@
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -638, -1, 4 )
 script = ExtResource( 4 )
 area_num = 4
+transition_num = 1
 wind = true
 root_01_piano = true
 root_02_deep = true

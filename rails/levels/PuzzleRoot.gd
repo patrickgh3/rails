@@ -1,6 +1,7 @@
 extends Spatial
 class_name PuzzleRoot
 
+export(int) var num = 0
 export(int) var area_num = 0
 export(int) var transition_num = 0
 
@@ -24,9 +25,12 @@ export(bool) var teleport_skip = false
 # See Controller for total overall moves in all puzzles
 var move_counter = 0
 onready var controller = $Controller
+onready	var world = get_node("/root/Root")
 
 func _ready():
-	var world = get_node("/root/Root")
+	num = name.left(2).to_int()
+	world.extant_puzzles[num] = self
+	
 	if debug_spawn_here and OS.is_debug_build() and !world.do_dynamic_loading:
 		var master_controller = $"/root/Root/Controller"
 		print("Notice: starting the player at puzzle " +name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
@@ -48,3 +52,4 @@ func hide_children_final_level(node, hide):
 
 func tree_exited():
 	print (name, " exited tree")
+	world.extant_puzzles[num] = null

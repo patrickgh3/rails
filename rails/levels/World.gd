@@ -20,8 +20,16 @@ var cliffs = null
 var stratosphere = null
 
 var regions = [null, null, null, null, null, null]
+var extant_puzzles = []
+
+func _enter_tree():
+	# Only really need 23 slots for the 23 puzzles, but what the heck!
+	for _n in range(0, 50):
+		extant_puzzles.append(null)
+	print ("World extant puzzles length ", extant_puzzles.size())
 
 func _ready():
+		
 	if do_dynamic_loading:
 		warehouse = preload("res://regions/Warehouse.tscn")
 		platforms = preload("res://regions/Platforms.tscn")
@@ -29,6 +37,7 @@ func _ready():
 		cliffs = preload("res://regions/Cliffs.tscn")
 		stratosphere = preload("res://regions/Office.tscn")
 		regions[PuzzleRegion.WAREHOUSE] = instance_puzzle_region_scene(PuzzleRegion.WAREHOUSE)
+
 
 
 func set_current_puzzle(new_puzzle):
