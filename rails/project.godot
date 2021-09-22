@@ -57,10 +57,6 @@ Config="*res://Config.gd"
 window/size/width=1600
 window/size/height=900
 
-[editor_plugins]
-
-enabled=PoolStringArray( "res://addons/ridiculous_coding/plugin.cfg" )
-
 [global]
 
 gravity=false

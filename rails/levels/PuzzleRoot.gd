@@ -25,14 +25,12 @@ export(bool) var teleport_skip = false
 var move_counter = 0
 
 func _ready():
-	var world = $"/root/Root"
-	world.add_puzzle(self)
-	
-	if debug_spawn_here and OS.is_debug_build():
-		var controller = $"/root/Root/Controller"
-		print("Notice: starting the player at puzzle "+name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
-		controller.register_puzzle(self)
-		controller.reset_puzzle(false)
+	print (name, " is readying!")
+#	if debug_spawn_here and OS.is_debug_build():
+#		var controller = $"/root/Root/Controller"
+#		print("Notice: starting the player at puzzle " +name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
+#		controller.register_puzzle(self)
+#		controller.reset_puzzle(false)
 		
 	if final_level:
 		hide_children_final_level(self, true)
@@ -46,3 +44,6 @@ func hide_children_final_level(node, hide):
 			else:
 				n.show()
 		hide_children_final_level(n, hide)
+
+func tree_exited():
+	print (name, " exited tree")

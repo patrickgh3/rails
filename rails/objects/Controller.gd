@@ -123,7 +123,21 @@ func _process(_delta):
 							found = true
 			
 func reset_puzzle(with_lerp):
+	if current_puzzle == null:
+		print ("no current puzzle on this controller")
+		if master_controller:
+			
+			current_puzzle = get_parent().current_puzzle
+			if current_puzzle == null: 
+				return
+				
+				
+		else: return
+	
+	print ("resetting ", current_puzzle)
+	
 	var cubio = get_tree().root.get_node("Root/Cubio")
+	
 	var spawn = current_puzzle.get_node_or_null("CubioSpawn")
 	var controller = current_puzzle.get_node("Controller")
 	var door = current_puzzle.get_node_or_null("Door")
