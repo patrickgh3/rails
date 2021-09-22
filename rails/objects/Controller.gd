@@ -116,7 +116,7 @@ func _process(_delta):
 						var with_lerp = true
 						reset_puzzle(with_lerp)
 					else:
-						printerr ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
+						print ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
 				else:
 					# Put you in the next puzzle
 					var par = current_puzzle.get_parent()
@@ -136,7 +136,6 @@ func reset_puzzle(with_lerp):
 	if current_puzzle == null:
 		print ("no current puzzle on this controller")
 		if master_controller:
-			
 			current_puzzle = get_parent().current_puzzle
 			if current_puzzle == null: 
 				return

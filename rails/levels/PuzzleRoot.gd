@@ -31,7 +31,7 @@ func _ready():
 	num = name.left(2).to_int()
 	world.extant_puzzles[num] = self
 	
-	if debug_spawn_here and OS.is_debug_build() and !world.do_dynamic_loading:
+	if OS.is_debug_build() and debug_spawn_here and ! world.do_dynamic_loading:
 		var master_controller = $"/root/Root/Controller"
 		print("Notice: starting the player at puzzle " +name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
 		master_controller.register_puzzle(self)

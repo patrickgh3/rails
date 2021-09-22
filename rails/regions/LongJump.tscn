@@ -786,7 +786,7 @@ transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 8 )
 transform = Transform( 8, 0, 0, 0, 2, 0, 0, 0, 1, -1, 0, 14 )
 
 [node name="EnterPuzzleTrigger3" parent="21 Lilypads" instance=ExtResource( 12 )]
-transform = Transform( -1.66103e-06, 0, 38, 0, 1, 0, -38, 0, -1.66103e-06, 6, 1, 13 )
+transform = Transform( -1.66103e-06, 0, 150, 0, 30, 0, -38, 0, -6.55671e-06, 6, 1, 13 )
 visible = false
 
 [node name="EnterPuzzleTrigger2" parent="21 Lilypads" instance=ExtResource( 12 )]

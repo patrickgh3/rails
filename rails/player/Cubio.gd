@@ -451,6 +451,8 @@ func third_person_cam():
 	else: stand_up()
 	
 func first_person_cam():
+	if my_box != null: return
+	
 	first_person = true
 	cubio_body.first_person()
 	if crouching: crouch()

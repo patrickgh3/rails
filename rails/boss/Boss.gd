@@ -118,9 +118,10 @@ func _physics_process(delta):
 	else:
 		movement = velocity + gravity_vec
 	
+	# Boss doesn't move
 	# warning-ignore:return_value_discarded
-	if launch_box == null:
-		move_and_slide_with_snap(movement, snap, Vector3.UP)
+#	if launch_box == null:
+#		move_and_slide_with_snap(movement, snap, Vector3.UP)
 
 		
 func stand_up():
