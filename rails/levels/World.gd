@@ -3,6 +3,7 @@ extends Spatial
 export(bool) var do_dynamic_loading = false
 export(int) var debug_spawn_puzzle_num = 0
 
+var debug = false
 
 enum PuzzleRegion {OOB, WAREHOUSE, PLATFORMS, LONGJUMP, CLIFFS, STRATOSPHERE}
 
@@ -43,19 +44,15 @@ func _ready():
 		if OS.is_debug_build() and debug_spawn_puzzle_num > 0:
 			print ("World instancing appropriate regions for puzzle ", debug_spawn_puzzle_num)
 			if debug_spawn_puzzle_num == 23:
-				print ("office")
-				regions[PuzzleRegion.OFFICE] = instance_puzzle_region_scene(PuzzleRegion.OFFICE)
+				regions[PuzzleRegion.STRATOSPHERE] = instance_puzzle_region_scene(PuzzleRegion.STRATOSPHERE)
 				regions[PuzzleRegion.CLIFFS] = instance_puzzle_region_scene(PuzzleRegion.CLIFFS)
 			elif debug_spawn_puzzle_num == 22:
-				print ("cliffs")
-				regions[PuzzleRegion.OFFICE] = instance_puzzle_region_scene(PuzzleRegion.OFFICE)
+				regions[PuzzleRegion.STRATOSPHERE] = instance_puzzle_region_scene(PuzzleRegion.STRATOSPHERE)
 				regions[PuzzleRegion.CLIFFS] = instance_puzzle_region_scene(PuzzleRegion.CLIFFS)
 			elif debug_spawn_puzzle_num >= 20:
-				print ("long jump and lily pads")
 				regions[PuzzleRegion.CLIFFS] = instance_puzzle_region_scene(PuzzleRegion.CLIFFS)
 				regions[PuzzleRegion.LONGJUMP] = instance_puzzle_region_scene(PuzzleRegion.LONGJUMP)
 			elif debug_spawn_puzzle_num >= 10:
-				print ("platforms")
 				regions[PuzzleRegion.PLATFORMS] = instance_puzzle_region_scene(PuzzleRegion.PLATFORMS)
 			else:
 				regions[PuzzleRegion.WAREHOUSE] = instance_puzzle_region_scene(PuzzleRegion.WAREHOUSE)
@@ -66,7 +63,7 @@ func _ready():
 				# Puts player at spawn of next puzzle
 				var with_lerp = true
 				controller.reset_puzzle(with_lerp)
-			else :print ("wtf")
+			else: print ("wtf")
 			
 		else:
 			regions[PuzzleRegion.WAREHOUSE] = instance_puzzle_region_scene(PuzzleRegion.WAREHOUSE)
@@ -93,8 +90,6 @@ func set_current_puzzle(new_puzzle):
 			if regions[n] == null:
 				print (n, " for current_region, instancing")
 				regions[n] = instance_puzzle_region_scene(n)
-				print (regions[n], " regions[n]")
-				print (regions[n] == null, " regions[n] == null")
 		elif transition_region == n:
 			if regions[n] == null:
 				print (n, " for transition_region, instancing")
@@ -105,22 +100,6 @@ func set_current_puzzle(new_puzzle):
 			regions[n].queue_free() 
 			regions[n] = null
 			
-			
-	
-#	if do_dynamic_loading:
-#		var an = current_puzzle.area_num
-#		var tn = an + current_puzzle.transition_num
-#		for p in puzzles:
-#			if p.area_num == an and !p.is_inside_tree():
-#				print ("RECHILDING ", p.name, "since part of current area and out of tree")
-#				call_deferred("add_child", p)
-#			elif p.area_num == tn and !p.is_inside_tree():
-#				print ("RECHILDING ", p.name, " since part of transition area and out of tree, rechilding")
-#				call_deferred("add_child", p)
-#			elif (p.area_num != an  and p.area_num != tn) and p.is_inside_tree():
-#				print ("UNCHILDING ", p.name, " since not part of current area or transition area and in tree")
-#				call_deferred("remove_child", p)
-
 
 func instance_puzzle_region_scene(region):
 	print ("instance_puzzle_region_scene...")
@@ -151,14 +130,7 @@ func instance_puzzle_region_scene(region):
 			continue
 		
 	if new_scene != null:
-		print ("made new scene, it is not null")
-		# Do we need to position them correctly?
 		get_tree().current_scene.add_child(new_scene)
-		
-	
-	new_scene.name = str(region)
-	
-	
 	
 	return new_scene
 	

@@ -13,7 +13,6 @@
 [node name="Root" type="Spatial"]
 script = ExtResource( 20 )
 do_dynamic_loading = true
-debug_spawn_puzzle_num = 20
 
 [node name="hud" type="CanvasLayer" parent="."]
 

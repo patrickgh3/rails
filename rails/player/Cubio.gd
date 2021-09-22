@@ -276,6 +276,7 @@ func _input(event):
 		
 	if Input.is_key_pressed(KEY_QUOTELEFT):
 		debug_commands = !debug_commands
+		$"/root/Root".debug = debug_commands
 		
 	if dev_cheat or debug_commands:
 		if event is InputEventKey:

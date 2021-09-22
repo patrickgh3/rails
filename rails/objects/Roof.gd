@@ -34,3 +34,10 @@ func _on_Boss_open_roof():
 	opening = true
 	t = 0
 	$"RoofGround/AudioStreamPlayer".play()
+
+
+func _on_Area_body_entered(body):
+	if body is Cubio:
+		opening = true
+		t = 0
+		$"RoofGround/AudioStreamPlayer".play()

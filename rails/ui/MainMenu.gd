@@ -20,7 +20,8 @@ func _ready():
 
 func _on_PlayButton_pressed():
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://levels/MainWorld2.tscn")
+	#get_tree().change_scene("res://levels/MainWorld2.tscn")
+	get_tree().change_scene("res://levels/MainWorld3.tscn")
 
 
 func _on_QuitButton_pressed():

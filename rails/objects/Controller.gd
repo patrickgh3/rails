@@ -107,8 +107,8 @@ func _process(_delta):
 			if door != null:
 				door.skipped = true
 			
-			if current_puzzle.teleport_skip:
-				if world.do_dynamic_loading:
+			if current_puzzle.teleport_skip or world.debug:
+				if world.do_dynamic_loading :
 					var next_puzzle = world.extant_puzzles[current_puzzle.num + 1]
 					if next_puzzle != null:
 						register_puzzle(next_puzzle)
@@ -116,7 +116,9 @@ func _process(_delta):
 						var with_lerp = true
 						reset_puzzle(with_lerp)
 					else:
-						print ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
+						if current_puzzle.num == 23:
+							print ("At final puzzle...")
+						else: printerr ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
 				else:
 					# Put you in the next puzzle
 					var par = current_puzzle.get_parent()
