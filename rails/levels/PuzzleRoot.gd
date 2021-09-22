@@ -23,17 +23,15 @@ export(bool) var teleport_skip = false
 # Track the number of moves used in THIS puzzle
 # See Controller for total overall moves in all puzzles
 var move_counter = 0
+onready var controller = $Controller
 
 func _ready():
-	print (name, " is readying!")
-	
 	var world = get_node("/root/Root")
-	
 	if debug_spawn_here and OS.is_debug_build() and !world.do_dynamic_loading:
-		var controller = $"/root/Root/Controller"
+		var master_controller = $"/root/Root/Controller"
 		print("Notice: starting the player at puzzle " +name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
-		controller.register_puzzle(self)
-		controller.reset_puzzle(false)
+		master_controller.register_puzzle(self)
+		master_controller.reset_puzzle(false)
 		
 	if final_level:
 		hide_children_final_level(self, true)

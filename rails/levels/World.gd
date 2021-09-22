@@ -37,32 +37,32 @@ func set_current_puzzle(new_puzzle):
 		return
 	
 	if current_puzzle == new_puzzle:
-		print ("same puzzle")
+		print ("World set same puzzle")
 		return
 		
-	print ("set puzzle to ", new_puzzle.name)
+	print ("World set puzzle to ", new_puzzle.name)
 	current_puzzle = new_puzzle
 	
 	current_region = current_puzzle.area_num
 	transition_region = current_puzzle.area_num + current_puzzle.transition_num
 	
 	for n in range(0, regions.size()):
-		print ("for n...", n)
 		if current_region == n:
 			if regions[n] == null:
-				print ("for current_region, instancing")
+				print (n, " for current_region, instancing")
 				regions[n] = instance_puzzle_region_scene(n)
 		elif transition_region == n:
 			if regions[n] == null:
-				print ("for transition_region, instancing")
+				print (n, " for transition_region, instancing")
 				regions[n] = instance_puzzle_region_scene(n)
-			else: print ("transition region already not null")
+			else: print (n, " transition region already not null")
 		elif regions[n] != null:
-			print ("freeing")
+			print (n, " freeing")
 			regions[n].queue_free() 
 			regions[n] = null
-		else:
-			print ("Not doing anything")
+			
+			
+	
 #	if do_dynamic_loading:
 #		var an = current_puzzle.area_num
 #		var tn = an + current_puzzle.transition_num
@@ -79,6 +79,7 @@ func set_current_puzzle(new_puzzle):
 
 
 func instance_puzzle_region_scene(region):
+	print ("instance_puzzle_region_scene...")
 	var new_scene = null
 	match region:
 		PuzzleRegion.OOB:
@@ -107,11 +108,13 @@ func instance_puzzle_region_scene(region):
 		
 	if new_scene != null:
 		# Do we need to position them correctly?
-		print ("add child")
 		get_tree().current_scene.add_child(new_scene)
-		print (new_scene.translation)
+		
 	
 	new_scene.name = str(region)
+	
+	
+	
 	return new_scene
 	
 	

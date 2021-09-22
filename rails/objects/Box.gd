@@ -510,7 +510,10 @@ func was_pulled (collision_position):
 func become_human(flesh_rot, promote_to_boss):
 	if not flesh == null:
 		return
-		
+	
+	# Because a box_form box will have gotten the master_controller
+	controller = get_node("/root/Root").current_puzzle.controller
+	
 	$MeshInstance.hide()
 	flesh = load("res://player/AnimalHead.tscn").instance()
 	add_child((flesh))
@@ -524,6 +527,8 @@ func become_human(flesh_rot, promote_to_boss):
 		flesh.swap_to_boss_head_normal()
 		is_the_boss = true
 		enlarging = true
+		
+		
 	
 func become_box():
 	$MeshInstance.show()

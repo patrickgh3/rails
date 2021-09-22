@@ -134,7 +134,7 @@ func reset_puzzle(with_lerp):
 				
 		else: return
 	
-	print ("resetting ", current_puzzle)
+	print ("Controller resetting ", current_puzzle.name)
 	
 	var cubio = get_tree().root.get_node("Root/Cubio")
 	
