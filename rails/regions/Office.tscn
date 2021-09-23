@@ -3036,6 +3036,8 @@ transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 30, -54, 129, -59 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.5, 0.5, 0.5 )
 
 [node name="Area" type="Area" parent="23 TheOffice/EndingTrigger/Spatial"]
+script = ExtResource( 1 )
+is_ending_trigger = true
 
 [node name="CollisionShape" type="CollisionShape" parent="23 TheOffice/EndingTrigger/Spatial/Area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0 )
