@@ -46,7 +46,7 @@ _global_script_class_icons={
 
 config/name="rails"
 run/main_scene="res://ui/MainMenu.tscn"
-config/icon="res://player/Face_cube.png"
+config/icon="res://box_top_256.PNG"
 
 [autoload]
 
