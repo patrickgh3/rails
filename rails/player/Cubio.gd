@@ -378,6 +378,11 @@ func try_pull_box(var pull_boss):
 		if box.velocity != Vector3.ZERO and not box.is_bird:
 			print ("box is moving and not a bird")
 			return
+			
+	for box in controller.current_puzzle.get_node("Controller").boxes:
+		if box.velocity != Vector3.ZERO and not box.is_bird:
+			print ("box is moving and not a bird")
+			return
 	
 	if box_hit:
 		if pull_boss and not boss == null:
