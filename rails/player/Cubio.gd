@@ -427,18 +427,17 @@ func crouch():
 	var screen_rect = sprite.get_viewport_rect()
 	var node = sprite as Node2D
 	
-	lerping_cam = true
-	camera_offset_t = 0
-	last_camera_offset = camera.translation
+	# No more lerping when going to crouch
+	lerping_cam = false
 	if not my_box == null:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * .625)
-		target_camera_offset = CAM_BOX_FORM_OFFSET3
+		camera.translation = CAM_BOX_FORM_OFFSET3 
 	elif first_person:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y / 2)
-		target_camera_offset = CAM_OFFSET1
+		camera.translation = CAM_OFFSET1
 	else:
 		node.position = Vector2(screen_rect.size.x / 2, screen_rect.size.y * 2 / 3)
-		target_camera_offset = CAM_CROUCH_OFFSET3
+		camera.translation = CAM_CROUCH_OFFSET3
 		
 	
 func third_person_cam():
@@ -563,7 +562,6 @@ func unbox():
 	my_box = null
 	
 func register_puzzle(enter_puzzle_trigger):
-	print ("cubio's register puzzle called")
 	controller.set_current_puzzle(enter_puzzle_trigger.get_parent())
 	
 
