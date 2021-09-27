@@ -38,7 +38,7 @@ func _ready():
 		platforms = preload("res://regions/Platforms.tscn")
 		longjump = preload("res://regions/LongJump.tscn")
 		cliffs = preload("res://regions/Cliffs.tscn")
-		stratosphere = preload("res://regions/Office.tscn")
+		stratosphere = preload("res://regions/NewOffice.tscn")
 		
 		
 		if OS.is_debug_build() and debug_spawn_puzzle_num > 0:

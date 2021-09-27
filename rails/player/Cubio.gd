@@ -592,4 +592,4 @@ func warp(_with_cam_lerp, new_transform):
 #		camera.global_transform.origin = old_camera_pos
 #		debug_marker.translation = 
 		
-	stand_up()
+	#stand_up()

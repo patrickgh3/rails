@@ -106,8 +106,10 @@ func _process(_delta):
 			var door = current_puzzle.get_node_or_null("Door")
 			if door != null:
 				door.skipped = true
+				
+			var override_always = true # Decided patrick was right to begin with to warp always - mac 9/26
 			
-			if current_puzzle.teleport_skip or world.debug:
+			if current_puzzle.teleport_skip or world.debug or override_always:
 				if world.do_dynamic_loading :
 					var next_puzzle = world.extant_puzzles[current_puzzle.num + 1]
 					if next_puzzle != null:
@@ -116,7 +118,7 @@ func _process(_delta):
 						var with_lerp = true
 						reset_puzzle(with_lerp)
 					else:
-						if current_puzzle.num == 23:
+						if current_puzzle.num >= 23:
 							print ("At final puzzle...")
 						else: printerr ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
 				else:
