@@ -22,7 +22,7 @@ onready var body = $BossBody
 onready var accel = ACCEL_TYPE["default"]
 onready var controller = $"/root/Root/Controller"
 
-signal open_roof
+signal _open_roof
 
 var velocity: Vector3
 var dir: Vector3
@@ -222,9 +222,11 @@ func _on_Area_body_entered_BossHelloTrigger(b):
 	if b is Cubio:
 		if my_box == null:
 			box_form()
-			#emit_signal("open_roof")
-			# @TODO need to do this for final 2 puzzles
-			controller.current_puzzle.hide_children_final_level(controller.current_puzzle, false)
+			var world = get_node("/root/Root")
+			var office = world.extant_puzzles[23]
+			var toMoon = world.extant_puzzles[24]
+			office.hide_children_final_level(office, false)
+			toMoon.hide_children_final_level(toMoon, false)
 
 
 func _on_Area_body_entered_EndingTrigger(b):

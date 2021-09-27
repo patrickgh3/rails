@@ -38,7 +38,7 @@ func _ready():
 		platforms = preload("res://regions/Platforms.tscn")
 		longjump = preload("res://regions/LongJump.tscn")
 		cliffs = preload("res://regions/Cliffs.tscn")
-		stratosphere = preload("res://regions/NewOffice.tscn")
+		stratosphere = preload("res://regions/Stratosphere.tscn")
 		
 		
 		if OS.is_debug_build() and debug_spawn_puzzle_num > 0:
@@ -102,30 +102,24 @@ func set_current_puzzle(new_puzzle):
 			
 
 func instance_puzzle_region_scene(region):
-	print ("instance_puzzle_region_scene...")
 	var new_scene = null
 	match region:
 		PuzzleRegion.OOB:
 			printerr ("matching OOB???")
 			return null
 		PuzzleRegion.WAREHOUSE:
-			print ("WAREHOUSE")
 			new_scene = warehouse.instance()
 			continue
 		PuzzleRegion.PLATFORMS:
-			print ("PLATFORMS")
 			new_scene = platforms.instance()
 			continue
 		PuzzleRegion.LONGJUMP:
-			print ("LONGJUMP")
 			new_scene = longjump.instance()
 			continue
 		PuzzleRegion.CLIFFS:
-			print ("CLIFFS")
 			new_scene = cliffs.instance()
 			continue
 		PuzzleRegion.STRATOSPHERE:
-			print ("STRATOSPHERE")
 			new_scene = stratosphere.instance()
 			continue
 		

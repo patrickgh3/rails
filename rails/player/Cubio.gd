@@ -44,7 +44,6 @@ const LEAN_SMOOTH : float = 10.0
 const LEAN_MULT : float = 0.066
 const LEAN_AMOUNT : float = 0.7
 
-var dev_cheat = true # false #@BUILD @DEBUG
 var debug_commands = false
 var self_aware = false
 
@@ -86,9 +85,6 @@ func _enter_tree():
 	if not is_in_group("Player"): add_to_group("Player")
 
 func _ready():
-	
-	if dev_cheat:
-		self_aware = true
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -278,7 +274,7 @@ func _input(event):
 		debug_commands = !debug_commands
 		$"/root/Root".debug = debug_commands
 		
-	if dev_cheat or debug_commands:
+	if debug_commands:
 		if event is InputEventKey:
 			if event.scancode == KEY_M and event.is_pressed():
 				toggle_cursor ()

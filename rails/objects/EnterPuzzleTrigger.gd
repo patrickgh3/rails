@@ -6,6 +6,7 @@ var do_transition
 
 
 func _ready():
+	add_to_group("Hidden")
 	hide()
 	
 	

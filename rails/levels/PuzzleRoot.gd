@@ -27,16 +27,19 @@ var move_counter = 0
 onready var controller = $Controller
 onready	var world = get_node("/root/Root")
 
-func _ready():
+func _enter_tree():
 	num = name.left(2).to_int()
+
+func _ready():
 	world.extant_puzzles[num] = self
 	
-	if OS.is_debug_build() and debug_spawn_here and ! world.do_dynamic_loading:
+	if OS.is_debug_build() and debug_spawn_here and !world.do_dynamic_loading:
 		var master_controller = $"/root/Root/Controller"
 		print("Notice: starting the player at puzzle " +name+ " due to PuzzleRoot having debug_spawn_here checkbox set")
 		master_controller.register_puzzle(self)
 		master_controller.reset_puzzle(false)
 		
+	# final_level is now true for Office and ToTheMoon final levels
 	if final_level:
 		hide_children_final_level(self, true)
 			
@@ -47,7 +50,10 @@ func hide_children_final_level(node, hide):
 			if hide:
 				n.hide()
 			else:
-				n.show()
+				if !n.is_in_group("Hidden"): 
+					n.show()
+				else:
+					print (n.name, " is in group hidden, not hiding!")
 		hide_children_final_level(n, hide)
 
 func tree_exited():

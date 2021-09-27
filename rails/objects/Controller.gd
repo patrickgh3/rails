@@ -8,6 +8,7 @@ var rails_just_halted_timer = 0
 var rails_just_departed = Array()
 var rails_just_departed_timer = 0
 
+const LILYPAD_PUZZLE_NUM = 21
 
 
 # Track the total number of moves used in all puzzles
@@ -46,6 +47,22 @@ func _ready():
 	for rail in get_tree().get_nodes_in_group("Rails"):
 		if get_parent().is_a_parent_of(rail):
 			rails.append(rail)
+	
+	
+	if not master_controller:
+		# If this is one of the final puzzles, must conjoin rails
+		var puzzle = get_parent()
+		var other_puzzle = null
+		if puzzle.num == 23:
+			other_puzzle = get_node("/root/Root/Stratosphere/24 ToTheMoon")
+		elif puzzle.num == 24:
+			other_puzzle = get_node("/root/Root/Stratosphere/23 TheOffice")
+			
+		if other_puzzle != null:
+			for rail in get_tree().get_nodes_in_group("Rails"):
+				if other_puzzle.is_a_parent_of(rail):
+					rails.append(rail)
+		
 	rails_just_halted = rails.duplicate()
 	
 	# Verify there is a spawn, and hide it
@@ -102,39 +119,43 @@ func _process(_delta):
 			var no_lerp = false
 			reset_puzzle(no_lerp)
 		if Input.is_action_just_pressed("skip_puzzle"):
-			# Open the door
-			var door = current_puzzle.get_node_or_null("Door")
-			if door != null:
-				door.skipped = true
-				
-			var override_always = true # Decided patrick was right to begin with to warp always - mac 9/26
 			
-			if current_puzzle.teleport_skip or world.debug or override_always:
-				if world.do_dynamic_loading :
-					var next_puzzle = world.extant_puzzles[current_puzzle.num + 1]
-					if next_puzzle != null:
-						register_puzzle(next_puzzle)
-						# Puts player at spawn of next puzzle
-						var with_lerp = true
-						reset_puzzle(with_lerp)
+			# Don't allow skipping TheOffice
+			# @DONTADDPUZZLES
+			if current_puzzle.num < 23:
+				# Open the door
+				var door = current_puzzle.get_node_or_null("Door")
+				if door != null:
+					door.skipped = true
+					
+				var override_always_teleport = true # Decided patrick was right to begin with to warp always - mac 9/26
+				
+				if current_puzzle.teleport_skip or world.debug or override_always_teleport:
+					if world.do_dynamic_loading:
+						var next_puzzle = world.extant_puzzles[current_puzzle.num + 1]
+						if next_puzzle != null:
+							register_puzzle(next_puzzle)
+							# Puts player at spawn of next puzzle
+							var with_lerp = true
+							reset_puzzle(with_lerp)
+						else:
+							if current_puzzle.num >= 23:
+								print ("At final puzzle...")
+							else: printerr ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
 					else:
-						if current_puzzle.num >= 23:
-							print ("At final puzzle...")
-						else: printerr ("Controller couldn't find puzzle num ", current_puzzle.num + 1)
-				else:
-					# Put you in the next puzzle
-					var par = current_puzzle.get_parent()
-					var found = false
-					for child in par.get_children():
-						if child is PuzzleRoot:
-							if found:
-								register_puzzle(child)
-								# Puts player at spawn of next puzzle
-								var with_lerp = true
-								reset_puzzle(with_lerp)
-								break
-							if child == current_puzzle:
-								found = true
+						# Put you in the next puzzle
+						var par = current_puzzle.get_parent()
+						var found = false
+						for child in par.get_children():
+							if child is PuzzleRoot:
+								if found:
+									register_puzzle(child)
+									# Puts player at spawn of next puzzle
+									var with_lerp = true
+									reset_puzzle(with_lerp)
+									break
+								if child == current_puzzle:
+									found = true
 			
 func reset_puzzle(with_lerp):
 	if current_puzzle == null:
@@ -163,6 +184,11 @@ func reset_puzzle(with_lerp):
 		
 	if spawn != null:
 		cubio.warp(with_lerp, spawn.get_global_transform())
+	
+	# Made it across the Edge! Is now self aware!
+	if current_puzzle.num >= LILYPAD_PUZZLE_NUM:
+		cubio.self_aware = true;
+		
 	
 	total_moves -= current_puzzle.move_counter
 	current_puzzle.move_counter = 0
