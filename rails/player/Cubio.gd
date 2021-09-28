@@ -380,7 +380,6 @@ func try_pull_box(var pull_boss):
 			
 	for box in controller.current_puzzle.get_node("Controller").boxes:
 		if box.velocity != Vector3.ZERO and not box.is_bird:
-			print ("box is moving and not a bird")
 			return
 	
 	if box_hit:
@@ -514,8 +513,18 @@ func box_form():
 	get_tree().current_scene.add_child(my_box)
 	my_box.become_human(Vector3(0, y_rad,0), false)
 	translation = my_box.get_world_center()
-	controller.current_puzzle.get_node("Controller").boxes.append(my_box)
+	
+	
 	controller.boxes.append(my_box)
+	
+	if controller.current_puzzle.num >= 23:
+		var world = $"/root/Root"
+		world.extant_puzzles[23].get_node("Controller").boxes.append(my_box)
+		world.extant_puzzles[24].get_node("Controller").boxes.append(my_box)
+	else:
+		controller.current_puzzle.get_node("Controller").boxes.append(my_box)
+	
+	
 	$CollisionShape.disabled = true
 	third_person_cam()
 	crouch()
@@ -553,11 +562,17 @@ func check_on_top_of_boss():
 func unbox():
 	if not my_box == null:
 		my_box.become_box()
-		controller.current_puzzle.get_node("Controller").boxes.erase(my_box)
 		controller.boxes.erase(my_box)
-		translation = my_box.get_world_center() + Vector3.UP * 2
-		my_box.hide()
-		my_box.queue_free()
+		if controller.current_puzzle.num >= 23:
+			var world = $"/root/Root"
+			world.extant_puzzles[23].get_node("Controller").boxes.erase(my_box)
+			world.extant_puzzles[24].get_node("Controller").boxes.erase(my_box)
+		else:
+			controller.current_puzzle.get_node("Controller").boxes.erase(my_box)
+		
+	translation = my_box.get_world_center() + Vector3.UP * 2
+	my_box.hide()
+	my_box.queue_free()
 	
 	cubio_body.show()
 	third_person_cam()

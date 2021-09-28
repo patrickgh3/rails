@@ -43,7 +43,7 @@ func _ready():
 		
 		if OS.is_debug_build() and debug_spawn_puzzle_num > 0:
 			print ("World instancing appropriate regions for puzzle ", debug_spawn_puzzle_num)
-			if debug_spawn_puzzle_num == 23:
+			if debug_spawn_puzzle_num >= 23:
 				regions[PuzzleRegion.STRATOSPHERE] = instance_puzzle_region_scene(PuzzleRegion.STRATOSPHERE)
 				regions[PuzzleRegion.CLIFFS] = instance_puzzle_region_scene(PuzzleRegion.CLIFFS)
 			elif debug_spawn_puzzle_num == 22:
