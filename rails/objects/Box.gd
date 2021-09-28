@@ -556,7 +556,6 @@ func check_for_rail_attached_to_boss():
 				if rail.attached_to_boss: 
 					add_to_group("Employees")
 					print ("boxformed on rails, added to employees")
-	else: print ("box form not on rails")
 
 
 func _on_moveTriggerTimer_timeout():

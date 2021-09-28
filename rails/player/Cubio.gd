@@ -376,7 +376,6 @@ func try_pull_box(var pull_boss):
 	# If any box is moving, don't highlight any box
 	for box in controller.boxes:
 		if box.velocity != Vector3.ZERO and not box.is_bird:
-			print ("box is moving and not a bird")
 			return
 			
 	for box in controller.current_puzzle.get_node("Controller").boxes:
