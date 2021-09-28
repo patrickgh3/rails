@@ -52,10 +52,7 @@ func hide_children_final_level(node, hide):
 			else:
 				if !n.is_in_group("Hidden"): 
 					n.show()
-				else:
-					print (n.name, " is in group hidden, not hiding!")
 		hide_children_final_level(n, hide)
 
 func tree_exited():
-	print (name, " exited tree")
 	world.extant_puzzles[num] = null
