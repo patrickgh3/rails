@@ -65,6 +65,7 @@ func _process(_delta):
 		
 	if not my_box == null:
 		translation = my_box.get_world_center()
+		gravity_vec = Vector3.ZERO
 		
 		
 	if fading_to_white:
@@ -224,10 +225,10 @@ func _on_Area_body_entered_BossHelloTrigger(b):
 			box_form()
 			var world = get_node("/root/Root")
 			var office = world.extant_puzzles[23]
-			var toMoon = world.extant_puzzles[24]
+			var to_moon = world.extant_puzzles[24]
 			office.hide_children_final_level(office, false)
-			toMoon.hide_children_final_level(toMoon, false)
-
+			to_moon.hide_children_final_level(to_moon, false)
+			to_moon.controller.boxes.append(my_box)
 
 func _on_Area_body_entered_EndingTrigger(b):
 	if b is Cubio:

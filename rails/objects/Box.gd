@@ -3,7 +3,7 @@ class_name Box
 
 const box_speed = 1
 const ENLARGED_SCALE = Vector3(6,6,6)
-
+const MOON_BOSS_TRANSLATION = Vector3(-660, 124,-70)
 onready var controller = $"../Controller"
 onready var mesh = $MeshInstance
 
@@ -449,9 +449,16 @@ func get_world_center_with_bumping():
 func moving():
 	return velocity != Vector3.ZERO
 	
-func reset_transform_to_initial_values():
-	translation = initial_translation
+func reset_transform_to_initial_values(var to_the_moon):
+	
+	if to_the_moon and is_the_boss:
+		translation = MOON_BOSS_TRANSLATION
+	else:
+		translation = initial_translation
+	
 	rotation = initial_rotation
+	
+	
 		
 func face_pulled(face):
 	if enlarging: return

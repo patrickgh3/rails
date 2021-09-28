@@ -202,11 +202,14 @@ func reset_puzzle(with_lerp):
 #	cubio.velocity = Vector3.ZERO
 #	cubio.get_node("CamRoot").rotation_degrees.x = 0
 	
-	
+	print ("resetting, contrller's name is ", controller.get_parent().name)
+	var to_the_moon_puzzle = current_puzzle.num == 24
 	for box in controller.boxes:
-		box.reset_transform_to_initial_values()
+		box.reset_transform_to_initial_values(to_the_moon_puzzle)
 		box.velocity = Vector3.ZERO
 		box.rails_touching.clear()
+		
+	
 		
 	controller.rails_just_halted = controller.rails.duplicate()
 
