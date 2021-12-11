@@ -80,12 +80,13 @@ var lerping_cam = false
 var last_camera_offset
 var warping_cam
 var spotlight_t = 0
+var last_frame
 
 func _enter_tree():
 	if not is_in_group("Player"): add_to_group("Player")
 
 func _ready():
-	
+	last_frame = OS.get_ticks_msec();
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	stand_up()
@@ -112,6 +113,15 @@ func _ready():
 	
 	
 func _process(delta):
+	var true_delta = OS.get_ticks_usec() - last_frame 
+	true_delta *= .000001
+	last_frame = OS.get_ticks_usec();
+	
+	if delta < 0:
+		print ("delta is whack: ", delta)
+		print ("true delta ", true_delta)
+	delta = true_delta
+	
 	spotlight_t -= delta
 	if spotlight_t < 0:
 		spotlight_t = 1

@@ -5,13 +5,22 @@ onready var translation_start = translation
 onready var controller = $"../Controller"
 var door_t = 0
 var skipped = false
+var last_frame
+
 
 func _ready():
+	last_frame = OS.get_ticks_usec();
 	for box in controller.boxes:
 		boxes.append(box)
 		box.connect("signal_delivered", self, "receive_box_delivered")
 
 func _process(delta):
+	
+	# Hack to calculate delta manually, 
+	# BECAUSE ENGINE SOMETIMES RETURNS NEGATIVE DELTA VALUES
+	delta = (OS.get_ticks_usec() - last_frame) * .000001
+	last_frame = OS.get_ticks_usec();
+	
 	# Check if all boxes are delivered
 	var all_pressed = true
 	for box in boxes:
