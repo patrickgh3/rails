@@ -84,7 +84,6 @@ func _ready():
 		
 		
 func _process(delta):
-	
 	if is_bird:
 		fly(delta)
 		
@@ -319,6 +318,7 @@ func on_rails(to_move):
 	for box in controller.boxes:
 		if box == self:  continue
 		if is_the_boss and box.is_in_group("Employees"): continue
+		print ("calling rail_nearby with box reference")
 		if not rail_nearby(box, to_move):  continue
 
 		var other_shape = box.get_node("CollisionShape")
@@ -352,10 +352,10 @@ func rectangular_prisms_overlap(a_pos, a_extents, b_pos, b_extents):
 	return not miss
 
 # Rough check if the rail is closeby on the grid
-func rail_nearby(rail, to_move):
+func rail_nearby(thing, to_move):
 	var cutoff = 1 + max(max(scale.x, scale.y), scale.z)
 	var me = get_global_transform().origin + to_move
-	var them = rail.get_global_transform().origin
+	var them = thing.get_global_transform().origin
 	if abs(round(me.x) - round(them.x)) > cutoff: return false
 	if abs(round(me.y) - round(them.y)) > cutoff: return false
 	if abs(round(me.z) - round(them.z)) > cutoff: return false

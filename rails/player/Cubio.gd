@@ -570,6 +570,7 @@ func check_on_top_of_boss():
 				on_the_boss = true
 	
 func unbox():
+	print ("unboxed cubio")
 	if not my_box == null:
 		my_box.become_box()
 		controller.boxes.erase(my_box)
